@@ -1,76 +1,157 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  // FaLocationDot,
+  FaAddressBook,
+  FaMapLocationDot,
+  FaGear,
+  FaLightbulb,
+  FaLeanpub,
+} from "react-icons/fa6";
 
+import {
+  FcApproval,
+  FcBusinessman,
+  FcBullish,
+  FcIcons8Cup,
+  FcFaq,
+  FcLike,
+  FcSettings,
+  FcAbout,
+} from "react-icons/fc";
+import axios from "axios";
+import { useAuth } from "../../ProAuth/AuthPro.jsx";
 function Cont() {
-  useEffect(() => {
-    try {
-      (async () => {
-        const URL = "/api/users";
-        await axios
-          .get(URL)
-          .then((response) => {
-             
-            if (!response.data.length) {
-              console.log("No users found");
-            }
-            console.log(response.data);
-            
-          })
-          .catch((err) => {
-            console.log(`error is XXXXXXXXXXX>: ${err}`);
-          });
-      })();
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
+  const { businesses, error } = useAuth();
+
+  // const [businesses, setUsers] = useState([]);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const URL = "/api/business";
+
+  //     // Axios will automatically reject the promise on HTTP error (status >= 400)
+  //     // We can catch the error using .catch method
+  //     await axios
+  //       .get(URL)
+  //       .then((response) => {
+  //         if (response.status === 401) {
+  //           // Handle unauthorized access here
+  //           // For example, redirect to login page or show an error message
+  //           setError("Unauthorized access. Please login.");
+  //           return;
+  //         }
+
+  //         // if (!response.data.length) {
+  //         //   console.log("No users found");
+  //         // }
+
+  //         setUsers(response.data.business);
+  //         // console.log(response.data);
+  //       })
+  //       .catch((err) => {
+  //         // console.error("Error fetching users:", err);
+  //         setError(`Log in Please `);
+  //       });
+  //   })();
+
+  // }, []);
+
   return (
-    <div className="bg-gradient-to-r from-amber-200-100 to-pink-400-100 rounded-lg shadow-md p-4 md:p-8 lg:p-10 xl:p-12">
-      <h1 className="text-2xl font-bold  text-neutral-900 mb-4">Business</h1>
-      <p className="text-lg text-gray-700 leading-relaxed">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam porro
-        labore libero voluptate laboriosam rerum voluptatem architecto
-        blanditiis aspernatur, neque quia officia iure quas aliquid. Distinctio
-        magnam earum repudiandae? Adipisci?
-      </p>
-    </div>
+    <div className="bg-white">
+    <section>
+    {businesses.map((business, index) => (
+        <section key={index} className="text-gray-600 body-font">
+            <div className="container px-5 py-5 mx-auto">
+                <div className="p-5 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col">
+                <div className="sm:w-32 sm:h-32 h-40 w-40 sm:mr-20 inline-flex items-center justify-center flex-shrink-0">
+                    <img src="https://m.media-amazon.com/images/I/71+PbCqKV4L._AC_UF1000,1000_QL80_.jpg"/>
+                </div>
+                <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                    <h1 className="text-black text-2xl title-font font-bold mb-2">{business.name}</h1>
+                    <p className="leading-relaxed text-base"> {business.description.length > 150 ? (
+          <span>
+            {business.description.substring(0, 150)}...
+            <a href="#">Read more</a>
+          </span>
+        ) : (
+          business.description
+        )}</p>
+                    <div className="flex mt-2">
+                    {/* {/ <FaLocationDot className="text-red-600"/><p>{business.location.address}</p> /} */}
+                    <FaMapLocationDot className="text-red-600"/><p>{business?.location?.address}</p>
+                    </div>
+                  
+                    <div className="py-4">
+                        <div className=" inline-block mr-2" >
+                            <div class="flex pr-2 h-full items-center">
+                            <FcApproval />
+                                <p className="title-font font-medium">{business.category}</p>
+                            </div>
+                        </div>
+                        <div class="inline-block mr-2" >
+                            <div class="flex  pr-2 h-full items-center">
+                            <FcApproval />
+                                <p className="title-font font-medium">{business?.location?.city}</p>
+                            </div>
+                        </div>
+                        <div class="inline-block mr-2" >
+                            <div class="flex  pr-2 h-full items-center">
+                            <FcApproval />
+                                <p className="title-font font-medium">{business?.location?.state}</p>
+                            </div>
+                        </div>
+                        <div class="inline-block mr-2" >
+                            <div class="flex  pr-2 h-full items-center">
+                            <FcApproval />
+                                <p className="title-font font-medium">{business?.location?.zipCode}</p>
+                            </div>
+                        </div>
+                        
+                    
+                    </div>
+                    <div class="md:flex font-bold text-gray-800">
+                        <div className="w-full md:w-1/2 flex space-x-3">
+                            <div className="w-1/2">
+                                <h2 className="text-red-600">Phone Number</h2>
+                                <p >{business.contact.phone}</p>
+                            </div>
+                            <div className="w-1/2">
+                                <h2 className="text-red-600">Website</h2>
+                                <p>{business.contact.website}</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 flex space-x-3">
+                            <div className="w-1/2">
+                                <h2 className="text-red-600">Email Id</h2>
+                                <p>{business.contact.email}</p>
+                            </div>
+                            <div className="w-1/2">
+                                <h2 className="text-red-600">Location</h2>
+                                <p>description</p>
+                            </div>
+                        </div>
+                    </div>
+    
+
+                    
+                    
+                    <Link to={`/business/${business._id}`}>
+       <button className="mt-3 text-white inline-flex items-center bg-red-600 font-bold mx-auto rounded-full px-5 py-2">
+        View Business
+       </button>
+    </Link>
+                  
+                    
+                </div>
+                </div>
+            </div>
+        </section>
+        ))}
+    </section>
+</div> 
   );
 }
 
 export default Cont;
-
-// <div className="container mx-auto p-4">
-// <h1 className="text-4xl font-bold mb-4">Business</h1>
-// <p className="text-gray-700">
-//   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam porro
-//   labore libero voluptate laboriosam rerum voluptatem architecto
-//   blanditiis aspernatur, neque quia officia iure quas aliquid. Distinctio
-//   magnam earum repudiandae? Adipisci?
-// </p>
-// </div>
-
-{
-  /* <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 bg-transparent md:p-8 lg:p-10 text-neutral-800 rounded-lg shadow-lg max-w-md mx-auto">
-<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
-  Welcome to Our Business
-</h1>
-<p className="text-neutral-700 md:text-lg lg:text-xl leading-relaxed">
-  Discover the extraordinary world of opportunities. Lorem ipsum dolor sit
-  amet consectetur adipisicing elit. Aliquam porro labore libero voluptate
-  laboriosam rerum voluptatem architecto blanditiis aspernatur, neque quia
-  officia iure quas aliquid.
-</p>
-</div> */
-}
-
-// <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 md:p-6 lg:p-8 text-neutral-800 rounded-lg shadow-md max-w-sm mx-auto">
-// <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 md:mb-4">
-//   Welcome to Our Business
-// </h1>
-// <p className="text-neutral-700 text-sm md:text-base lg:text-lg leading-relaxed">
-//   Discover the extraordinary world of opportunities. Lorem ipsum dolor sit
-//   amet consectetur adipisicing elit. Aliquam porro labore libero voluptate
-//   laboriosam rerum voluptatem architecto blanditiis aspernatur, neque quia
-//   officia iure quas aliquid.
-// </p>
-// </div>

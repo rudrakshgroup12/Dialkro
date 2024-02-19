@@ -5,11 +5,11 @@ import {
   getBusiness,
   getBusinessById,
 } from "../controllers/businessController.js";
-import Auth, { isLogin } from "../middelware/auth.js";
+import auth from "../middelware/auth.js";
 const BusnessRoutes = express.Router();
 
-BusnessRoutes.get("/business" ,Auth,isLogin, getBusiness);
+BusnessRoutes.get("/business", getBusiness);
 BusnessRoutes.get("/business/:id", getBusinessById);
-BusnessRoutes.post("/business", createBusiness);
-BusnessRoutes.delete("/business/:id", deleteBusiness);
+BusnessRoutes.post("/business", auth, createBusiness);
+BusnessRoutes.delete("/business/:id", auth, deleteBusiness);
 export default BusnessRoutes;

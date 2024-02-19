@@ -5,14 +5,7 @@ function Business() {
   return (
     <>
       <Cont />
-      <Cont />
-      <Cont />
-      <Cont />
-      <Cont />
-      <Cont />
-      <Cont />
-      <Cont />
-      <Cont />
+   
     </>
   );
 }

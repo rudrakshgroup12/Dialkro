@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-
+import mongoose from "mongoose";
+const odjId = mongoose.Schema.Types.ObjectId;
 // Define the Business Schema
 const businessSchema = new mongoose.Schema({
   name: {
@@ -33,36 +33,32 @@ const businessSchema = new mongoose.Schema({
   location: {
     address: {
       type: String,
-     
     },
     city: {
       type: String,
-    
     },
     state: {
       type: String,
-      
     },
     zipCode: {
       type: String,
-     
     },
     // Add more location details as needed
   },
   reviews: [
     {
       user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User", // Reference to the User model
-        required: true,
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        // required: true,
       },
       text: {
         type: String,
-        required: true,
+        // required: true,
       },
       rating: {
         type: Number,
-        required: true,
+        // required: true,
         min: 1,
         max: 5,
       },
@@ -72,10 +68,10 @@ const businessSchema = new mongoose.Schema({
       },
     },
   ],
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
+  user: {
+    type: mongoose.Schema.ObjectId,
     ref: "User",
-    required: true,
+    // required: true,
   },
   // Add more fields as needed
 });

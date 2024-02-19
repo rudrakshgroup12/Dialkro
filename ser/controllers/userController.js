@@ -1,15 +1,26 @@
+import Business from "../models/businessModel.js";
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
+// import giveJwtTok from "../utils/jwtTok.js";
 
 export const getUsers = async (req, res, next) => {
-  const users = await User.find();
-  if (!users) return res.status(404).json({ message: "No users Found" });
-
-  res.status(200).json({
-    success: true,
-    data: users,
-  });
+  try {
+    if (req.user.role !== "admin")
+      return res.status(401).json({ message: "you cant access this way " });
+    const users = await User.find();
+    if (!users) return res.status(404).json({ message: "No users Found" });
+    res.status(200).json({
+      success: true,
+      data: users,
+    });
+  } catch (error) {
+    res.status(505).json({
+      success: false,
+      message: `Internal Server Error`,
+      error,
+    });
+  }
 };
 
 export const getUserbyId = async (req, res, next) => {
@@ -43,25 +54,32 @@ export const updateUser = async (req, res, next) => {
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
   if (!email || !password || !username)
-    return res.status(400).send({ message: "Please provide all fields" });
+    return res.status(401).send({ message: "Please provide all fields" });
 
   const userExistWithThatName = await User.findOne({ username });
   if (userExistWithThatName)
-    return res.status(400).json({ message: "User already exists" });
+    return res.status(402).json({ message: "User already exists" });
 
   const userExistWithThatEmail = await User.findOne({ email });
   if (userExistWithThatEmail)
-    return res.status(400).json({ message: "User already exists" });
+    return res.status(402).json({ message: "User already exists" });
 
   // const salt = await bcrypt.genSalt(10);
   // const hashedPassword = await bcrypt.hash(password, salt);
 
   const user = await User.create({ email, password, username });
-  const token =await User.getToken();
-  res.cookie("token", token, { httpOnly: true });
-  res.status(201).json({
+  // giveJwtTok(user, 201, res);
+  const token = await user.generateAuthToken();
+  const options = {
+    expires: new Date(
+      Date.now() + parseInt(process.env.JWT_EXPIRE_TIME) * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  };
+  res.cookie("token", token, options);
+  res.status(201).send({
     success: true,
-    message: "User registered successfully",
+    message: "User registered successfully again",
     token,
   });
   // .then((data) => {
@@ -94,17 +112,35 @@ export const loginUser = async (req, res) => {
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch)
     return res.status(400).json({ message: "invalid email or password" });
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE_TIME,
-  });
   // Set the JWT as a cookie
-  res.cookie("token", token, { httpOnly: true });
-  return res.status(200).json({
+
+  const token = await user.generateAuthToken();
+  const options = {
+    expires: new Date(
+      Date.now() + parseInt(process.env.JWT_EXPIRE_TIME) * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  };
+  res.cookie("token", token, options);
+
+  res.status(200).json({
     success: true,
-    message: "login successful",
+    message: "login successful is done ",
+    id: user._id,
     token,
   });
 };
+
+// export const profile = async (req, res, next) => {
+//   const id = req.user._id;
+//   const data = {
+//     id
+//   };
+//   res.status(200).json({
+//     message: "Welcome ",
+//     data,
+//   });
+// };
 
 export const logout = async (req, res, next) => {
   res.clearCookie("token");
@@ -112,4 +148,48 @@ export const logout = async (req, res, next) => {
     success: true,
     message: "logout successful",
   });
+};
+
+export const findBusinessByUser = async (req, res, next) => {
+  try {
+    const user = req.params.id;
+    const userBusiness = await Business.find({ user: user })
+      // .populate("User")
+      .then((dat) => {
+        res.status(200).json({
+          success: true,
+          message: "Find Business Added By User",
+          data: dat,
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          message: `busibyiderr  :: ${err}`,
+        });
+      });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      message: `ERR APPEAR ${error}`,
+    });
+  }
+};
+
+export const forgotPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const exist = await User.findOne({ email });
+    if (!exist) {
+      res.status(401).json({
+        success: false,
+        message: `User Not Exist With That Email `,
+      });
+    }
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      message: `ERR APPEAR ${error}`,
+    });
+  }
 };

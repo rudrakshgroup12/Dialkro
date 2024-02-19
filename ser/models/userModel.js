@@ -48,9 +48,8 @@ const userSchema = new Schema(
       type: String,
       enum: ["user", "admin"], // Role-specific values, you can add more roles as needed
       default: "user",
+      select:false
     },
-    resetpasstoken:String,
-    resetpassexp:Date,
   },
   {
     timestamps: true, // Automatically add createdAt and updatedAt timestamps
@@ -64,10 +63,12 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 10);
 });
 
-userSchema.methods.genToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+userSchema.methods.generateAuthToken = function () {
+  return jwt.sign({ _id: this._id, role: this.role }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE_TIME,
   });
+  // user.tokens = user.tokens.concat({ token });
+  // await user.save();
 };
 
 const User = mongoose.model("User", userSchema);
