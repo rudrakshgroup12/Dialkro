@@ -16,6 +16,8 @@ import ErrorBoundary from "./Components/ErrorBodyComp/EBComp.jsx";
 import ProfileBusiness from "./Components/Profile/ProfileBusiness.jsx"
 import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
 import About from "./Components/About/About.jsx"
+import Blog from "./Components/Blogs/Blog.jsx"
+import Blogcontent from "./Components/Blogs/Blogcontent.jsx"
 function App() {
   return (
     <>
@@ -37,6 +39,8 @@ function App() {
               <Route path="/business/:id" element={<ViewBusiness />} />
               <Route path="/business/edit" element={<EditUserBusiness/>}/>
               <Route path="/about" element={<About/>}/>
+              <Route path="/blog" element={<Blog/>}/>
+              <Route path="/blogcontent" element={<Blogcontent/>}/>
             </Routes>
             <Footer />
             </ErrorBoundary>

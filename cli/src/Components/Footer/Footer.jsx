@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaTwitter,
-  FaInstagram,
+  FaInstagramSquare,
+  FaWhatsappSquare ,
+  FaYoutube,
+  FaTelegram,
   FaPinterest,
 } from "react-icons/fa";
 import { useAuth } from "../ProAuth/AuthPro";
@@ -12,7 +16,7 @@ const CustomFooter = () => {
   return (
     <>
       <footer className={isDarkMode ? "dark" : ""}>
-        <div className="dark:bg-neutral-900 dark:text-white p-4 items-center bg-white text-black ">
+        <div className="dark:bg-neutral-900 dark:text-white p-4 items-center bg-black text-white  ">
           {" "}
           <div className="flex justify-center pt-10 pb-14 md:pb-9">
             {" "}
@@ -68,27 +72,39 @@ const CustomFooter = () => {
                 </div>{" "}
                 <p className="">
                   {" "}
-                  <a className="hover:text-[#cacaca]" href="#">
-                    Apply
-                  </a>{" "}
+                  <Link  to="/about" className="hover:text-[#cacaca]" href="#">
+                    About
+                  </Link>{" "}
                 </p>{" "}
                 <p className="">
                   {" "}
-                  <a className="hover:text-[#cacaca]" href="#">
-                    Eligibility
-                  </a>{" "}
+                  <Link to="/businesses" className="hover:text-[#cacaca]" href="#">
+               Businesses List
+                  </Link>{" "}
                 </p>{" "}
                 <p className="">
                   {" "}
-                  <a className="hover:text-[#cacaca]" href="#">
-                    Application Process
-                  </a>{" "}
+                  <Link to="/new" className="hover:text-[#cacaca]" href="#">
+                 Add New Business
+                  </Link>{" "}
                 </p>{" "}
                 <p className="">
                   {" "}
-                  <a className="hover:text-[#cacaca]" href="#">
-                    Syllabus
-                  </a>{" "}
+                  <Link to="/mybusiness" className="hover:text-[#cacaca]" href="#">
+              Personal Business
+                  </Link>{" "}
+                </p>{" "}
+                <p className="">
+                  {" "}
+                  <Link to="" className="hover:text-[#cacaca]" href="#">
+                     Blogs
+                  </Link>{" "}
+                </p>{" "}
+                <p className="">
+                  {" "}
+                  <Link to="" className="hover:text-[#cacaca]" href="#">
+                   Contact details
+                  </Link>{" "}
                 </p>{" "}
               </div>{" "}
               <div className="text-[#747474] text-[15px] font-[550] leading-6 tracking-wide mt-9 md:order-5 md:pt-32 lg:pb-28">
@@ -134,8 +150,7 @@ const CustomFooter = () => {
                 {" "}
                 <p className="">
                   {" "}
-                  NH-70 Chandigarh-Ludhiana Highway, <br /> Mohali, Punjab
-                  (INDIA) <br /> General Helpline No:+91 987-6543-210{" "}
+                  E-260, b-1, phase 8 b, Industrial Area, Sector 74 Sahibzada Ajit Singh Nagar, Punjab 160055  <br /> General Helpline No:+91 987-6543-210{" "}
                 </p>{" "}
               </div>{" "}
               <div className="leading-7 mt-4 text-[15px] font-[500]">
@@ -185,63 +200,63 @@ const CustomFooter = () => {
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[7px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
-                <i className="fa fa-facebook"></i>
+               <FaFacebook className="item-center text-blue-700 w-8 h-8" />
               </a>{" "}
             </p>{" "}
             <p>
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
-                <i className="fa fa-twitter"></i>
+                <FaInstagramSquare  className="item-center text-pink-600 w-8 h-8"/>
               </a>{" "}
             </p>{" "}
             <p>
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
-                <i className="fa fa-instagram"></i>
+               <FaTwitter  className="item-center text-blue-300 w-8 h-8"/>
               </a>{" "}
             </p>{" "}
             <p>
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
-                <i className="fa fa-linkedin"></i>
+              <FaWhatsappSquare className="item-center text-green-400 w-8 h-8" />
               </a>{" "}
             </p>{" "}
             <p>
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
-                <i className="fa fa-youtube"></i>
+           <FaYoutube className="item-center text-red-600 w-8 h-8"/>
               </a>{" "}
             </p>{" "}
             <p>
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500   inline-block pt-[7px]"
               >
-                <i className="fa fa-pinterest"></i>
+                <FaTelegram className="text-blue-600 w-9 h-9" />
               </a>{" "}
             </p>{" "}
             <p>
               {" "}
               <a
                 href="#"
-                className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
-                <i className="fa fa-telegram"></i>
+             <FaPinterest className="text-red-600 w-9 h-9"/>
               </a>{" "}
             </p>{" "}
           </div>

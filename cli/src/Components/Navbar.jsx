@@ -23,13 +23,13 @@ function Navbar() {
 
   return (
     <>
-      <header className="shadow-md sticky top-0 z-0 backdrop-blur-md  dark:bg-neutral-900 dark:text-white font-sans">
+      <header className="shadow-md sticky top-0 z-10  backdrop-blur-md  dark:bg-neutral-900 dark:text-white font-sans">
         <section className="flex items-center lg:justify-center max-sm:flex-col relative py-3 px-10 border-rose-700 border-b lg:min-h-[80px] max-lg:min-h-[60px] ">
           <Link
             to="/"
             className="max-md:w-full max-sm:mb-4 bg-gradient-to-r text-4xl font-bold  inline-block text-transparent bg-clip-text"
           >
-            <h1 class="animate-text bg-gradient-to-r  from-rose-900 via-red-700 to-black bg-clip-text text-transparent text-5xl font-black">
+            <h1 className="animate-text bg-gradient-to-r  from-rose-900 via-red-700 to-black bg-clip-text text-transparent text-5xl font-black">
               Dialkro
             </h1>
           </Link>
@@ -110,7 +110,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[18px] block" to="/">
+              <Link className="hover:text-rose-500  text-[18px] block" to="/blog">
                 {" "}
                 Blog
               </Link>

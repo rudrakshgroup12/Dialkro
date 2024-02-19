@@ -23,24 +23,29 @@ function Home() {
     setCategoryFilter(event.target.value);
   };
 
-  // const featuredCategories = [
-  //   { name: "Restaurant", icon: "🍔" },
-  //   { name: "Cafe", icon: "☕" },
-  //   { name: "Gym", icon: "💪" },
-  //   // Add more categories as needed
-  // ];
+ const featuredCategories = [
+    { name: "Restaurant", icon: "🍔" },
+  { name: "Hospitals", icon: "☕" },
+  { name: "Gym", icon: "💪" },
+  { name: "School", icon: "💪" },
+  { name: "AutoMotive", icon: "🍔" },
+  { name: "Beauty & Spa", icon: "☕" },
+  { name: "Hotels", icon: "💪" },
+  { name: "Rent & Hostels", icon: "💪" },
 
-  // const testimonialData = [
-  //   {
-  //     quote: "Great directory! Found exactly what I needed.",
-  //     author: "John Doe",
-  //   },
-  //   {
-  //     quote: "Increased my business visibility. Highly recommended!",
-  //     author: "Jane Smith",
-  //   },
+ ];
+
+   //const testimonialData = [
+   //  {
+  //     quote: "Great directory! Found exactly what I needed. this is business directory website Its really help Us to grow our Business",
+    //  author: "John Doe",
+    //},
+    //{
+     // quote: "Increased my business visibility. Highly recommended! this is business directory website Its really help Us to grow our Business",
+     // author: "Rakesh verma",
+    //},
   //   // Add more testimonials as needed
-  // ];
+ //];
 
   // Placeholder for actual business data and filtering logic
   const filteredListings = [1, 2, 3];
@@ -53,12 +58,7 @@ function Home() {
     <div className={isDarkMode ? "dark" : ""}>
       <div
         className="bg-cover bg-center h-100 bg-gradient-to-r from-rose-900 via-red-700 to-black flex items-center justify-center text-neutral- dark:bg-neutral-800"
-        // style={{
-        //   backgroundImage: {},
-
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        // }}
+   
       >
         <div className="bg-cover bg-center h-96 flex items-center justify-center text-neutral- dark:bg-neutral-800">
           <div className="text-left">
@@ -87,7 +87,7 @@ function Home() {
 
       {/* {/ {/ Featured Categories /} /} */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 m-10 dark:bg-neutral-800 dark:text-white">
-        {/* {featuredCategories.map((category, index) => (
+         {featuredCategories.map((category, index) => (
           <div className="max-w-1xl mx-1 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
             <div className="rounded-t-lg h-32 overflow-hidden">
               <img
@@ -110,12 +110,12 @@ function Home() {
             </div>
 
             <div className="p-4 border-t mx-6 mt-1">
-              <button className="w-1/2 block mx-auto rounded-full bg-red-600 hover:shadow-lg font-semibold text-white px-5 py-2">
+              <Link to="/businesses" className="w-1/2 block mx-auto rounded-full bg-red-600 hover:shadow-lg font-semibold text-white px-4 text-center py-2">
                 Explore Now
-              </button>
+              </Link>
             </div>
           </div>
-        ))} */}
+        ))} 
       </div>
 
       <section className="sm:mt-6 lg:mt-8 mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 dark:bg-neutral-800 dark:text-white">
@@ -127,8 +127,8 @@ function Home() {
               <span className="block text-red-600 xl:inline">with Dialkro</span>
             </h1>
             <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-white">
-              Advertise with Dialkro - India's No. 1 Local Search Engine Welcome
-              to DialKro, your 'one stop shop' where you are assisted with
+              Advertise with Dialkro - India No. 1 Local Search Engine Welcome
+              to DialKro, your one stop shop where you are assisted with
               day-to-day and exclusive planning and purchasing activities. We
               take pride in our iconic customer support number, 8888888888 and
               the fact that we own a strong hold on local business information
@@ -137,20 +137,20 @@ function Home() {
             {/* {/ <!-- Button Section --> /} */}
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
-                <a
-                  href="#"
+                <Link
+         to="/new"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-600 md:py-4 md:text-lg md:px-10"
                 >
                   Get started
-                </a>
+                </Link>
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
-                <a
-                  href="#"
+                <Link
+         to="/businesses"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                 >
                   Live demo
-                </a>
+                </Link>
               </div>
             </div>
             {/* {/ <!-- End of Button Section --> /} */}
@@ -312,6 +312,7 @@ function Home() {
         <dh-component>
           <div className="container mx-auto pt-16">
             <div className="w-11/12 xl:w-2/3 lg:w-2/3 md:w-2/3 mx-auto sm:mb-10 mb-16">
+            <h1 className="text-center font-bold text-4xl">This is our Popular Brand Partners</h1>
               <p
                 tabIndex="0"
                 className="focus:outline-none text-base md:text-lg lg:text-xl text-center text-gray-600 font-normal xl:w-10/12 xl:mx-auto"
@@ -397,135 +398,128 @@ function Home() {
             </div>
           </div>
         </dh-component>
-        <div className="flex  items-center justify-center p-10">
+        {/* <div className="flex  items-center justify-center p-10">
           <div className="w-max">
             <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-black font-bold">
               Our success has come from being committed to the property
             </h1>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <div className="text-gray-600 dark:text-gray-300 mt-8" id="reviews">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
-          <div className="mb-10 space-y-4 px-6 md:px-0">
-            <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
-              It's not just us.
-            </h2>
-            <h3 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
-              Here's what others have to say about us.
-            </h3>
-          </div>
-
-          <div className="md:columns-2 lg:columns-3 gap-8 space-y-8">
-            {/* {testimonialData.map((testimonial, index) => (
-              <div
-                key={index}
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none"
-              >
-                <div className="flex gap-4">
-                  <img
-                    className="w-12 h-12 rounded-full"
-                    src="https://randomuser.me/api/portraits/women/12.jpg"
-                    alt="user avatar"
-                    width="400"
-                    height="400"
-                    loading="lazy"
-                  />
-                  <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
-                      {testimonial.author}
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
-                      Our Client
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-8">{testimonial.quote}</p>
-              </div>
-            ))} */}
-          </div>
-        </div>
+      <section className="text-gray-600 body-font">
+  <div className="container px-5 py-10 mx-auto">
+    <div className="flex flex-col text-center w-full mb-20">
+      <h2 className="text-xs text-red-600 tracking-widest font-medium title-font mb-1">Business Owner Testimonial</h2>
+      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Testimonials Of Our Client</h1>
+      <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+    </div>
+    <div className="flex flex-wrap">
+      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
+        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+        <a className="text-red-600 inline-flex items-center">Learn More
+       
+        </a>
       </div>
+      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">The Catalyzer</h2>
+        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+        <a className="text-red-600 inline-flex items-center">Learn More
+          
+        </a>
+      </div>
+      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Neptune</h2>
+        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+        <a className="text-red-600 inline-flex items-center">Learn More
+      
+        </a>
+      </div>
+      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Melanchole</h2>
+        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+        <a className="text-red-600 inline-flex items-center">Learn More
+      
+        </a>
+      </div>
+    </div>
+    {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> */}
+  </div>
+</section>
 
       {/* kamla */}
 
-      <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-        2
-        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-          {/* {filteredListings.map((index) => (
-            <div
-              key={index}
-              className="rounded overflow-hidden shadow-lg"
-              onClick={() => handleListingClick(index)}
-            >
-              <a href="#"></a>
-              <div className="relative">
-                <a href="#">
-                  <img
-                    className="w-full"
-                    src="https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
-                    alt={`Business ${index}`}
-                  />
-                  <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
-                </a>
-                <a href="#!">
-                  <div className="absolute bottom-0 left-0 bg-indigo-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
-                    Photos
-                  </div>
-                </a>
-
-                <a href="!#">
-                  <div className="text-sm absolute top-0 right-0 bg-indigo-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
-                    <span className="font-bold">27</span>
-                    <small>March</small>
-                  </div>
-                </a>
-              </div>
-              <div className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-semibold text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out"
-                >
-                  Best View in Newyork City
-                </a>
-                <p className="text-gray-500 text-sm">The city that never sleeps</p>
-              </div>
-              <div className="px-6 py-4 flex flex-row items-center">
-                <span
-                  href="#"
-                  className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center"
-                >
-                  <svg
-                    height="13px"
-                    width="13px"
-                    version="1.1"
-                    id="Layer_1"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 512 512"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256
-			c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128
-			c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"
-                        ></path>
-                      </g>
-                    </g>
-                  </svg>
-                  <span className="ml-1">6 mins ago</span>
-                </span>
-              </div>
+      <div className="flex flex-col bg-white py-4 px-12">
+        <div className="py-4">
+            <div className="pl-[116px] pr-[205px] py-6">
+                <div className="text-6xl text-black">Popular Searches</div>
+              
             </div>
-          ))} */}
         </div>
-      </div>
+    <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
+        <div>
+            <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" className="rounded-t-xl"/>
+            <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
+                <div className="text-white space-y-4">
+                    <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
+                    <div className="text-lg font-light">Card subtitle with a long long long long long long text</div>
+                </div>
+                <div className="flex justify-between pt-8">
+                    <ul className="flex flex-col gap-y-2.5">
+                        <li className="flex space-x-3 text-white">
+                            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
+                            <span className="paragraph-l font-bold">Item 1</span>
+                        </li>
+                            <li className="flex space-x-3 text-white">
+                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
+                            <span className="paragraph-l font-bold">Item 1</span>
+                        </li>
+                            <li className="flex space-x-3 text-white">
+                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
+                            <span className="paragraph-l font-bold">Item 1</span>
+                        </li>
+                    </ul>
+                    <div className="flex flex-col justify-end">
+                    <Link to="/new" className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full">Learn More</Link>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div className="">
+            <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" className="rounded-t-xl"/>
+            <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
+                <div className="text-white space-y-4">
+                    <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
+                    <div className="text-lg font-light">Card subtitle with a long long long long long long text</div>
+                </div>
+                <div className="flex justify-between pt-8">
+                   <ul className="flex flex-col gap-y-2.5">
+                        <li className="flex space-x-3 text-white">
+                            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
+                            <span className="paragraph-l font-bold">Item 1</span>
+                        </li>
+                            <li className="flex space-x-3 text-white">
+                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
+                            <span className="paragraph-l font-bold">Item 1</span>
+                        </li>
+                            <li className="flex space-x-3 text-white">
+                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
+                            <span className="paragraph-l font-bold">Item 1</span>
+                        </li>
+                    </ul>
+                    <div className="flex flex-col justify-end">
+                        <Link to="/new" className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full">Learn More</Link>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
 
-      {/* damla */}
+   
 
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-5xl my-40">
         <div className="rounded-xl p-1 bg-gradient-to-br from-red-600 via-red-600 to-red-600 h-32">
           <div className="rounded-lg bg-black/80 backdrop-blur">
             <div className="flex w-full flex-wrap items-center justify-between gap-4 px-8 py-10 sm:px-16 lg:flex-nowrap">
@@ -540,12 +534,12 @@ function Home() {
                 </p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-6 ">
-                <button className="bg-red-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm">
+                <Link to="/new" className="bg-red-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm">
                   Get Started
-                </button>
-                <button className="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm">
+                </Link>
+                <Link to="/about" className="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm">
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
