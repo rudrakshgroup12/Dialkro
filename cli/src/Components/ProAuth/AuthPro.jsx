@@ -285,6 +285,15 @@ export const AuthPro = ({ children }) => {
     }
   }, [isDarkMode]);
 
+  const [password, setPassword] = useState([]);
+  useEffect(() => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }, []);
+
   const authContextVal = {
     login,
     loginhandleSubmit,

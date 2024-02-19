@@ -1,6 +1,8 @@
 import Business from "../models/businessModel.js";
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import crypto from "crypto";
+import nodemailer from "nodemailer";
 // import jwt from "jsonwebtoken";
 // import giveJwtTok from "../utils/jwtTok.js";
 
@@ -176,6 +178,14 @@ export const findBusinessByUser = async (req, res, next) => {
   }
 };
 
+const transPort = nodemailer.createTransport({
+  service: process.env.SERV,
+  auth: {
+    user: process.env.EUSER,
+    pass: process.env.EPASS,
+  },
+});
+
 export const forgotPassword = async (req, res, next) => {
   try {
     const { email } = req.body;
@@ -183,9 +193,26 @@ export const forgotPassword = async (req, res, next) => {
     if (!exist) {
       res.status(401).json({
         success: false,
-        message: `User Not Exist With That Email `,
+        message: `User Not Exist With That  `,
       });
     }
+    const resetPastok = crypto.randomBytes(20).toString("hex");
+    exist.rPT = resetPastok;
+    exist.rPTT = Date.now() + 1800000;
+
+    const mailDetail = {
+      from: "dkro.com",
+      to: `${exist.email}`,
+      subject: "Password Reset Link",
+      text: "Click here to reset Password",
+    };
+
+    // const grtid = await exist.grt();
+    res.status(201).json({
+      success: true,
+      message: `Reset password email has been sent please check your Email Inbox ${exist.email}`,
+      grtid,
+    });
   } catch (error) {
     res.status(501).json({
       success: false,

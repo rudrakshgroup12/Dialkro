@@ -85,25 +85,25 @@ function Cont() {
                   
                     <div className="py-4">
                         <div className=" inline-block mr-2" >
-                            <div class="flex pr-2 h-full items-center">
+                            <div className="flex pr-2 h-full items-center">
                             <FcApproval />
                                 <p className="title-font font-medium">{business.category}</p>
                             </div>
                         </div>
-                        <div class="inline-block mr-2" >
-                            <div class="flex  pr-2 h-full items-center">
+                        <div className="inline-block mr-2" >
+                            <div className="flex  pr-2 h-full items-center">
                             <FcApproval />
                                 <p className="title-font font-medium">{business?.location?.city}</p>
                             </div>
                         </div>
-                        <div class="inline-block mr-2" >
-                            <div class="flex  pr-2 h-full items-center">
+                        <div className="inline-block mr-2" >
+                            <div className="flex  pr-2 h-full items-center">
                             <FcApproval />
                                 <p className="title-font font-medium">{business?.location?.state}</p>
                             </div>
                         </div>
-                        <div class="inline-block mr-2" >
-                            <div class="flex  pr-2 h-full items-center">
+                        <div className="inline-block mr-2" >
+                            <div className="flex  pr-2 h-full items-center">
                             <FcApproval />
                                 <p className="title-font font-medium">{business?.location?.zipCode}</p>
                             </div>
@@ -111,7 +111,7 @@ function Cont() {
                         
                     
                     </div>
-                    <div class="md:flex font-bold text-gray-800">
+                    <div className="md:flex font-bold text-gray-800">
                         <div className="w-full md:w-1/2 flex space-x-3">
                             <div className="w-1/2">
                                 <h2 className="text-red-600">Phone Number</h2>
@@ -122,7 +122,7 @@ function Cont() {
                                 <p>{business.contact.website}</p>
                             </div>
                         </div>
-                        <div class="w-full md:w-1/2 flex space-x-3">
+                        <div className="w-full md:w-1/2 flex space-x-3">
                             <div className="w-1/2">
                                 <h2 className="text-red-600">Email Id</h2>
                                 <p>{business.contact.email}</p>
