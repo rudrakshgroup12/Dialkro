@@ -3,6 +3,7 @@ import React from 'react'
 function Blogcontent() {
   return (
     <div>
+    <div className="max-w-screen-xl mx-auto">
          <main className="mt-10">
 
 <div className="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative h-24">
@@ -89,6 +90,7 @@ function Blogcontent() {
 
 </div>
 </main> 
+</div>
     </div>
   )
 }
