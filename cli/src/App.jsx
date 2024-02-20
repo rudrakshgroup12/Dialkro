@@ -18,12 +18,12 @@ import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
 // import About from "./Components/About/About.jsx"
 import Blog from "./Components/Blogs/Blog.jsx"
 import Blogcontent from "./Components/Blogs/Blogcontent.jsx"
-<<<<<<< HEAD
+
 import Contactus from "./Components/Contacts/Contactus.jsx"
-=======
+
 import About from "./Components/About/About.jsx";
 import ForgotPassword from "./Components/Login/ForgotPassword.jsx";
->>>>>>> a1d394eea798b12dfd82be74ac53ea0bf949ea83
+
 function App() {
   return (
     <>
@@ -46,13 +46,13 @@ function App() {
               <Route path="/about" element={<About/>}/>
               <Route path="/blog" element={<Blog/>}/>
               <Route path="/blogcontent" element={<Blogcontent/>}/>
-<<<<<<< HEAD
+
               <Route path="/contactus" element={<Contactus/>}/>
-=======
+
               <Route path="/business/edit" element={<EditUserBusiness />} />
-              {/* <Route path="/about" element={<About />} /> */}
+         
               <Route path="/forgot" element={<ForgotPassword />} />
->>>>>>> a1d394eea798b12dfd82be74ac53ea0bf949ea83
+
             </Routes>
             <Footer />
           </ErrorBoundary>
