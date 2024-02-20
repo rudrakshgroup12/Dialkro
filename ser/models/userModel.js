@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import validate from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import crypto from "crypto-js";
 const { Schema } = mongoose;
 
 // Define the User schema
@@ -48,8 +49,10 @@ const userSchema = new Schema(
       type: String,
       enum: ["user", "admin"], // Role-specific values, you can add more roles as needed
       default: "user",
-      select:false
+      select: false,
     },
+    rPT: String,
+    rPTT: Date,
   },
   {
     timestamps: true, // Automatically add createdAt and updatedAt timestamps
@@ -70,6 +73,8 @@ userSchema.methods.generateAuthToken = function () {
   // user.tokens = user.tokens.concat({ token });
   // await user.save();
 };
+
+userSchema.methods.grt = function () {};
 
 const User = mongoose.model("User", userSchema);
 export default User;

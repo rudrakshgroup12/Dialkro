@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 import axios from "axios";
 import jcoks from "js-cookie";
+import ForgotPassword from "./ForgotPassword.jsx";
 
 function Login() {
   const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
@@ -116,6 +117,10 @@ function Login() {
               {/* </Link>  */}
             </div>
           </form>
+          <Link to="/forgot" className="hover:text-rose-700">
+            Forgot Password
+          </Link>
+
           {islogin ? (
             <p>
               This is a protected component. Only visible to logged-in users.
@@ -129,6 +134,7 @@ function Login() {
           )}
         </div>
       </div>
+      <div>{/* <ForgotPassword /> */}</div>
     </>
   );
 }
