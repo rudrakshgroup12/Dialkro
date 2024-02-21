@@ -59,6 +59,53 @@ function Cont() {
   // }, []);
 
   return (
+    <>
+    <div className=" flex flex-wrap flex-col gap-2 md:flex-row 
+    items-center justify-center space-x-2">
+        <div className="w-64 h-40 mt-4 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
+
+            <div class="absolute inset-0 bg-indigo-500 flex items-center justify-center">
+                <h3 class="text-white font-bold text-lg">
+                <img src="https://images.pexels.com/photos/5905741/pexels-photo-5905741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image1" />
+                </h3>
+            </div>
+        </div>
+        <div className="w-64 h-40 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
+            
+            <div className="absolute inset-0 bg-white-500 flex items-center justify-center">
+                <h3 className="text-black font-bold text-lg">
+                Content
+                </h3>
+            </div>
+        </div>
+        <div className="w-64 h-40 mt-4 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
+
+<div className="absolute inset-0 bg-indigo-500 flex items-center justify-center">
+    <h3 className="text-white font-bold text-lg">
+    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202201/indian-marriage-rep.jpg?size=690:388" alt="Image1" />
+    </h3>
+</div>
+</div>
+<div className="w-64 h-40 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
+
+<div className="absolute inset-0 bg-red-700 flex items-center justify-center">
+    <h3 className="text-white font-bold text-lg">
+    Content
+    </h3>
+</div>
+</div>
+        <div className="w-64 h-40 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
+            <div className="absolute inset-0 bg-indigo-500 flex items-center justify-center">
+            <img src="https://images.pexels.com/photos/5491334/pexels-photo-5491334.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image1" />
+               
+            </div>
+        </div>
+        <div className="w-64 h-40 mb-4 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
+            <div className="absolute inset-0 bg-red-500 flex items-center justify-center">
+                <h3 className="text-white font-bold text-lg"> Content</h3>
+            </div>
+        </div>
+    </div>
     <div className="bg-white">
     <section>
     {businesses.map((business, index) => (
@@ -151,6 +198,7 @@ function Cont() {
         ))}
     </section>
 </div> 
+</>
   );
 }
 
