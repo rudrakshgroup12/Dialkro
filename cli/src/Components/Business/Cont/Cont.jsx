@@ -97,12 +97,11 @@ function Cont() {
         <div className="w-64 h-40 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
             <div className="absolute inset-0 bg-indigo-500 flex items-center justify-center">
             <img src="https://images.pexels.com/photos/5491334/pexels-photo-5491334.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image1" />
-               
-            </div>
+                </div>
         </div>
         <div className="w-64 h-40 mb-4 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
-            <div className="absolute inset-0 bg-red-500 flex items-center justify-center">
-                <h3 className="text-white font-bold text-lg"> Content</h3>
+            <div className="absolute inset-0 bg-red-700 flex items-center justify-center">
+                <h3 className="text-white font-bold text-lg ">Lorem ipsum</h3>
             </div>
         </div>
     </div>
@@ -197,7 +196,7 @@ function Cont() {
         </section>
         ))}
     </section>
-</div> 
+   </div> 
 </>
   );
 }

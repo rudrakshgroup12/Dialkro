@@ -90,15 +90,10 @@ function Home() {
          {featuredCategories.map((category, index) => (
           <div className="max-w-1xl mx-1 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
             <div className="rounded-t-lg h-32 overflow-hidden">
-              <img
-                className="object-cover object-top w-full"
-                src="https://m.media-amazon.com/images/I/51Zi++kBCiL._AC_UF1000,1000_QL80_.jpg"
-                alt="Mountain"
-              />
+              <img  className="object-cover object-top w-full" src="https://m.media-amazon.com/images/I/51Zi++kBCiL._AC_UF1000,1000_QL80_.jpg" alt="Mountain"/>
             </div>
             <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-              <img
-                className="object-cover object-center h-32"
+              <img className="object-cover object-center h-32"
                 src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg"
                 alt="Woman looking front"
               />
