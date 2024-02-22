@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
+import './viewBusiness.css'
+
 import {
   // FaLocationDot,
   FaAddressBook,
@@ -84,12 +86,44 @@ function ViewBusiness() {
         </div>
       </div> */}
 
+      <div className="container mx-auto my-5">
+
+<div className="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2">
+    
+    <div className="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
+        <div className="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom viewbusiness-card"></div>
+        <div className="md:hidden absolute inset-0 h-full p-6 pb-6 flex flex-col-reverse justify-start items-start bg-gradient-to-b from-transparent via-transparent to-gray-900">
+            <h3 className="w-full font-bold text-2xl text-white leading-tight mb-2">Lorem mmfibhsddjs</h3>
+            <h4 className="w-full text-xl text-gray-100 leading-tight">Bienvenido a</h4>
+        </div>
+        <svg className="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-white -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+    </div>
+
+    <div className="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
+        <div className="p-8 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
+            <h4 className="hidden md:block text-xl text-gray-400">Bienvenido a</h4>
+            <h3 className="hidden md:block font-bold text-2xl text-gray-700">Lorem, ipsum dolor.</h3>
+            <p className="text-gray-600 text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione itaque perspiciatis quod sapiente quidem, vero consectetur quae iure error tempore reprehenderit unde veritatis fugit iusto nemo amet. Assumenda, quam facilis.</p>
+            <a className="flex items-baseline mt-3 text-red-700 hover:text-red-900 focus:text-red-900" href="">
+                <span>Check Your Brands</span>
+                <span className="text-xs ml-1">&#x279c;</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
       <div className="w-full p-6 mx-auto">
         <div className="shadow-md rounded bg-white overflow-hidden relative">
           <div className="grid grid-cols-2 h-64">
             <div className="h-64 overflow-hidden">
               <img
-                class="object-cover h-64 w-full"
+                className="object-cover h-64 w-full"
                 src="https://images.freeimages.com/images/small-previews/20c/my-puppy-maggie-1362787.jpg"
               />
             </div>
@@ -105,7 +139,7 @@ function ViewBusiness() {
             </div>
           </div>
           <div className="p-3">
-            <div class="block md:flex justify-between">
+            <div className="block md:flex justify-between">
               <section className="text-gray-600 body-font w-full">
                 <div className="container px-5 py-5 mx-auto">
                   <div className="p-5 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col">

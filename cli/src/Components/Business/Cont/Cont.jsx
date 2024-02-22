@@ -64,8 +64,8 @@ function Cont() {
     items-center justify-center space-x-2">
         <div className="w-64 h-40 mt-4 bg-white shadow-md rounded-lg overflow-hidden relative transform transition-transform hover:scale-105">
 
-            <div class="absolute inset-0 bg-indigo-500 flex items-center justify-center">
-                <h3 class="text-white font-bold text-lg">
+            <div className="absolute inset-0 bg-indigo-500 flex items-center justify-center">
+                <h3 className="text-white font-bold text-lg">
                 <img src="https://images.pexels.com/photos/5905741/pexels-photo-5905741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image1" />
                 </h3>
             </div>
@@ -82,7 +82,7 @@ function Cont() {
 
 <div className="absolute inset-0 bg-indigo-500 flex items-center justify-center">
     <h3 className="text-white font-bold text-lg">
-    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202201/indian-marriage-rep.jpg?size=690:388" alt="Image1" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6zmjhc8zDABAkymLjCp4OaxUJWZKs0rEwWA&usqp=CAU" alt="Image1" />
     </h3>
 </div>
 </div>
@@ -106,14 +106,14 @@ function Cont() {
             </div>
         </div>
     </div>
-    <div className="bg-white">
-    <section>
+    <div className="bg-white mt-10">
+    <section className="border border-gray-300">
     {businesses.map((business, index) => (
         <section key={index} className="text-gray-600 body-font">
             <div className="container px-5 py-5 mx-auto">
                 <div className="p-5 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col">
-                <div className="sm:w-32 sm:h-32 h-40 w-40 sm:mr-20 inline-flex items-center justify-center flex-shrink-0">
-                    <img src="https://m.media-amazon.com/images/I/71+PbCqKV4L._AC_UF1000,1000_QL80_.jpg"/>
+                <div className="p-5 ">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6zmjhc8zDABAkymLjCp4OaxUJWZKs0rEwWA&usqp=CAU" className="h-100 pr-10"/>
                 </div>
                 <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                     <h1 className="text-black text-2xl title-font font-bold mb-2">{business.name}</h1>
