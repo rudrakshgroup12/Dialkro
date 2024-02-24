@@ -1,14 +1,28 @@
 import Business from "../models/businessModel.js";
+import features from "../utils/features.js";
+import errorHandler from "express-async-handler";
 
-export const getBusiness = async (req, res) => {
-  const business = await Business.find();
+export const getBusiness = errorHandler(async (req, res) => {
+  const resultperpage = 2;
+
+  const busCount = await Business.countDocuments();
+
+  const apiFeature = new features(Business.find(), req.query)
+    .search()
+    .filter()
+    .pagination(resultperpage);
+  const business = await apiFeature.query;
+  // const category = await business.distinct("category");
+  // console.log(query)
   if (!business) return res.status(404).json({ message: "No business found" });
+
   res.status(201).json({
     message: "Busienss Found",
     success: true,
     business,
+    busCount,
   });
-};
+});
 
 export const getBusinessById = async (req, res) => {
   const business = await Business.findById(req.params.id)
@@ -155,3 +169,34 @@ export const deleteBusiness = async (req, res, next) => {
       res.status(404).json({ message: err.message });
     });
 };
+
+export const businessbycategory = async (req, res, next) => {
+  try {
+    const { category } = req.query;
+
+    const busbycat = await Business.findOne({ category });
+
+    if (!busbycat)
+      return res.status(401).json({
+        message: `NO Business Found With That Category ${busbycat.category}`,
+      });
+
+    return res.status(200).json({
+      success: true,
+      message: `Business Found With Selected Category ${busbycat.category}`,
+      busbycat,
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+// export const getBusinesscategory = async (req, res) => {
+//   const business = await Business.find();
+//   if (!business.category) return res.status(404).json({ message: "No category found" });
+//   res.status(201).json({
+//     message: "Busienss Found",
+//     success: true,
+
+//   });
+// };

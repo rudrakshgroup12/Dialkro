@@ -234,12 +234,12 @@ export const AuthPro = ({ children }) => {
       await axios
         .get(URL)
         .then((response) => {
-          if (response.status === 401) {
-            // Handle unauthorized access here
-            // For example, redirect to login page or show an error message
-            setError("Unauthorized access. Please login.");
-            return;
-          }
+          // if (response.status === 401) {
+          //   // Handle unauthorized access here
+          //   // For example, redirect to login page or show an error message
+          //   setError("Unauthorized access. Please login.");
+          //   return;
+          // }
           setUsers(response.data.business);
           // console.log(response.data);
         })
@@ -285,31 +285,176 @@ export const AuthPro = ({ children }) => {
     }
   }, [isDarkMode]);
 
-  const [password, setPassword] = useState([]);
-  useEffect(() => {
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  //FORGOT PASSWORD
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  const [emailid, setEmailid] = useState({ email: "" });
+  //ForgetHandle
+  const forgotHandleInputChange = (e) => {
+    const { name, value } = e.target;
+
     try {
-      
+      setEmailid({
+        ...emailid,
+
+        [name]: value,
+      });
     } catch (error) {
-      
+      setError(`Error is ${error.message}`);
+      console.log(`Error is ${error.message}`);
     }
+  };
+
+  const forgothandleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const URI = "/api/profile/forgot";
+      const response = await axios.post(URI, emailid);
+      // setEmailid(response.data);
+      alert(`Reset Password Request Has Been Sent TO you Email Id`);
+      navi("/reset");
+    } catch (error) {
+      setError(`Error is ${error}`);
+      console.log(`Error is ${error.message}`);
+    }
+  };
+
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  //CHANGE PASSWORD
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  const [resetCred, setresetCred] = useState({ email: "", token: "" });
+  //ForgetHandle
+  const changePasswordHandleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    try {
+      setresetCred({
+        ...resetCred,
+
+        [name]: value,
+      });
+    } catch (error) {
+      setError(`Error is ${error.message}`);
+      console.log(`Error is ${error.message}`);
+    }
+  };
+
+  const changePasswordhandleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const URI = `/api/profile/reset/${resetCred.token}`;
+      const response = await axios.post(URI, resetCred);
+      // setEmailid(response.data);
+      alert(response.data.message);
+      // alert(`Password Changed SuccessFully`);
+      navi("/login");
+    } catch (error) {
+      setError(`Error is ${error.message}`);
+      console.log(`Error is ${error.message}`);
+    }
+  };
+
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  //FindBusiness By Category
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+
+  const [businessesCategory, setBusinessesCategory] = useState([]);
+  const [selectBusinessCategory, setSelectBusinessCategory] = useState("");
+  const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const URL = "/api/business";
+      await axios
+        .get(URL)
+        .then((response) => {
+          const uniqueCategory = response.data.business.reduce((acc, curr) => {
+            if (!acc.includes(curr.category)) {
+              acc.push(curr.category);
+            }
+            return acc;
+          }, []);
+          console.log(uniqueCategory)
+          setBusinessesCategory(uniqueCategory);
+          // console.log(response.data.business)
+        })
+        .catch((err) => {
+          setError(`Error Fecthing BUsiness Category ${err.message} `);
+        });
+    })();
   }, []);
+
+  const selectBusinessCategoryHandleInputChange = (e) => {
+    const { name, value } = e.target;
+    try {
+      setSelectBusinessCategory({
+        ...selectBusinessCategory,
+        [name]: value,
+      });
+    } catch (error) {
+      setError(`Error is inputchange handle ${error.message}`);
+      console.log(`Error is ${error.message}`);
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      // Added parentheses to invoke the async function immediately
+      if (selectBusinessCategory) {
+        // console.log(selectBusinessCategory)
+        const URI = `/api/business?category=${selectBusinessCategory}`;
+        try {
+          const response = await axios.get(URI);
+
+          setFetchBusinessByCategory(response.data.category[0]);
+        } catch (error) {
+          setError(`Error is busbycat ${error.message}`);
+          console.log(`Error is ${error.message}`);
+        }
+      } else {
+        navi("/businesses");
+      }
+    })();
+  }, [selectBusinessCategory]);
 
   const authContextVal = {
     login,
     loginhandleSubmit,
     loginHandleInputChange,
+
     islogin,
     logOutNow,
     error,
+
     businessData,
     addBusinesshandleChange,
     addBusinesshandleSubmit,
     loading,
     businesses,
+
     uBusiness,
     userData,
+
     isDarkMode,
     setIsDarkMode,
+
+    emailid,
+    forgothandleSubmit,
+    forgotHandleInputChange,
+
+    resetCred,
+    changePasswordHandleInputChange,
+    changePasswordhandleSubmit,
+
+    businessesCategory,
+    selectBusinessCategory,
+    selectBusinessCategoryHandleInputChange,
+    fetchBusinessByCategory,
   };
   return (
     <AuthContext.Provider value={authContextVal}>
