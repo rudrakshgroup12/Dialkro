@@ -199,7 +199,7 @@ const CustomFooter = () => {
             <p>
               {" "}
               <a
-                href="#"
+                href="https://www.facebook.com/Dkanytime24" target="_blank"
                 className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
                <FaFacebook className="item-center text-blue-700 w-8 h-8" />
@@ -208,7 +208,7 @@ const CustomFooter = () => {
             <p>
               {" "}
               <a
-                href="#"
+                 href="https://www.instagram.com/dialkro.in/" target="_blank"
                 className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
                 <FaInstagramSquare  className="item-center text-pink-600 w-8 h-8"/>
@@ -235,7 +235,7 @@ const CustomFooter = () => {
             <p>
               {" "}
               <a
-                href="#"
+                href="https://www.youtube.com/@Dial24News"  target="_blank"
                 className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
               >
            <FaYoutube className="item-center text-red-600 w-8 h-8"/>

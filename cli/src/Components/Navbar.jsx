@@ -15,12 +15,19 @@ import {
 
 function Navbar() {
   const { islogin, logOutNow } = useAuth();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsOpen(!isOpen);
   };
-
+  
+ 
+  
   return (
     <>
       <header className="shadow-md sticky top-0 z-10  backdrop-blur-md  dark:bg-neutral-900 dark:text-white font-sans">
@@ -84,15 +91,14 @@ function Navbar() {
           </div>
         </section>
         <div
-          className="flex flex-wrap py-3.5 px-10 overflow-x-auto    
- "
+          className="flex flex-wrap py-3.5 px-10 overflow-x-auto"
         >
           <ul
             id="collapseMenu"
-            className={`lg:!flex font-sans font-thin text-xl justify-center lg:space-x-10 max-lg:space-y-3 max-lg:hidden w-full max-lg:mt-2 ${
-              isMenuOpen ? "hidden" : "block"
-            } lg:block`}
+            className={`lg:flex font-sans font-thin text-xl justify-center lg:space-x-10 max-lg:space-y-3 w-full max-lg:mt-2 ${isOpen ? 'block' : 'hidden'}`}
             // className="lg:!flex justify-center lg:space-x-10 max-lg:space-y-3 max-lg:hidden w-full max-lg:mt-2 "
+            // className={isOpen ? 'block' : 'hidden'}
+            //    id="collapseMenu"
           >
             <li className="max-lg:border-b max-lg:py-2">
               <Link className="hover:text-rose-500  text-[18px] block" to="/">
@@ -116,7 +122,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[18px] block" to="/">
+              <Link className="hover:text-rose-500  text-[18px] block" to="/contactus">
                 {" "}
                 Contact
               </Link>
