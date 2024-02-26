@@ -11,7 +11,7 @@ const BusnessRoutes = express.Router();
 
 BusnessRoutes.get("/business", getBusiness);
 BusnessRoutes.get("/business/:id", getBusinessById);
-BusnessRoutes.get("/business/category", businessbycategory);
+BusnessRoutes.get("/category", businessbycategory);
 
 BusnessRoutes.post("/business", auth, createBusiness);
 BusnessRoutes.delete("/business/:id", auth, deleteBusiness);

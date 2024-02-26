@@ -124,17 +124,17 @@ function ViewBusiness() {
             <div className="h-64 overflow-hidden">
               <img
                 className="object-cover h-64 w-full"
-                src="https://images.freeimages.com/images/small-previews/20c/my-puppy-maggie-1362787.jpg"
+                src="https://images.unsplash.com/photo-1682695794816-7b9da18ed470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
             <div className="h-64 overflow-hidden">
               <img
                 className="object-cover h-32 w-full"
-                src="https://images.freeimages.com/images/small-previews/e71/frog-1371919.jpg"
+                src="https://images.unsplash.com/photo-1484081064812-86e90e107fa8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <img
                 className="object-cover h-32 w-full"
-                src="https://img.freepik.com/free-photo/beautiful-endangered-american-jaguar-nature-habitat-panthera-onca-wild-brasil-brasilian-wildlife-pantanal-green-jungle-big-cats_475641-2191.jpg?w=1380&t=st=1659969671~exp=1659970271~hmac=09544e5c9ac070a09c464342394c6657fafdd87b4c9772f2d5679a70e20a68e0"
+                src="https://images.unsplash.com/photo-1672151575952-5906a1f085fe?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
           </div>
@@ -148,7 +148,7 @@ function ViewBusiness() {
                         <h1 className="text-black text-2xl title-font font-bold mb-2">
                           {businesses.data?.name}
                         </h1>
-                        <p className="leading-relaxed text-base">
+                        <p className="leading-relaxed text-neutral-800 text-base font-sans p-2 text-justify text-lg">
                           {businesses.data?.description}
                         </p>
 
@@ -177,7 +177,7 @@ function ViewBusiness() {
 
                           <div className=" inline-block mr-2">
                             <div className="flex  pr-2 h-full items-center">
-                              <FcApproval />
+                              <FcApproval  className="text-green-700"/>
                               <p className="title-font font-medium">
                                 {businesses?.data?.location?.state}
                               </p>

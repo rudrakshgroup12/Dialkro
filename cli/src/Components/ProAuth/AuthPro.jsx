@@ -223,12 +223,56 @@ export const AuthPro = ({ children }) => {
   // }, [addBusinesshandleSubmit]);
 
   //Get Business From Database
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  //FindBusiness By Category
+  //////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+
+  const [businessesCategory, setBusinessesCategory] = useState([]);
+  const [selectBusinessCategory, setSelectBusinessCategory] = useState("");
+  // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const URL = "/api/category";
+      await axios
+        .get(URL)
+        .then((response) => {
+          // const uniqueCategory = response.data.business.reduce((acc, curr) => {
+          //   if (!acc.includes(curr.category)) {
+          //     acc.push(curr.category);
+          //   }
+          //   return acc;
+          // }, []);
+          console.log(response.data);
+          setBusinessesCategory(response.data.data);
+          // console.log(response.data.business)
+        })
+        .catch((err) => {
+          setError(`Error Fecthing BUsiness Category ${err} `);
+        });
+    })();
+  }, []);
+
+  const seleBusinCateHandleInputOnChange = (e) => {
+    const { name, value } = e.target;
+    try {
+      setSelectBusinessCategory({
+        ...selectBusinessCategory,
+        [name]: value,
+      });
+    } catch (error) {
+      setError(`Error is inputchange handle ${error.message}`);
+      console.log(`Error is ${error.message}`);
+    }
+  };
+
   const [businesses, setUsers] = useState([]);
 
   // const [error, setError] = useState(null);
   useEffect(() => {
     (async () => {
-      const URL = "/api/business";
+      const URL = `/api/business`;
       // Axios will automatically reject the promise on HTTP error (status >= 400)
       // We can catch the error using .catch method
       await axios
@@ -245,10 +289,10 @@ export const AuthPro = ({ children }) => {
         })
         .catch((err) => {
           // console.error("Error fetching users:", err);
-          setError(`Log in Please `);
+          setError(`Log in Please  erro is ${err.message}`);
         });
     })();
-  }, []);
+  }, [selectBusinessCategory]);
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // useEffect(() => {
@@ -358,69 +402,25 @@ export const AuthPro = ({ children }) => {
     }
   };
 
-  //////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////////
-  //FindBusiness By Category
-  //////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////////
+  // useEffect(() => {
+  //   (async () => {
+  //     // Added parentheses to invoke the async function immediately
+  //     if (selectBusinessCategory) {
+  //       // console.log(selectBusinessCategory)
+  //       const URI = `/api/business?category=${selectBusinessCategory}`;
+  //       try {
+  //         const response = await axios.get(URI);
 
-  const [businessesCategory, setBusinessesCategory] = useState([]);
-  const [selectBusinessCategory, setSelectBusinessCategory] = useState("");
-  const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const URL = "/api/business";
-      await axios
-        .get(URL)
-        .then((response) => {
-          const uniqueCategory = response.data.business.reduce((acc, curr) => {
-            if (!acc.includes(curr.category)) {
-              acc.push(curr.category);
-            }
-            return acc;
-          }, []);
-          console.log(uniqueCategory)
-          setBusinessesCategory(uniqueCategory);
-          // console.log(response.data.business)
-        })
-        .catch((err) => {
-          setError(`Error Fecthing BUsiness Category ${err.message} `);
-        });
-    })();
-  }, []);
-
-  const selectBusinessCategoryHandleInputChange = (e) => {
-    const { name, value } = e.target;
-    try {
-      setSelectBusinessCategory({
-        ...selectBusinessCategory,
-        [name]: value,
-      });
-    } catch (error) {
-      setError(`Error is inputchange handle ${error.message}`);
-      console.log(`Error is ${error.message}`);
-    }
-  };
-
-  useEffect(() => {
-    (async () => {
-      // Added parentheses to invoke the async function immediately
-      if (selectBusinessCategory) {
-        // console.log(selectBusinessCategory)
-        const URI = `/api/business?category=${selectBusinessCategory}`;
-        try {
-          const response = await axios.get(URI);
-
-          setFetchBusinessByCategory(response.data.category[0]);
-        } catch (error) {
-          setError(`Error is busbycat ${error.message}`);
-          console.log(`Error is ${error.message}`);
-        }
-      } else {
-        navi("/businesses");
-      }
-    })();
-  }, [selectBusinessCategory]);
+  //         setFetchBusinessByCategory(response.data.category[0]);
+  //       } catch (error) {
+  //         setError(`Error is busbycat ${error.message}`);
+  //         console.log(`Error is ${error.message}`);
+  //       }
+  //     } else {
+  //       navi("/businesses");
+  //     }
+  //   })();
+  // }, [selectBusinessCategory]);
 
   const authContextVal = {
     login,
@@ -453,8 +453,8 @@ export const AuthPro = ({ children }) => {
 
     businessesCategory,
     selectBusinessCategory,
-    selectBusinessCategoryHandleInputChange,
-    fetchBusinessByCategory,
+    seleBusinCateHandleInputOnChange,
+    // fetchBusinessByCategory,
   };
   return (
     <AuthContext.Provider value={authContextVal}>
