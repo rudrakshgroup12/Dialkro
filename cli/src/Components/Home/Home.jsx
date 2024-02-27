@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { FaSearch, FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Bgr from "./bgr1.png"
+// import BusinessCategory from "../Business/Category/BusinessCategory.jsx";
+import Bgr from "./bgr1.png";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
-
+import rgshinelogo from "../assets/rgshinelogo.png";
+import digitalsollogo from "../assets/digitalsollogo.png";
+import healthcarelogo from "../assets/healthcarelogo.png";
+ import dial24newslogo from "../assets/dial24newslogo.png";
+ import rudrakshagroup from "../assets/rudrakshagroup.png";
+ import dialkrohomepage2 from "../assets/dialkrohomepage2.png";
+ import dialkrohome3 from "../assets/dialkrohome3.png";
+ import dialkrohome4 from "../assets/dialkrohome4.png";
+ import dialkrohome5 from "../assets/dialkrohome5.png";
+ import dialkrohomepageimg from "../assets/dialkrohomepageimg.png";
+  import skylinelogo from "../assets/skylinelogo.png";
 function Home() {
   const { isDarkMode } = useAuth();
   const [searchInput, setSearchInput] = useState("");
@@ -23,29 +34,28 @@ function Home() {
     setCategoryFilter(event.target.value);
   };
 
- const featuredCategories = [
-    { name: "Restaurant", icon: "🍔" },
-  { name: "Hospitals", icon: "☕" },
-  { name: "Gym", icon: "💪" },
-  { name: "School", icon: "💪" },
-  { name: "AutoMotive", icon: "🍔" },
-  { name: "Beauty & Spa", icon: "☕" },
-  { name: "Hotels", icon: "💪" },
-  { name: "Rent & Hostels", icon: "💪" },
+  // const featuredCategories = [
+  //   { name: "Restaurant", icon: "🍔" },
+  //   { name: "Hospitals", icon: "☕" },
+  //   { name: "Gym", icon: "💪" },
+  //   { name: "School", icon: "💪" },
+  //   { name: "AutoMotive", icon: "🍔" },
+  //   { name: "Beauty & Spa", icon: "☕" },
+  //   { name: "Hotels", icon: "💪" },
+  //   { name: "Rent & Hostels", icon: "💪" },
+  // ];
 
- ];
-
-   //const testimonialData = [
-   //  {
+  //const testimonialData = [
+  //  {
   //     quote: "Great directory! Found exactly what I needed. this is business directory website Its really help Us to grow our Business",
-    //  author: "John Doe",
-    //},
-    //{
-     // quote: "Increased my business visibility. Highly recommended! this is business directory website Its really help Us to grow our Business",
-     // author: "Rakesh verma",
-    //},
+  //  author: "John Doe",
+  //},
+  //{
+  // quote: "Increased my business visibility. Highly recommended! this is business directory website Its really help Us to grow our Business",
+  // author: "Rakesh verma",
+  //},
   //   // Add more testimonials as needed
- //];
+  //];
 
   // Placeholder for actual business data and filtering logic
   const filteredListings = [1, 2, 3];
@@ -56,10 +66,7 @@ function Home() {
 
   return (
     <div className={isDarkMode ? "dark" : ""}>
-      <div
-        className="bg-cover bg-center h-100 bg-gradient-to-r from-rose-900 via-red-700 to-black flex items-center justify-center text-neutral- dark:bg-neutral-800"
-   
-      >
+      <div className="bg-cover bg-center h-100 bg-gradient-to-r from-rose-900 via-red-700 to-black flex items-center justify-center text-neutral- dark:bg-neutral-800">
         <div className="bg-cover bg-center h-96 flex items-center justify-center text-neutral- dark:bg-neutral-800">
           <div className="text-left">
             <h1 className="text-5xl font-bold mb-4 text-white dark:bg-neutral-800">
@@ -87,7 +94,9 @@ function Home() {
 
       {/* {/ {/ Featured Categories /} /} */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 m-10 dark:bg-neutral-800 dark:text-white">
-         {featuredCategories.map((category, index) => (
+        {/* <BusinessCategory /> */}
+
+        {/* {featuredCategories.map((category, index) => (
           <div className="max-w-1xl mx-1 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
             <div className="rounded-t-lg h-32 overflow-hidden">
               <img  className="object-cover object-top w-full" src="https://m.media-amazon.com/images/I/51Zi++kBCiL._AC_UF1000,1000_QL80_.jpg" alt="Mountain"/>
@@ -105,12 +114,16 @@ function Home() {
             </div>
 
             <div className="p-4 border-t mx-6 mt-1">
-              <Link to="/businesses" className="w-1/2 block mx-auto rounded-full bg-red-600 hover:shadow-lg font-semibold text-white px-4 text-center py-2">
+              <Link
+                to="/businesses"
+                className="w-1/2 block mx-auto rounded-full bg-red-600 hover:shadow-lg font-semibold text-white px-4 text-center py-2"
+              >
                 Explore Now
               </Link>
             </div>
           </div>
-        ))} 
+        ))}
+        */}
       </div>
 
       <section className="sm:mt-6 lg:mt-8 mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 dark:bg-neutral-800 dark:text-white">
@@ -133,7 +146,7 @@ function Home() {
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
                 <Link
-         to="/new"
+                  to="/new"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-600 md:py-4 md:text-lg md:px-10"
                 >
                   Get started
@@ -141,7 +154,7 @@ function Home() {
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
                 <Link
-         to="/businesses"
+                  to="/businesses"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                 >
                   Live demo
@@ -168,14 +181,14 @@ function Home() {
           <figure className="relative w-full h-60">
             <img
               className="w-full h-full absolute top-0 start-0 object-cover rounded-xl"
-              src="https://images.unsplash.com/photo-1670272505340-d906d8d77d03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+              src={dialkrohome3}
               alt="Image Description"
             />
           </figure>
           <figure className="relative w-full h-60">
             <img
               className="w-full h-full absolute top-0 start-0 object-cover rounded-xl"
-              src="https://images.unsplash.com/photo-1671726203638-83742a2721a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+              src={dialkrohomepage2}
               alt="Image Description"
             />
           </figure>
@@ -183,15 +196,15 @@ function Home() {
         <figure className="relative w-full h-72 sm:h-96 lg:h-full">
           <img
             className="w-full h-full absolute top-0 start-0 object-cover rounded-xl"
-            src="https://images.unsplash.com/photo-1671726203394-491c8b574a0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80"
+            src={dialkrohomepageimg}
             alt="Image Description"
           />
         </figure>
       </div>
 
-      <div className="flex item-center justify-between p-4 mb-5">
+      <div className="flex item-center justify-between flex-wrap p-4 mb-5">
         <section className="px-5">
-          <div className="bg-gradient-to-br from-red-400 via-red-400 to-black-400 p-6 sm:p-10 rounded-2xl w-full text-white flex items-center justify-between max-w-2xl mx-auto mt-20">
+          <div className="bg-gradient-to-br from-red-400 via-red-400 to-black-400 p-6 sm:p-10 rounded-2xl w-full text-white flex items-center justify-between max-w-2xl mx-auto mt-20 flex-wrap">
             <div className="flex flex-col gap-6">
               <div className="">
                 <span className="text-gray-200">Todays Ads</span>
@@ -307,7 +320,9 @@ function Home() {
         <dh-component>
           <div className="container mx-auto pt-16">
             <div className="w-11/12 xl:w-2/3 lg:w-2/3 md:w-2/3 mx-auto sm:mb-10 mb-16">
-            <h1 className="text-center font-bold text-4xl">This is our Popular Brand Partners</h1>
+              <h1 className="text-center font-bold text-4xl">
+                This is our Popular Brand Partners
+              </h1>
               <p
                 tabIndex="0"
                 className="focus:outline-none text-base md:text-lg lg:text-xl text-center text-gray-600 font-normal xl:w-10/12 xl:mx-auto"
@@ -322,7 +337,7 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/adidas-dark.png"
+                  src={rgshinelogo}
                   alt="Adidas"
                   role="img"
                 />
@@ -331,7 +346,7 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="file:///C:/Users/adity/AppData/Local/Temp/722b468a01e8e3a3d2ab359eebb562337adee29bda20c78ce7848fda9cc04da9.png"
+                  src={digitalsollogo}
                   alt="Chanel"
                   role="img"
                 />
@@ -340,16 +355,17 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/nike-dark.png"
+                  src={healthcarelogo}
                   alt="Nike"
                   role="img"
                 />
               </div>
-              <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex justify-center lg:border-b xl:border-b lg:border-l xl:border-l border-gray-200 xl:pb-10 pb-16 items-center">
+              <div className="w-5/8 xl:w-1/4 lg:w-1/4 md:w-1/4 flex justify-center lg:border-b xl:border-b lg:border-l xl:border-l border-gray-200 xl:pb-10 pb-16 items-center">
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/toyota-dark.png"
+                 
+                  src={rudrakshagroup}
                   alt="Toyota"
                   role="img"
                 />
@@ -358,7 +374,7 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/gs1-dark.png"
+                  src={dial24newslogo}
                   alt="GS1"
                   role="img"
                 />
@@ -367,7 +383,7 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/berry-dark.png"
+                  src={skylinelogo}
                   alt="BlackBerry"
                   role="img"
                 />
@@ -376,7 +392,7 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/min-dark.png"
+                  src={digitalsollogo}
                   alt="Mini"
                   role="img"
                 />
@@ -385,7 +401,7 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                  src="https://cdn.tuk.dev/assets/honda-dark.png"
+                  src={rgshinelogo}
                   alt="Honda"
                   role="img"
                 />
@@ -403,116 +419,224 @@ function Home() {
       </div>
 
       <section className="text-gray-600 body-font">
-  <div className="container px-5 py-10 mx-auto">
-    <div className="flex flex-col text-center w-full mb-20">
-      <h2 className="text-xs text-red-600 tracking-widest font-medium title-font mb-1">Business Owner Testimonial</h2>
-      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Testimonials Of Our Client</h1>
-      <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
-    </div>
-    <div className="flex flex-wrap">
-      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
-        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-        <a className="text-red-600 inline-flex items-center">Learn More
-       
-        </a>
-      </div>
-      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">The Catalyzer</h2>
-        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-        <a className="text-red-600 inline-flex items-center">Learn More
-          
-        </a>
-      </div>
-      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Neptune</h2>
-        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-        <a className="text-red-600 inline-flex items-center">Learn More
-      
-        </a>
-      </div>
-      <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Melanchole</h2>
-        <p className="leading-relaxed text-base mb-4">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-        <a className="text-red-600 inline-flex items-center">Learn More
-      
-        </a>
-      </div>
-    </div>
-    {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> */}
-  </div>
-</section>
+        <div className="container px-5 py-10 mx-auto">
+          <div className="flex flex-col text-center w-full mb-20">
+            <h2 className="text-xs text-red-600 tracking-widest font-medium title-font mb-1">
+              Business Owner Testimonial
+            </h2>
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+              Testimonials Of Our Client
+            </h1>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+              gentrify, subway tile poke farm-to-table. Franzen you probably
+              haven't heard of them man bun deep jianbing selfies heirloom prism
+              food truck ugh squid celiac humblebrag.
+            </p>
+          </div>
+          <div className="flex flex-wrap">
+            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+              <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
+                Shooting Stars
+              </h2>
+              <p className="leading-relaxed text-base mb-4">
+                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
+                hexagon disrupt edison bulbche.
+              </p>
+              <a className="text-red-600 inline-flex items-center">
+                Learn More
+              </a>
+            </div>
+            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+              <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
+                The Catalyzer
+              </h2>
+              <p className="leading-relaxed text-base mb-4">
+                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
+                hexagon disrupt edison bulbche.
+              </p>
+              <a className="text-red-600 inline-flex items-center">
+                Learn More
+              </a>
+            </div>
+            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+              <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
+                Neptune
+              </h2>
+              <p className="leading-relaxed text-base mb-4">
+                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
+                hexagon disrupt edison bulbche.
+              </p>
+              <a className="text-red-600 inline-flex items-center">
+                Learn More
+              </a>
+            </div>
+            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+              <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
+                Melanchole
+              </h2>
+              <p className="leading-relaxed text-base mb-4">
+                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
+                hexagon disrupt edison bulbche.
+              </p>
+              <a className="text-red-600 inline-flex items-center">
+                Learn More
+              </a>
+            </div>
+          </div>
+          {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> */}
+        </div>
+      </section>
 
       {/* kamla */}
 
       <div className="flex flex-col bg-white py-4 px-12">
         <div className="py-4">
-            <div className="pl-[116px] pr-[205px] py-6">
-                <div className="text-6xl text-black">Popular Searches</div>
-              
-            </div>
+          <div className="pl-[116px] pr-[205px] py-6">
+            <div className="text-6xl text-black">Popular Searches</div>
+          </div>
         </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
     <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
         <div>
-            <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" className="rounded-t-xl"/>
+            <img src={dialkrohome4} alt="Featured Image 1" className="rounded-t-xl"/>
+=======
+=======
+>>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
+        <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
+          <div>
+            <img
+              src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg"
+              alt="Featured Image 1"
+              className="rounded-t-xl"
+            />
+<<<<<<< HEAD
+>>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
+=======
+>>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
             <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
-                <div className="text-white space-y-4">
-                    <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
-                    <div className="text-lg font-light">Card subtitle with a long long long long long long text</div>
+              <div className="text-white space-y-4">
+                <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
+                <div className="text-lg font-light">
+                  Card subtitle with a long long long long long long text
                 </div>
-                <div className="flex justify-between pt-8">
-                    <ul className="flex flex-col gap-y-2.5">
-                        <li className="flex space-x-3 text-white">
-                            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
-                            <span className="paragraph-l font-bold">Item 1</span>
-                        </li>
-                            <li className="flex space-x-3 text-white">
-                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
-                            <span className="paragraph-l font-bold">Item 1</span>
-                        </li>
-                            <li className="flex space-x-3 text-white">
-                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
-                            <span className="paragraph-l font-bold">Item 1</span>
-                        </li>
-                    </ul>
-                    <div className="flex flex-col justify-end">
-                    <Link to="/new" className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full">Learn More</Link>
-                    </div>
+              </div>
+              <div className="flex justify-between pt-8">
+                <ul className="flex flex-col gap-y-2.5">
+                  <li className="flex space-x-3 text-white">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                      alt="checked--v1"
+                      className="w-6 h-6"
+                    />
+                    <span className="paragraph-l font-bold">Item 1</span>
+                  </li>
+                  <li className="flex space-x-3 text-white">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                      alt="checked--v1"
+                      className="w-6 h-6"
+                    />
+                    <span className="paragraph-l font-bold">Item 1</span>
+                  </li>
+                  <li className="flex space-x-3 text-white">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                      alt="checked--v1"
+                      className="w-6 h-6"
+                    />
+                    <span className="paragraph-l font-bold">Item 1</span>
+                  </li>
+                </ul>
+                <div className="flex flex-col justify-end">
+                  <Link
+                    to="/new"
+                    className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full"
+                  >
+                    Learn More
+                  </Link>
                 </div>
+              </div>
             </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
         </div> 
         <div className="">
-            <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" className="rounded-t-xl"/>
+            <img src={dialkrohome5} alt="Featured Image 1" className="rounded-t-xl"/>
+=======
+=======
+>>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
+          </div>
+          <div className="">
+            <img
+              src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg"
+              alt="Featured Image 1"
+              className="rounded-t-xl"
+            />
+<<<<<<< HEAD
+>>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
+=======
+>>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
             <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
-                <div className="text-white space-y-4">
-                    <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
-                    <div className="text-lg font-light">Card subtitle with a long long long long long long text</div>
+              <div className="text-white space-y-4">
+                <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
+                <div className="text-lg font-light">
+                  Card subtitle with a long long long long long long text
                 </div>
-                <div className="flex justify-between pt-8">
-                   <ul className="flex flex-col gap-y-2.5">
-                        <li className="flex space-x-3 text-white">
-                            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
-                            <span className="paragraph-l font-bold">Item 1</span>
-                        </li>
-                            <li className="flex space-x-3 text-white">
-                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
-                            <span className="paragraph-l font-bold">Item 1</span>
-                        </li>
-                            <li className="flex space-x-3 text-white">
-                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" className="w-6 h-6"/>
-                            <span className="paragraph-l font-bold">Item 1</span>
-                        </li>
-                    </ul>
-                    <div className="flex flex-col justify-end">
-                        <Link to="/new" className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full">Learn More</Link>
-                    </div>
+              </div>
+              <div className="flex justify-between pt-8">
+                <ul className="flex flex-col gap-y-2.5">
+                  <li className="flex space-x-3 text-white">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                      alt="checked--v1"
+                      className="w-6 h-6"
+                    />
+                    <span className="paragraph-l font-bold">Item 1</span>
+                  </li>
+                  <li className="flex space-x-3 text-white">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                      alt="checked--v1"
+                      className="w-6 h-6"
+                    />
+                    <span className="paragraph-l font-bold">Item 1</span>
+                  </li>
+                  <li className="flex space-x-3 text-white">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                      alt="checked--v1"
+                      className="w-6 h-6"
+                    />
+                    <span className="paragraph-l font-bold">Item 1</span>
+                  </li>
+                </ul>
+                <div className="flex flex-col justify-end">
+                  <Link
+                    to="/new"
+                    className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full"
+                  >
+                    Learn More
+                  </Link>
                 </div>
+              </div>
             </div>
-        </div> 
-    </div>
-</div>
-
-   
+          </div>
+        </div>
+      </div>
 
       <div className="relative mx-auto max-w-5xl my-40">
         <div className="rounded-xl p-1 bg-gradient-to-br from-red-600 via-red-600 to-red-600 h-32">
@@ -529,10 +653,16 @@ function Home() {
                 </p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-6 ">
-                <Link to="/new" className="bg-red-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm">
+                <Link
+                  to="/new"
+                  className="bg-red-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm"
+                >
                   Get Started
                 </Link>
-                <Link to="/about" className="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm">
+                <Link
+                  to="/about"
+                  className="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm"
+                >
                   Learn More
                 </Link>
               </div>

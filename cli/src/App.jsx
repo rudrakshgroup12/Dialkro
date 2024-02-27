@@ -32,6 +32,8 @@ function App() {
           <NavBar />
           <ErrorBoundary>
             <Routes>
+
+              
               <Route exact path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/edituser" element={<Editprofile />} />

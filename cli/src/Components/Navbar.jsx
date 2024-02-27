@@ -36,7 +36,7 @@ function Navbar() {
             to="/"
             className="max-md:w-full max-sm:mb-4 bg-gradient-to-r text-4xl font-bold  inline-block text-transparent bg-clip-text"
           >
-            <h1 className="animate-text bg-gradient-to-r  from-rose-900 via-red-700 to-black bg-clip-text text-transparent text-5xl font-black">
+            <h1 className="animate-text bg-gradient-to-r  from-rose-900 via-red-700 to-black bg-clip-text text-transparent text-3xl font-black">
               Dialkro
             </h1>
           </Link>

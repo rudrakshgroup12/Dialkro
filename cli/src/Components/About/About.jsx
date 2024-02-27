@@ -1,7 +1,10 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
 
+import { useAuth } from "../ProAuth/AuthPro.jsx";
+import dailkroabout from "../assets/dailkroabout.png";
+import dailkroabout1 from "../assets/dailkroabout1.png";
+import dialkrobusinessdirectory from "../assets/dialkrobusinessdirectory.png"
 function About() {
   const{isDarkMode}=useAuth()
   return (
@@ -130,9 +133,9 @@ function About() {
 
     {/* {/ {/ <!--   Image Section     --> /} /} */}
     <div className="lg:inset-y-0 lg:right-0 lg:w-1/2 my-4">
-        <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt=""/>
+        <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={dailkroabout} alt=""/>
     </div>
-    {/* {/ {/ <!--   End of Image Section     --> /} /} */}
+   
 </div>
 
       </section>
@@ -289,7 +292,7 @@ function About() {
                   </div>
 
                   <div className="hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center">
-                      <img className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80" alt=""/>
+                      <img className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full" src={dialkrobusinessdirectory} alt=""/>
                   </div>
               </div>
 
@@ -321,8 +324,8 @@ function About() {
 <div className="container mx-auto">
 <div className="flex flex-wrap items-center">
   <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78">
-    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-500">
-      <img alt="..." src="https://content3.jdmagicbox.com/comp/hyderabad/62/040pde01262/catalogue/just-dial-ltd-begumpet-hyderabad-search-engine-xul031m31w.jpg"/>
+    <div className="relative flex flex-col min-w-0 break-words bg-red w-full mb-6 shadow-lg rounded-lg bg-pink-500">
+      <img alt="..." src={dailkroabout1}/>
       <blockquote className="relative p-8 mb-4">
         <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" className="absolute left-0 w-full block h-95-px -top-94-px">
           <polygon points="-30,95 583,95 583,65" className="text-pink-500 fill-current"></polygon>
@@ -345,10 +348,9 @@ function About() {
         <div className="relative flex flex-col mt-4">
           <div className="px-4 py-5 flex-auto">
             <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-<img src="https://akam.cdn.jdmagicbox.com/images/icontent/listingbusiness/new_user.svg" alt="" />
+           <img src="https://akam.cdn.jdmagicbox.com/images/icontent/listingbusiness/new_user.svg" alt="" />
             </div>
-            <h6 className="text-xl mb-1 font-semibold">Market Your Business
-to New Users</h6>
+            <h6 className="text-xl mb-1 font-semibold">Market Your Business to New Users</h6>
             <p className="mb-4 text-blueGray-500">
               Notus JS comes with a huge number of Fully Coded CSS
               components.
@@ -361,8 +363,7 @@ to New Users</h6>
              <img src="https://akam.cdn.jdmagicbox.com/images/icontent/listingbusiness/grow_revenue_icon.svg" alt="" />
             </div>
             <h6 className="text-xl mb-1 font-semibold">
-            Grow Your
-Revenue
+            Grow Your Revenue
             </h6>
             <p className="mb-4 text-blueGray-500">
               We also feature many dynamic components for React, NextJS,

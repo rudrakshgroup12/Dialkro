@@ -1,14 +1,28 @@
 import Business from "../models/businessModel.js";
+import features from "../utils/features.js";
+import errorHandler from "express-async-handler";
 
-export const getBusiness = async (req, res) => {
-  const business = await Business.find();
+export const getBusiness = errorHandler(async (req, res) => {
+  const resultperpage = 8;
+
+  const busCount = await Business.countDocuments();
+
+  const apiFeature = new features(Business.find(), req.query)
+    .search()
+    .filter()
+    .pagination(resultperpage);
+  const business = await apiFeature.query;
+  // const category = await business.distinct("category");
+  // console.log(query)
   if (!business) return res.status(404).json({ message: "No business found" });
+
   res.status(201).json({
     message: "Busienss Found",
     success: true,
     business,
+    busCount,
   });
-};
+});
 
 export const getBusinessById = async (req, res) => {
   const business = await Business.findById(req.params.id)
@@ -29,33 +43,6 @@ export const getBusinessById = async (req, res) => {
 
 export const createBusiness = async (req, res, next) => {
   try {
-    // console.log(req.user);
-    // const {
-    //   name,
-    //   description,
-    //   category,
-    //   contact: { phone, email, website },
-    // } = req.body;
-
-    // // Assuming you have a user object attached to the request during authentication
-    // const {
-    //   name,
-    //   description,
-    //   category,
-    //   contact: {
-    //     phone,
-    //     email,
-    //     website, // Add more contact details as needed
-    //   },
-    //   location: {
-    //     address,
-    //     city,
-    //     state,
-    //     zipCode,
-    //     // Add more location details as needed
-    //   }
-    // } = req.body;
-    // const user = req.params.id;
     req.body.user = req.user._id;
     const createdBusiness = await Business.create(req.body)
       .then((data) => {
@@ -68,27 +55,6 @@ export const createBusiness = async (req, res, next) => {
       .catch((err) => {
         res.status(404).json({ message: "Enter all fields" });
       });
-
-    // {
-    //   name,
-    //   description,
-    //   category,
-    //   contact: {
-    //     phone,
-    //     email,
-    //     website, // Add more contact details as needed
-    //   },
-    //   location: {
-    //     address,
-    //     city,
-    //     state,
-    //     zipCode,
-    //     // Add more location details as needed
-    //   },
-    //   user,
-    // }
-
-    // console.log(req.user);
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Internal Server Error" });
@@ -155,3 +121,41 @@ export const deleteBusiness = async (req, res, next) => {
       res.status(404).json({ message: err.message });
     });
 };
+
+export const businessbycategory = async (req, res, next) => {
+  // res.send("fuck the world");
+  const allCategories = await Business.distinct("category")
+    .then((data) => {
+      res.status(200).json({
+        success: true,
+        message: `Business Found With Selected Category`,
+        data,
+      });
+    })
+    .catch((err) => {
+      res.status(404).json({ message: err.message });
+    });
+
+    
+
+  // console.log(allCategories);
+  // if (!allCategories || allCategories.length === 0) {
+  //   return res.status(404).json({ message: "No categories found" });
+  // }
+
+  // res.status(200).json({
+  //   success: true,
+  //   message: `Business Found With Selected Category`,
+  //   allCategories,
+  // });
+};
+
+// export const getBusinesscategory = async (req, res) => {
+//   const business = await Business.find();
+//   if (!business.category) return res.status(404).json({ message: "No category found" });
+//   res.status(201).json({
+//     message: "Busienss Found",
+//     success: true,
+
+//   });
+// };

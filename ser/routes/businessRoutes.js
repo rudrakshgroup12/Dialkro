@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  businessbycategory,
   createBusiness,
   deleteBusiness,
   getBusiness,
@@ -10,6 +11,8 @@ const BusnessRoutes = express.Router();
 
 BusnessRoutes.get("/business", getBusiness);
 BusnessRoutes.get("/business/:id", getBusinessById);
+BusnessRoutes.get("/category", businessbycategory);
+
 BusnessRoutes.post("/business", auth, createBusiness);
 BusnessRoutes.delete("/business/:id", auth, deleteBusiness);
 export default BusnessRoutes;

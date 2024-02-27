@@ -42,8 +42,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 import userRoutes from "./routes/userRoutes.js";
 import BusnessRoutes from "./routes/businessRoutes.js";
+// import categoryRoutes from "./routes/categoryRoutes.js";
 app.use("/api", userRoutes);
 app.use("/api", BusnessRoutes);
+// app.use("/api", categoryRoutes);
+
+app.get("/",(req,res,next)=>{
+  res.send("Homes Is Home")
+})
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port http://localhost:${process.env.PORT}`);

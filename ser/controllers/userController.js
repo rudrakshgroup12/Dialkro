@@ -3,6 +3,7 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
+import { senEm } from "../utils/ema.js";
 // import jwt from "jsonwebtoken";
 // import giveJwtTok from "../utils/jwtTok.js";
 
@@ -178,40 +179,86 @@ export const findBusinessByUser = async (req, res, next) => {
   }
 };
 
-const transPort = nodemailer.createTransport({
-  service: process.env.SERV,
-  auth: {
-    user: process.env.EUSER,
-    pass: process.env.EPASS,
-  },
-});
+// const transPort = nodemailer.createTransport({
+//   service: process.env.SERV,
+//   auth: {
+//     user: process.env.EUSER,
+//     pass: process.env.EPASS,
+//   },
+// });
 
 export const forgotPassword = async (req, res, next) => {
   try {
     const { email } = req.body;
     const exist = await User.findOne({ email });
     if (!exist) {
-      res.status(401).json({
+      return res.status(401).json({
         success: false,
         message: `User Not Exist With That  `,
       });
     }
-    const resetPastok = crypto.randomBytes(20).toString("hex");
-    exist.rPT = resetPastok;
-    exist.rPTT = Date.now() + 1800000;
 
-    const mailDetail = {
-      from: "dkro.com",
-      to: `${exist.email}`,
-      subject: "Password Reset Link",
-      text: "Click here to reset Password",
-    };
+    const rtok = await exist.grt();
+    exist.save();
+
+    const url = `${process.env.FRONTEND}/forgot/${rtok}`;
+
+    const message = `Your Password reset Link Has Been Sent To ${url} ,If you have not request then please Ignore`;
+
+    await senEm(exist.email, "Dialkro Reset Password ", message);
+    // console.log(rtok);
+
+    // const resetPastok = crypto.randomBytes(20).toString("hex");
+    // exist.rPT = resetPastok;
+    // exist.rPTT = Date.now() + 1800000;
+
+    // const mailDetail = {
+    //   from: "dkro.com",
+    //   to: `${exist.email}`,
+    //   subject: "Password Reset Link",
+    //   text: "Click here to reset Password",
+    // };
 
     // const grtid = await exist.grt();
     res.status(201).json({
       success: true,
       message: `Reset password email has been sent please check your Email Inbox ${exist.email}`,
-      grtid,
+      token: rtok,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      message: `ERR APPEAR ${error}`,
+    });
+  }
+};
+
+export const resetPassword = async (req, res, next) => {
+  try {
+    const { token } = req.params;
+
+    const resetpassTok = crypto
+      .createHash("sha256")
+      .update(token)
+      .digest("hex");
+    const user = await User.findOne({
+      resetpassTok,
+      resetPasstime: { $gt: Date.now() },
+    });
+
+    if (!user)
+      return res.status(401).json({ message: "No Token Exist "});
+
+    const { password } = req.body;
+    user.password = password;
+    user.resetpassTok = undefined;
+    user.resetPasstime = undefined;
+    await user.save();
+
+    res.status(201).json({
+      success: true,
+      message: ` password Changed SuccessFully `,
+      token,
     });
   } catch (error) {
     res.status(501).json({

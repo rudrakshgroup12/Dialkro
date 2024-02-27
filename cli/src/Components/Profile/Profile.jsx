@@ -55,7 +55,7 @@ const UserProfileComponent = () => {
               className="w-40 border-4 border-white rounded-full"
             />
             <div className="flex items-center space-x-2 mt-2">
-              <p className="text-2xl">
+              {/* <p className="text-2xl">
                 {" "}
                 <UserInfoField
                   icon={<FaUser className="text-gray-700" />}
@@ -63,7 +63,7 @@ const UserProfileComponent = () => {
                   value={user?.name}
                   editable={true}
                 />
-              </p>
+              </p> */}
               <span className="bg-blue-500 rounded-full p-1" title="Verified">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

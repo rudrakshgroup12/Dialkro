@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import validate from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import crypto from "crypto-js";
+import crypto from "crypto";
 const { Schema } = mongoose;
 
 // Define the User schema
@@ -51,8 +51,12 @@ const userSchema = new Schema(
       default: "user",
       select: false,
     },
-    rPT: String,
-    rPTT: Date,
+    resetpassTok: {
+      type: String,
+    },
+    resetPasstime: {
+      type: Date,
+    },
   },
   {
     timestamps: true, // Automatically add createdAt and updatedAt timestamps
@@ -74,7 +78,14 @@ userSchema.methods.generateAuthToken = function () {
   // await user.save();
 };
 
-userSchema.methods.grt = function () {};
+userSchema.methods.grt = function () {
+  const resoen = crypto.randomBytes(20).toString("hex");
+  const tok = crypto.createHash("sha256").update(resoen).digest("hex");
+  const tokt = Date.now() + 15 * 60 * 1000;
+  this.resetpassTok = tok;
+  this.resetPasstime = tokt;
+  return resoen;
+};
 
 const User = mongoose.model("User", userSchema);
 export default User;
