@@ -20,17 +20,17 @@ class features {
 
   filter() {
     const queryCopy = { ...this.queryStr };
-    // console.log(queryCopy);
-    const removeFeilds = ["keyword", "page", "limit"];
-    removeFeilds.forEach((ans) => delete queryCopy[ans]);
+    const removeFields = ["keyword", "page", "limit"];
+    
+    // Remove unnecessary fields from the queryCopy object
+    removeFields.forEach(field => delete queryCopy[field]);
 
-    // console.log(queryCopy);
-
+    // Construct the MongoDB query string for filtering
     let queryStr = JSON.stringify(queryCopy);
-    queryStr = queryStr.replace(/\b()\b/g, (key) => `$${key}`);
+    queryStr = queryStr.replace(/\b/g, (match) => `$${match}`);
 
+    // Parse the constructed query string and apply filtering to the current query
     this.query = this.query.find(JSON.parse(queryStr));
-    // console.log(queryStr);
 
     return this;
   }

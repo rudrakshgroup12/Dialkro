@@ -1,28 +1,59 @@
 import Business from "../models/businessModel.js";
-import features from "../utils/features.js";
+// import features from "../utils/features.js";
 import errorHandler from "express-async-handler";
 
 export const getBusiness = errorHandler(async (req, res) => {
-  const resultperpage = 8;
+  //For Pageination ,and Homw Many Business SHould Display At once ,
+  // ANd how many Pages skip
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
+  //Category Filter
+  const query = {};
+  if (req.query.category) {
+    query.category = req.query.category;
+  }
+
+  if (req.query.city) {
+    query.city = req.query.city;
+  }
 
   const busCount = await Business.countDocuments();
+  const allBusiness = await Business.find(query);
 
-  const apiFeature = new features(Business.find(), req.query)
-    .search()
-    .filter()
-    .pagination(resultperpage);
-  const business = await apiFeature.query;
-  // const category = await business.distinct("category");
-  // console.log(query)
-  if (!business) return res.status(404).json({ message: "No business found" });
+  if (!allBusiness)
+    return res.status(404).json({ message: "No business found" });
 
   res.status(201).json({
     message: "Busienss Found",
     success: true,
-    business,
-    busCount,
+    total: busCount,
+    allBusiness,
   });
 });
+
+// export const getBusiness = errorHandler(async (req, res) => {
+//   const resultperpage = 6;
+
+//   const busCount = await Business.countDocuments();
+
+//   const apiFeature = new features(Business.find(), req.query)
+//     .search()
+//     .filter()
+//     .pagination(resultperpage);
+//   const business = await apiFeature.query;
+//   // const category = await business.distinct("category");
+//   // console.log(query)
+//   if (!business) return res.status(404).json({ message: "No business found" });
+
+//   res.status(201).json({
+//     message: "Busienss Found",
+//     success: true,
+//     business,
+//     busCount,
+//   });
+// });
 
 export const getBusinessById = async (req, res) => {
   const business = await Business.findById(req.params.id)
@@ -136,18 +167,7 @@ export const businessbycategory = async (req, res, next) => {
       res.status(404).json({ message: err.message });
     });
 
-    
 
-  // console.log(allCategories);
-  // if (!allCategories || allCategories.length === 0) {
-  //   return res.status(404).json({ message: "No categories found" });
-  // }
-
-  // res.status(200).json({
-  //   success: true,
-  //   message: `Business Found With Selected Category`,
-  //   allCategories,
-  // });
 };
 
 // export const getBusinesscategory = async (req, res) => {
@@ -159,3 +179,15 @@ export const businessbycategory = async (req, res, next) => {
 
 //   });
 // };
+
+
+  // console.log(allCategories);
+  // if (!allCategories || allCategories.length === 0) {
+  //   return res.status(404).json({ message: "No categories found" });
+  // }
+
+  // res.status(200).json({
+  //   success: true,
+  //   message: `Business Found With Selected Category`,
+  //   allCategories,
+  // });

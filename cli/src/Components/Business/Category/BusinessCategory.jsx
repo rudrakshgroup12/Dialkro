@@ -3,26 +3,29 @@ import { useAuth } from "../../ProAuth/AuthPro.jsx";
 import { Link } from "react-router-dom";
 
 function BusinessCategory() {
-  const [selectedCategory, setSelectedCategory] = useState("");
   const {
     businessesCategory,
     selectBusinessCategory,
-    seleBusinCateHandleInputOnChange,
+    setSelectBusinessCategory,
+
     error,
   } = useAuth();
   return (
     <>
-      {/* {error && (
+      {error && (
         <h1 className="text-rose-800 mb-8 text-4xl font-bold">{error}</h1>
-      )} */}
-      <div className="p-10 bg-white gap-6 max-w-sm mx-auto">
+      )}
+      <div className="p-5 bg-white gap-6 max-w-sm mx-auto">
         <select
-          value={selectedCategory}
-          onChange={seleBusinCateHandleInputOnChange}
+          className="bg-gray-50 border border-gray-300 text-gray-900 font-normal rounded-md w-full h-10 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          value={selectBusinessCategory}
+          onChange={(e) => setSelectBusinessCategory(e.target.value)}
         >
-          <option value="">Select Category</option>
+          <option value="" className="text-gray-600">
+            Select Category
+          </option>
           {businessesCategory.map((category) => (
-            <option key={category} value={category}>
+            <option key={category} value={category} className="text-gray-900">
               {category}
             </option>
           ))}
@@ -30,13 +33,13 @@ function BusinessCategory() {
 
         {/* <label
           for="countries"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Select an option
         </label>
         <select
           id="countries"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-52 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-52 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option selected>Choose a category</option>
           {businessesCategory.map((home) => (
@@ -45,7 +48,7 @@ function BusinessCategory() {
         </select> */}
         {/* <select
           id="countries"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-52 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-52 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option selected>Choose a Location</option>
           {businessesCategory.map((home) => (

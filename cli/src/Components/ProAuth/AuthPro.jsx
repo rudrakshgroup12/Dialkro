@@ -116,12 +116,6 @@ export const AuthPro = ({ children }) => {
       const response = await axios.post(URI, login);
       const token = response.data.token;
       const id = response.data.id;
-      // console.log();
-      // response.data.user.id;
-
-      // const uri2 = "/api/profile";
-      // const res2 = await axios.get(uri2);
-      // console.log(res2);
 
       if (id) {
         setUserProfile(id);
@@ -150,10 +144,6 @@ export const AuthPro = ({ children }) => {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   const logOutNow = async () => {
-    // Add logic to handle adding the new business (e.g., API call, state update, etc.)
-    // console.log("Adding new business:", newBusiness);
-    // Reset the form after adding a business
-    // setNewBusiness({ name: "", description: "" });
     try {
       const URi = "/api/logout";
       await axios
@@ -204,23 +194,6 @@ export const AuthPro = ({ children }) => {
   };
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // const intervalRef = useRef(null);
-  // useEffect(() => {
-  //   intervalRef.current = setInterval(10); // Refresh every 5 seconds
-
-  //   return () => clearInterval(intervalRef.current); // Clear interval on unmount
-  // }, []); // Empty dependency array to run useEffect only once
-
-  // ... Render data and components based on state
-
-  // useEffect(() => {
-  //   addBusinesshandleSubmit.then(() => {
-  //     intervalRef.current = setInterval(() => {
-  //       fetch();
-  //     }, 5000);
-  //   });
-  //   return () => clearInterval(intervalRef.current);
-  // }, [addBusinesshandleSubmit]);
 
   //Get Business From Database
   //////////////////////////////////////////////////////////////////////////////////////
@@ -229,8 +202,37 @@ export const AuthPro = ({ children }) => {
   //////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////
 
-  const [businessesCategory, setBusinessesCategory] = useState([]);
+  const [businesses, setUsers] = useState([]);
   const [selectBusinessCategory, setSelectBusinessCategory] = useState("");
+
+  // const [error, setError] = useState(null);
+  useEffect(() => {
+    (async () => {
+      if (selectBusinessCategory) {
+        const URI = `/api/business?category=${selectBusinessCategory}`;
+        try {
+          const response = await axios.get(URI);
+          setUsers(response.data.allBusiness);
+          console.error(response.data);
+        } catch (err) {
+          console.error("Error fetching data:", err);
+          // Display error message to the user
+        }
+      } else {
+        const URI = `/api/business`;
+        try {
+          const response = await axios.get(URI);
+          setUsers(response.data.allBusiness);
+          console.error(response.data);
+        } catch (err) {
+          console.error("Error fetching data:", err);
+          // Display error message to the user
+        }
+      }
+    })();
+  }, [selectBusinessCategory]);
+
+  const [businessesCategory, setBusinessesCategory] = useState([]);
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
   useEffect(() => {
     (async () => {
@@ -238,13 +240,6 @@ export const AuthPro = ({ children }) => {
       await axios
         .get(URL)
         .then((response) => {
-          // const uniqueCategory = response.data.business.reduce((acc, curr) => {
-          //   if (!acc.includes(curr.category)) {
-          //     acc.push(curr.category);
-          //   }
-          //   return acc;
-          // }, []);
-          console.log(response.data);
           setBusinessesCategory(response.data.data);
           // console.log(response.data.business)
         })
@@ -254,45 +249,19 @@ export const AuthPro = ({ children }) => {
     })();
   }, []);
 
-  const seleBusinCateHandleInputOnChange = (e) => {
-    const { name, value } = e.target;
-    try {
-      setSelectBusinessCategory({
-        ...selectBusinessCategory,
-        [name]: value,
-      });
-    } catch (error) {
-      setError(`Error is inputchange handle ${error.message}`);
-      console.log(`Error is ${error.message}`);
-    }
-  };
+  // const seleBusinCateHandleInputOnChange = (e) => {
+  //   const { name, value } = e.target;
+  //   try {
+  //     setSelectBusinessCategory({
+  //       ...selectBusinessCategory,
+  //       [name]: value,
+  //     });
+  //   } catch (error) {
+  //     setError(`Error is inputchange handle ${error.message}`);
+  //     console.log(`Error is ${error.message}`);
+  //   }
+  // };
 
-  const [businesses, setUsers] = useState([]);
-
-  // const [error, setError] = useState(null);
-  useEffect(() => {
-    (async () => {
-      const URL = `/api/business`;
-      // Axios will automatically reject the promise on HTTP error (status >= 400)
-      // We can catch the error using .catch method
-      await axios
-        .get(URL)
-        .then((response) => {
-          // if (response.status === 401) {
-          //   // Handle unauthorized access here
-          //   // For example, redirect to login page or show an error message
-          //   setError("Unauthorized access. Please login.");
-          //   return;
-          // }
-          setUsers(response.data.business);
-          // console.log(response.data);
-        })
-        .catch((err) => {
-          // console.error("Error fetching users:", err);
-          setError(`Log in Please  erro is ${err.message}`);
-        });
-    })();
-  }, [selectBusinessCategory]);
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // useEffect(() => {
@@ -402,26 +371,6 @@ export const AuthPro = ({ children }) => {
     }
   };
 
-  // useEffect(() => {
-  //   (async () => {
-  //     // Added parentheses to invoke the async function immediately
-  //     if (selectBusinessCategory) {
-  //       // console.log(selectBusinessCategory)
-  //       const URI = `/api/business?category=${selectBusinessCategory}`;
-  //       try {
-  //         const response = await axios.get(URI);
-
-  //         setFetchBusinessByCategory(response.data.category[0]);
-  //       } catch (error) {
-  //         setError(`Error is busbycat ${error.message}`);
-  //         console.log(`Error is ${error.message}`);
-  //       }
-  //     } else {
-  //       navi("/businesses");
-  //     }
-  //   })();
-  // }, [selectBusinessCategory]);
-
   const authContextVal = {
     login,
     loginhandleSubmit,
@@ -453,7 +402,8 @@ export const AuthPro = ({ children }) => {
 
     businessesCategory,
     selectBusinessCategory,
-    seleBusinCateHandleInputOnChange,
+    setSelectBusinessCategory,
+
     // fetchBusinessByCategory,
   };
   return (
