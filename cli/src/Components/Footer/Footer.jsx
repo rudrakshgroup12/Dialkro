@@ -16,7 +16,7 @@ const CustomFooter = () => {
   return (
     <>
       <footer className={isDarkMode ? "dark" : ""}>
-        <div className="dark:bg-neutral-900 bg-white dark:text-white p-4 items-center bg-black text-white  ">
+        <div className="dark:bg-neutral-900 bg-dark dark:text-white p-4 items-center bg-black text-white  ">
           {" "}
           <div className="flex justify-center pt-10 pb-14 md:pb-9">
             {" "}

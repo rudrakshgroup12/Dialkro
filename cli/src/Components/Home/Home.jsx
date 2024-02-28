@@ -496,25 +496,16 @@ function Home() {
             <div className="text-6xl text-black">Popular Searches</div>
           </div>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
-        <div>
-            <img src={dialkrohome4} alt="Featured Image 1" className="rounded-t-xl"/>
-=======
-=======
->>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
+
         <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
           <div>
             <img
-              src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg"
+              src={dialkrohome4}
               alt="Featured Image 1"
               className="rounded-t-xl"
             />
-<<<<<<< HEAD
->>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
-=======
->>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
+            
+
             <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
               <div className="text-white space-y-4">
                 <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
@@ -567,15 +558,10 @@ function Home() {
             </div>
 
         </div> 
-        <div className="">
-            <img src={dialkrohome5} alt="Featured Image 1" className="rounded-t-xl"/>
-=======
-=======
->>>>>>> 54ee85489607abc0bc889d0bd3b213aa7acfe9dd
-          </div>
+       
           <div className="">
             <img
-              src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg"
+              src={dialkrohome5}
               alt="Featured Image 1"
               className="rounded-t-xl"
             />
