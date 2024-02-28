@@ -52,6 +52,7 @@ function BusinessList() {
                   // alt={business.name}
                   className="w-full h-40 object-cover"
                 />
+                
 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -63,7 +64,7 @@ function BusinessList() {
                   <p className="text-gray-700">{business.location?.city}</p>
                   <p className="text-gray-700">{business.description}</p>
                   <Link
-                    to={`/business/edit`}
+                     to={`/business/edit/${business._id}`}
                     className="mt-4 inline-block py-2 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     View Details
