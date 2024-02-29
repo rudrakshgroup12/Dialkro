@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Carousel } from "@material-tailwind/react";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 import { IoIosLogOut } from "react-icons/io";
-import Banner from "./Banner.jsx"
+import Banner from "./Banner.jsx";
 import {
   FaUser,
   FaEnvelope,
@@ -36,10 +36,10 @@ const UserProfileComponent = () => {
       {islogin ? (
         <div className="h-full bg-white p-8">
           <div className="w-full h-[250px]">
-           <Banner/>
+            <Banner />
             <Link to="/edituser">
               <button className="flex items-center bg-rose-800 hover:bg-blue-700 text-gray-100 px-4 py-2 m-2 rounded text-sm space-x-2 transition duration-100">
-                <span>edit</span>
+                <span>edit </span>
               </button>
             </Link>
             <button
@@ -82,6 +82,7 @@ const UserProfileComponent = () => {
               </span>
             </div>
             <p className="text-gray-700">UserName:{userData.data?.username}</p>
+            {userData.data?._id}
             <p className="text-sm text-gray-500">{userData.data?.email}</p>
           </div>
           <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">

@@ -21,7 +21,7 @@ userRoutes.post("/login", loginUser);
 userRoutes.get("/users", auth, getUsers);
 
 //USER
-userRoutes.put("/profile/:id", auth, updateUser);
+userRoutes.put("/profile/:id",  updateUser);
 userRoutes.get("/profile/:id", auth, getUserbyId);
 
 userRoutes.post("/profile/forgot", forgotPassword);

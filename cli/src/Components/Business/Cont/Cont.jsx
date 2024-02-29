@@ -52,9 +52,9 @@ function Cont() {
                   {business.name}
                 </h2>
                 <p className="leading-relaxed text-base text-neutral-900">
-                  {business.description.length > 150 ? (
+                  {business.description.length > 75 ? (
                     <span>
-                      {business.description.substring(0, 75)}
+                      {business.description.substring(0, 10)}
                       <Link
                         to={`/business/${business._id}`}
                         className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"

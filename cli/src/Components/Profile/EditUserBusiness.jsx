@@ -83,9 +83,9 @@ function EditUserBusiness() {
     <>
       {" "}
       {businessesByid.data && (
-        <div className=" flex justify-around mx-auto p-5">
-          <div className="flex-row grid-cols-1 w-96  md:grid-cols-12 border">
-            <div className="bg-gray-900 md:col-span-4 p-10 text-white p-4">
+        <div className=" flex justify-around mx-auto rounded-full p-5">
+          <div className="flex-row grid-cols-1 w-96  md:grid-cols-12 border  shadow-2xl">
+            <div className="bg-neutral-950 md:col-span-4 p-10 text-white p-4">
               <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
                 {businessesByid?.data?.contact?.phone}
                 <br />
@@ -101,7 +101,7 @@ function EditUserBusiness() {
                 </span>
               </h3>
               <div className="flex items-center mt-5">
-                <p>{businessesByid.data?.description}</p>
+                <p className="text-">{businessesByid.data?.description}</p>
               </div>
 
               <div className="flex-col justify-between  mt-5">
