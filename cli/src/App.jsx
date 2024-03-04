@@ -16,10 +16,10 @@ import ErrorBoundary from "./Components/ErrorBodyComp/EBComp.jsx";
 import ProfileBusiness from "./Components/Profile/ProfileBusiness.jsx";
 import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
 // import About from "./Components/About/About.jsx"
-import Blog from "./Components/Blogs/Blog.jsx"
-import Blogcontent from "./Components/Blogs/Blogcontent.jsx"
+import Blog from "./Components/Blogs/Blog.jsx";
+import Blogcontent from "./Components/Blogs/Blogcontent.jsx";
 
-import Contactus from "./Components/Contacts/Contactus.jsx"
+import Contactus from "./Components/Contacts/Contactus.jsx";
 
 import About from "./Components/About/About.jsx";
 import ForgotPassword from "./Components/Login/ForgotPassword.jsx";
@@ -32,8 +32,6 @@ function App() {
           <NavBar />
           <ErrorBoundary>
             <Routes>
-
-              
               <Route exact path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/edituser" element={<Editprofile />} />
@@ -44,17 +42,16 @@ function App() {
               <Route path="/mybusiness" element={<ProfileBusiness />} />
               <Route path="/businesses" element={<Business />} />
               <Route path="/business/:id" element={<ViewBusiness />} />
-              <Route  te path="/business/edit" element={<EditUserBusiness/>}/>
-              <Route path="/about" element={<About/>}/>
-              <Route path="/blog" element={<Blog/>}/>
-              <Route path="/blogcontent" element={<Blogcontent/>}/>
+              <Route te path="/business/edit" element={<EditUserBusiness />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blogcontent" element={<Blogcontent />} />
 
-              <Route path="/contactus" element={<Contactus/>}/>
+              <Route path="/contactus" element={<Contactus />} />
 
-              <Route path="/business/edit" element={<EditUserBusiness />} />
-         
+              <Route path="/business/edit/:id" element={<EditUserBusiness />} />
+
               <Route path="/forgot" element={<ForgotPassword />} />
-
             </Routes>
             <Footer />
           </ErrorBoundary>

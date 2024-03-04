@@ -7,14 +7,14 @@ import { useAuth } from "../ProAuth/AuthPro.jsx";
 import rgshinelogo from "../assets/rgshinelogo.png";
 import digitalsollogo from "../assets/digitalsollogo.png";
 import healthcarelogo from "../assets/healthcarelogo.png";
- import dial24newslogo from "../assets/dial24newslogo.png";
- import rudrakshagroup from "../assets/rudrakshagroup.png";
- import dialkrohomepage2 from "../assets/dialkrohomepage2.png";
- import dialkrohome3 from "../assets/dialkrohome3.png";
- import dialkrohome4 from "../assets/dialkrohome4.png";
- import dialkrohome5 from "../assets/dialkrohome5.png";
- import dialkrohomepageimg from "../assets/dialkrohomepageimg.png";
-  import skylinelogo from "../assets/skylinelogo.png";
+import dial24newslogo from "../assets/dial24newslogo.png";
+import rudrakshagroup from "../assets/rudrakshagroup.png";
+import dialkrohomepage2 from "../assets/dialkrohomepage2.png";
+import dialkrohome3 from "../assets/dialkrohome3.png";
+import dialkrohome4 from "../assets/dialkrohome4.png";
+import dialkrohome5 from "../assets/dialkrohome5.png";
+import dialkrohomepageimg from "../assets/dialkrohomepageimg.png";
+import skylinelogo from "../assets/skylinelogo.png";
 function Home() {
   const { isDarkMode } = useAuth();
   const [searchInput, setSearchInput] = useState("");
@@ -364,7 +364,6 @@ function Home() {
                 <img
                   tabIndex="0"
                   className="focus:outline-none"
-                 
                   src={rudrakshagroup}
                   alt="Toyota"
                   role="img"
@@ -496,120 +495,156 @@ function Home() {
             <div className="text-6xl text-black">Popular Searches</div>
           </div>
         </div>
+      </div>
 
-        <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
-          <div>
-            <img
-              src={dialkrohome4}
-              alt="Featured Image 1"
-              className="rounded-t-xl"
-            />
-            
 
-            <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
-              <div className="text-white space-y-4">
-                <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
-                <div className="text-lg font-light">
-                  Card subtitle with a long long long long long long text
-                </div>
-              </div>
-              <div className="flex justify-between pt-8">
-                <ul className="flex flex-col gap-y-2.5">
-                  <li className="flex space-x-3 text-white">
-                    <img
-                      width="50"
-                      height="50"
-                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                      alt="checked--v1"
-                      className="w-6 h-6"
-                    />
-                    <span className="paragraph-l font-bold">Item 1</span>
-                  </li>
-                  <li className="flex space-x-3 text-white">
-                    <img
-                      width="50"
-                      height="50"
-                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                      alt="checked--v1"
-                      className="w-6 h-6"
-                    />
-                    <span className="paragraph-l font-bold">Item 1</span>
-                  </li>
-                  <li className="flex space-x-3 text-white">
-                    <img
-                      width="50"
-                      height="50"
-                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                      alt="checked--v1"
-                      className="w-6 h-6"
-                    />
-                    <span className="paragraph-l font-bold">Item 1</span>
-                  </li>
-                </ul>
-                <div className="flex flex-col justify-end">
-                  <Link
-                    to="/new"
-                    className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            </div>
+        
 
-        </div> 
-       
+          <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
+         
           <div className="">
-            <img
-              src={dialkrohome5}
-              alt="Featured Image 1"
-              className="rounded-t-xl"
-            />
+              <img
+                src={dialkrohome4}
+                alt="Featured Image 1"
+                className="rounded-t-xl"
+              />
 
-            <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
-              <div className="text-white space-y-4">
-                <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
-                <div className="text-lg font-light">
-                  Card subtitle with a long long long long long long text
+              <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
+                <div className="text-white space-y-4">
+                  <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
+                  <div className="text-lg font-light">
+                    Card subtitle with a long long long long long long text
+                  </div>
+                </div>
+                <div className="flex justify-between pt-8">
+                  <ul className="flex flex-col gap-y-2.5">
+                    <li className="flex space-x-3 text-white">
+                      <img
+                        width="50"
+                        height="50"
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                        alt="checked--v1"
+                        className="w-6 h-6"
+                      />
+                      <span className="paragraph-l font-bold">Item 1</span>
+                    </li>
+                    <li className="flex space-x-3 text-white">
+                      <img
+                        width="50"
+                        height="50"
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                        alt="checked--v1"
+                        className="w-6 h-6"
+                      />
+                      <span className="paragraph-l font-bold">Item 1</span>
+                    </li>
+                    <li className="flex space-x-3 text-white">
+                      <img
+                        width="50"
+                        height="50"
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                        alt="checked--v1"
+                        className="w-6 h-6"
+                      />
+                      <span className="paragraph-l font-bold">Item 1</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-col justify-end">
+                    <Link
+                      to="/new"
+                      className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
                 </div>
               </div>
-              <div className="flex justify-between pt-8">
-                <ul className="flex flex-col gap-y-2.5">
-                  <li className="flex space-x-3 text-white">
-                    <img
-                      width="50"
-                      height="50"
-                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                      alt="checked--v1"
-                      className="w-6 h-6"
-                    />
-                    <span className="paragraph-l font-bold">Item 1</span>
-                  </li>
-                  <li className="flex space-x-3 text-white">
-                    <img
-                      width="50"
-                      height="50"
-                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                      alt="checked--v1"
-                      className="w-6 h-6"
-                    />
-                    <span className="paragraph-l font-bold">Item 1</span>
-                  </li>
-                  <li className="flex space-x-3 text-white">
-                    <img
-                      width="50"
-                      height="50"
-                      src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                      alt="checked--v1"
-                      className="w-6 h-6"
-                    />
-                    <span className="paragraph-l font-bold">Item 1</span>
-                  </li>
-                </ul>
-                <div className="flex flex-col justify-end">
+            </div>
+            <div className="">
+              <img
+                src={dialkrohome5}
+                alt="Featured Image 1"
+                className="rounded-t-xl"
+              />
+
+              <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
+                <div className="text-white space-y-4">
+                  <h3 className="text-xl font-bold lead-xl bold">Card Title</h3>
+                  <div className="text-lg font-light">
+                    Card subtitle with a long long long long long long text
+                  </div>
+                </div>
+                <div className="flex justify-between pt-8">
+                  <ul className="flex flex-col gap-y-2.5">
+                    <li className="flex space-x-3 text-white">
+                      <img
+                        width="50"
+                        height="50"
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                        alt="checked--v1"
+                        className="w-6 h-6"
+                      />
+                      <span className="paragraph-l font-bold">Item 1</span>
+                    </li>
+                    <li className="flex space-x-3 text-white">
+                      <img
+                        width="50"
+                        height="50"
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                        alt="checked--v1"
+                        className="w-6 h-6"
+                      />
+                      <span className="paragraph-l font-bold">Item 1</span>
+                    </li>
+                    <li className="flex space-x-3 text-white">
+                      <img
+                        width="50"
+                        height="50"
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                        alt="checked--v1"
+                        className="w-6 h-6"
+                      />
+                      <span className="paragraph-l font-bold">Item 1</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-col justify-end">
+                    <Link
+                      to="/new"
+                      className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+
+        <div className="relative mx-auto max-w-5xl my-40">
+          <div className="rounded-xl p-1 bg-gradient-to-br from-red-600 via-red-600 to-red-600 h-32">
+            <div className="rounded-lg bg-black/80 backdrop-blur">
+              <div className="flex w-full flex-wrap items-center justify-between gap-4 px-8 py-10 sm:px-16 lg:flex-nowrap">
+                <div className="lg:max-w-xl">
+                  <h2 className="block w-full pb-2 bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+                    Lorem ipsum dolor sit amet. ftrcghu vvtrh
+                  </h2>
+                  <p className="my-4 bg-transparent font-medium leading-relaxed tracking-wide text-gray-400">
+                    Natural Language Processing (NLP): The SmartAI Assistant
+                    understands and interprets natural language commands,
+                    allowing users to communicate with it effortlessly.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-6 ">
                   <Link
                     to="/new"
-                    className="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full"
+                    className="bg-red-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm"
+                  >
+                    Get Started
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm"
                   >
                     Learn More
                   </Link>
@@ -618,40 +653,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="relative mx-auto max-w-5xl my-40">
-        <div className="rounded-xl p-1 bg-gradient-to-br from-red-600 via-red-600 to-red-600 h-32">
-          <div className="rounded-lg bg-black/80 backdrop-blur">
-            <div className="flex w-full flex-wrap items-center justify-between gap-4 px-8 py-10 sm:px-16 lg:flex-nowrap">
-              <div className="lg:max-w-xl">
-                <h2 className="block w-full pb-2 bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
-                  Lorem ipsum dolor sit amet. ftrcghu vvtrh
-                </h2>
-                <p className="my-4 bg-transparent font-medium leading-relaxed tracking-wide text-gray-400">
-                  Natural Language Processing (NLP): The SmartAI Assistant
-                  understands and interprets natural language commands, allowing
-                  users to communicate with it effortlessly.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-6 ">
-                <Link
-                  to="/new"
-                  className="bg-red-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm"
-                >
-                  Get Started
-                </Link>
-                <Link
-                  to="/about"
-                  className="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* hello */}
     </div>

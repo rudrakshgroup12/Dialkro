@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 
 const AuthContext = createContext();
 export const AuthPro = ({ children }) => {
+
+
   const navi = useNavigate();
   const [businessData, setBusinessData] = useState({
     name: "",
@@ -25,10 +27,7 @@ export const AuthPro = ({ children }) => {
     },
   });
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  //Fetch Business Listed By User
+  
 
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
@@ -213,7 +212,7 @@ export const AuthPro = ({ children }) => {
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
-          console.error(response.data);
+          // console.error(response.data);
         } catch (err) {
           console.error("Error fetching data:", err);
           // Display error message to the user
@@ -223,7 +222,7 @@ export const AuthPro = ({ children }) => {
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
-          console.error(response.data);
+          // console.error(response.data);
         } catch (err) {
           console.error("Error fetching data:", err);
           // Display error message to the user
@@ -264,31 +263,7 @@ export const AuthPro = ({ children }) => {
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // useEffect(() => {
-  //   islogin;
-  // }, [islogin]);
-  //   const [singleBusi, setSingleBusi] = useState([]);
-  //   const { id } = useParams();
-  //   const getSingle = async () => {
-  //     const URL = `/api/business/${id}`;
-  //     try {
-  //       const response = await axios.get(URL);
-  //       setSingleBusi(response.data);
-  //     } catch (error) {
-  //       setError(`${error}`);
-  //     }
-  //   };
-
-  //   const [businessesbyId, setbusinessesbyId] = useState([]);
-  //   const { id } = useParams();
-  //   //   console.log(`serial number is ${id}`)
-
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //
-
-  //     fetchData();
-  //   }, [id]);
+ 
   const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
     if (isDarkMode) {
@@ -416,3 +391,44 @@ export const AuthPro = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // useEffect(() => {
+  //   islogin;
+  // }, [islogin]);
+  //   const [singleBusi, setSingleBusi] = useState([]);
+  //   const { id } = useParams();
+  //   const getSingle = async () => {
+  //     const URL = `/api/business/${id}`;
+  //     try {
+  //       const response = await axios.get(URL);
+  //       setSingleBusi(response.data);
+  //     } catch (error) {
+  //       setError(`${error}`);
+  //     }
+  //   };
+
+  //   const [businessesbyId, setbusinessesbyId] = useState([]);
+  //   const { id } = useParams();
+  //   //   console.log(`serial number is ${id}`)
+
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //
+
+  //     fetchData();
+  //   }, [id]);

@@ -1,162 +1,409 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function EditUserBusiness({ selectedBusiness }) {
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
-  const [description, setDescription] = useState("");
-  const [changesSaved, setChangesSaved] = useState(false);
-  const [images, setImages] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+function EditUserBusiness() {
+  const Navi = useNavigate();
+  const [updateBusiness, setUpdateBusiness] = useState({
+    name: "",
+    description: "",
+    category: "",
+    contact: {
+      phone: "",
+      email: "",
+      website: "",
+    },
+    location: {
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+    },
+  });
+  const [businessesByid, setBusinessesByid] = useState([]);
+
+  const { id } = useParams();
+  //   console.log(`serial number is ${id}`)
 
   useEffect(() => {
-    if (selectedBusiness) {
-      setName(selectedBusiness.name);
-      setLocation(selectedBusiness.location);
-      setDescription(selectedBusiness.description);
-      setImages(selectedBusiness.images || []);
+    const fetchData = async () => {
+      if (id) {
+        const URL = `/api/business/${id}`;
+        try {
+          const response = await axios.get(URL);
+          setBusinessesByid(response.data);
+          // console.log(response.data);
+        } catch (err) {
+          console.log(`Log in Please ${err.message}`);
+        }
+      } else {
+        Navi("/businesses");
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  const updateBusinesshandleChange = (e) => {
+    const { name, value } = e.target;
+    if (name.includes(".")) {
+      const [parentKey, childKey] = name.split(".");
+      setUpdateBusiness((prevState) => ({
+        ...prevState,
+        [parentKey]: {
+          ...prevState[parentKey],
+          [childKey]: value,
+        },
+      }));
+    } else {
+      setUpdateBusiness((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
     }
-  }, [selectedBusiness]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here, you can handle form submission (e.g., send data to backend)
-    console.log("Form submitted:", { name, location, description });
-    setName("");
-    setLocation("");
-    setDescription("");
-    setChangesSaved(true);
   };
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+  const uppdateBusinesshandleSubmit = async (e) => {
+    try {
+      if (id) {
+        e.preventDefault();
+        const uri = `/api/business/${id}`;
+        await axios.put(uri, updateBusiness);
+        alert(`Business Updated SuccessFully`);
+        Navi("/mybusiness");
+      } else {
+        Navi("/login");
+      }
+    } catch (error) {
+      console.log(`Error is from update  ${error.message}`);
+    }
   };
 
   return (
     <>
-      <div className="max-w-screen-lg mx-auto p-5">
-    <div className="grid grid-cols-1 md:grid-cols-12 border">
-        <div className="bg-gray-900 md:col-span-4 p-10 text-white">
-            <p className="mt-4 text-sm leading-7 font-regular uppercase">
-                Contact
-            </p>
-            <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-                Get In <span className="text-red-600">Business</span>
-            </h3>
-            <p className="mt-4 leading-7 text-gray-200">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s.
-            </p>
+      {" "}
+      {businessesByid.data && (
+        <div className="max-w-screen-lg mx-auto p-5">
+          <div className="grid grid-cols-1 md:grid-cols-12 border">
+            <div className="bg-gray-900 md:col-span-4 p-10 text-white">
+              <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
+                {businessesByid?.data?.contact?.phone}
+                <br />
+                {businessesByid?.data?.contact?.email}
+                <br />
+                {businessesByid?.data?.contact?.website}
+              </p>
 
-            <div className="flex items-center mt-5">
-                
-                    
-                       
-                   <p>Business Name</p>     
-                <span className="text-sm">{name}</span>
-            </div>
-            <div className="flex items-center mt-5">
-  <p>Location</p>
-                <span className="text-sm">{location}</span>
-            </div>
-            <div className="flex items-center mt-5">
-<p>Description</p>
-                <span className="text-sm">{description}</span>
-            </div>
+              <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+                Get In{" "}
+                <span className="text-red-600">
+                  {businessesByid.data?.name}
+                </span>
+              </h3>
+              <div className="flex items-center mt-5">
+                <p>{businessesByid.data?.description}</p>
+              </div>
 
+              <div className="flex-col justify-between  mt-5">
+                <p>Business Name {businessesByid.data?.name}</p>
+                <br />
+                {businessesByid?.data?.category}
+                <br />
+                <span className="text-sm">{businessesByid.data?.name}</span>
+                <br />
+              </div>
+              <div className="flex-col justify-betweenmt-5">
+                <p>Location</p>
+                <span className="text-sm">
+                  {businessesByid?.data?.location?.address}
+                </span>
+                {businessesByid?.data?.location?.state}
+                <br />
+                {businessesByid?.data?.location?.city}
+                <br />
+                {businessesByid?.data?.location?.zipCode}
+                <br />
+              </div>
+            </div>
+          </div>
         </div>
-        <form onSubmit={handleSubmit} className="md:col-span-8 p-10">
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-first-name">
-                        First Name
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-first-name" type="text" placeholder="Jane"  name="name"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-                setChangesSaved(false);
-              }}/>
-                    {/* {/ <p class="text-red-500 text-xs italic">Please fill out this field.</p> /} */}
-                </div>
-                <div className="w-full md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-last-name">
-                        Last Name
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-last-name" type="text" placeholder="Doe"/>
-                </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-password">
-                      Location
-                    </label>
-                    <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-email" type="email" placeholder="********@*****.**"  name="location"
-              value={location}
-              onChange={(e) => {
-                setLocation(e.target.value);
-                setChangesSaved(false);
-              }}  required/>
-                </div>
+      )}
+      <div>
+        <form
+          onSubmit={uppdateBusinesshandleSubmit}
+          className="bg-white p-8 w-full  "
+        >
+          {/* Business Details Section */}
+          <section className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">Business Details</h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block  text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Business Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  defaultValue={updateBusiness.name}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter business name"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="category"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Category
+                </label>
+                <input
+                  type="text"
+                  id="category"
+                  name="category"
+                  defaultValue={updateBusiness.category}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter business category"
+                />
+
+                {/* <select className="rounded-md border-rose-600 border-2 p-1">
+                        <option>Select A Category</option>
+                        {businessesCategory.map((home) => (
+                          <option key={home.index}>{home.name}</option>
+                        ))}
+                      </select> */}
+
+                {/* {businessesCategory.map((category) => (
+                        <div key={category._id}>
+                          <input
+                            type="checkbox"
+                            id={category._id}
+                            value={category._id}
+                            // checked={selectedCategories.includes(category._id)}
+                            // onChange={() => handleCategoryChange(category._id)}
+                          />
+                          <label htmlFor={category._id}>{category.name}</label>
+                        </div>
+                      ))} */}
+              </div>
             </div>
 
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-password">
-                        Description
-                    </label>
-                    <textarea rows="10"
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"    name="description"
-              value={description}
-              onChange={(e) => {
-                setDescription(e.target.value);
-                setChangesSaved(false);
-              }}></textarea>
-                </div>
-                <div className="flex justify-between w-full px-3">
-                    <div className="md:flex md:items-center">
-                        <label className="block text-gray-500 font-bold">
-                            <input className="mr-2 leading-tight" type="checkbox"/>
-                            <span className="text-sm">
-                                Send me your newsletter!
-                            </span>
-                        </label>
-                    </div>
-                    <button
-                        className="shadow bg-red-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                        type="submit">
-                     Edited Business
-                    </button>
-                </div>
-
+            <div className="mb-4">
+              <label
+                htmlFor="description"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Description
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                defaultValue={updateBusiness.description}
+                onChange={updateBusinesshandleChange}
+                className="w-full border rounded p-2"
+                placeholder="Enter business description"
+              ></textarea>
             </div>
-            {changesSaved && (
-            <p className="mt-4 text-center text-sm text-gray-500">Changes saved successfully!</p>
-          )}
+          </section>
+
+          {/* Contact Section */}
+          <section className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">Contact Information</h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="mb-4">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Contact Phone
+                </label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="contact.phone"
+                  defaultValue={updateBusiness.contact?.phone}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter contact phone"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Contact Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="contact.email"
+                  defaultValue={updateBusiness.contact?.email}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter contact email"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="website"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Website
+                </label>
+                <input
+                  type="text"
+                  id="website"
+                  name="contact.website"
+                  defaultValue={updateBusiness.contact?.website}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter website URL"
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Location Section */}
+          <section className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">Location Information</h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="mb-4">
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="location.address"
+                  defaultValue={updateBusiness.location?.address}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter business address"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="city"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  City
+                </label>
+                <input
+                  type="text"
+                  id="city"
+                  name="location.city"
+                  defaultValue={updateBusiness.location.city}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter city"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="state"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  State
+                </label>
+                <input
+                  type="text"
+                  id="state"
+                  name="location.state"
+                  defaultValue={updateBusiness.location.state}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter state"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="zipCode"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Zip Code
+                </label>
+                <input
+                  type="text"
+                  id="zipCode"
+                  name="location.zipCode"
+                  defaultValue={updateBusiness.location.zipCode}
+                  onChange={updateBusinesshandleChange}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter zip code"
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Submit Button */}
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-red-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
+            >
+              Update Your Business
+            </button>
+          </div>
         </form>
-
-    </div>
-</div>
+      </div>
     </>
   );
 }
 
-
 export default EditUserBusiness;
+
+// const [name, setName] = useState("");
+// const [location, setLocation] = useState("");
+// const [description, setDescription] = useState("");
+// const [changesSaved, setChangesSaved] = useState(false);
+// const [images, setImages] = useState([]);
+// const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+// useEffect(() => {
+//   if (selectedBusiness) {
+//     setName(selectedBusiness.name);
+//     setLocation(selectedBusiness.location);
+//     setDescription(selectedBusiness.description);
+//     setImages(selectedBusiness.images || []);
+//   }
+// }, [selectedBusiness]);
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   // Here, you can handle form submission (e.g., send data to backend)
+//   console.log("Form submitted:", { name, location, description });
+//   setName("");
+//   setLocation("");
+//   setDescription("");
+//   setChangesSaved(true);
+// };
+
+// const handlePrevImage = () => {
+//   setCurrentImageIndex((prevIndex) =>
+//     prevIndex === 0 ? images.length - 1 : prevIndex - 1
+//   );
+// };
+
+// const handleNextImage = () => {
+//   setCurrentImageIndex((prevIndex) =>
+//     prevIndex === images.length - 1 ? 0 : prevIndex + 1
+//   );
+// };
