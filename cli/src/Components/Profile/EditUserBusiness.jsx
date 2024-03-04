@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { IoLocation ,IoDuplicate , IoPhonePortraitOutline, IoMailSharp,IoGlobeSharp } from "react-icons/io5";
 function EditUserBusiness() {
   const Navi = useNavigate();
   const [updateBusiness, setUpdateBusiness] = useState({
@@ -81,20 +81,22 @@ function EditUserBusiness() {
 
   return (
     <>
+    <div className="grid grid-cols-1 md:grid-cols-12 border p-10">
       {" "}
+      <div className="bg-gray-900 md:col-span-4 p-10 text-white">
       {businessesByid.data && (
         <div className="max-w-screen-lg mx-auto p-5">
-          <div className="grid grid-cols-1 md:grid-cols-12 border">
+          <div className="grid grid-cols-3 md:grid-cols-15">
             <div className="bg-gray-900 md:col-span-4 p-10 text-white">
-              <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
-                {businessesByid?.data?.contact?.phone}
-                <br />
-                {businessesByid?.data?.contact?.email}
-                <br />
-                {businessesByid?.data?.contact?.website}
+              <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase ">
+          <div className="flex pr-3"><IoPhonePortraitOutline className="mt-2 text-red-600"/> {businessesByid?.data?.contact?.phone}</div>    
+           
+              <div className="flex pr-3"><IoMailSharp className="mt-2 text-red-600"/> {businessesByid?.data?.contact?.email}</div>  
+           
+             <div className="flex pr-3"><IoGlobeSharp className="mt-2 text-red-600"/>  {businessesByid?.data?.contact?.website}</div> 
               </p>
 
-              <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+              <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold mt-5 ">
                 Get In{" "}
                 <span className="text-red-600">
                   {businessesByid.data?.name}
@@ -105,6 +107,7 @@ function EditUserBusiness() {
               </div>
 
               <div className="flex-col justify-between  mt-5">
+              <p className="text-red-600 font-bold flex"><IoDuplicate className="mt-1 "/>Category</p>
                 <p>Business Name {businessesByid.data?.name}</p>
                 <br />
                 {businessesByid?.data?.category}
@@ -112,8 +115,8 @@ function EditUserBusiness() {
                 <span className="text-sm">{businessesByid.data?.name}</span>
                 <br />
               </div>
-              <div className="flex-col justify-betweenmt-5">
-                <p>Location</p>
+              <div className="flex-col justify-betweenmt-5 mt-10">
+                <p className="text-red-600 font-bold flex "><IoLocation className="mt-1"/>Location</p>
                 <span className="text-sm">
                   {businessesByid?.data?.location?.address}
                 </span>
@@ -128,10 +131,12 @@ function EditUserBusiness() {
           </div>
         </div>
       )}
-      <div>
+      </div>
+ 
+
         <form
           onSubmit={uppdateBusinesshandleSubmit}
-          className="bg-white p-8 w-full  "
+          className="md:col-span-8 p-10 "
         >
           {/* Business Details Section */}
           <section className="mb-6">
@@ -364,6 +369,19 @@ function EditUserBusiness() {
           </div>
         </form>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </>
   );
 }
