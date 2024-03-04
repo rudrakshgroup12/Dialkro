@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 import { Link, useParams } from "react-router-dom";
 import "./Editprofile.css";
 function Editprofile() {
   const { islogin, logOutNow, error, userData } = useAuth();
+  const [updateUser,setUpdateUser]=useState({})
 
   return (
     <>
@@ -79,7 +80,7 @@ function Editprofile() {
                             <div className="mb-4 md:mr-2 md:mb-0">
                               <label
                                 className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
-                                for="firstName"
+                                htmlFor="firstName"
                               >
                                 First Name
                               </label>
@@ -93,7 +94,7 @@ function Editprofile() {
                             <div className="md:ml-2">
                               <label
                                 className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
-                                for="lastName"
+                                htmlFor="lastName"
                               >
                                 Last Name
                               </label>
@@ -108,7 +109,7 @@ function Editprofile() {
                           <div className="mb-4">
                             <label
                               className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
-                              for="email"
+                              htmlFor="email"
                             >
                               Email
                             </label>
@@ -123,7 +124,7 @@ function Editprofile() {
                             <div className="mb-4 md:mr-2 md:mb-0">
                               <label
                                 className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
-                                for="password"
+                                htmlFor="password"
                               >
                                 Password
                               </label>
@@ -140,7 +141,7 @@ function Editprofile() {
                             <div className="md:ml-2">
                               <label
                                 className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
-                                for="c_password"
+                                htmlFor="c_password"
                               >
                                 Confirm Password
                               </label>
