@@ -243,10 +243,65 @@ export const AuthPro = ({ children }) => {
           // console.log(response.data.business)
         })
         .catch((err) => {
-          setError(`Error Fecthing BUsiness Category ${err} `);
+          setError(`Error Fecthing Business Category ${err} `);
         });
     })();
   }, []);
+
+
+
+
+ /// my changes
+
+const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
+
+//  const [error, setError] = useState(null);
+ useEffect(() => {
+    (async () => {
+    if (selectBusinessCheck) {
+      const URI = `/api/business?description=${selectBusinessCheck}`;
+      try {
+       const response = await axios.get(URI);
+       setUsers(response.data.allBusiness);
+           console.error(response.data);
+    } catch (err) {
+         console.error("Error fetching data:", err);
+          // Display error message to the user
+       }
+     } else {
+      const URI = `/api/business`;
+      try {
+         const response = await axios.get(URI);
+         setUsers(response.data.allBusiness);
+           console.error(response.data);
+} catch (err) {
+         console.error("Error fetching data:", err);
+          // Display error message to the user
+      }
+}
+   })();
+ }, [selectBusinessCheck]);
+
+ const [businessCheck] = useState([]);
+  // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
+  useEffect(() => {
+    (async () => {
+     const URL = "/api/description";
+     await axios
+        .get(URL)
+        .then((response) => {
+          setSelectBusinessCheck(response.data.data);
+           console.log(response.data.business)
+        })
+       .catch((err) => {
+         setError(`Error Fecthing Business Categor ${err} `);
+       });
+    })();
+ }, []);
+
+// complete change 
+
+
 
   // const seleBusinCateHandleInputOnChange = (e) => {
   //   const { name, value } = e.target;
@@ -379,6 +434,9 @@ export const AuthPro = ({ children }) => {
     selectBusinessCategory,
     setSelectBusinessCategory,
 
+    businessCheck,
+    selectBusinessCheck,
+    setSelectBusinessCheck,
     // fetchBusinessByCategory,
   };
   return (

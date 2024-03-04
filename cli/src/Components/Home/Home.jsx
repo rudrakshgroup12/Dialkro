@@ -497,18 +497,14 @@ function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
-        <div>
-          <img
-            src={dialkrohome4}
-            alt="Featured Image 1"
-            className="rounded-t-xl"
-          />
+
+        
 
           <div className="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
-            <div>
+         
+          <div className="">
               <img
-                src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg"
+                src={dialkrohome4}
                 alt="Featured Image 1"
                 className="rounded-t-xl"
               />
@@ -570,13 +566,6 @@ function Home() {
                 alt="Featured Image 1"
                 className="rounded-t-xl"
               />
-            </div>
-            <div className="">
-              <img
-                src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg"
-                alt="Featured Image 1"
-                className="rounded-t-xl"
-              />
 
               <div className="px-9 pt-10 pb-14 bg-gradient-to-r from-rose-900 via-red-700 to-black rounded-b-lg">
                 <div className="text-white space-y-4">
@@ -630,7 +619,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
+  
 
         <div className="relative mx-auto max-w-5xl my-40">
           <div className="rounded-xl p-1 bg-gradient-to-br from-red-600 via-red-600 to-red-600 h-32">
@@ -664,7 +653,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
+     
 
       {/* hello */}
     </div>

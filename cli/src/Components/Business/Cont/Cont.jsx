@@ -7,6 +7,7 @@ import {
   FaGear,
   FaLightbulb,
   FaLeanpub,
+  FaCircleCheck,
 } from "react-icons/fa6";
 
 import {
@@ -20,17 +21,38 @@ import {
   FcAbout,
 } from "react-icons/fc";
 import axios from "axios";
+import Carousel from '../Cont/Carousel.jsx';
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 import BusinessCategory from "../Category/BusinessCategory.jsx";
+import BusinessCheck from "../Category/BusinessCheck.jsx";
 
 function Cont() {
   const { businesses, error } = useAuth();
   const add = ["shubham", "dipu", "saurabh", "arurapper"];
+
+    const [rating, setRating] = useState(0);
+  
+    const handleStarClick = (index) => {
+      setRating(index + 1);
+    };
+
+  const images = [
+    'https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201508171815013328-5b7ac1c04ebf11edac3d0a58a9feac02.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/64331939.jpg?k=fa33131e9f162cfdd638dcc560d7ca44f26ffb21142949efc7635675e610cd7f&o=&hp=1',
+    'https://images.thedirect.com/media/article_full/disney-movies-titles.jpg',
+  ];
+
+
+ 
   return (
     <>
       {error && (
         <h1 className="text-rose-800 mb-8 text-4xl font-bold">{error}</h1>
       )}
+      <div className="container mx-auto mt-10">
+      <Carousel images={images} />
+    </div>
+
       <BusinessCategory />
       <div className="container  py-24 mx-auto">
         <div className="flex flex-row -m-4 ">
@@ -68,9 +90,12 @@ function Cont() {
                 </p>
               </div>
             </div>
-          ))}
         </div>
-      </div>
+        
+
+
+
+
     </>
   );
 }

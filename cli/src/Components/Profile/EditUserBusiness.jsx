@@ -2,7 +2,13 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import {
+  IoLocation,
+  IoDuplicate,
+  IoPhonePortraitOutline,
+  IoMailSharp,
+  IoGlobeSharp,
+} from "react-icons/io5";
 function EditUserBusiness() {
   const Navi = useNavigate();
   const [updateBusiness, setUpdateBusiness] = useState({
@@ -81,103 +87,114 @@ function EditUserBusiness() {
 
   return (
     <>
-      {" "}
-      {businessesByid.data && (
-        <div className=" flex justify-around mx-auto rounded-full p-5">
-          <div className="flex-row grid-cols-1 w-96  md:grid-cols-12 border  shadow-2xl">
-            <div className="bg-neutral-950 md:col-span-4 p-10 text-white p-4">
-              <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
-                {businessesByid?.data?.contact?.phone}
-                <br />
-                {businessesByid?.data?.contact?.email}
-                <br />
-                {businessesByid?.data?.contact?.website}
-              </p>
+      <div className="grid grid-cols-1 md:grid-cols-12 border p-10">
+        {" "}
+        <div className="bg-gray-900 md:col-span-4 p-10 text-white">
+          {businessesByid.data && (
+            <div className=" flex justify-around mx-auto rounded-full p-5">
+              <div className="flex-row grid-cols-1 w-96  md:grid-cols-12 border  shadow-2xl">
+                <div className="bg-neutral-950 md:col-span-4 p-10 text-white p-4">
+                  <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
+                    {businessesByid?.data?.contact?.phone}
+                    <br />
+                    {businessesByid?.data?.contact?.email}
+                    <br />
+                    {businessesByid?.data?.contact?.website}
+                  </p>
 
-              <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-                Get In{" "}
-                <span className="text-red-600">
-                  {businessesByid.data?.name}
-                </span>
-              </h3>
-              <div className="flex items-center mt-5">
-                <p className="text-">{businessesByid.data?.description}</p>
-              </div>
+                  <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold mt-5 ">
+                    Get In{" "}
+                    <span className="text-red-600">
+                      {businessesByid.data?.name}
+                    </span>
+                  </h3>
+                  <div className="flex items-center mt-5">
+                    <p className="text-">{businessesByid.data?.description}</p>
+                  </div>
 
-              <div className="flex-col justify-between  mt-5">
-                <p>Business Name {businessesByid.data?.name}</p>
-                <br />
-                {businessesByid?.data?.category}
-                <br />
-                <span className="text-sm">{businessesByid.data?.name}</span>
-                <br />
-              </div>
-              <div className="flex-col justify-betweenmt-5">
-                <p>Location</p>
-                <span className="text-sm">
-                  {businessesByid?.data?.location?.address}
-                </span>
-                {businessesByid?.data?.location?.state}
-                <br />
-                {businessesByid?.data?.location?.city}
-                <br />
-                {businessesByid?.data?.location?.zipCode}
-                <br />
-              </div>
-            </div>
-          </div>
-          <form
-            onSubmit={uppdateBusinesshandleSubmit}
-            className="bg-white p-8 w-4/6  "
-          >
-            {/* Business Details Section */}
-            <section className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">Business Details</h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="name"
-                    className="block  text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    Business Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    defaultValue={updateBusiness.name}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter business name"
-                  />
+                  <div className="flex-col justify-between  mt-5">
+                    <p className="text-red-600 font-bold flex">
+                      <IoDuplicate className="mt-1 " />
+                      Category
+                    </p>
+                    <p>Business Name {businessesByid.data?.name}</p>
+                    <br />
+                    {businessesByid?.data?.category}
+                    <br />
+                    <span className="text-sm">{businessesByid.data?.name}</span>
+                    <br />
+                  </div>
+                  <div className="flex-col justify-betweenmt-5 mt-10">
+                    <p className="text-red-600 font-bold flex ">
+                      <IoLocation className="mt-1" />
+                      Location
+                    </p>
+                    <span className="text-sm">
+                      {businessesByid?.data?.location?.address}
+                    </span>
+                    {businessesByid?.data?.location?.state}
+                    <br />
+                    {businessesByid?.data?.location?.city}
+                    <br />
+                    {businessesByid?.data?.location?.zipCode}
+                    <br />
+                  </div>
                 </div>
+              </div>
+              <form
+                onSubmit={uppdateBusinesshandleSubmit}
+                className="bg-white p-8 w-4/6  "
+              >
+                {/* Business Details Section */}
+                <section className="mb-6">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Business Details
+                  </h3>
 
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="category"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    Category
-                  </label>
-                  <input
-                    type="text"
-                    id="category"
-                    name="category"
-                    defaultValue={updateBusiness.category}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter business category"
-                  />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="name"
+                        className="block  text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Business Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        defaultValue={updateBusiness.name}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter business name"
+                      />
+                    </div>
 
-                  {/* <select className="rounded-md border-rose-600 border-2 p-1">
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="category"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Category
+                      </label>
+                      <input
+                        type="text"
+                        id="category"
+                        name="category"
+                        defaultValue={updateBusiness.category}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter business category"
+                      />
+
+                      {/* <select className="rounded-md border-rose-600 border-2 p-1">
                         <option>Select A Category</option>
                         {businessesCategory.map((home) => (
                           <option key={home.index}>{home.name}</option>
                         ))}
                       </select> */}
 
-                  {/* {businessesCategory.map((category) => (
+                      {/* {businessesCategory.map((category) => (
                         <div key={category._id}>
                           <input
                             type="checkbox"
@@ -189,190 +206,193 @@ function EditUserBusiness() {
                           <label htmlhtmlFor={category._id}>{category.name}</label>
                         </div>
                       ))} */}
-                </div>
-              </div>
+                    </div>
+                  </div>
 
-              <div className="mb-4">
-                <label
-                  htmlhtmlFor="description"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Description
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  defaultValue={updateBusiness.description}
-                  onChange={updateBusinesshandleChange}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter business description"
-                ></textarea>
-              </div>
-            </section>
+                  <div className="mb-4">
+                    <label
+                      htmlhtmlFor="description"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Description
+                    </label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      defaultValue={updateBusiness.description}
+                      onChange={updateBusinesshandleChange}
+                      className="w-full border rounded p-2"
+                      placeholder="Enter business description"
+                    ></textarea>
+                  </div>
+                </section>
 
-            {/* Contact Section */}
-            <section className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">
-                Contact Information
-              </h3>
+                {/* Contact Section */}
+                <section className="mb-6">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Contact Information
+                  </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="phone"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="phone"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Contact Phone
+                      </label>
+                      <input
+                        type="text"
+                        id="phone"
+                        name="contact.phone"
+                        defaultValue={updateBusiness.contact?.phone}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter contact phone"
+                      />
+                    </div>
+
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="email"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Contact Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="contact.email"
+                        defaultValue={updateBusiness.contact?.email}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter contact email"
+                      />
+                    </div>
+
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="website"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Website
+                      </label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="contact.website"
+                        defaultValue={updateBusiness.contact?.website}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter website URL"
+                      />
+                    </div>
+                  </div>
+                </section>
+
+                {/* Location Section */}
+                <section className="mb-6">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Location Information
+                  </h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="address"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Address
+                      </label>
+                      <input
+                        type="text"
+                        id="address"
+                        name="location.address"
+                        defaultValue={updateBusiness.location?.address}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter business address"
+                      />
+                    </div>
+
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="city"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        id="city"
+                        name="location.city"
+                        defaultValue={updateBusiness.location.city}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter city"
+                      />
+                    </div>
+
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="state"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        State
+                      </label>
+                      <input
+                        type="text"
+                        id="state"
+                        name="location.state"
+                        defaultValue={updateBusiness.location.state}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter state"
+                      />
+                    </div>
+
+                    <div className="mb-4">
+                      <label
+                        htmlhtmlFor="zipCode"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Zip Code
+                      </label>
+                      <input
+                        type="text"
+                        id="zipCode"
+                        name="location.zipCode"
+                        defaultValue={updateBusiness.location.zipCode}
+                        onChange={updateBusinesshandleChange}
+                        className="w-full border rounded p-2"
+                        placeholder="Enter zip code"
+                      />
+                    </div>
+                  </div>
+                </section>
+
+                {/* Submit Button */}
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="bg-red-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
                   >
-                    Contact Phone
-                  </label>
-                  <input
-                    type="text"
-                    id="phone"
-                    name="contact.phone"
-                    defaultValue={updateBusiness.contact?.phone}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter contact phone"
-                  />
+                    Update Your Business
+                  </button>
                 </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="email"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    Contact Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="contact.email"
-                    defaultValue={updateBusiness.contact?.email}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter contact email"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="website"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    Website
-                  </label>
-                  <input
-                    type="text"
-                    id="website"
-                    name="contact.website"
-                    defaultValue={updateBusiness.contact?.website}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter website URL"
-                  />
-                </div>
-              </div>
-            </section>
-
-            {/* Location Section */}
-            <section className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">
-                Location Information
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="address"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    id="address"
-                    name="location.address"
-                    defaultValue={updateBusiness.location?.address}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter business address"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="city"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="location.city"
-                    defaultValue={updateBusiness.location.city}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter city"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="state"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    State
-                  </label>
-                  <input
-                    type="text"
-                    id="state"
-                    name="location.state"
-                    defaultValue={updateBusiness.location.state}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter state"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlhtmlFor="zipCode"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                  >
-                    Zip Code
-                  </label>
-                  <input
-                    type="text"
-                    id="zipCode"
-                    name="location.zipCode"
-                    defaultValue={updateBusiness.location.zipCode}
-                    onChange={updateBusinesshandleChange}
-                    className="w-full border rounded p-2"
-                    placeholder="Enter zip code"
-                  />
-                </div>
-              </div>
-            </section>
-
-            {/* Submit Button */}
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-red-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
-              >
-                Update Your Business
-              </button>
+              </form>
             </div>
-          </form>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 }
 
 export default EditUserBusiness;
 
-// const [name, setName] = useState("");
+{
+  /* // const [name, setName] = useState("");
 // const [location, setLocation] = useState("");
 // const [description, setDescription] = useState("");
 // const [changesSaved, setChangesSaved] = useState(false);
@@ -408,4 +428,5 @@ export default EditUserBusiness;
 //   setCurrentImageIndex((prevIndex) =>
 //     prevIndex === images.length - 1 ? 0 : prevIndex + 1
 //   );
-// };
+// }; */
+}
