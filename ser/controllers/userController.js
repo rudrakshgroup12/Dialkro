@@ -36,14 +36,11 @@ export const getUserbyId = async (req, res, next) => {
 };
 
 export const updateUser = async (req, res, next) => {
-  const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  })
+  const user = await User.findByIdAndUpdate(req.params.id, req.body)
     .then((data) => {
       return res.status(200).json({
         success: true,
-        data: data,
+        data,
       });
     })
     .catch((err) => {
@@ -55,6 +52,8 @@ export const updateUser = async (req, res, next) => {
 };
 
 export const register = async (req, res) => {
+  const avatar = {};
+
   const { email, password, username } = req.body;
   if (!email || !password || !username)
     return res.status(401).send({ message: "Please provide all fields" });
@@ -246,8 +245,7 @@ export const resetPassword = async (req, res, next) => {
       resetPasstime: { $gt: Date.now() },
     });
 
-    if (!user)
-      return res.status(401).json({ message: "No Token Exist "});
+    if (!user) return res.status(401).json({ message: "No Token Exist " });
 
     const { password } = req.body;
     user.password = password;

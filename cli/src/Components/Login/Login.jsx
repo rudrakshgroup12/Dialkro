@@ -4,6 +4,7 @@ import { useAuth } from "../ProAuth/AuthPro.jsx";
 import axios from "axios";
 import jcoks from "js-cookie";
 import ForgotPassword from "./ForgotPassword.jsx";
+import "./login.css";
 
 function Login() {
   const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
@@ -60,81 +61,70 @@ function Login() {
   //  }, [islogin]);
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-whit via-transparent to-whit">
-        {error && (
-          <h1 className="text-red-500 mb-8 text-4xl font-bold">{error}</h1>
-        )}
-        <div className="max-w-md w-full bg-white p-8 rounded-md shadow-md">
-          <div>
-            <h2 className="text-3xl font-extrabold text-center text-rose-700 mb-4">
-              Log in to your account
-            </h2>
-          </div>
-          <form className="mt-8 space-y-6" onSubmit={loginhandleSubmit}>
-            <div className="rounded-md shadow-sm -space-y-px ">
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
+      <div className="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat login-page">
+        <div className="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
+          <div className="text-white">
+            <div className="mb-8 flex flex-col items-center">
+              <h1 className="mb-2 text-2xl">Dialkro</h1>
+              <span className="text-gray-300">Enter Login Details</span>
+            </div>
+            <form action="#" onSubmit={loginhandleSubmit}>
+              <div className="mb-4 text-lg">
                 <input
-                  id="email"
-                  name="email"
+                  className="rounded-3xl border-none bg-red-400  px-6 py-2 text-center text-black placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                   type="email"
+                  name="email"
+                  placeholder="Enter Your Email"
+                  id="email"
                   autoComplete="email"
                   required
-                  className="appearance-none w-full py-2 px-3 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-800"
-                  placeholder="Email address"
                   value={login.email}
                   onChange={loginHandleInputChange}
                 />
               </div>
-              <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
+
+              <div className="mb-4 text-lg">
                 <input
-                  id="password"
+                  className="rounded-3xl border-none bg-red-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                  type="Password"
                   name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="appearance-none w-full py-2 px-3 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-800"
-                  placeholder="Passwor0d"
+                  placeholder="Passwords....."
                   value={login.password}
                   onChange={loginHandleInputChange}
+                  id="password"
+                  autoComplete="current-password"
+                  required
                 />
               </div>
-            </div>
+              <div className="mt-8 flex justify-center text-lg text-black">
+                <button
+                  type="submit"
+                  className="rounded-3xl bg-red-900  px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+            <div className="text-center mt-5">
+              <Link to="/forgot" className="hover:text-rose-700">
+                Forgot Password
+              </Link>
 
-            <div>
-              {/* <Link to={`/profile/}`}>  */}
-              <button
-                type="submit"
-                className="bg-rose-700 text-white px-4 py-2 rounded font-semibold mt-4 hover:bg-neutral-900"
-              >
-                Login
-              </button>
-              {/* </Link>  */}
+              {islogin ? (
+                <p>
+                  This is a protected component. Only visible to logged-in
+                  users. profile you are alresdy Login{" "}
+                  <Link to="/profile">
+                    <button className="text-rose-800">Profile</button>
+                  </Link>{" "}
+                </p>
+              ) : (
+                <h1>Please login</h1>
+              )}
             </div>
-          </form>
-          <Link to="/forgot" className="hover:text-rose-700">
-            Forgot Password
-          </Link>
-
-          {islogin ? (
-            <p>
-              This is a protected component. Only visible to logged-in users.
-              profile you are alresdy Login{" "}
-              <Link to="/profile">
-                <button className="text-rose-800">Profile</button>
-              </Link>{" "}
-            </p>
-          ) : (
-            <h1>Please login</h1>
-          )}
+          </div>
         </div>
       </div>
-      <div>{/* <ForgotPassword /> */}</div>
     </>
   );
 }
@@ -201,3 +191,140 @@ export default Login;
 //    src="https:unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
 //  ></script>
 //  \*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-whit via-transparent to-whit">
+{error && (
+  <h1 className="text-red-500 mb-8 text-4xl font-bold">{error}</h1>
+)}
+<div className="max-w-md w-full bg-white p-8 rounded-md shadow-md">
+  <div>
+    <h2 className="text-3xl font-extrabold text-center text-rose-700 mb-4">
+      Log in to your account
+    </h2>
+  </div>
+  <form className="mt-8 space-y-6" onSubmit={loginhandleSubmit}>
+    <div className="rounded-md shadow-sm -space-y-px ">
+      <div>
+        <label htmlFor="email" className="sr-only">
+          Email address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          required
+          className="appearance-none w-full py-2 px-3 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-800"
+          placeholder="Email address"
+          value={login.email}
+          onChange={loginHandleInputChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="password" className="sr-only">
+          Password
+        </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          required
+          className="appearance-none w-full py-2 px-3 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-800"
+          placeholder="Passwor0d"
+          value={login.password}
+          onChange={loginHandleInputChange}
+        />
+      </div>
+    </div>
+
+    <div>
+      {/* <Link to={`/profile/}`}>  */}
+//       <button
+//         type="submit"
+//         className="bg-rose-700 text-white px-4 py-2 rounded font-semibold mt-4 hover:bg-neutral-900"
+//       >
+//         Login
+//       </button>
+//       {/* </Link>  */}
+//     </div>
+//   </form>
+//   <Link to="/forgot" className="hover:text-rose-700">
+//     Forgot Password
+//   </Link>
+
+//   {islogin ? (
+//     <p>
+//       This is a protected component. Only visible to logged-in users.
+//       profile you are alresdy Login{" "}
+//       <Link to="/profile">
+//         <button className="text-rose-800">Profile</button>
+//       </Link>{" "}
+//     </p>
+//   ) : (
+//     <h1>Please login</h1>
+//   )}
+// </div>
+// </div>
+// <div>{/* <ForgotPassword /> */}</div> */}

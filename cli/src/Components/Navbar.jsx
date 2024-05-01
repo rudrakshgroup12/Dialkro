@@ -40,7 +40,7 @@ function Navbar() {
               Dialkro
             </h1>
           </Link>
-          <div className="md:absolute md:right-10 flex items-center   p-2 max-md:ml-auto">
+          <div className="md:absolute md:right-10 flex flex-col md:flex-row items-center p-2 max-md:ml-auto">
             {/* Navigation Item */}
             {islogin ? (
               <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700">
@@ -85,9 +85,9 @@ function Navbar() {
               </>
             )}
 
-            <div className="inline-block border-gray-300 border-l-2 pl-6 cursor-pointer">
+            {/* <div className="inline-block border-gray-300 border-l-2 pl-6 cursor-pointer">
               <NavbarToggel />
-            </div>
+            </div> */}
           </div>
         </section>
         <div
@@ -101,14 +101,14 @@ function Navbar() {
             //    id="collapseMenu"
           >
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[18px] block" to="/">
+              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/">
                 {" "}
                 Home
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
               <Link
-                className="hover:text-rose-500  text-[18px] block"
+                className="hover:text-rose-500  text-[16px] block font-medium"
                 to="/about"
               >
                 {" "}
@@ -116,13 +116,40 @@ function Navbar() {
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[18px] block" to="/blog">
+              <Link
+                className="hover:text-rose-500  text-[16px] block font-medium"
+                to="/service"
+              >
+                {" "}
+                Service
+              </Link>
+            </li>
+            <li className="max-lg:border-b max-lg:py-2">
+              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/blog">
                 {" "}
                 Blog
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[18px] block" to="/contactus">
+              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/team">
+                {" "}
+                Team
+              </Link>
+            </li>
+            <li className="max-lg:border-b max-lg:py-2">
+              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/portfolio">
+                {" "}
+                Portfolio
+              </Link>
+            </li>
+            <li className="max-lg:border-b max-lg:py-2">
+              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/business">
+                {" "}
+             OtherBusiness
+              </Link>
+            </li>
+            <li className="max-lg:border-b max-lg:py-2">
+              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/contactus">
                 {" "}
                 Contact
               </Link>

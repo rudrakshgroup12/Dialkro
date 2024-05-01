@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Carousel.css';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
+
 const Carousel = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -18,16 +20,16 @@ const Carousel = ({ images }) => {
   return (
     <div className="relative">
       <button
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-red-700 text-white px-4 py-2 rounded-l"
+        className="absolute top-1/2 left-7 transform -translate-y-1/2 bg-red-700 text-white px-4 py-2 rounded-l"
         onClick={prevImage}
       >
-        Prev
+        <FaArrowAltCircleLeft className='text-white'/>
       </button>
       <button
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-red-700 text-white px-4 py-2 rounded-r"
+        className="absolute top-1/2 right-7 transform -translate-y-1/2 bg-red-700 text-white px-4 py-2 rounded-r"
         onClick={nextImage}
       >
-        Next
+        <FaArrowAltCircleRight className='text-white'/>
       </button>
       <img
         className="block mx-auto  widthset"

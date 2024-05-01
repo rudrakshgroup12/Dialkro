@@ -7,8 +7,6 @@ import { useParams } from "react-router-dom";
 
 const AuthContext = createContext();
 export const AuthPro = ({ children }) => {
-
-
   const navi = useNavigate();
   const [businessData, setBusinessData] = useState({
     name: "",
@@ -26,8 +24,6 @@ export const AuthPro = ({ children }) => {
       zipCode: "",
     },
   });
-
-  
 
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
@@ -113,6 +109,12 @@ export const AuthPro = ({ children }) => {
       e.preventDefault();
       const URI = "/api/login";
       const response = await axios.post(URI, login);
+
+      if (response.status === 400)
+        return res.json({
+          message: "No uSer Exist With That Email Or Password",
+        });
+
       const token = response.data.token;
       const id = response.data.id;
 
@@ -127,7 +129,7 @@ export const AuthPro = ({ children }) => {
         console.error("User ID is null or undefined");
       }
     } catch (error) {
-      setError(`Error is ${error}`);
+      setError(`Error is in login  ${error.message}`);
       console.log(`Error is ${error.message}`);
     }
   };
@@ -203,12 +205,23 @@ export const AuthPro = ({ children }) => {
 
   const [businesses, setUsers] = useState([]);
   const [selectBusinessCategory, setSelectBusinessCategory] = useState("");
+  const [selectBusinessLocation, setselectBusinessLocation] = useState("");
 
   // const [error, setError] = useState(null);
   useEffect(() => {
     (async () => {
       if (selectBusinessCategory) {
         const URI = `/api/business?category=${selectBusinessCategory}`;
+        try {
+          const response = await axios.get(URI);
+          setUsers(response.data.allBusiness);
+          // console.error(response.data);
+        } catch (err) {
+          console.error("Error fetching data:", err);
+          // Display error message to the user
+        }
+      } else if (selectBusinessLocation) {
+        const URI = `/api/business?city=${selectBusinessLocation}`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -229,7 +242,7 @@ export const AuthPro = ({ children }) => {
         }
       }
     })();
-  }, [selectBusinessCategory]);
+  }, [selectBusinessCategory, selectBusinessLocation]);
 
   const [businessesCategory, setBusinessesCategory] = useState([]);
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
@@ -248,60 +261,71 @@ export const AuthPro = ({ children }) => {
     })();
   }, []);
 
-
-
-
- /// my changes
-
-const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
-
-//  const [error, setError] = useState(null);
- useEffect(() => {
-    (async () => {
-    if (selectBusinessCheck) {
-      const URI = `/api/business?description=${selectBusinessCheck}`;
-      try {
-       const response = await axios.get(URI);
-       setUsers(response.data.allBusiness);
-           console.error(response.data);
-    } catch (err) {
-         console.error("Error fetching data:", err);
-          // Display error message to the user
-       }
-     } else {
-      const URI = `/api/business`;
-      try {
-         const response = await axios.get(URI);
-         setUsers(response.data.allBusiness);
-           console.error(response.data);
-} catch (err) {
-         console.error("Error fetching data:", err);
-          // Display error message to the user
-      }
-}
-   })();
- }, [selectBusinessCheck]);
-
- const [businessCheck] = useState([]);
+  const [businessesLocation, setBusinessesLocation] = useState([]);
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
   useEffect(() => {
     (async () => {
-     const URL = "/api/description";
-     await axios
+      const URL = "/api/city";
+      await axios
         .get(URL)
         .then((response) => {
-          setSelectBusinessCheck(response.data.data);
-           console.log(response.data.business)
+          setBusinessesLocation(response.data.data);
         })
-       .catch((err) => {
-         setError(`Error Fecthing Business Categor ${err} `);
-       });
+        .catch((err) => {
+          setError(`Error Fecthing Business Location ${err} `);
+        });
     })();
- }, []);
+  }, []);
 
-// complete change 
+  /// my changes
 
+  // const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
 
+  // //  const [error, setError] = useState(null);
+  // useEffect(() => {
+  //   (async () => {
+  //     if (selectBusinessCheck) {
+  //       const URI = `/api/business?description=${selectBusinessCheck}`;
+  //       try {
+  //         const response = await axios.get(URI);
+  //         setUsers(response.data.allBusiness);
+  //         console.error(response.data);
+  //       } catch (err) {
+  //         console.error("Error fetching data:", err);
+  //         // Display error message to the user
+  //       }
+  //     } else {
+  //       const URI = `/api/business`;
+  //       try {
+  //         const response = await axios.get(URI);
+  //         setUsers(response.data.allBusiness);
+  //         console.error(response.data);
+  //       } catch (err) {
+  //         console.error("Error fetching data:", err);
+  //         // Display error message to the user
+  //       }
+  //     }
+  //   })();
+  // }, [selectBusinessCheck]);
+
+  // const [businessCheck] = useState([]);
+  // // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
+  // useEffect(() => {
+  //   (async () => {
+  //     const URL = "/api/description";
+  //     await axios
+  //       .get(URL)
+  //       .then((response) => {
+  //         setSelectBusinessCheck(response.data.data);
+  //         console.log(response.data.business);
+  //       })
+  //       .catch((err) => {
+  //         setError(`Error Fecthing Business Categor ${err} `);
+  //       });
+  //   })();
+  // }, []);
+
+  // complete change
 
   // const seleBusinCateHandleInputOnChange = (e) => {
   //   const { name, value } = e.target;
@@ -318,7 +342,7 @@ const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 
+
   const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
     if (isDarkMode) {
@@ -401,6 +425,24 @@ const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
     }
   };
 
+  ///bus id
+  // const [busid, setBusid] = useState([]);
+  // console.log(busid)
+  // useEffect(() => {
+  //   (async () => {
+  //     const URI = `/api/business`;
+  //     try {
+  //       const response = await axios.get(URI);
+  //       console.log(response.data);
+  //       setBusid(response.data.allBusiness._id);
+  //       // console.error(response.data);
+  //     } catch (err) {
+  //       console.error("Error fetching data:", err);
+  //       // Display error message to the user
+  //     }
+  //   })();
+  // }, []);
+
   const authContextVal = {
     login,
     loginhandleSubmit,
@@ -434,9 +476,13 @@ const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
     selectBusinessCategory,
     setSelectBusinessCategory,
 
-    businessCheck,
-    selectBusinessCheck,
-    setSelectBusinessCheck,
+    businessesLocation,
+    selectBusinessLocation,
+    setselectBusinessLocation,
+
+    // businessCheck,
+    // selectBusinessCheck,
+    // setSelectBusinessCheck,
     // fetchBusinessByCategory,
   };
   return (
@@ -450,43 +496,28 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
+// useEffect(() => {
+//   islogin;
+// }, [islogin]);
+//   const [singleBusi, setSingleBusi] = useState([]);
+//   const { id } = useParams();
+//   const getSingle = async () => {
+//     const URL = `/api/business/${id}`;
+//     try {
+//       const response = await axios.get(URL);
+//       setSingleBusi(response.data);
+//     } catch (error) {
+//       setError(`${error}`);
+//     }
+//   };
 
+//   const [businessesbyId, setbusinessesbyId] = useState([]);
+//   const { id } = useParams();
+//   //   console.log(`serial number is ${id}`)
 
+//   useEffect(() => {
+//     const fetchData = async () => {
+//
 
-
-
-
-
-
-
-
-
-
-
-
-
- // useEffect(() => {
-  //   islogin;
-  // }, [islogin]);
-  //   const [singleBusi, setSingleBusi] = useState([]);
-  //   const { id } = useParams();
-  //   const getSingle = async () => {
-  //     const URL = `/api/business/${id}`;
-  //     try {
-  //       const response = await axios.get(URL);
-  //       setSingleBusi(response.data);
-  //     } catch (error) {
-  //       setError(`${error}`);
-  //     }
-  //   };
-
-  //   const [businessesbyId, setbusinessesbyId] = useState([]);
-  //   const { id } = useParams();
-  //   //   console.log(`serial number is ${id}`)
-
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //
-
-  //     fetchData();
-  //   }, [id]);
+//     fetchData();
+//   }, [id]);

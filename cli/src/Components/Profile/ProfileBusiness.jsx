@@ -3,9 +3,7 @@ import BusinessList from "./Businesslist.jsx"
 function ProfileBusiness() {
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      <h1 className="text-4xl font-semibold text-gray-900 mb-6">
-        Welcome to Our Business Profile
-      </h1>
+
       <BusinessList/>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-between">

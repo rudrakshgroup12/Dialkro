@@ -1,89 +1,57 @@
 import React from 'react'
-// import { Link } from "react-router-dom";
+import blogimageone from "../assets/blogimageone.jpeg";
+
 function Blogcontent() {
   return (
     <div>
     <div className="max-w-screen-lg mx-auto">
-<main className="mt-10">
+    <main className="mt-10">
 
 <div className="mb-4 md:mb-0 w-full mx-auto relative">
   <div className="px-4 lg:px-0">
     <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
-      Pellentesque a consectetur velit, ac molestie ipsum. Donec sodales, massa et auctor.
+    Social media marketing (SMM) is a form of internet marketing that involves creating and sharing content on social media platforms to achieve your marketing and branding goals. It includes activities like posting text and image updates, videos, and other content that drives engagement, as well as paid social media advertising.
     </h2>
     <a 
       href="#"
       className="py-2 text-red-700 inline-flex items-center justify-center mb-2"
     >
-      Cryptocurrency
+   Social media Marketing
     </a>
   </div>
 
-  <img src="https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" className="w-full object-cover lg:rounded h-28rem" />
+  <img src={blogimageone} className="w-full object-cover lg:rounded h-28rem" />
 </div>
 
 <div className="flex flex-col lg:flex-row lg:space-x-12">
 
   <div className="px-4 lg:px-0 mt-12 text-gray-700 text-lg leading-relaxed w-full lg:w-3/4">
-    <p className="pb-6">Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is
-      justice. Six draw
-      you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages
-      resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was
-      outlived peculiar rendered led six.</p>
+    <p className="pb-6">Set Clear Goals: Define what you want to achieve with your social media marketing efforts. Common goals include increasing brand awareness, driving traffic to your website, generating leads, and boosting sales.</p>
 
-    <p className="pb-6">Difficulty on insensible reasonable in. From as went he they. Preference themselves me as
-      thoroughly
-      partiality considered on in estimating. Middletons acceptance discovered projecting so is so or. In or
-      attachment inquietude remarkably comparison at an. Is surrounded prosperous stimulated am me discretion
-      expression. But truth being state can she china widow. Occasional preference fat remarkably now projecting
-      uncommonly dissimilar. Sentiments projection particular companions interested do at my delightful. Listening
-      newspaper in advantage frankness to concluded unwilling.</p>
+    <p className="pb-6">Identify Your Target Audience: Understand who your ideal customers are and which social media platforms they use. This will help you choose the right platforms to focus on.
 
-    <p className="pb-6">Adieus except say barton put feebly favour him. Entreaties unpleasant sufficient few pianoforte
-      discovered
-      uncommonly ask. Morning cousins amongst in mr weather do neither. Warmth object matter course active law
-      spring six. Pursuit showing tedious unknown winding see had man add. And park eyes too more him. Simple excuse
-      active had son wholly coming number add. Though all excuse ladies rather regard assure yet. If feelings so
-      prospect no as raptures quitting.</p>
+Create a Content Strategy: Develop a plan for the type of content you will create and share on social media. This can include blog posts, videos, images, infographics, and more.</p>
+
+    <p className="pb-6">Choose the Right Platforms: Select the social media platforms that are most relevant to your target audience and industry. Popular platforms include Facebook, Instagram, Twitter, LinkedIn, and Pinterest.
+
+Optimize Your Profiles: Create or update your profiles on selected platforms with high-quality images, compelling descriptions, and relevant links to your website.
+
+Create and Share Engaging Content: Start creating and sharing content that is valuable, relevant, and engaging to your audience. Use a mix of content types, such as blog posts, videos, and images, to keep your audience interested.</p>
 
     <div className="border-l-4 border-gray-500 pl-4 mb-6 italic rounded">
-      Sportsman do offending supported extremity breakfast by listening. Decisively advantages nor
-      expression
-      unpleasing she led met. Estate was tended ten boy nearer seemed. As so seeing latter he should thirty whence.
-      Steepest speaking up attended it as. Made neat an on be gave show snug tore.
+    By following these steps and continuously refining your approach based on data and insights, you can build a successful social media marketing strategy that helps you achieve your business goals.
     </div>
 
-    <p className="pb-6">Exquisite cordially mr happiness of neglected distrusts. Boisterous impossible unaffected he me
-      everything.
-      Is fine loud deal an rent open give. Find upon and sent spot song son eyes. Do endeavor he differed carriage
-      is learning my graceful. Feel plan know is he like on pure. See burst found sir met think hopes are marry
-      among. Delightful remarkably new assistance saw literature mrs favourable.</p>
+    <p className="pb-6">Engage with Your Audience: Respond to comments, messages, and mentions to build relationships with your followers. Encourage conversation and interaction with your content.
+    Track and Analyze Your Results: Use analytics tools provided by social media platforms to track the performance of your posts and campaigns. Adjust your strategy based on what works best for your audience.</p>
 
-    <h2 className="text-2xl text-gray-800 font-semibold mb-4 mt-4">Uneasy barton seeing remark happen his has</h2>
+    <h2 className="text-2xl text-gray-800 font-semibold mb-4 mt-4">Unlocking Social Media Success: A Comprehensive Guide to Starting and Succeeding in Social Media Marketing</h2>
 
-    <p className="pb-6">Guest it he tears aware as. Make my no cold of need. He been past in by my hard. Warmly thrown
-      oh he common
-      future. Otherwise concealed favourite frankness on be at dashwoods defective at. Sympathize interested
-      simplicity at do projecting increasing terminated. As edward settle limits at in.</p>
+    <p className="pb-6">Consider Paid Advertising: Once you have a solid organic strategy in place, consider using paid social media advertising to reach a larger audience and achieve specific goals.Stay Updated: Social media is constantly evolving, so it's important to stay updated with the latest trends and changes in algorithms to ensure your strategy remains effective.</p>
+    
+    <p className="pb-6">Starting social media marketing requires time, effort, and a strategic approach, but when done right, it can be a powerful tool for growing your business and engaging with your audience.</p>
 
-    <p className="pb-6">Dashwood contempt on mr unlocked resolved provided of of. Stanhill wondered it it welcomed oh.
-      Hundred no
-      prudent he however smiling at an offence. If earnestly extremity he he propriety something admitting convinced
-      ye. Pleasant in to although as if differed horrible. Mirth his quick its set front enjoy hoped had there. Who
-      connection imprudence middletons too but increasing celebrated principles joy. Herself too improve gay winding
-      ask expense are compact. New all paid few hard pure she.</p>
 
-    <p className="pb-6">Breakfast agreeable incommode departure it an. By ignorant at on wondered relation. Enough at
-      tastes really
-      so cousin am of. Extensive therefore supported by extremity of contented. Is pursuit compact demesne invited
-      elderly be. View him she roof tell her case has sigh. Moreover is possible he admitted sociable concerns. By
-      in cold no less been sent hard hill.</p>
-
-    <p className="pb-6">Detract yet delight written farther his general. If in so bred at dare rose lose good. Feel and
-      make two real
-      miss use easy. Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient
-      to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it
-      without me.</p>
 
   </div>
 
@@ -93,8 +61,8 @@ function Blogcontent() {
         <img src="https://randomuser.me/api/portraits/men/97.jpg"
           className="h-10 w-10 rounded-full mr-2 object-cover" />
         <div>
-          <p className="font-semibold text-gray-700 text-sm"> Mike Sullivan </p>
-          <p className="font-semibold text-gray-600 text-xs"> Editor </p>
+          <p className="font-semibold text-gray-700 text-sm">Aditya</p>
+          <p className="font-semibold text-gray-600 text-xs">Editor</p>
         </div>
       </div>
       <p className="text-gray-700 py-3">
@@ -109,10 +77,10 @@ function Blogcontent() {
   </div>
 
 </div>
-</main>
-</div>
+    </main>
+    </div>
     </div>
   )
 }
 
-export default Blogcontent
+export default Blogcontent;

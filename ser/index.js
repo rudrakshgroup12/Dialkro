@@ -55,21 +55,18 @@ app.use("/api", userRoutes);
 app.use("/api", BusnessRoutes);
 // app.use("/api", categoryRoutes);
 
-
-
-
 app.get("/", (req, res, next) => {
   res.send("Homes Is Home");
 });
 
-app.listen(process.env.PORT, () => {
+const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port http://localhost:${process.env.PORT}`);
 });
 
 process.on("unhandledRejection", (err) => {
   console.log(`Error : ${err.message}`);
   console.log(`Shutting Down the server due to unhandled Promise Rejection`);
-  app.close(() => {
+  server.close(() => {
     process.exit();
   });
 });

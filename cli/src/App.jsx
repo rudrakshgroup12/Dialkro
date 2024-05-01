@@ -18,11 +18,19 @@ import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
 // import About from "./Components/About/About.jsx"
 import Blog from "./Components/Blogs/Blog.jsx";
 import Blogcontent from "./Components/Blogs/Blogcontent.jsx";
+import Blogcontent2 from "./Components/Blogs/Blogcontent2.jsx";
+import Blogcontent3 from "./Components/Blogs/Blogcontent3.jsx";
+import Blogcontent4 from "./Components/Blogs/Blogcontent4.jsx";
+import Blogcontent5 from "./Components/Blogs/Blogcontent5.jsx";
+import Blogcontent6 from "./Components/Blogs/Blogcontent6.jsx";
+import Service from "./Components/service/Service.jsx";
 
 import Contactus from "./Components/Contacts/Contactus.jsx";
-
+import Portfolio from "./Components/portfolio/Portfolio.jsx";
 import About from "./Components/About/About.jsx";
+import Team from "./Components/team/Team.jsx";
 import ForgotPassword from "./Components/Login/ForgotPassword.jsx";
+ import OtherBusiness from "./Components/otherbusiness/OtherBusiness.jsx"
 
 function App() {
   return (
@@ -44,14 +52,24 @@ function App() {
               <Route path="/business/:id" element={<ViewBusiness />} />
               <Route te path="/business/edit" element={<EditUserBusiness />} />
               <Route path="/about" element={<About />} />
+              <Route path="/team" element={<Team />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blogcontent" element={<Blogcontent />} />
+              <Route path="/blogcontent2" element={<Blogcontent2 />} />
+              <Route path="/blogcontent3" element={<Blogcontent3 />} />
+              <Route path="/blogcontent4" element={<Blogcontent4 />} />
+              <Route path="/blogcontent5" element={<Blogcontent5 />} />
+              <Route path="/blogcontent6" element={<Blogcontent6 />} />
 
+              <Route path="/service" element={<Service />} /> 
+              
               <Route path="/contactus" element={<Contactus />} />
-
+              <Route path="/portfolio" element={<Portfolio/>} />
               <Route path="/business/edit/:id" element={<EditUserBusiness />} />
 
               <Route path="/forgot" element={<ForgotPassword />} />
+              <Route path="/business" element={<OtherBusiness />} />
+           
             </Routes>
             <Footer />
           </ErrorBoundary>

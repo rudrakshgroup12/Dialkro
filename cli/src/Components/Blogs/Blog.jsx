@@ -15,10 +15,10 @@ function Blog() {
         <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6">
           <div className="sm:w-1/2 relative">
             <div>
-              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">20 Feb 2024</p>
+              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">Dialkro Article</p>
               <div className="absolute bottom-0 left-0 p-6">
-                <h2 className="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                <p className="text-base leading-4 text-white mt-2">Dive into minimalism</p>
+                <h2 className="text-xl font-semibold 5 text-white">Social Media Marketing</h2>
+                <p className="text-base leading-4 text-white mt-2">social media platforms to achieve your marketing</p>
                 <a href="javascript:void(0)" className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
                 <Link to="/blogcontent" className="pr-2 text-sm font-medium leading-none">Read More</Link>
                   <svg className="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,12 +31,12 @@ function Blog() {
           </div>
           <div className="sm:w-1/2 sm:mt-0 mt-4 relative">
             <div>
-              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">20 Feb 2024</p>
+              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">Dialkro Article</p>
               <div className="absolute bottom-0 left-0 p-6">
-                <h2 className="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                <p className="text-base leading-4 text-white mt-2">Dive into minimalism</p>
+                <h2 className="text-xl font-semibold 5 text-white">Affiliate Marketing</h2>
+                <p className="text-base leading-4 text-white mt-2"> How Businesses and Affiliates Collaborate for Success</p>
                 <a href="javascript:void(0)" className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                <Link to="/blogcontent" className="pr-2 text-sm font-medium leading-none">Read More</Link>
+                <Link to="/blogcontent2" className="pr-2 text-sm font-medium leading-none">Read More</Link>
                   <svg className="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
@@ -48,12 +48,12 @@ function Blog() {
         </div>
         <div className="relative">
           <div>
-            <p className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">20 Feb 2024</p>
+            <p className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">Dialkro Article</p>
             <div className="absolute bottom-0 left-0 md:p-10 p-6">
-              <h2 className="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-              <p className="text-base leading-4 text-white mt-2">Dive into minimalism</p>
+              <h2 className="text-xl font-semibold 5 text-white">Business Directories</h2>
+              <p className="text-base leading-4 text-white mt-2">How They Can Boost Your Business Growth</p>
               <a href="javascript:void(0)" className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-              <Link to="/blogcontent" className="pr-2 text-sm font-medium leading-none">Read More</Link>
+              <Link to="/blogcontent3" className="pr-2 text-sm font-medium leading-none">Read More</Link>
                 <svg className="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
@@ -67,12 +67,12 @@ function Blog() {
       <div className="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
         <div className="relative">
           <div>
-            <p className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">20 Feb 2024</p>
+            <p className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">Dialkro Article</p>
             <div className="absolute bottom-0 left-0 md:p-10 p-6">
-              <h2 className="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-              <p className="text-base leading-4 text-white mt-2">Dive into minimalism</p>
+              <h2 className="text-xl font-semibold 5 text-white">Growing your business globally</h2>
+              <p className="text-base leading-4 text-white mt-2">Globally can be an exciting but challenging endeavor</p>
               <a href="javascript:void(0)" className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-              <Link to="/blogcontent" className="pr-2 text-sm font-medium leading-none">Read More</Link>
+              <Link to="/blogcontent4" className="pr-2 text-sm font-medium leading-none">Read More</Link>
                 <svg className="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
@@ -85,12 +85,12 @@ function Blog() {
         <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
           <div className="relative w-full">
             <div>
-              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">20 Feb 2024</p>
+              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">Dialkro Article</p>
               <div className="absolute bottom-0 left-0 p-6">
-                <h2 className="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                <p className="text-base leading-4 text-white mt-2">Dive into minimalism</p>
+                <h2 className="text-xl font-semibold 5 text-white">Artificial Intelligence</h2>
+                <p className="text-base leading-4 text-white mt-2">AI works through a combination of algorithms and data.</p>
                 <a href="javascript:void(0)" className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                  <Link to="/blogcontent" className="pr-2 text-sm font-medium leading-none">Read More</Link>
+                  <Link to="/blogcontent5" className="pr-2 text-sm font-medium leading-none">Read More</Link>
                   <svg className="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
@@ -101,12 +101,12 @@ function Blog() {
           </div>
           <div className="relative w-full sm:mt-0 mt-4">
             <div>
-              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">20 Feb 2024</p>
+              <p className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">DialKro Article</p>
               <div className="absolute bottom-0 left-0 p-6">
-                <h2 className="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                <p className="text-base leading-4 text-white mt-2">Dive into minimalism</p>
+                <h2 className="text-xl font-semibold 5 text-white">Heart-healthy lifestyle.</h2>
+                <p className="text-base leading-4 text-white mt-2">To protect yourself from heart attacks, it's crucial to adopt a heart-healthy lifestyle.</p>
                 <a href="javascript:void(0)" className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                <Link to="/blogcontent" className="pr-2 text-sm font-medium leading-none">Read More</Link>
+                <Link to="/blogcontent6" className="pr-2 text-sm font-medium leading-none">Read More</Link>
                   <svg className="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
@@ -124,4 +124,4 @@ function Blog() {
   )
 }
 
-export default Blog
+export default Blog;

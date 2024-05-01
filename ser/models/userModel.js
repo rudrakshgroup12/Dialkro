@@ -27,6 +27,16 @@ const userSchema = new Schema(
       required: [true, "Please Enter Your Password"],
       select: false,
     },
+    avatar: {
+      public_id: {
+        type: String,
+        // required: true,
+      },
+      url: {
+        type: String,
+        // required: true,
+      },
+    },
     name: {
       type: String,
       trim: true,

@@ -16,7 +16,7 @@ const CustomFooter = () => {
   return (
     <>
       <footer className={isDarkMode ? "dark" : ""}>
-        <div className="dark:bg-neutral-900 bg-dark dark:text-white p-4 items-center bg-black text-white  ">
+        <div className="dark:bg-neutral-900 bg-black  dark:text-white p-4 items-center text-white  ">
           {" "}
           <div className="flex justify-center pt-10 pb-14 md:pb-9">
             {" "}
@@ -41,8 +41,8 @@ const CustomFooter = () => {
                   ation
                 </span>{" "}
               </div>{" "}
-              <p>Registration Start Date</p> <p>Registration End Date</p>{" "}
-              <p>Exam Last Date </p>{" "}
+              <p>At Dialkro, we believe in empowering communities by fostering connections between consumers and businesses. </p> 
+            
             </div>{" "}
             <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide md:">
               {" "}
@@ -64,10 +64,10 @@ const CustomFooter = () => {
                   {" "}
                   <h1 className="text-white pb-[34px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                     {" "}
-                    About{" "}
+                  Quick
                   </h1>{" "}
                   <span className="text-white font-sans uppercase font-normal tracking-wider">
-                    exam
+                   Links
                   </span>{" "}
                 </div>{" "}
                 <p className="">
@@ -110,21 +110,9 @@ const CustomFooter = () => {
               <div className="text-[#747474] text-[15px] font-[550] leading-6 tracking-wide mt-9 md:order-5 md:pt-32 lg:pb-28">
                 {" "}
                 <div className="flex justify-start md:-mt-32">
-                  {" "}
-                  <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
-                    {" "}
-                    suppor{" "}
-                  </h1>{" "}
-                  <span className="text-white font-sans uppercase font-normal tracking-wider">
-                    t
-                  </span>{" "}
+              
                 </div>{" "}
-                <p className="">
-                  {" "}
-                  <a href="#" className="hover:text-[#cacaca]">
-                    FAQ's
-                  </a>{" "}
-                </p>{" "}
+         
               </div>{" "}
             </div>{" "}
             <div className="text-[#797878] text-[15px] font-[550] leading-6 tracking-wide md:order-4 lg:">
@@ -185,8 +173,14 @@ const CustomFooter = () => {
                 <p className="space-x-3 hover:text-[#cacaca]">
                   {" "}
                   <i className="fa fa-envelope text-[16px]"></i>{" "}
-                  <a href="#"> admin@Company.in</a>{" "}
+                  <a href="mailto:Support@dialkro.in">Support@dialkro.in</a>{" "}
+                
                 </p>{" "}
+                <p className="space-x-3 hover:text-[#cacaca]">
+                <i className="fa fa-envelope text-[16px]"></i>{" "}
+                  <a href="mailto:Ceo@dialkro.in">Ceo@dialkro.in</a>{" "}
+                </p>{" "}
+
               </div>{" "}
             </div>{" "}
           </div>{" "}
@@ -241,24 +235,8 @@ const CustomFooter = () => {
            <FaYoutube className="item-center text-red-600 w-8 h-8"/>
               </a>{" "}
             </p>{" "}
-            <p>
-              {" "}
-              <a
-                href="#"
-                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500   inline-block pt-[7px]"
-              >
-                <FaTelegram className="text-blue-600 w-9 h-9" />
-              </a>{" "}
-            </p>{" "}
-            <p>
-              {" "}
-              <a
-                href="#"
-                className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
-              >
-             <FaPinterest className="text-red-600 w-9 h-9"/>
-              </a>{" "}
-            </p>{" "}
+    
+       
           </div>
         </div>
       </footer>

@@ -4,25 +4,25 @@ const odjId = mongoose.Schema.Types.ObjectId;
 const businessSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    // required: true,
     trim: true,
   },
   description: {
     type: String,
-    required: true,
+    // required: true,
   },
   category: {
     type: String,
-    required: true,
+    // required: true,
   },
   contact: {
     phone: {
       type: String,
-      required: true,
+      // required: true,
     },
     email: {
       type: String,
-      required: true,
+      // required: true,
       lowercase: true,
     },
     website: {
@@ -68,6 +68,23 @@ const businessSchema = new mongoose.Schema({
       },
     },
   ],
+  images: [
+    {
+      public_id: {
+        type: String,
+        //  required: true,
+      },
+      url: {
+        type: String,
+        //  required: true,
+      },
+    },
+  ],
+
+// //   images:{
+// // data: Buffer,
+// // contentType:String,
+// //   },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",

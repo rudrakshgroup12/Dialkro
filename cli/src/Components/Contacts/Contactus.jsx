@@ -19,7 +19,7 @@ function Contactus() {
             <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
                 <div className="flex">
                     <div className="flex-shrink-0">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
                             {/* <!-- Heroicon name: globe-alt --> */}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -34,14 +34,14 @@ function Contactus() {
                             Address
                         </dt>
                         <dd className="mt-2 text-base text-gray-500">
-                        care@dialkro.in
+                        E-260, b-1, phase 8 b, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160055
                         </dd>
                     </div>
                 </div>
 
                 <div className="flex">
                     <div className="flex-shrink-0">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
                             {/* <!-- Heroicon name: phone --> */}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -63,7 +63,7 @@ function Contactus() {
 
                 <div className="flex">
                     <div className="flex-shrink-0">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
                             {/* <!-- Heroicon name: mail --> */}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -77,15 +77,16 @@ function Contactus() {
                         <dt className="text-lg leading-6 font-medium text-gray-900">
                             Email
                         </dt>
-                        <dd className="mt-2 text-base text-gray-500">
-                        da
+                        <dd className="mt-2 text-base text-gray-500 flex flex-wrap">
+                        <a href="mailto:Support@dialkro.in">Support@dialkro.in</a>
+                        <a href="mailto:Ceo@dialkro.in">Ceo@dialkro.in</a>
                         </dd>
                     </div>
                 </div>
 
                 <div className="flex">
                     <div className="flex-shrink-0">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
                             {/* <!-- Heroicon name: clock --> */}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" className="w-6 h-6">

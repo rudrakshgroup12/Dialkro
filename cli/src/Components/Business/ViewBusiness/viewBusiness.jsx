@@ -1,17 +1,12 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { FaRegStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
-import './viewBusiness.css'
-
-import {
-  // FaLocationDot,
-  FaAddressBook,
-  FaMapLocationDot,
-  FaGear,
-  FaLightbulb,
-  FaLeanpub,
-} from "react-icons/fa6";
+import "./viewBusiness.css";
+import AddReviewComponent from "./AddReviewComponent.jsx";
+import { FaMapMarkerAlt ,FaPhoneSquare,FaMailBulk,FaGlobe} from "react-icons/fa";
 import {
   FcApproval,
   FcBusinessman,
@@ -24,6 +19,8 @@ import {
 } from "react-icons/fc";
 function ViewBusiness() {
   // Updated the function name to start with an uppercase letter
+  const navi = useNavigate();
+  const { islogin, userData } = useAuth();
   const [businesses, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const { id } = useParams();
@@ -50,6 +47,36 @@ function ViewBusiness() {
 
     fetchData();
   }, [id]);
+
+  const [ReviewRatingData, setReviewRating] = useState({
+    text: "",
+    rating: 0,
+  });
+  const reviewRatingHandleChange = (rating) => {
+    setReviewRating({ ...ReviewRatingData, rating });
+  };
+  const reviewHandlechange = (e) => {
+    setReviewRating({ ...ReviewRatingData, text: e.target.value });
+  };
+  const addReviewRatinghandleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const uri = `/api/business/review/${id}`;
+      await axios
+        .post(uri, { ...ReviewRatingData, user: userData.data?._id })
+        .then((response) => {
+          console.log(response.data);
+          alert(`Reviews  Added SuccessFully`);
+          navi("/businesses");
+        })
+        .catch((err) => {
+          alert(`error is ${err}`);
+        });
+    } catch (error) {
+      console.log(error.message);
+      setError(`Error is ${error}`);
+    }
+  };
 
   return (
     <>
@@ -86,37 +113,6 @@ function ViewBusiness() {
         </div>
       </div> */}
 
-      <div className="container mx-auto my-5">
-
-<div className="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2">
-    
-    <div className="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
-        <div className="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom viewbusiness-card"></div>
-        <div className="md:hidden absolute inset-0 h-full p-6 pb-6 flex flex-col-reverse justify-start items-start bg-gradient-to-b from-transparent via-transparent to-gray-900">
-            <h3 className="w-full font-bold text-2xl text-white leading-tight mb-2">Lorem mmfibhsddjs</h3>
-            <h4 className="w-full text-xl text-gray-100 leading-tight">Bienvenido a</h4>
-        </div>
-        <svg className="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-white -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon points="50,0 100,0 50,100 0,100" />
-        </svg>
-    </div>
-
-    <div className="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
-        <div className="p-8 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
-            <h4 className="hidden md:block text-xl text-gray-400">Bienvenido a</h4>
-            <h3 className="hidden md:block font-bold text-2xl text-gray-700">Lorem, ipsum dolor.</h3>
-            <p className="text-gray-600 text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione itaque perspiciatis quod sapiente quidem, vero consectetur quae iure error tempore reprehenderit unde veritatis fugit iusto nemo amet. Assumenda, quam facilis.</p>
-            <a className="flex items-baseline mt-3 text-red-700 hover:text-red-900 focus:text-red-900" href="">
-                <span>Check Your Brands</span>
-                <span className="text-xs ml-1">&#x279c;</span>
-            </a>
-        </div>
-    </div>
-
-</div>
-</div>
-
-
 
       <div className="w-full p-6 mx-auto">
         <div className="shadow-md rounded bg-white overflow-hidden relative">
@@ -152,10 +148,9 @@ function ViewBusiness() {
                           {businesses.data?.description}
                         </p>
 
-                        <div className="flex mt-2">
-                          <FaMapLocationDot className="text-red-600" />
-                          <p>{businesses?.data?.location?.address}</p>
-                        </div>
+                        <h3 className="leading-relaxed text-base inline-flex mt-3">
+                  <FaMapMarkerAlt className="text-red-600 mt-1" />  {businesses?.data?.location?.address}
+                  </h3>
 
                         <div className="py-4">
                           <div className=" inline-block mr-2">
@@ -177,7 +172,7 @@ function ViewBusiness() {
 
                           <div className=" inline-block mr-2">
                             <div className="flex  pr-2 h-full items-center">
-                              <FcApproval  className="text-green-700"/>
+                              <FcApproval className="text-green-700" />
                               <p className="title-font font-medium">
                                 {businesses?.data?.location?.state}
                               </p>
@@ -196,12 +191,12 @@ function ViewBusiness() {
                         <div className="md:flex font-bold text-gray-800">
                           <div className="w-full md:w-1/2 flex space-x-3">
                             <div className="w-1/2">
-                              <h2 className="text-red-600">Phone Number</h2>
-                              <p>{businesses?.data?.contact?.phone}</p>
+                            <h2 className="text-red-600">Phone Number</h2>
+                              <p className="flex"><FaPhoneSquare className="text-green-500 mt-1 mr-2"/>{businesses?.data?.contact?.phone}</p>
                             </div>
                             <div className="w-1/2">
-                              <h2 className="text-red-600">Email Id</h2>
-                              <p>{businesses?.data?.contact?.email}</p>
+                            <h2 className="text-red-600">Email Id</h2>
+                              <p className="flex"><FaMailBulk className="text-green-500 mt-1 mr-2"/> {businesses?.data?.contact?.email}</p>
                             </div>
                           </div>
                           <div className="w-full md:w-1/2 flex space-x-3">
@@ -210,8 +205,8 @@ function ViewBusiness() {
                               <p>description</p>
                             </div>
                             <div className="w-1/2">
-                              <h2 className="text-red-600">Website</h2>
-                              <p>{businesses?.data?.contact?.website}</p>
+                            <h2 className="text-red-600">Website</h2>
+                              <p className="flex"><FaGlobe className="text-green-500 mt-1 mr-2"/>{businesses?.data?.contact?.website}</p>
                             </div>
                           </div>
                         </div>
@@ -252,6 +247,99 @@ function ViewBusiness() {
                   </div>
                 </div>
               </section>
+            </div>
+            {islogin ? (
+
+              <form
+                onSubmit={addReviewRatinghandleSubmit}
+                className="flex flex-col space-y-2"
+              >
+                 <h1 className="text-2xl font-bold">Reviews & Ratings</h1> 
+                <div className="flex items-center space-x-1">
+               
+
+                  {[1, 2, 3, 4, 5].map((index) => (
+                    <FaRegStar
+                      key={index}
+                      className={`h-7 w-7 hover:cursor-pointer ${
+                        ReviewRatingData.rating >= index
+                          ? "text-yellow-500"
+                          : "text-gray-300"
+                      }`}
+                      onClick={() => reviewRatingHandleChange(index)}
+                    />
+                  ))}
+                </div>
+                <textarea
+                  className="rounded-md border border-gray-300 p-2 text-base focus:outline-none focus:border-sky-500 resize-none"
+                  rows={5}
+                  placeholder="Write your review..."
+                  value={ReviewRatingData.text}
+                  onChange={reviewHandlechange}
+                />
+                        <button
+                  type="submit"
+                  className="rounded-md bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 cursor-pointer"
+                  disabled={
+                    !ReviewRatingData.text || ReviewRatingData.rating === 0
+                  }
+                >
+                  Submit Review
+                </button>
+              </form>
+            ) : (
+              <h1>Please login before you start giving review and rating </h1>
+            )}
+          </div>
+        </div>
+      </div>
+
+
+
+
+      
+      <div className="container mx-auto my-5">
+        <div className="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2">
+          <div className="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
+            <div className="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom viewbusiness-card"></div>
+            <div className="md:hidden absolute inset-0 h-full p-6 pb-6 flex flex-col-reverse justify-start items-start bg-gradient-to-b from-transparent via-transparent to-gray-900">
+              <h3 className="w-full font-bold text-2xl text-white leading-tight mb-2">
+                Lorem mmfibhsddjs
+              </h3>
+              <h4 className="w-full text-xl text-gray-100 leading-tight">
+                Bienvenido a
+              </h4>
+            </div>
+            <svg
+              className="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-white -ml-12"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+          </div>
+
+          <div className="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
+            <div className="p-8 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
+              <h4 className="hidden md:block text-xl text-gray-400">
+                Bienvenido a
+              </h4>
+              <h3 className="hidden md:block font-bold text-2xl text-gray-700">
+                Lorem, ipsum dolor.
+              </h3>
+              <p className="text-gray-600 text-justify">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Ratione itaque perspiciatis quod sapiente quidem, vero
+                consectetur quae iure error tempore reprehenderit unde veritatis
+                fugit iusto nemo amet. Assumenda, quam facilis.
+              </p>
+              <a
+                className="flex items-baseline mt-3 text-red-700 hover:text-red-900 focus:text-red-900"
+                href=""
+              >
+                <span>Check Your Brands</span>
+                <span className="text-xs ml-1">&#x279c;</span>
+              </a>
             </div>
           </div>
         </div>
