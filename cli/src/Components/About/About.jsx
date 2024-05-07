@@ -18,7 +18,7 @@ function About() {
                   Grow With Us And Build Your Business.
                 </h1>
                 <p className="mt-4 text-xl text-gray-500 ">
-                  Dialkro Ads Help You Achieve Your Goals elements of a world
+                  Dialkro Ads Help You Achievee Your Goals elements of a world
                   that doesn't care if you develop or die.
                 </p>
               </div>
