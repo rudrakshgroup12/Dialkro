@@ -1,9 +1,12 @@
-import React  from 'react'
+import React ,{useState} from 'react'
 import { Link } from "react-router-dom";
+
 import dialkroservice from "../assets/dialkroservice.png";
 const Service = () => {
 
-     return (
+
+
+  return (
     <div>
       <div className="bg-red-800">
         <div className="lg:grid lg:grid-cols-2">
@@ -137,8 +140,13 @@ const Service = () => {
                 <p className="mt-2 text-sm text-slate-500">Visa process by helping you create the necessary documentation
                 </p>
             </div>
-     </div>
-    <div className="w-full   bg-red-700 shadow-xl shadow-red-200 py-10 px-20 flex flex-wrap justify-between items-center">
+
+
+
+
+        </div>
+
+        <div className="w-full   bg-red-700 shadow-xl shadow-red-200 py-10 px-20 flex flex-wrap justify-between items-center">
             <p className=" text-white"> <span className="text-4xl font-medium">Our Service</span> <br/> <span className="text-lg">Book For Free Career Consultation Today ! </span></p>
             <Link className="px-4 py-2  font-medium text-slate-700 shadow-xl  hover:bg-white duration-150  bg-yellow-400" to="/new">BOOK AN APPOINTMENT </Link>
         </div>
