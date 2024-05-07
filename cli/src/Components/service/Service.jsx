@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import { Link } from "react-router-dom";
-import "./service.css";
+import "./Service.css";
 import dialkroservice from "../assets/dialkroservice.png";
 const Service = () => {
 
