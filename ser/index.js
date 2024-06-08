@@ -42,6 +42,7 @@ app.use((req, res, next) => {
 app.use(
   cors({
     origin: ["https://dialkro.in"],
+    // origin: ["https://localhost:5174"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })

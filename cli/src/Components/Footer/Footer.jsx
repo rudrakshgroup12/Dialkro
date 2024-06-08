@@ -44,18 +44,7 @@ const CustomFooter = () => {
               <p>At Dialkro, we believe in empowering communities by fostering connections between consumers and businesses. </p> 
             
             </div>{" "}
-            <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide md:">
-              {" "}
-              <div>
-                {" "}
-                <pre className="text-white pb-[34px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
-                  {" "}
-                  dates &nbsp;
-                </pre>{" "}
-              </div>{" "}
-              <p>23 Dec 2021</p> <p>30 May 2022</p>{" "}
-              <p>23 Dec 2021 to 31 May 2022</p>{" "}
-            </div>{" "}
+           
             <div className="md:flex flex-col justify-between">
               {" "}
               <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide">

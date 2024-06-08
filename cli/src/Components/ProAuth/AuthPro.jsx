@@ -28,11 +28,11 @@ export const AuthPro = ({ children }) => {
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
   const [userprofile, setUserProfile] = useState("");
-
+const API_PATH = 'api.dialkro.in';
   const fetchProfileData = async () => {
     try {
       if (userprofile) {
-        const URI = `/api/profile/${userprofile}`;
+        const URI = `${API_PATH}/api/profile/${userprofile}`;
         const response = await axios.get(URI);
         // alert(response.data);
         // console.log(response.data);
