@@ -6,8 +6,7 @@ import {
   FaInstagramSquare,
   FaWhatsappSquare ,
   FaYoutube,
-  FaTelegram,
-  FaPinterest,
+
 } from "react-icons/fa";
 import { useAuth } from "../ProAuth/AuthPro";
 

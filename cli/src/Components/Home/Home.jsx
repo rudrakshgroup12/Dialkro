@@ -522,7 +522,7 @@ Please fill out the business submission form to add your business to Dialkro's d
          </div>
   
 
-<div className="px-3 md:lg:xl:px-40   border-t border-b py-20 bg-opacity-10 serviceback" >
+{/* <div className="px-3 md:lg:xl:px-40   border-t border-b py-20 bg-opacity-10 serviceback" >
         <div className="grid grid-cols-1 md:lg:xl:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border ">
 
 
@@ -646,7 +646,7 @@ Please fill out the business submission form to add your business to Dialkro's d
             <Link className="px-4 py-2  font-medium text-slate-700 shadow-xl  hover:bg-white duration-150  bg-yellow-400" to="/new">BOOK AN APPOINTMENT </Link>
         </div>
 
-    </div>
+    </div> */}
 
 
 
