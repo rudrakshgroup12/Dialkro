@@ -388,7 +388,9 @@ function Home() {
 
 
           <div className="relative overflow-hidden bg-gray-900 pt-16 pb-32  mt-10">
-          <h1 className="text-center  text-5xl font-bold pb-10 text-white">Getting Started Is Easy</h1>
+          {/* <h1 className="text-center  text-5xl font-bold pb-10 text-white">Getting Started Is Easy</h1>
+         */}
+         
     <div className="relative">
         <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8 ">
             <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 ">
