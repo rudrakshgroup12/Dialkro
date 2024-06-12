@@ -5,20 +5,20 @@ import { useNavigate } from "react-router-dom";
 // import BusinessCategory from "../Business/Category/BusinessCategory.jsx";
 import Bgr from "./bgr1.png";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
-import rgshinelogo from "../assets/rgshinelogo.png";
-import digitalsollogo from "../assets/digitalsollogo.png";
-import healthcarelogo from "../assets/healthcarelogo.png";
-import dial24newslogo from "../assets/dial24newslogo.png";
-import rudrakshagroup from "../assets/rudrakshagroup.png";
+import "./Home.css";
 import dialkrohomepage2 from "../assets/dialkrohomepage2.png";
 import dialkrohome3 from "../assets/dialkrohome3.png";
-import dialkrohome4 from "../assets/dialkrohome4.png";
-import dialkrohome5 from "../assets/dialkrohome5.png";
 import dialkrohomepageimg from "../assets/dialkrohomepageimg.png";
-import skylinelogo from "../assets/skylinelogo.png";
 import howtojoin from "../assets/howtojoin.png";
 import filltheform from "../assets/filltheform.png";
-
+import restaurentlogo from "../assets/restaurentlogo.jpg";
+import hotel from "../assets/hotel.png";
+import beauty from "../assets/beauty.png";
+import hospital from "../assets/hospital.png";
+import wedding from "../assets/wedding.png";
+import gym from "../assets/gym.png";
+import school from "../assets/school.png";
+import realstate from "../assets/realstate.png";
 function Home() {
   const { isDarkMode } = useAuth();
   const [searchInput, setSearchInput] = useState("");
@@ -76,7 +76,7 @@ function Home() {
   };
   return (
     <div className={isDarkMode ? "dark" : ""}>
-      <div className="bg-cover bg-center h-100 bg-gradient-to-r from-rose-900 via-red-700 to-black flex items-center justify-center text-neutral- dark:bg-neutral-800">
+      <div className="bg-cover bg-center h-100 bg-gradient-to-r from-rose-900 via-red-700 to-black flex items-center justify-center text-neutral- dark:bg-neutral-800 backbanner">
         <div className="bg-cover bg-center h-96 flex items-center justify-center text-neutral- dark:bg-neutral-800">
           <div className="text-left">
             <h1 className="text-5xl font-bold mb-4 text-white dark:bg-neutral-800">
@@ -94,7 +94,7 @@ function Home() {
                 className="w-full p-4 rounded-md sm:text-sm focus:outline focus:ring focus:border-blue-300"
                 aria-label="Search for businesses"
               />
-              <button className="ml-4 bg-red-500 text-white rounded-md px-6 py-4" onClick={handleSearchButtonClick}>
+              <button className="ml-4 bg-black text-white rounded-md px-6 py-4" onClick={handleSearchButtonClick}>
                 Search
               </button>
             </div>
@@ -102,39 +102,168 @@ function Home() {
         </div>
       </div>
 
-      {/* {/ {/ Featured Categories /} /} */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 m-10 dark:bg-neutral-800 dark:text-white">
-        {/* <BusinessCategory /> */}
 
-      {/* {featuredCategories.map((category, index) => (
-          <div className="max-w-1xl mx-1 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
-            <div className="rounded-t-lg h-32 overflow-hidden">
-              <img  className=   "object-cover object-top w-full" src="https://m.media-amazon.com/images/I/51Zi++kBCiL._AC_UF1000,1000_QL80_.jpg" alt="Mountain"/>
-            </div>        
-            <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-              <img className="object-cover object-center h-32"
-                src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg"
-                alt="Woman looking front"
-              />
-            </div>
-            <div className="text-center mt-1" key={index}>
-              <span className="text-3xl mb-2">{category.icon}</span>
-              <h2 className="font-bold">{category.name}</h2>
-              <p className="text-red-500 font-bold">Your Business</p>
-            </div>
+<div class="p-1 flex flex-wrap items-center justify-center">
+       
 
-            <div className="p-4 border-t mx-6 mt-1">
-              <Link
-                to="/businesses"
-                className="w-1/2 block mx-auto rounded-full bg-red-600 hover:shadow-lg font-semibold text-white px-4 text-center py-2"
-              >
-                Explore Now
-              </Link>
-            </div>
-          </div>
-        ))}
-        */}
-      </div>
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-red-800 rounded-lg max-w-xs shadow-lg group">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10"
+        viewBox="0 0 375 283" fill="none" >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard"
+           >
+        </div>
+        <img class="relative w-40" src={restaurentlogo} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl ">Restaurents</span>
+      
+        </div>
+    </div>
+</div>
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-teal-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+      >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard"
+>
+        </div>
+        <img class="relative w-40" src={hotel} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandhigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">Hotel</span>
+         
+        </div>
+    </div>
+</div>
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-orange-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+        >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
+        </div>
+        <img class="relative w-40" src={beauty} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandhigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">Beauty & Spa</span>
+          
+        </div>
+    </div>
+</div>
+
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-orange-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+        >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
+        </div>
+        <img class="relative w-40" src={hospital} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">Hospital</span>
+    
+        </div>
+    </div>
+</div>
+
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-purple-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+      >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
+        </div>
+        <img class="relative w-40" src={wedding} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">Wedding planner</span>
+      
+        </div>
+    </div>
+</div>
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-red-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+      >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
+        </div>
+        <img class="relative w-40" src={gym} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandhigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">Gym</span>
+       
+        </div>
+    </div>
+</div>
+
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-green-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+      >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
+        </div>
+        <img class="relative w-40" src={school} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">School & University</span>
+     
+        </div>
+    </div>
+</div>
+<div class="flex-shrink-0 m-6 relative overflow-hidden bg-pink-800 rounded-lg max-w-xs shadow-lg group ">
+    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform opacity-10" viewBox="0 0 375 283" fill="none"
+      >
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+    </svg>
+    <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
+        </div>
+        <img class="relative w-40" src={realstate} alt=""/>
+    </div>
+    <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1 font-bold">Chandhigarh</span>
+        <div class="flex justify-between">
+            <span class="block font-bold text-xl">Real Estate</span>
+   
+        </div>
+    </div>
+</div>
+</div>
 
       <section className="sm:mt-6 lg:mt-8 mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 dark:bg-neutral-800 dark:text-white">
         <div className="my-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex gap-3 lg:flex-justify lg:flex flex-col lg:flex-row">
@@ -180,6 +309,62 @@ function Home() {
         </div>
       </section>
 
+
+      <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+        <h1 class="font-bold text-black text-2xl my-10">Popular Brands</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+
+        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center firstad">
+            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+            </div>
+            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+            
+            
+            </div>
+            <main class="p-5 z-10">
+                <a href="#"
+                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Dr.
+                   Global Health Care Clinic, Dr. Sanjeev Bhatia
+                </a>
+            </main>
+
+        </div>
+
+        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center secondad"
+           >
+            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+            </div>
+            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+               
+            </div>
+            <main class="p-5 z-10">
+                <a href="#"
+                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rg shine Cleaning Products .
+                </a>
+            </main>
+
+        </div>
+
+        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center thirdad"
+           >
+            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+            </div>
+            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+              
+            </div>
+            <main class="p-5 z-10">
+                <a href="#"
+                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rudraksh Group Real Estate
+                </a>
+            </main>
+
+        </div>
+
+    </div>
+</div>
+
+    
+    
       <div className="grid lg:grid-cols-2 gap-3 p-5">
         <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
           <figure className="relative w-full h-60">
@@ -322,60 +507,7 @@ function Home() {
 
     
 
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-10 mx-auto">
-          <div className="flex flex-col text-center w-full mb-20">
-            <h2 className="text-xs text-red-600 tracking-widest font-medium title-font mb-1">
-              Business Owner Testimonial
-            </h2>
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              Testimonials Of Our Client
-            </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Dialkro has revolutionized our business, providing an indispensable platform for connecting with clients. Their intuitive interface and exceptional customer support make them stand out. Dialkro's impact on our growth is undeniable, consistently exceeding our expectations. We highly recommend Dialkro to any business seeking to enhance its online presence and reach.
-            </p>
-          </div>
-          <div className="flex flex-wrap">
-            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-              <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-              Rg Shine
-              </h2>
-              <p className="leading-relaxed text-base mb-4">
-              Dialkro has been an invaluable tool for our business. Their platform helped us reach a wider audience and connect with potential clients effortlessly. The team at Dialkro is professional, responsive, and always willing to go the extra mile to ensure our success.
-              </p>
-           
-            </div>
-            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-              <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-                Healing Guidnce
-              </h2>
-              <p className="leading-relaxed text-base mb-4">
-              We have been using Dialkro for our business listings for several years now, and it has consistently delivered great results. The platform is user-friendly, and their customer support team is top-notch. We highly recommend Dialkro to any business looking to increase their online visibility.
-              </p>
-            
-            </div>
-            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-              <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-              Global Health Care 
-              </h2>
-              <p className="leading-relaxed text-base mb-4">
-              Working with Dialkro has been a game-changer for our business. Their platform has helped us attract new customers and expand our reach in ways we never thought possible. The team at Dialkro is dedicated, knowledgeable, and always willing to help. We couldn't be happier with the results.
-              </p>
-           
-            </div>
-            <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-              <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-               Skyline Education
-              </h2>
-              <p className="leading-relaxed text-base mb-4">
-              We started using Dialkro to promote our business, and the results have been fantastic. Their platform is easy to use, and their customer service team is always available to assist us with any questions or concerns. Dialkro has helped us increase our online visibility and attract new clients. We highly recommend them to any business looking to grow.
-              </p>
-            
-            </div>
-          </div>
-          {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> */}
-        </div>
-      </section>
+  
 
       {/* kamla */}
 
@@ -390,7 +522,7 @@ function Home() {
           <div className="relative overflow-hidden bg-gray-900 pt-16 pb-32  mt-10">
           {/* <h1 className="text-center  text-5xl font-bold pb-10 text-white">Getting Started Is Easy</h1>
          */}
-         
+
     <div className="relative">
         <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8 ">
             <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 ">
@@ -524,138 +656,7 @@ Please fill out the business submission form to add your business to Dialkro's d
          </div>
   
 
-{/* <div className="px-3 md:lg:xl:px-40   border-t border-b py-20 bg-opacity-10 serviceback" >
-        <div className="grid grid-cols-1 md:lg:xl:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border ">
 
-
-            <div
-                className="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">Social Media Marketing</p>
-                <p className="mt-2 text-sm text-slate-500">Team BrainEdge education is a bunch of highly focused, energetic
-                    set of people.</p>
-            </div>
-
-            <div
-                className="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-orange-500 text-white shadow-lg shadow-orange-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">Web Development</p>
-                <p className="mt-2 text-sm text-slate-500">Know where you stand and what next to do to succeed .</p>
-            </div>
-
-            <div className="p-10 flex flex-col items-center text-center group   md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-yellow-500 text-white shadow-lg shadow-yellow-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">Wordpress Development</p>
-                <p className="mt-2 text-sm text-slate-500">Professional Advice for higher education abroad and select the
-                    top institutions worldwide.</p>
-            </div>
-
-
-            <div className="p-10 flex flex-col items-center text-center group   md:lg:xl:border-r hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-lime-500 text-white shadow-lg shadow-lime-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">
-                SEO</p>
-                <p className="mt-2 text-sm text-slate-500">Yet another year ! Yet another jewel in our crown!</p>
-            </div>
-
-            <div className="p-10 flex flex-col items-center text-center group    md:lg:xl:border-r hover:bg-slate-50  cursor-pointer">
-                <span className="p-5 rounded-full bg-teal-500 text-white shadow-lg shadow-teal-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3 ">Graphic Design</p>
-                <p className="mt-2 text-sm text-slate-500">Get Topic-Wise Tests, Section- Wise and mock tests for your
-                    preparation.</p>
-            </div>
-
-            <div className="p-10 flex flex-col items-center text-center group     hover:bg-slate-50  cursor-pointer">
-                <span className="p-5 rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">Shopify SEO</p>
-                <p className="mt-2 text-sm text-slate-500">Visa process by helping you create the necessary documentation
-                </p>
-            </div>
-            <div className="p-10 flex flex-col items-center text-center group   md:lg:xl:border-r hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-lime-500 text-white shadow-lg shadow-lime-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">
-                Amazon SEO</p>
-                <p className="mt-2 text-sm text-slate-500">Yet another year ! Yet another jewel in our crown!</p>
-            </div>
-
-            <div className="p-10 flex flex-col items-center text-center group    md:lg:xl:border-r hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-teal-500 text-white shadow-lg shadow-teal-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">Android Development</p>
-                <p className="mt-2 text-sm text-slate-500">Get Topic-Wise Tests, Section- Wise and mock tests for your
-                    preparation.</p>
-            </div>
-
-            <div className="p-10 flex flex-col items-center text-center group     hover:bg-slate-50 cursor-pointer">
-                <span className="p-5 rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg></span>
-                <p className="text-xl font-medium text-slate-700 mt-3">SMO Service</p>
-                <p className="mt-2 text-sm text-slate-500">Visa process by helping you create the necessary documentation
-                </p>
-            </div>
-
-
-
-
-        </div>
-
-        <div className="w-full   bg-red-700 shadow-xl shadow-red-200 py-10 px-20 flex flex-wrap justify-between items-center">
-            <p className=" text-white"> <span className="text-4xl font-medium">Our Service</span> <br/> <span className="text-lg">Book For Free Career Consultation Today ! </span></p>
-            <Link className="px-4 py-2  font-medium text-slate-700 shadow-xl  hover:bg-white duration-150  bg-yellow-400" to="/new">BOOK AN APPOINTMENT </Link>
-        </div>
-
-    </div> */}
-
-
-
-       
-     
-
-      {/* hello */}
     </div>
   );
 }

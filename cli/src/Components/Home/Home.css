@@ -1,0 +1,23 @@
+.busicard{
+    background: radial-gradient(black, transparent 60%);
+     transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); 
+     opacity: 0.2;
+}
+
+.backbanner{
+    background-image: url('../assets/dialkrohomebanner.jpg') !important;
+
+
+}
+
+
+.firstad{
+    background-image: url('../assets/globalads.jpg');
+}
+.thirdad{
+    background-image: url('../assets/rudraksh.jpg');
+}
+
+.secondad{
+    background-image: url('../assets/rgshine.jpg');
+}

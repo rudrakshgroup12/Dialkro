@@ -30,7 +30,7 @@ function Navbar() {
   
   return (
     <>
-      <header className="shadow-md sticky top-0 z-10  backdrop-blur-md  dark:bg-neutral-900 dark:text-white font-sans">
+      <header className=" sticky top-0 z-10   dark:bg-neutral-900  font-sans bg-white">
         <section className="flex items-center lg:justify-center max-sm:flex-col relative py-3 px-10 border-rose-700 border-b lg:min-h-[80px] max-lg:min-h-[60px] ">
           <Link
             to="/"
@@ -118,12 +118,13 @@ function Navbar() {
             <li className="max-lg:border-b max-lg:py-2">
               <Link
                 className="hover:text-rose-500  text-[16px] block font-medium"
-                to="/service"
+                to="/Advertise"
               >
                 {" "}
-                Service
+                Advertise
               </Link>
             </li>
+       
             <li className="max-lg:border-b max-lg:py-2">
               <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/blog">
                 {" "}
@@ -143,9 +144,12 @@ function Navbar() {
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/business">
+              <Link
+                className="hover:text-rose-500  text-[16px] block font-medium"
+                to="/service"
+              >
                 {" "}
-             OtherBusiness
+                Service
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">

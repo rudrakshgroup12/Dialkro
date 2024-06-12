@@ -227,6 +227,7 @@ const CustomFooter = () => {
        
           </div>
         </div>
+        
       </footer>
     </>
   );

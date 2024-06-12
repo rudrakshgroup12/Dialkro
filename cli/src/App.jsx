@@ -31,7 +31,7 @@ import About from "./Components/About/About.jsx";
 import Team from "./Components/team/Team.jsx";
 import ForgotPassword from "./Components/Login/ForgotPassword.jsx";
  import OtherBusiness from "./Components/otherbusiness/OtherBusiness.jsx"
-
+ import Advertise from "./Components/advertise/Advertise.jsx"
 function App() {
   return (
     <>
@@ -62,7 +62,7 @@ function App() {
               <Route path="/blogcontent6" element={<Blogcontent6 />} />
 
               <Route path="/service" element={<Service />} /> 
-              
+              <Route path="/Advertise" element={<Advertise />} /> 
               <Route path="/contactus" element={<Contactus />} />
               <Route path="/portfolio" element={<Portfolio/>} />
               <Route path="/business/edit/:id" element={<EditUserBusiness />} />
