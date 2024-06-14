@@ -131,11 +131,7 @@ const CustomFooter = () => {
               </div>{" "}
               <div className="leading-7 mt-4 text-[15px] font-[500]">
                 {" "}
-                <p className="space-x-3 hover:text-[#cacaca]">
-                  {" "}
-                  <i className="fa fa-phone text-[17px]"></i>{" "}
-                  <a href="#"> 1800 1800 88800</a>{" "}
-                </p>{" "}
+               
                 <p className="space-x-3 hover:text-[#cacaca]">
                   {" "}
                   <i className="fa fa-phone text-[17px]"></i>{" "}

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaSearch, FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Popup from "./Popup.jsx"
 import { useNavigate } from "react-router-dom";
 // import BusinessCategory from "../Business/Category/BusinessCategory.jsx";
 import Bgr from "./bgr1.png";
@@ -19,7 +20,20 @@ import wedding from "../assets/wedding.png";
 import gym from "../assets/gym.png";
 import school from "../assets/school.png";
 import realstate from "../assets/realstate.png";
+import gargclinic from "../assets/gargclinic.jpg";
+import rythdum from "../assets/rythdum.jpg";
+import globalhealth from "../assets/globalhealth.jpg";
 function Home() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    setShowPopup(true); // Jab component mount ho, popup show ho
+  }, []);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   const { isDarkMode } = useAuth();
   const [searchInput, setSearchInput] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
@@ -85,6 +99,7 @@ function Home() {
             <p className="text-lg text-white font-bold dark:bg-neutral-800">
               Your one-stop destination for finding the best businesses in town.
             </p>
+          
             <div className="mt-4 flex items-center dark:bg-neutral-800 dark:text-white">
               <input
                 type="text"
@@ -94,10 +109,12 @@ function Home() {
                 className="w-full p-4 rounded-md sm:text-sm focus:outline focus:ring focus:border-blue-300"
                 aria-label="Search for businesses"
               />
+           
               <button className="ml-4 bg-black text-white rounded-md px-6 py-4" onClick={handleSearchButtonClick}>
                 Search
               </button>
             </div>
+            <Popup show={showPopup} onClose={handleClosePopup} />
           </div>
         </div>
       </div>
@@ -113,8 +130,7 @@ function Home() {
         <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
     </svg>
     <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
-        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard"
-           >
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 busicard">
         </div>
         <img class="relative w-40" src={restaurentlogo} alt=""/>
     </div>
@@ -656,6 +672,137 @@ Please fill out the business submission form to add your business to Dialkro's d
          </div>
   
 
+
+         <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+          <h1 className="text-5xl font-bold mb-10">Recent Activity</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+        <div class="rounded overflow-hidden shadow-lg">
+
+            <a href="#"></a>
+            <div class="relative">
+                <a href="https://gargclinics.com/" target="_blank">
+                    <img class="w-full"
+                        src={gargclinic}
+                        alt="Sunset in the mountains"/>
+                    <div
+                        class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
+                    </div>
+                </a>
+                <a href="#!">
+                    <div
+                        class="absolute bottom-0 left-0 bg-red-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-red-600 transition duration-500 ease-in-out">
+                        Photos
+                    </div>
+                </a>
+
+                <a href="!#">
+                    <div
+                        class="text-sm absolute top-0 right-0 bg-red-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-red-600 transition duration-500 ease-in-out">
+                        <span class="font-bold">27</span>
+                        <small>March</small>
+                    </div>
+                </a>
+            </div>
+            <div class="px-6 py-4">
+
+                <a href="#"
+                    class="font-semibold text-lg inline-block hover:text-red-600 transition duration-500 ease-in-out">Garg Clinic Hospitality</a>
+                <p class="text-gray-500 text-sm">
+                    Chandigarh city
+                </p>
+            </div>
+            <div class="px-6 py-4 flex flex-row items-center">
+                <span href="#" class="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
+                  
+                    <span class="ml-1">4 Month ago</span></span>
+            </div>
+        </div>
+        <div class="rounded overflow-hidden shadow-lg">
+            <a href="#"></a>
+            <div class="relative">
+                <a href="#">
+                    <img class="w-full"
+                        src={rythdum}
+                        alt="Sunset in the mountains"/>
+                    <div
+                        class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
+                    </div>
+                </a>
+                <a href="#!">
+                    <div
+                        class="absolute bottom-0 left-0 bg-red-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-red-600 transition duration-500 ease-in-out">
+                        Photos
+                    </div>
+                </a>
+
+                <a href="!#">
+                    <div
+                        class="text-sm absolute top-0 right-0 bg-red-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-red-600 transition duration-500 ease-in-out">
+                        <span class="font-bold">20</span>
+                        <small>March</small>
+                    </div>
+                </a>
+            </div>
+            <div class="px-6 py-4">
+
+                <a href="#"
+                    class="font-semibold text-lg inline-block hover:text-red-600 transition duration-500 ease-in-out">Rydhumhotel in Chandigarh</a>
+                <p class="text-gray-500 text-sm">
+                    Best Hotel in Chandigarh
+                </p>
+            </div>
+            <div class="px-6 py-4 flex flex-row items-center">
+                <span href="#"
+                    class="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
+                
+                    <span class="ml-1">1 Year Plans</span></span>
+            </div>
+        </div>
+        <div class="rounded overflow-hidden shadow-lg">
+
+            <a href="#"></a>
+            <div class="relative">
+                <a href="#">
+                    <img class="w-full"
+                        src={globalhealth}
+                        alt="Sunset in the mountains"/>
+                    <div
+                        class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
+                    </div>
+                </a>
+                <a href="#!">
+                    <div
+                        class="absolute bottom-0 left-0 bg-red-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-red-600 transition duration-500 ease-in-out">
+                        Photos
+                    </div>
+                </a>
+
+                <a href="!#">
+                    <div
+                        class="text-sm absolute top-0 right-0 bg-red-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-red-600 transition duration-500 ease-in-out">
+                        <span class="font-bold">15</span>
+                        <small>April</small>
+                    </div>
+                </a>
+            </div>
+            <div class="px-6 py-4">
+
+                <a href="#"
+                    class="font-semibold text-lg inline-block hover:text-red-600 transition duration-500 ease-in-out">Global health care clinic</a>
+                <p class="text-gray-500 text-sm">
+                  Best Clinic Multiple Treatment 
+                </p>
+            </div>
+            <div class="px-6 py-4 flex flex-row items-center">
+                <span href="#"
+                    class="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
+                   
+                    <span class="ml-1">6 mins read</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+      
 
     </div>
   );
