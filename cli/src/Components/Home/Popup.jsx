@@ -12,7 +12,7 @@ const Popup = ({ show, onClose }) => {
       <div className="popup-content">
         <button onClick={onClose} className="close-button">X</button>
       <img src={bestad} alt="" className='adimg'/>
-      pus
+      
       </div>
     </div>
   );

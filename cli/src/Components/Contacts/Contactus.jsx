@@ -140,7 +140,7 @@ function Contactus() {
                         </div>
                         <div className="border-t border-gray-200 px-6 py-4">
                             <h3 className="text-lg font-medium text-gray-900">Contact</h3>
-                            <p className="mt-1 text-gray-600">Email: info@example.com</p>
+                            <p className="mt-1 text-gray-600">Email: dialkro64@gmail.com</p>
                             <p className ="mt-1 text-gray-600">Phone: +91-964661-6018</p>
                         </div>
                     </div>

@@ -21,51 +21,51 @@ return(
 
 
 
-<section id="portfolio" class="portfolio-section py-16 px-4">
-    <div class="container mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4">Dialkro Ads Help You Achieve Your Goals</h2>
-            <p class="text-lg text-red-700 font-semibold">Discover our latest Business and success stories</p>
+<section id="portfolio" className="portfolio-section py-16 px-4">
+    <div className="container mx-auto">
+        <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Dialkro Ads Help You Achieve Your Goals</h2>
+            <p className="text-lg text-red-700 font-semibold">Discover our latest Business and success stories</p>
         </div>
  
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden">
                 <a href="/project-1">
-                    <img class="w-full h-60 object-cover" src="https://spacema-dev.com/elevate/assets/images/portfolio-1.png" alt="Project 1"/>
+                    <img className="w-full h-60 object-cover" src="https://spacema-dev.com/elevate/assets/images/portfolio-1.png" alt="Project 1"/>
                     <div
-                        class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
+                        className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
-                    <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Market Your Business
+                    <div className="p-4 flex flex-col items-center justify-between relative z-10">
+                        <h3 className="text-lg font-medium text-txt group-hover:text-gray-dark">Market Your Business
 to New Users</h3>
-                        <span class="text-sm font-bold text-red-700 group-hover:text-indigo-500">Good Branding</span>
+                        <span className="text-sm font-bold text-red-700 group-hover:text-indigo-500">Good Branding</span>
                     </div>
                 </a>
             </div>
-            <div class="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden">
+            <div className="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden">
                 <a href="/project-2">
-                    <img class="w-full h-60 object-cover" src="https://spacema-dev.com/elevate/assets/images/portfolio-2.png" alt="Project 1"/>
+                    <img className="w-full h-60 object-cover" src="https://spacema-dev.com/elevate/assets/images/portfolio-2.png" alt="Project 1"/>
                     <div
-                        class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
+                        className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
-                    <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Grow Your
+                    <div className="p-4 flex flex-col items-center justify-between relative z-10">
+                        <h3 className="text-lg font-medium text-txt group-hover:text-gray-dark">Grow Your
 Revenue</h3>
-                        <span class="text-sm font-bold text-red-700 group-hover:text-indigo-500">Good Branding</span>
+                        <span className="text-sm font-bold text-red-700 group-hover:text-indigo-500">Good Branding</span>
                     </div>
                 </a>
             </div>
-            <div class="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden">
+            <div className="group portfolio-item relative hover:shadow-lg shadow-md rounded-lg overflow-hidden">
                 <a href="/project-3">
-                    <img class="w-full h-60 object-cover" src="https://spacema-dev.com/elevate/assets/images/portfolio-3.png" alt="Project 1"/>
+                    <img className="w-full h-60 object-cover" src="https://spacema-dev.com/elevate/assets/images/portfolio-3.png" alt="Project 1"/>
                     <div
-                        class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
+                        className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70">
                     </div>
-                    <div class="p-4 flex flex-col items-center justify-between relative z-10">
-                        <h3 class="text-lg font-medium text-txt group-hover:text-gray-dark">Get More
+                    <div className="p-4 flex flex-col items-center justify-between relative z-10">
+                        <h3 className="text-lg font-medium text-txt group-hover:text-gray-dark">Get More
 Walk-in Customers</h3>
-                        <span class="text-sm font-bold text-red-700 group-hover:text-indigo-500">Good
+                        <span className="text-sm font-bold text-red-700 group-hover:text-indigo-500">Good
                             Branding</span>
                     </div>
                 </a>
@@ -80,51 +80,51 @@ Walk-in Customers</h3>
 
 
 
-<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-        <h1 class="font-bold text-black text-2xl my-10">Popular Brands</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+<div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+        <h1 className="font-bold text-black text-2xl my-10">Popular Brands</h1>
+    <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
 
-        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center firstad">
-            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+        <div className="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center firstad">
+            <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
             </div>
-            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+            <div className="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
             
             
             </div>
-            <main class="p-5 z-10">
+            <main className="p-5 z-10">
                 <a href="#"
-                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Dr.
+                    className="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Dr.
                    Global Health Care Clinic, Dr. Sanjeev Bhatia
                 </a>
             </main>
 
         </div>
 
-        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center secondad"
+        <div className="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center secondad"
            >
-            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+            <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
             </div>
-            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+            <div className="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
                
             </div>
-            <main class="p-5 z-10">
+            <main className="p-5 z-10">
                 <a href="#"
-                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rg shine Cleaning Products .
+                    className="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rg shine Cleaning Products .
                 </a>
             </main>
 
         </div>
 
-        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center thirdad"
+        <div className="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center thirdad"
            >
-            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+            <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
             </div>
-            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+            <div className="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
               
             </div>
-            <main class="p-5 z-10">
+            <main className="p-5 z-10">
                 <a href="#"
-                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rudraksh Group Real Estate
+                    className="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rudraksh Group Real Estate
                 </a>
             </main>
 
@@ -139,191 +139,191 @@ Walk-in Customers</h3>
 
 
 
-      <section class="text-gray-700 body-font overflow-hidden border-t border-gray-200">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap">
-    <div class="lg:w-1/4 mt-48 hidden lg:block">
-      <div class="mt-px border-t border-gray-300 border-b border-l rounded-tl-lg rounded-bl-lg overflow-hidden">
+      <section className="text-gray-700 body-font overflow-hidden border-t border-gray-200">
+  <div className="container px-5 py-24 mx-auto flex flex-wrap">
+    <div className="lg:w-1/4 mt-48 hidden lg:block">
+      <div className="mt-px border-t border-gray-300 border-b border-l rounded-tl-lg rounded-bl-lg overflow-hidden">
         
-        <p class=" text-gray-900 h-12 font-bold text-center px-4 flex items-center justify-start -mt-px"> Search Visibility</p>
-     <p class=" text-gray-900 h-12 font-bold text-center px-4 flex items-center justify-start -mt-px">  Category Banner</p>
+        <p className=" text-gray-900 h-12 font-bold text-center px-4 flex items-center justify-start -mt-px"> Search Visibility</p>
+     <p className=" text-gray-900 h-12 font-bold text-center px-4 flex items-center justify-start -mt-px">  Category Banner</p>
      
-        <p class="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Verified Seal #</p>
-        <p class="text-gray-900 h-12 text-center font-bold  px-4 flex items-center justify-start">Trust Stamp #</p>
-        <p class="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Online Catalogue</p>
-        <p class="text-gray-900 h-12 text-center px-4 font-bold   flex items-center justify-start">Transactional Website</p>
-        <p class="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Payment Solutions</p>
-        <p class="text-gray-900 h-12 text-center px-4 font-bold  flex items-center justify-start">Smart Lead System</p>
-        <p class="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Competitor Analysis</p>
-        <p class="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Premium Customer Support</p>
+        <p className="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Verified Seal #</p>
+        <p className="text-gray-900 h-12 text-center font-bold  px-4 flex items-center justify-start">Trust Stamp #</p>
+        <p className="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Online Catalogue</p>
+        <p className="text-gray-900 h-12 text-center px-4 font-bold   flex items-center justify-start">Transactional Website</p>
+        <p className="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Payment Solutions</p>
+        <p className="text-gray-900 h-12 text-center px-4 font-bold  flex items-center justify-start">Smart Lead System</p>
+        <p className="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Competitor Analysis</p>
+        <p className="bg-gray-100 text-gray-900 h-12 font-bold  text-center px-4 flex items-center justify-start">Premium Customer Support</p>
       </div>
     </div>
-    <div class="flex lg:w-3/4 w-full  lg:border border-gray-300 rounded-lg">
-      <div class="lg:w-1/3 lg:mt-px w-full mb-10 lg:mb-0 border-2 border-gray-300 lg:border-none rounded-lg lg:rounded-none">
-        <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
-          <h3 class="tracking-widest font-bold text-green-500">STANDARD</h3>
-          <span class="text-sm text-orange-600 font-bold">25% Off</span>
-          <h2 class="text-5xl text-gray-900 font-medium leading-none mb-4">99
-          <span class="text-gray-600 text-base ml-1">/Day</span>
+    <div className="flex lg:w-3/4 w-full  lg:border border-gray-300 rounded-lg">
+      <div className="lg:w-1/3 lg:mt-px w-full mb-10 lg:mb-0 border-2 border-gray-300 lg:border-none rounded-lg lg:rounded-none">
+        <div className="px-2 text-center h-48 flex flex-col items-center justify-center">
+          <h3 className="tracking-widest font-bold text-green-500">STANDARD</h3>
+          <span className="text-sm text-orange-600 font-bold">25% Off</span>
+          <h2 className="text-5xl text-gray-900 font-medium leading-none mb-4">99
+          <span className="text-gray-600 text-base ml-1">/Day</span>
           </h2>
           
     
         </div>
-        <p class="bg-gray-100 text-black-600 h-12 text-center px-2 flex items-center font-bold -mt-px justify-center border-t border-gray-300">1x</p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
-          <span class="w-5 h-5 inline-flex items-center justify-center  text-white rounded-full flex-shrink-0">
+        <p className="bg-gray-100 text-black-600 h-12 text-center px-2 flex items-center font-bold -mt-px justify-center border-t border-gray-300">1x</p>
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span className="w-5 h-5 inline-flex items-center justify-center  text-white rounded-full flex-shrink-0">
           <FcApproval />
           </span>
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-          <span class="w-5 h-5 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span className="w-5 h-5 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
           <FcApproval />
           </span>
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-          <span class="w-5 h-5 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span className="w-5 h-5 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
           <FcDisapprove />
           </span>
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-          <span class="w-5 h-5 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span className="w-5 h-5 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
           <FcApproval />
           </span>
         </p>
-        <p class="text-green-600 text-center h-12 flex items-center justify-center">
+        <p className="text-green-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
       </div>
      
      
      
-      <div class="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg border-indigo-500 relative">
-        <span class="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">POPULAR</span>
-        <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
-          <h3 class="tracking-widest font-bold text-pink-600">PREMIUM</h3>
-          <span class="text-sm text-orange-600 font-bold">25% Off</span>
-          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4">149 
-            <span class="text-gray-600 text-base ml-1">/Day</span>
+      <div className="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg border-indigo-500 relative">
+        <span className="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">POPULAR</span>
+        <div className="px-2 text-center h-48 flex flex-col items-center justify-center">
+          <h3 className="tracking-widest font-bold text-pink-600">PREMIUM</h3>
+          <span className="text-sm text-orange-600 font-bold">25% Off</span>
+          <h2 className="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4">149 
+            <span className="text-gray-600 text-base ml-1">/Day</span>
           </h2>
          
         </div>
-        <p class="bg-gray-100 text-black-600 h-12 text-center px-2 flex items-center -mt-px font-bold justify-center border-t border-gray-300">2X</p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-black-600 h-12 text-center px-2 flex items-center -mt-px font-bold justify-center border-t border-gray-300">2X</p>
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcDisapprove />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
       </div>
 
-      <div class="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg  relative">
+      <div className="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg  relative">
        
-        <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
-          <h3 class="tracking-widest font-bold text-purple-600">PRO</h3>
-          <span class="text-sm text-orange-600 font-bold">25% Off</span>
-          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4">199
-            <span class="text-gray-600 text-base ml-1">/Day</span>
+        <div className="px-2 text-center h-48 flex flex-col items-center justify-center">
+          <h3 className="tracking-widest font-bold text-purple-600">PRO</h3>
+          <span className="text-sm text-orange-600 font-bold">25% Off</span>
+          <h2 className="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4">199
+            <span className="text-gray-600 text-base ml-1">/Day</span>
           </h2>
          
         </div>
-        <p class="bg-gray-100 text-black-600 h-12 text-center px-2 font-bold flex items-center -mt-px justify-center border-t border-gray-300">3X</p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-black-600 h-12 text-center px-2 font-bold flex items-center -mt-px justify-center border-t border-gray-300">3X</p>
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
       </div>
-      <div class="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg  relative">
+      <div className="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg  relative">
       
-        <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
-          <h3 class="tracking-widest font-bold text-red-600">GROWTH</h3>
-          <span class="text-sm text-orange-600 font-bold">Get Max Exposure
+        <div className="px-2 text-center h-48 flex flex-col items-center justify-center">
+          <h3 className="tracking-widest font-bold text-red-600">GROWTH</h3>
+          <span className="text-sm text-orange-600 font-bold">Get Max Exposure
                                                                          List in</span>
-          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4">TOP 5 
+          <h2 className="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4">TOP 5 
        
           </h2>
          
         </div>
-        <p class="bg-gray-100 text-black-600 h-12 text-center px-2 flex items-center font-bold -mt-px justify-center border-t border-gray-300">Guaranted Top Growth Business</p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-black-600 h-12 text-center px-2 flex items-center font-bold -mt-px justify-center border-t border-gray-300">Guaranted Top Growth Business</p>
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
-        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+        <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
       </div>
@@ -533,116 +533,116 @@ Walk-in Customers</h3>
 </section>
 
 
-<section class="flex flex-col lg:flex-row m-5 p-2 md:p-5">
-      <div class="w-full p-2 md:p-6 bg-white rounded-lg shadow-md">
-        <h4 class="text-xl font-bold">Get Ahead of Your Competition</h4>
+<section className="flex flex-col lg:flex-row m-5 p-2 md:p-5">
+      <div className="w-full p-2 md:p-6 bg-white rounded-lg shadow-md">
+        <h4 className="text-xl font-bold">Get Ahead of Your Competition</h4>
 
-        <div class="flex flex-wrap gap-5 md:gap-10 m-3 mt-10">
-          <div class="text-sm">
+        <div className="flex flex-wrap gap-5 md:gap-10 m-3 mt-10">
+          <div className="text-sm">
             <span
-              class="bg-red-500 align-middle w-4 h-4 inline-block mr-1 -mt-1"
+              className="bg-red-500 align-middle w-4 h-4 inline-block mr-1 -mt-1"
             ></span>
             Very Satisfied
           </div>
 
-          <div class="text-sm">
+          <div className="text-sm">
             <span
-              class="bg-red-300 align-middle w-4 h-4 inline-block mr-1 -mt-1"
+              className="bg-red-300 align-middle w-4 h-4 inline-block mr-1 -mt-1"
             ></span>
             Satisfied
           </div>
 
-          <div class="text-sm">
+          <div className="text-sm">
             <span
-              class="bg-gray-300 align-middle w-4 h-4 inline-block mr-1 -mt-1"
+              className="bg-gray-300 align-middle w-4 h-4 inline-block mr-1 -mt-1"
             ></span>
             Neutral
           </div>
 
-          <div class="text-sm">
+          <div className="text-sm">
             <span
-              class="bg-gray-400 align-middle w-4 h-4 inline-block mr-1 -mt-1"
+              className="bg-gray-400 align-middle w-4 h-4 inline-block mr-1 -mt-1"
             ></span>
             Dissatisfied
           </div>
 
-          <div class="text-sm">
+          <div className="text-sm">
             <span
-              class="bg-gray-500 align-middle w-4 h-4 inline-block mr-1 -mt-1"
+              className="bg-gray-500 align-middle w-4 h-4 inline-block mr-1 -mt-1"
             ></span>
             Very Dissatisfied
           </div>
         </div>
 
-        <div class="space-y-10 mt-10">
-          <div class="flex flex-col md:flex-row items-center">
-            <div class="w-full md:w-1/3 p-3">
+        <div className="space-y-10 mt-10">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/3 p-3">
       Dialkro has earned the trust of Delhiites with a satisfaction rate of 92%! Whether you're exploring the historic lanes of Old Delhi or the modern avenues of New Delhi, we're here to connect you with the best businesses in town.
             </div>
-            <div class="flex w-full md:w-2/3 min-h-[60px]">
+            <div className="flex w-full md:w-2/3 min-h-[60px]">
               <span
-                class="rounded-l p-3 text-center leading-10 mr-1 bg-red-500 w-[50%] text-white"
+                className="rounded-l p-3 text-center leading-10 mr-1 bg-red-500 w-[50%] text-white"
                 >50%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-red-300 w-[30%] text-black"
+                className="text-center p-3 leading-10 mr-1 bg-red-300 w-[30%] text-black"
                 >30%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-gray-300 w-[10%] text-black"
+                className="text-center p-3 leading-10 mr-1 bg-gray-300 w-[10%] text-black"
                 >10%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-gray-400 w-[6%] text-white"
+                className="text-center p-3 leading-10 mr-1 bg-gray-400 w-[6%] text-white"
                 >6%</span
               >
               <span
-                class="rounded-r p-3 text-center leading-10 mr-1 bg-gray-500 w-[4%] text-white"
+                className="rounded-r p-3 text-center leading-10 mr-1 bg-gray-500 w-[4%] text-white"
                 >4%</span
               >
             </div>
           </div>
-          <div class="flex flex-col md:flex-row items-center">
-            <div class="w-full md:w-1/3 p-3">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/3 p-3">
           India's Silicon Valley is buzzing with satisfaction, boasting a rate of 93%! From Koramangala to Whitefield, Dialkro is proud to support the vibrant startup ecosystem and local businesses across Bangalore.
             </div>
-            <div class="flex w-full md:w-2/3 min-h-[60px]">
+            <div className="flex w-full md:w-2/3 min-h-[60px]">
               <span
-                class="rounded-l p-3 text-center leading-10 mr-1 bg-red-500 w-[60%] text-white"
+                className="rounded-l p-3 text-center leading-10 mr-1 bg-red-500 w-[60%] text-white"
                 >60%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-red-300 w-[25%] text-black"
+                className="text-center p-3 leading-10 mr-1 bg-red-300 w-[25%] text-black"
                 >25%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-gray-300 w-[10%] text-black"
+                className="text-center p-3 leading-10 mr-1 bg-gray-300 w-[10%] text-black"
                 >10%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-gray-400 w-[8%] text-white"
+                className="text-center p-3 leading-10 mr-1 bg-gray-400 w-[8%] text-white"
                 >8%</span
               >
               <span
-                class="rounded-r p-3 text-center leading-10 mr-1 bg-gray-500 w-[2%] text-white"
+                className="rounded-r p-3 text-center leading-10 mr-1 bg-gray-500 w-[2%] text-white"
               ></span>
             </div>
           </div>
-          <div class="flex flex-col md:flex-row items-center">
-            <div class="w-full md:w-1/3 p-3">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/3 p-3">
             The City of Pearls shines even brighter with a satisfaction rate of 95%! Whether you're in the historic lanes of Charminar or the tech-savvy hubs of HITEC City, Dialkro is your trusted companion for discovering the best businesses in Hyderabad.
             </div>
-            <div class="flex w-full md:w-2/3 min-h-[60px]">
+            <div className="flex w-full md:w-2/3 min-h-[60px]">
               <span
-                class="rounded-l p-3 text-center leading-10 mr-1 bg-red-500 w-[40%] text-white"
+                className="rounded-l p-3 text-center leading-10 mr-1 bg-red-500 w-[40%] text-white"
                 >40%</span
               >
               <span
-                class="text-center p-3 leading-10 mr-1 bg-red-300 w-[35%] text-black"
+                className="text-center p-3 leading-10 mr-1 bg-red-300 w-[35%] text-black"
                 >35%</span
               >
               <span
-                class="rounded-r p-3 text-center leading-10 mr-1 bg-gray-500 w-[25%] text-white"
+                className="rounded-r p-3 text-center leading-10 mr-1 bg-gray-500 w-[25%] text-white"
                 >25%</span
               >
             </div>

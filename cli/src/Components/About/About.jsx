@@ -568,7 +568,7 @@ function About() {
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-              Global Health Care 
+             Garg Clinic 
               </h2>
               <p className="leading-relaxed text-base mb-4">
               Working with Dialkro has been a game-changer for our business. Their platform has helped us attract new customers and expand our reach in ways we never thought possible. The team at Dialkro is dedicated, knowledgeable, and always willing to help. We couldn't be happier with the results.

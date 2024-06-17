@@ -40,7 +40,7 @@ function Navbar() {
               Dialkro
             </h1>
           </Link>
-          <div className="md:absolute md:right-10 flex flex-col md:flex-row items-center p-2 max-md:ml-auto">
+          <div className="md:absolute md:right-10 flex  md:flex-row items-center p-2 max-md:ml-auto">
             {/* Navigation Item */}
             {islogin ? (
               <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700">
