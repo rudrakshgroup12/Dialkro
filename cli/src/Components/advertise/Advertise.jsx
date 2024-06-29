@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import featurefirst from "../assets/featurefirst.png";
 import featuresecond from "../assets/featuresecond.png";
@@ -12,7 +12,9 @@ import featurenine from "../assets/featurenine.png";
 import featureten from "../assets/featureten.png";
 import { FcApproval ,FcDisapprove } from "react-icons/fc";
 const Advertise = () => {
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 return(
 
     <div>
@@ -193,13 +195,13 @@ Walk-in Customers</h3>
         <FcApproval />
         </p>
         <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-        <FcApproval />
+        <FcDisapprove />
         </p>
         <p className="text-gray-600 text-center h-12 flex items-center justify-center">
-        <FcApproval />
+        <FcDisapprove />
         </p>
         <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-        <FcApproval />
+        <FcDisapprove />
         </p>
         <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
@@ -235,13 +237,13 @@ Walk-in Customers</h3>
         <FcApproval />
         </p>
         <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-        <FcApproval />
+        <FcDisapprove />
         </p>
         <p className="text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />
         </p>
         <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-        <FcApproval />
+        <FcDisapprove />
         </p>
         <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
         <FcApproval />

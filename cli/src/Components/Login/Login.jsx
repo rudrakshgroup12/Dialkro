@@ -9,7 +9,9 @@ import "./login.css";
 function Login() {
   const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
     useAuth();
-
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   //  const navigate = useNavigate();
   //  const [login, setLogin] = useState({
   //    email: "",

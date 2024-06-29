@@ -7,6 +7,9 @@ import dotenv from "dotenv";
 dotenv.config({ path: "./config/config.env" });
 import cnD from "./config/db.js";
 import cookieParser from "cookie-parser";
+import Razorpay from "razorpay";
+// import path from "path";
+// const cors = require('cors');
 
 process.on("uncaughtException", (reason, p) => {
   console.error(reason, "Unhandled Rejection at Promise", p);
@@ -39,22 +42,40 @@ app.use((req, res, next) => {
 });
 
 // app.use(cors())
-app.use(
-  cors({
-    origin: ["https://dialkro.in"],
-    // origin: ["https://localhost:5174"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     // origin: ["https://dialkro.in"],
+//     origin: ["https://localhost:5173"],
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true,
+//   })
+// );
+
+
+app.use(cors({
+  origin: 'http://localhost:5173', // Replace with your frontend URL
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 import userRoutes from "./routes/userRoutes.js";
 import BusnessRoutes from "./routes/businessRoutes.js";
+import buisnesRoutes from "./routes/buisnesRoutes.js"
+import paymentRoute from "./routes/paymentRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js"
 // import categoryRoutes from "./routes/categoryRoutes.js";
 app.use("/api", userRoutes);
 app.use("/api", BusnessRoutes);
+app.use("/api",buisnesRoutes)
+app.use("/api", paymentRoute);
+app.use("/api",categoryRoutes)
 // app.use("/api", categoryRoutes);
+
+app.get("/api/getkey", (req, res) =>
+  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+);
 
 app.get("/", (req, res, next) => {
   res.send("Homes Is Home");
@@ -62,6 +83,11 @@ app.get("/", (req, res, next) => {
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port http://localhost:${process.env.PORT}`);
+});
+
+export const instance = new Razorpay({
+  key_id: process.env.RAZORPAY_API_KEY,
+  key_secret: process.env.RAZORPAY_API_SECRET,
 });
 
 process.on("unhandledRejection", (err) => {

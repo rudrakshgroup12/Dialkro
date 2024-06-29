@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import lg from "./lg.png";
 import { useAuth } from "./ProAuth/AuthPro.jsx";
 import NavbarToggel from "./Navbar/NavbarToggel.jsx";
@@ -27,6 +27,9 @@ function Navbar() {
   };
   
  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   return (
     <>
@@ -57,11 +60,21 @@ function Navbar() {
                 </button>
               </>
             )}
-            <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700 hover:animate-pulse">
-              <Link to="/businesses" className="">
-                <span className="text-sm font-medium">Business</span>
-              </Link>
-            </div>
+          {islogin ? (
+              <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700 hover:animate-pulse">
+                <Link to="/postads" className="text-sm font-medium">
+                  Post Ads
+                </Link>
+              </div>
+            ) : (
+              <>
+                <button className="ml-2 flex cursor-pointer items-center gap-x-1  py-2 px-4 hover:text-rose-700 hover:animate-pulse">
+                  <Link to="/login" className="">
+                    <span className="text-sm font-medium">{}</span>
+                  </Link>
+                </button>
+              </>
+            )}
 
             {islogin ? (
               <>
@@ -126,30 +139,37 @@ function Navbar() {
             </li>
        
             <li className="max-lg:border-b max-lg:py-2">
+           
+            <Link to="/businesses" className=" hover:text-rose-500  text-[16px] block font-medium">
+              Free Listings
+              </Link>
+        
+            </li>
+            <li className="max-lg:border-b max-lg:py-2">
               <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/blog">
                 {" "}
                 Blog
               </Link>
             </li>
-            <li className="max-lg:border-b max-lg:py-2">
+            {/* <li className="max-lg:border-b max-lg:py-2">
               <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/team">
                 {" "}
                 Team
               </Link>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
+            </li> */}
+            {/* <li className="max-lg:border-b max-lg:py-2">
               <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/portfolio">
                 {" "}
                 Portfolio
               </Link>
-            </li>
+            </li> */}
             <li className="max-lg:border-b max-lg:py-2">
               <Link
                 className="hover:text-rose-500  text-[16px] block font-medium"
                 to="/service"
               >
                 {" "}
-                Service
+                Other Service
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
@@ -184,63 +204,6 @@ function Navbar() {
 
 export default Navbar;
 
-{
-  /* <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                About
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                Contact
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                Source
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                Store
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                Fashion
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                Partner
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href=""
-                className="hover:text-[#007bff] text-gray-600 font-bold text-[15px] block"
-              >
-                More
-              </a>
-            </li>
 
 
 
@@ -261,172 +224,5 @@ export default Navbar;
 
 
 
-  /* <div className=" sticky top-0 z-0 backdrop-blur-md  dark:bg-neutral-800 dark:text-white">
-        <div className="border py-3 px-6">
-          <div className="flex justify-between">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center">
-                <span className="text-xl font-semibold text-gray-800 dark:text-white">
-                  Dialkro
-                </span>
-              </Link>
-            </div>
 
-            <div className="ml-6 flex flex-1 gap-x-3">
-              <div className="flex cursor-pointer select-none items-center gap-x-2 rounded-md border bg-[#4094F7] py-2 px-4 text-white hover:bg-blue-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-                <span className="text-sm font-medium">Categories</span>
-              </div>
-
-              <input
-                type="text"
-                className="w-full rounded-md border border-[#DDE2E4] px-3 py-2 text-sm"
-                defaultValue="DJI phantom"
-              />
-            </div>
-
-            <div className="ml-2 flex">
-              {islogin ? (
-                <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:bg-gray-100">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
-                    <path
-                      fillRule="evenodd"
-                      d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-
-                  <Link to="/profile" className="text-sm font-medium">
-                    Profile
-                  </Link>
-                </div>
-              ) : (
-                <>
-                  <button className="ml-2 flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-gray-100">
-                    <Link to="/register" className="hover:text-blue-500">
-                      <span className="text-sm font-medium">Signup</span>
-                    </Link>
-                  </button>
-                </>
-              )}
-              <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:bg-gray-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-
-                <Link to="/businesses" className="hover:text-blue-500">
-                  <AiOutlineAppstoreAdd className="text-2xl" />
-                  <span className="text-sm font-medium">Business</span>
-                </Link>
-
-                <NavbarToggel />
-              </div>
-
-              {islogin ? (
-                <>
-                  <button
-                    onClick={logOutNow}
-                    className="ml-2 flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-gray-100"
-                  >
-                    <span className="text-sm font-medium">Sign out</span>
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    className="ml-2 flex cursor-pointer items-center gap-x-1 rounded-md border py-2 px-4 hover:bg-gray-100"
-                    onClick={() => {}}
-                  >
-                    <Link to="/login">
-                      <span className="text-sm font-medium">Sign in</span>
-                    </Link>
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-4 flex items-center justify-between">
-            <div className="flex gap-x-2 py-1 px-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-500"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-sm font-medium">India</span>
-            </div>
-
-            <div className="flex gap-x-8">
-              <Link to="/about">
-                <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                  About
-                </span>
-              </Link>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Best seller
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                New Releases
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Books
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Computers
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Fashion
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Health
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Pharmacy
-              </span>
-              <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-                Toys & Games
-              </span>
-            </div>
-
-            <span className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100">
-              Becoma a seller
-            </span>
-          </div>
-        </div>
-      </div> */
-}
+  

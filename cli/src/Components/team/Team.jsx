@@ -1,19 +1,23 @@
-import React from 'react'
+import React ,{  useEffect} from 'react'
 import { Link } from "react-router-dom";
 import team1 from "../assets/team1.jpg";
 import aman from "../assets/aman.jpeg";
 import gauravs from "../assets/gauravs.jpeg";
 import Narender from "../assets/Narender.jpeg";
-import vishal from "../assets/vishal.jpeg";
+
 import komal from "../assets/komal.jpeg";
 import CEO from "../assets/CEO.jpg";
 import dialkroteam from "../assets/dialkroteam.png";
-import amanraj from "../assets/amanraj.jpeg";
+
 import sadhana from "../assets/sadhana.jpeg";
 import "./Team.css";
 
 import { FaInstagramSquare ,FaWhatsappSquare,FaFacebook} from "react-icons/fa";
 const Team = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
     <div>
     <div className="bg-red-800">

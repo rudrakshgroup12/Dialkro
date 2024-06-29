@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 import { FaRegStar } from "react-icons/fa";
 
 const AddReviewComponent = ({ onSubmit, initialRating = 0 }) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { islogin } = useAuth();
   const [rating, setRating] = useState(initialRating);
   const [review, setReview] = useState("");

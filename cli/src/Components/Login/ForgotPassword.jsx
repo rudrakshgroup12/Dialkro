@@ -1,10 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 // import ResetPassword from "./ResetPassword";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 function ForgotPassword() {
   const { emailid, forgothandleSubmit, forgotHandleInputChange, error } =
     useAuth();
-
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <>
       <section className="relative py-32 lg:py-36 bg-white">

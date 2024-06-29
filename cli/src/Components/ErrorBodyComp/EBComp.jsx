@@ -18,7 +18,7 @@ class ErrorBoundary extends Component {
       return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-100 via-pink-100 to-red-100">
           <div className="bg-transparent p-8 rounded-lg shadow-md transform scale-100 hover:scale-105 transition-transform duration-300">
-            <h1 className="text-4xl animate-bounce text-gray-800 font-bold mb-4">
+            <h1 className=" animate-bounce text-gray-800 ">
               Oops! Something Went Wrong...
             </h1>
             <p className="text-gray-700">Please try again after some time.</p>

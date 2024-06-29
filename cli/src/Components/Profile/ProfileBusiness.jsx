@@ -1,9 +1,13 @@
-import React from "react";
+import React  , { useEffect } from 'react'
 import BusinessList from "./Businesslist.jsx"
 import CEO from "../assets/CEO.jpg";
 import ceorename from "../assets/ceorename.png";
 import sadhana from "../assets/sadhana.jpeg";
 function ProfileBusiness() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
 

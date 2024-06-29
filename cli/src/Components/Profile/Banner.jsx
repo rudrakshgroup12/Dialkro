@@ -1,6 +1,9 @@
-import React from "react";
+import React,{ useEffect} from "react";
 
 const Banner = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div className="container p-4 mx-auto text-center">
@@ -17,14 +20,7 @@ const Banner = () => {
             </p>
           </div>
         </div>
-        {/* <div className="flex items-center flex-col">
-          <button className="bg-[#3329e0] text-white px-8 py-4 rounded-full mt-12 hover:bg-[#ccc9ff] ease-in transition-all duration-300 hover:text-[#3329e0]">
-            Create a website
-          </button>
-          <a href="#" className="text-[#3329e0] my-3">
-            Or Schedule a Demo
-          </a>
-        </div> */}
+     
       </div>
     </div>
   );

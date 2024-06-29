@@ -17,6 +17,7 @@ function Editprofile() {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (userData.data) {
       setupdateUser({
         username: userData.data.username,

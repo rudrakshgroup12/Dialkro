@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {   useEffect } from "react";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 import { Link } from "react-router-dom";
 
@@ -10,6 +10,10 @@ function BusinessCategory() {
 
     error,
   } = useAuth();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {error && (

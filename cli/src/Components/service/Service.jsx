@@ -1,9 +1,11 @@
-import React ,{useState} from 'react'
+import React  , { useEffect } from 'react'
 import { Link } from "react-router-dom";
 
 import dialkroservice from "../assets/dialkroservice.png";
 const Service = () => {
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
 
   return (
@@ -152,6 +154,16 @@ const Service = () => {
         </div>
 
     </div>
+
+    <div class="flex flex-col items-center justify-center gap-5 my-6 md:flex-row">
+        <Link
+        class="inline-block w-auto text-center min-w-[200px] px-6 py-4 text-white transition-all rounded-md shadow-xl sm:w-auto bg-gradient-to-r from-red-600 to-red-500 hover:bg-gradient-to-b dark:shadow-red-900 shadow-red-200 hover:shadow-2xl hover:shadow-red-400 hover:-tranneutral-y-px "
+       to="/portfolio">Our Portfolio
+    </Link>
+    <Link class="inline-block w-auto text-center min-w-[200px] px-6 py-4 text-white transition-all bg-gray-700 dark:bg-white dark:text-gray-800 rounded-md shadow-xl sm:w-auto hover:bg-gray-900 hover:text-white shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-2xl hover:shadow-neutral-400 hover:-tranneutral-y-px"
+        to="/team">Our Team
+    </Link>
+</div>
 </div>
   )
 }

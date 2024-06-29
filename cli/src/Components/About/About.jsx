@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 
 import { useAuth } from "../ProAuth/AuthPro.jsx";
@@ -7,6 +7,9 @@ import dailkroabout1 from "../assets/dailkroabout1.png";
 import dialkrobusinessdirectory from "../assets/dialkrobusinessdirectory.png";
 function About() {
   const { isDarkMode } = useAuth();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className={isDarkMode ? "dark" : ""}>

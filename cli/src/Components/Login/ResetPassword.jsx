@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 
 function ResetPassword() {
@@ -8,6 +8,10 @@ function ResetPassword() {
     changePasswordhandleSubmit,
     error,
   } = useAuth();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="text-gray-600 body-font">

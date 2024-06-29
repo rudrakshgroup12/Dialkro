@@ -12,7 +12,7 @@
 
 
 .firstad{
-    background-image: url('../assets/globalads.jpg');
+    background-image: url('../assets/beautybrand.png');
 }
 .thirdad{
     background-image: url('../assets/rudraksh.jpg');
@@ -21,3 +21,111 @@
 .secondad{
     background-image: url('../assets/rgshine.jpg');
 }
+
+
+.front-img{
+    width: 100%; 
+    height: 250px;
+}
+
+.maincarousel{
+    height: 50%;
+    border-radius: 20px;
+}
+
+
+  
+  .header-card{
+    display: flex;
+   justify-content: space-around;
+  }
+
+.card-header{
+    width: 200px;
+    height: 280px;
+    
+    margin-left: 10px;
+    position: relative;
+    border: none;
+    background: none;
+
+    border-radius: 30px;
+}
+.card-body{
+    position: absolute;
+    top: 170px;
+}
+
+.card-body button{
+    background-color:white ;
+    color: rgb(114, 3, 3);
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+.card-header img{
+    width:100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.cardidea{
+   display: flex;
+   margin-right: 20px;
+   border-radius: 30px;
+   margin-top: 35px;
+}
+
+.header-ads-section{
+    display: flex;
+    /* align-items: center; */
+
+
+    justify-content: center;
+
+}
+
+@media screen and (max-width:450px) {
+    .card-header{
+   width :100px;
+   height: 100px;
+  margin-left: 2px;
+
+    }
+
+    .card-header img{
+        width:100%;
+        height: 100%;
+        border-radius:     10px;
+    }
+    .card-body{
+        position: absolute;
+        top: 45px;
+    }
+    .card-body button{
+        background-color:white ;
+        color: rgb(114, 3, 3);
+     font-size: 5px;
+        
+        border-radius: 10px;
+       
+    }
+
+    .header-ads-section{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    
+        justify-content: center;
+    
+    }
+  }
+
+  .car-nex {
+  
+  }
+  
+  .car-next {
+ 
+  }

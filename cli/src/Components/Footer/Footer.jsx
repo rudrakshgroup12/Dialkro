@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
@@ -11,12 +11,18 @@ import {
 import { useAuth } from "../ProAuth/AuthPro";
 
 const CustomFooter = () => {
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { isDarkMode } = useAuth();
   return (
     <>
       <footer className={isDarkMode ? "dark" : ""}>
         <div className="dark:bg-neutral-900 bg-black  dark:text-white p-4 items-center text-white  ">
-          {" "}
+        
           <div className="flex justify-center align-center pt-10 pb-14 md:pb-9">
             {" "}
             <img
@@ -25,21 +31,19 @@ const CustomFooter = () => {
               alt=""
               srcSet=""
             />{" "}
-          </div>{" "}
-          <div className="space-y-9 grid grid-cols-1 md:grid-cols-2 md:pl-24 md:pr-16 lg:grid-cols-4 lg:px-7 xl:px-14 xl:ml-16">
-            {" "}
+          </div>
+          <div className="space-y-9 grid grid-cols-1 md:grid-cols-3 md:pl-24 md:pr-16 lg:grid-cols-4 lg:px-7 xl:px-14 xl:ml-16">
+           
             <div className="text-[#6d6d6d] font-[650] text-[16px] leading-7">
-              {" "}
+           
               <div className="flex justify-start md:mt-10">
-                {" "}
+              
                 <h1 className="text-white pb-[36px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
-                  {" "}
-                  Inform{" "}
-                </h1>{" "}
-                <span className="text-white font-sans uppercase font-normal tracking-wider">
-                  ation
-                </span>{" "}
-              </div>{" "}
+               
+                Our Company
+                </h1>
+             
+              </div>
               <p>At Dialkro, we believe in empowering communities by fostering connections between consumers and businesses. </p> 
             
             </div>{" "}
@@ -52,11 +56,9 @@ const CustomFooter = () => {
                   {" "}
                   <h1 className="text-white pb-[34px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                     {" "}
-                  Quick
-                  </h1>{" "}
-                  <span className="text-white font-sans uppercase font-normal tracking-wider">
-                   Links
-                  </span>{" "}
+                  Quick Links
+                  </h1>
+                
                 </div>{" "}
                 <p className="">
                   {" "}
@@ -84,94 +86,108 @@ const CustomFooter = () => {
                 </p>{" "}
                 <p className="">
                   {" "}
-                  <Link to="" className="hover:text-[#cacaca]" href="#">
+                  <Link to="/blog" className="hover:text-[#cacaca]" href="#">
                      Blogs
                   </Link>{" "}
                 </p>{" "}
                 <p className="">
                   {" "}
-                  <Link to="" className="hover:text-[#cacaca]" href="#">
+                  <Link to="/contactus" className="hover:text-[#cacaca]" href="#">
                    Contact details
                   </Link>{" "}
                 </p>{" "}
-              </div>{" "}
+              </div>
               <div className="text-[#747474] text-[15px] font-[550] leading-6 tracking-wide mt-9 md:order-5 md:pt-32 lg:pb-28">
                 {" "}
                 <div className="flex justify-start md:-mt-32">
               
                 </div>{" "}
          
-              </div>{" "}
-            </div>{" "}
+              </div>
+            </div>
             <div className="text-[#797878] text-[15px] font-[550] leading-6 tracking-wide md:order-4 lg:">
               {" "}
               <div className="flex justify-start">
                 {" "}
                 <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                   {" "}
-                  get in t{" "}
-                </h1>{" "}
-                <span className="text-white font-sans uppercase font-normal tracking-wider">
-                  ouch
-                </span>{" "}
+                  Get in Touch
+                </h1>
+           
               </div>{" "}
-              <p className="space-x-3">
+           
+              <div className="leading-7">
                 {" "}
-                <i className="fa fa-home text-[17px]"></i>
-                <strong className="text-[#8b8b8b] text-[15px] tracking-wide">
-                  Our Company
-                </strong>{" "}
-              </p>{" "}
+                <p className="w-30">
+                 
+                  E-260, b-1, phase 8 b, Industrial Area, <br /> Sector 74 Sahibzada <br /> Ajit Singh Nagar, Punjab 160055 
+                </p>
+              </div>
+              <div className="leading-7 mt-4 text-[15px] font-[500]">
+                
+              <p className=" hover:text-[#cacaca]">
+                
+                <i className="fa fa-envelope text-[16px]"></i>{" "}
+                <a href="">+91 98728-68699</a>
+              
+              </p>
+             
+             
+                <p className=" hover:text-[#cacaca]">
+                
+                  <i className="fa fa-envelope text-[16px]"></i>{" "}
+                  <a href="mailto:Support@dialkro.in">Support@dialkro.in</a>{" "}
+                
+                </p>
+                <p className=" hover:text-[#cacaca]">
+                
+                <i className="fa fa-envelope text-[16px]"></i>{" "}
+                <a href="">dialkro64@gmail.com</a>{" "}
+              
+              </p>
+            
+
+              </div>{" "}
+            </div>
+            <div className="text-[#797878] text-[15px] font-[550] leading-6 tracking-wide md:order-4 lg:">
+              {" "}
+              <div className="flex justify-start">
+                {" "}
+                <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
+                  {" "}
+                  Information
+                </h1>
+           
+              </div>{" "}
+           
               <div className="leading-7">
                 {" "}
                 <p className="">
                   {" "}
-                  E-260, b-1, phase 8 b, Industrial Area, Sector 74 Sahibzada Ajit Singh Nagar, Punjab 160055  <br /> General Helpline No:+91 987-6543-210{" "}
-                </p>{" "}
-              </div>{" "}
-              <div className="leading-7 mt-4 text-[15px] font-[500]">
-                {" "}
-               
-                <p className="space-x-3 hover:text-[#cacaca]">
-                  {" "}
-                  <i className="fa fa-phone text-[17px]"></i>{" "}
-                  <a href="#">
-                    9946948000S ({" "}
-                    <span className="text-[13px] font-[500]">
-                      General Enquiry
-                    </span>{" "}
-                    )
-                  </a>{" "}
-                </p>{" "}
-                <p className="space-x-3 hover:text-[#cacaca]">
-                  {" "}
-                  <i className="fa fa-phone text-[17px]"></i>{" "}
-                  <a href="#">
-                    994694700&nbsp;({" "}
-                    <span className="text-[13px] font-[500]">
-                      Technical Support: CUCET
-                    </span>{" "}
-                    ){" "}
-                  </a>{" "}
-                </p>{" "}
-                <p className="space-x-3 hover:text-[#cacaca]">
-                  {" "}
-                  <i className="fa fa-envelope text-[16px]"></i>{" "}
-                  <a href="mailto:Support@dialkro.in">Support@dialkro.in</a>{" "}
+                <Link to="/policy"> Privacy Policy </Link>
+                </p>
+              </div>
+              <div className="leading-7 text-[15px] font-[500]">
                 
-                </p>{" "}
-                <p className="space-x-3 hover:text-[#cacaca]">
+              <p className=" hover:text-[#cacaca]">
+                
                 <i className="fa fa-envelope text-[16px]"></i>{" "}
-                  <a href="mailto:Ceo@dialkro.in">Ceo@dialkro.in</a>{" "}
-                </p>{" "}
+                <Link to="/term">Term & Condition</Link>
+              
+              </p>
+             
+             
+             
+            
 
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
+              </div>
+            </div>
+          </div>
           <div className="divide-y divide-[#747474] contrast-200 mt-3 mb-3 md:-mt-4 md:-mb-2 lg:-mt-16 xl:-mt-24">
             {" "}
             <p>&nbsp;</p> <p>&nbsp;</p>{" "}
-          </div>{" "}
+          </div>
+
           <div className="flex justify-center mb-4 md:mb-1 text-[#afafaf] text-center text-xl space-x-3">
             {" "}
             <p>
@@ -219,9 +235,10 @@ const CustomFooter = () => {
            <FaYoutube className="item-center text-red-600 w-8 h-8"/>
               </a>{" "}
             </p>{" "}
-    
+          
        
           </div>
+          <p className="text-center">© Copyright DialKro. All Rights Reserved</p>
         </div>
         
       </footer>

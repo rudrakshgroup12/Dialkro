@@ -43,7 +43,9 @@ function Signup() {
       setError(`Error is ${error.message}`);
     }
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
 <div className="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat login-page">
 

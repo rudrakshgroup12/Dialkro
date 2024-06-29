@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{  useEffect}from 'react'
 
 import rgshineport from "../assets/rgshineport.png";
 import dial24port from "../assets/dial24port.png";
@@ -12,6 +12,10 @@ import portfoliomock1 from "../assets/portfoliomock1.jpeg";
 import portfoliomock2 from "../assets/portfoliomock2.jpeg";
 import portfoliomock3 from "../assets/portfoliomock3.jpeg";
 const Portfolio = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
     <div className="text-center p-8">
@@ -28,8 +32,7 @@ const Portfolio = () => {
                 Simple frontend Development
             </h3>
             <p className="sm:text-lg mt-6">
-           
-Frontend development involves creating the user interface using HTML, CSS for styling, and JavaScript for interactivity. Frameworks like React or Angular streamline development. Responsive design ensures compatibility across devices. Design principles, performance optimization, and accessibility are key. Version control and testing ensure quality and collaboration.
+           Frontend development involves creating the user interface using HTML, CSS for styling, and JavaScript for interactivity. Frameworks like React or Angular streamline development. Responsive design ensures compatibility across devices. Design principles, performance optimization, and accessibility are key. Version control and testing ensure quality and collaboration.
             </p>
         </div>
     </div>

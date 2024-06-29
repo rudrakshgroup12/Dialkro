@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 const BusinessCheck = () => {
   const {
@@ -7,7 +7,10 @@ const BusinessCheck = () => {
     selectBusinessLocation,
     setselectBusinessLocation,
   } = useAuth();
-
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       {error && (
