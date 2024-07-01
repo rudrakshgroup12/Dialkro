@@ -249,7 +249,7 @@ function Home() {
     <div className="relative text-white px-6 pb-6 mt-6">
      
         <div className="flex justify-between">
-            <span className="block font-bold text-xl text-center ">Restaurents</span>
+            <span className="block font-bold text-xl text-center ">Restaurent</span>
       
         </div>
     </div>
