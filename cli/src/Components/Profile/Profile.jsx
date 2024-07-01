@@ -46,11 +46,11 @@ const UserProfileComponent = () => {
 
   return (
     <>
-    {error && (
+    {/* {error && (
       <div className="error-message text-red-600 mb-8 text-4xl font-bold">
         Oops! {error}
       </div>
-    )}
+    )} */}
     {islogin ? (
       <div className="h-full bg-white p-8">
         <div className="w-full h-[250px]">
