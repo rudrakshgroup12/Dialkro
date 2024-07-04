@@ -562,3 +562,35 @@ export const relatedBuisnessesController = async (req, res) => {
     });
   }
 };
+
+//search Buisness
+export const searchBuisnessController = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const resutls = await buisnessModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } },
+          { website: { $regex: keyword, $options: "i" } },
+          { state: { $regex: keyword, $options: "i" } },
+          { city: { $regex: keyword, $options: "i" } },
+          { email: { $regex: keyword, $options: "i" } },
+        ],
+      })
+
+      .select("-photo")
+      .select("-photo2")
+      .select("-photo3")
+      .select("-photo4")
+      .select("-photo5");
+    res.json(resutls);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      meassage: "Error in Search Buisness API",
+      error,
+    });
+  }
+};

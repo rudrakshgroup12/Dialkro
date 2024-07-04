@@ -3,7 +3,22 @@ import auth from "../middelware/auth.js";
 
 import formidable from "express-formidable";
 
-import { buisnessCountController, buisnessListController, buisnessPhoto2Controller, buisnessPhoto3Controller, buisnessPhoto4Controller, buisnessPhoto5Controller, buisnessPhotoController, createBuisnessController, deleteBuisnessController, getBuisnessController, getSingleBuisnessController, relatedBuisnessesController, updateBuisnessController } from "../controllers/buisnessController.js";
+import {
+  buisnessCountController,
+  buisnessListController,
+  buisnessPhoto2Controller,
+  buisnessPhoto3Controller,
+  buisnessPhoto4Controller,
+  buisnessPhoto5Controller,
+  buisnessPhotoController,
+  createBuisnessController,
+  deleteBuisnessController,
+  getBuisnessController,
+  getSingleBuisnessController,
+  relatedBuisnessesController,
+  searchBuisnessController,
+  updateBuisnessController,
+} from "../controllers/buisnessController.js";
 
 const router = express.Router();
 
@@ -50,5 +65,8 @@ router.get("/buisness-list/:page", buisnessListController);
 
 //similar buisness
 router.get("/related-buisness/:pid/:cid", relatedBuisnessesController);
+
+//search buisness
+router.get("/search/:keyword", searchBuisnessController);
 
 export default router;
