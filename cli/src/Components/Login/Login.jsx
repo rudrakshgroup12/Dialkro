@@ -9,9 +9,9 @@ import "./login.css";
 function Login() {
   const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
     useAuth();
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   //  const navigate = useNavigate();
   //  const [login, setLogin] = useState({
   //    email: "",
@@ -194,68 +194,8 @@ export default Login;
 //  ></script>
 //  \*}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-whit via-transparent to-whit">
+{
+  /* <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-whit via-transparent to-whit">
 {error && (
   <h1 className="text-red-500 mb-8 text-4xl font-bold">{error}</h1>
 )}
@@ -302,7 +242,8 @@ export default Login;
     </div>
 
     <div>
-      {/* <Link to={`/profile/}`}>  */}
+      {/* <Link to={`/profile/}`}>  */
+}
 //       <button
 //         type="submit"
 //         className="bg-rose-700 text-white px-4 py-2 rounded font-semibold mt-4 hover:bg-neutral-900"

@@ -3,7 +3,6 @@ import { useAuth } from "../../ProAuth/AuthPro.jsx";
 import { FaRegStar } from "react-icons/fa";
 
 const AddReviewComponent = ({ onSubmit, initialRating = 0 }) => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

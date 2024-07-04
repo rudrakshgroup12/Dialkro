@@ -104,12 +104,9 @@ function BusinessBycat() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const {}=useAuth()
-
+  const {} = useAuth();
 
   return (
-    
-
     <div className="relative min-h-screen flex ">
       <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
         <div className="sm:w-1/2 xl:w-2/5 h-full hidden md:flex flex-auto items-center justify-start p-10 overflow-hidden bg-purple-900 text-white bg-no-repeat bg-cover relative backform-img">
@@ -294,7 +291,6 @@ function BusinessBycat() {
 }
 
 export default BusinessBycat;
-
 
 // <div>
 // {businessesByCategory.map((business, index) => (
