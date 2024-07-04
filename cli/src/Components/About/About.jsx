@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 import dailkroabout from "../assets/dailkroabout.png";
 import dailkroabout1 from "../assets/dailkroabout1.png";
@@ -91,12 +91,12 @@ function About() {
                     </div>
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="/businesses"
                     className="inline-block rounded-md border border-transparent bg-red-600 py-3 px-8 text-center font-medium text-white hover:bg-red-800"
                   >
                     Check Business
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -124,20 +124,20 @@ function About() {
               {/* {/ {/ <!-- Button Section --> /} /} */}
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="#"
+                  <Link
+                   to="/businesses"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-600 md:py-4 md:text-lg md:px-10"
                   >
                     Get started
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
+                  <Link
+                    to="/businesses"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
                     Live demo
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* {/ {/ <!-- End of Button Section --> /} /} */}

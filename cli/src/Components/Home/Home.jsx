@@ -206,23 +206,23 @@ function Home() {
   </div>
 
 <div className="cardidea">
-<div class="card card-header">
-  <img src={nearestvender} class="card-img-top" alt="..."/>
-  <div class="card-body">
-  <button className="">Explore Now</button>
+<div className="card card-header">
+  <img src={nearestvender} className="card-img-top" alt="..."/>
+  <div className="card-body">
+  <Link  to="/businesses" className=" btn btn-secondary buttons-ex">Explore Now</Link>
   </div>
 </div>
 
-<div class="card card-header">
+<div className="card card-header">
   <img src={doctor} class="card-img-top" alt="..."/>
-  <div class="card-body">
-    <button className="">Explore Now</button>
+  <div className="card-body">
+    <Link  to="/businesses" className="btn btn-secondary buttons-ex">Explore Now</Link>
   </div>
 </div>
-<div class="card card-header">
-  <img src={finestagent} class="card-img-top" alt="..."/>
-  <div class="card-body">
-    <button className="">Explore Now</button>
+<div className="card card-header">
+  <img src={finestagent} className="card-img-top" alt="..."/>
+  <div className="card-body">
+    <Link  to="/businesses" className="btn btn-secondary buttons-ex">Explore Now</Link>
   </div>
 </div>
 </div>
@@ -695,11 +695,11 @@ function Home() {
                 <span className="text-gray-200">Todays Ads</span>
                 <br />
                 <span className="text-gray-200 text-4xl text-white font-semibold">
-                  20% off every Product
+             Ads in Digital Marketing
                 </span>
               </div>
-              <a
-                href="https://rgshine.com/"
+              <Link
+               to="/postads"
                 target="_blank"
                 rel="noreferrer"
                 className="text-black bg-white hover:bg-gray-50 px-4 py-2 rounded-lg w-fit  ease duration-300 flex gap-1 items-center group"
@@ -720,7 +720,7 @@ function Home() {
                     d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"
                   ></path>
                 </svg>
-              </a>
+              </Link>
             </div>
             <div></div>
           </div>
@@ -732,7 +732,7 @@ function Home() {
                 <span className="text-gray-200">Black friday sale</span>
                 <br />
                 <span className="text-gray-200 text-4xl text-white font-semibold">
-                  20% off every Product
+                  30% off every Product
                 </span>
               </div>
               <a
