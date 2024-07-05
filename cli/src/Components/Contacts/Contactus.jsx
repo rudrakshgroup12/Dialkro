@@ -82,7 +82,7 @@ function Contactus() {
                             Email
                         </dt>
                         <dd className="mt-2 text-base text-gray-500 flex flex-wrap">
-                        <a href="mailto:Support@dialkro.in">Support@dialkro.in</a> || <br />
+                        <a href="mailto:Support@dialkro.in">Support@dialkro.in</a>
                         {/* <a href="mailto:Ceo@dialkro.in">Ceo@dialkro.in</a> */}
                         </dd>
                     </div>

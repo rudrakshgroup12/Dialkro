@@ -5,7 +5,7 @@ export const getBusiness = () => {
   const [businesses, setUsers] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     (async () => {
       const URL = "/api/business";
 
@@ -35,6 +35,7 @@ export const getBusiness = () => {
     })();
   }, []);
 };
+
 const expAll = {
   getBusiness,
 };

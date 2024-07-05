@@ -103,10 +103,10 @@
         position: absolute;
         top: 45px;
     }
-    .card-body button{
+    .card-body .buttons-ex{
         background-color:white ;
         color: rgb(114, 3, 3);
-     font-size: 5px;
+        font-size: 5px;
         
         border-radius: 10px;
        

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import { useAuth } from "../ProAuth/AuthPro.jsx";
 import dailkroabout from "../assets/dailkroabout.png";
 import dailkroabout1 from "../assets/dailkroabout1.png";
@@ -91,12 +91,12 @@ function About() {
                     </div>
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="/businesses"
                     className="inline-block rounded-md border border-transparent bg-red-600 py-3 px-8 text-center font-medium text-white hover:bg-red-800"
                   >
                     Check Business
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -124,20 +124,20 @@ function About() {
               {/* {/ {/ <!-- Button Section --> /} /} */}
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="#"
+                  <Link
+                   to="/businesses"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-600 md:py-4 md:text-lg md:px-10"
                   >
                     Get started
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
+                  <Link
+                    to="/businesses"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
                     Live demo
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* {/ {/ <!-- End of Button Section --> /} /} */}
@@ -408,13 +408,9 @@ function About() {
 
             <div className="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1"></div>
 
-            <div className="flex items-center justify-center col-span-1 md:col-span-3 lg:col-span-1">
-     
-            </div>
+            <div className="flex items-center justify-center col-span-1 md:col-span-3 lg:col-span-1"></div>
 
-            <div className="flex items-center justify-center col-span-2 md:col-span-3 lg:col-span-1">
-          
-            </div>
+            <div className="flex items-center justify-center col-span-2 md:col-span-3 lg:col-span-1"></div>
           </div>
         </div>
       </section>
@@ -465,7 +461,9 @@ function About() {
                         Market Your Business to New Users
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                      Utilize online platforms such as Google Ads, social media ads, and display advertising to reach a wider audience.
+                        Utilize online platforms such as Google Ads, social
+                        media ads, and display advertising to reach a wider
+                        audience.
                       </p>
                     </div>
                   </div>
@@ -478,10 +476,12 @@ function About() {
                         />
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                      Search Engine Optimization (SEO)
+                        Search Engine Optimization (SEO)
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                      Optimize your website for search engines to improve its visibility in search results, attracting organic traffic.
+                        Optimize your website for search engines to improve its
+                        visibility in search results, attracting organic
+                        traffic.
                       </p>
                     </div>
                   </div>
@@ -496,10 +496,12 @@ function About() {
                         />
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                      Social Media Marketing
+                        Social Media Marketing
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                      Leverage social media platforms to connect with your target audience, share updates about your business, and run targeted advertising campaigns.
+                        Leverage social media platforms to connect with your
+                        target audience, share updates about your business, and
+                        run targeted advertising campaigns.
                       </p>
                     </div>
                   </div>
@@ -512,10 +514,11 @@ function About() {
                         />
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                      Partnerships and Collaborations
+                        Partnerships and Collaborations
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                      Collaborate with complementary businesses or influencers to reach new audiences and increase brand awareness.
+                        Collaborate with complementary businesses or influencers
+                        to reach new audiences and increase brand awareness.
                       </p>
                     </div>
                   </div>
@@ -547,45 +550,64 @@ function About() {
               Testimonials Of Our Client
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Dialkro has revolutionized our business, providing an indispensable platform for connecting with clients. Their intuitive interface and exceptional customer support make them stand out. Dialkro's impact on our growth is undeniable, consistently exceeding our expectations. We highly recommend Dialkro to any business seeking to enhance its online presence and reach.
+              Dialkro has revolutionized our business, providing an
+              indispensable platform for connecting with clients. Their
+              intuitive interface and exceptional customer support make them
+              stand out. Dialkro's impact on our growth is undeniable,
+              consistently exceeding our expectations. We highly recommend
+              Dialkro to any business seeking to enhance its online presence and
+              reach.
             </p>
           </div>
           <div className="flex flex-wrap">
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-              Rg Shine
+                Rg Shine
               </h2>
               <p className="leading-relaxed text-base mb-4">
-              Dialkro has been an invaluable tool for our business. Their platform helped us reach a wider audience and connect with potential clients effortlessly. The team at Dialkro is professional, responsive, and always willing to go the extra mile to ensure our success.
+                Dialkro has been an invaluable tool for our business. Their
+                platform helped us reach a wider audience and connect with
+                potential clients effortlessly. The team at Dialkro is
+                professional, responsive, and always willing to go the extra
+                mile to ensure our success.
               </p>
-           
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-              Rudraksh Group 
+                Rudraksh Group
               </h2>
               <p className="leading-relaxed text-base mb-4">
-              We have been using Dialkro for our business listings for several years now, and it has consistently delivered great results. The platform is user-friendly, and their customer support team is top-notch. We highly recommend Dialkro to any business looking to increase their online visibility.
+                We have been using Dialkro for our business listings for several
+                years now, and it has consistently delivered great results. The
+                platform is user-friendly, and their customer support team is
+                top-notch. We highly recommend Dialkro to any business looking
+                to increase their online visibility.
               </p>
-            
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-             Garg Clinic 
+                Garg Clinic
               </h2>
               <p className="leading-relaxed text-base mb-4">
-              Working with Dialkro has been a game-changer for our business. Their platform has helped us attract new customers and expand our reach in ways we never thought possible. The team at Dialkro is dedicated, knowledgeable, and always willing to help. We couldn't be happier with the results.
+                Working with Dialkro has been a game-changer for our business.
+                Their platform has helped us attract new customers and expand
+                our reach in ways we never thought possible. The team at Dialkro
+                is dedicated, knowledgeable, and always willing to help. We
+                couldn't be happier with the results.
               </p>
-           
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-red-800 font-medium title-font mb-2">
-               Skyline Education
+                Skyline Education
               </h2>
               <p className="leading-relaxed text-base mb-4">
-              We started using Dialkro to promote our business, and the results have been fantastic. Their platform is easy to use, and their customer service team is always available to assist us with any questions or concerns. Dialkro has helped us increase our online visibility and attract new clients. We highly recommend them to any business looking to grow.
+                We started using Dialkro to promote our business, and the
+                results have been fantastic. Their platform is easy to use, and
+                their customer service team is always available to assist us
+                with any questions or concerns. Dialkro has helped us increase
+                our online visibility and attract new clients. We highly
+                recommend them to any business looking to grow.
               </p>
-            
             </div>
           </div>
           {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> */}

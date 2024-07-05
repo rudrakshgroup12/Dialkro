@@ -1,4 +1,5 @@
 import buisnessModel from "../models/buisnessModel.js";
+import categoryModel from "../models/categoryModel.js";
 import fs from "fs";
 import slugify from "slugify";
 // const mongoose = require("mongoose");
@@ -558,6 +559,61 @@ export const relatedBuisnessesController = async (req, res) => {
     res.status(400).send({
       success: false,
       meassage: "Error in Related Product API",
+      error,
+    });
+  }
+};
+
+//search Buisness
+export const searchBuisnessController = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const resutls = await buisnessModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } },
+          { website: { $regex: keyword, $options: "i" } },
+          { address: { $regex: keyword, $options: "i" } },
+          { state: { $regex: keyword, $options: "i" } },
+          { city: { $regex: keyword, $options: "i" } },
+          { email: { $regex: keyword, $options: "i" } },
+        ],
+      })
+
+      .select("-photo")
+      .select("-photo2")
+      .select("-photo3")
+      .select("-photo4")
+      .select("-photo5");
+    res.json(resutls);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      meassage: "Error in Search Buisness API",
+      error,
+    });
+  }
+};
+
+//get Buisness By Category
+export const buisnessCategoryContoller = async (req, res) => {
+  try {
+    const category = await categoryModel.findOne({ slug: req.params.slug });
+    const buisness = await buisnessModel
+      .find({ category })
+      .populate("category");
+    res.status(200).send({
+      success: true,
+      buisness,
+      category,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      meassage: "Error in Getting Buisness ",
       error,
     });
   }

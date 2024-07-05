@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import lg from "./lg.png";
 import { useAuth } from "./ProAuth/AuthPro.jsx";
 import NavbarToggel from "./Navbar/NavbarToggel.jsx";
@@ -25,12 +25,11 @@ function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  
- 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <>
       <header className=" sticky top-0 z-10   dark:bg-neutral-900  font-sans bg-white">
@@ -60,7 +59,7 @@ function Navbar() {
                 </button>
               </>
             )}
-          {islogin ? (
+            {islogin ? (
               <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700 hover:animate-pulse">
                 <Link to="/postads" className="text-sm font-medium">
                   Post Ads
@@ -103,18 +102,21 @@ function Navbar() {
             </div> */}
           </div>
         </section>
-        <div
-          className="flex flex-wrap py-3.5 px-10 overflow-x-auto"
-        >
+        <div className="flex flex-wrap py-3.5 px-10 overflow-x-auto">
           <ul
             id="collapseMenu"
-            className={`lg:flex font-sans font-thin text-xl justify-center lg:space-x-10 max-lg:space-y-3 w-full max-lg:mt-2 ${isOpen ? 'block' : 'hidden'}`}
+            className={`lg:flex font-sans font-thin text-xl justify-center lg:space-x-10 max-lg:space-y-3 w-full max-lg:mt-2 ${
+              isOpen ? "block" : "hidden"
+            }`}
             // className="lg:!flex justify-center lg:space-x-10 max-lg:space-y-3 max-lg:hidden w-full max-lg:mt-2 "
             // className={isOpen ? 'block' : 'hidden'}
             //    id="collapseMenu"
           >
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/">
+              <Link
+                className="hover:text-rose-500  text-[16px] block font-medium"
+                to="/"
+              >
                 {" "}
                 Home
               </Link>
@@ -137,16 +139,20 @@ function Navbar() {
                 Advertise
               </Link>
             </li>
-       
+
             <li className="max-lg:border-b max-lg:py-2">
-           
-            <Link to="/businesses" className=" hover:text-rose-500  text-[16px] block font-medium">
-              Free Listings
+              <Link
+                to="/businesses"
+                className=" hover:text-rose-500  text-[16px] block font-medium"
+              >
+                Free Listings
               </Link>
-        
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/blog">
+              <Link
+                className="hover:text-rose-500  text-[16px] block font-medium"
+                to="/blog"
+              >
                 {" "}
                 Blog
               </Link>
@@ -173,7 +179,10 @@ function Navbar() {
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link className="hover:text-rose-500  text-[16px] block font-medium" to="/contactus">
+              <Link
+                className="hover:text-rose-500  text-[16px] block font-medium"
+                to="/contactus"
+              >
                 {" "}
                 Contact
               </Link>
@@ -203,26 +212,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  

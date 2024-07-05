@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 const BusinessCheck = () => {
   const {
     businessesLocation,
-    error,
+ 
     selectBusinessLocation,
     setselectBusinessLocation,
   } = useAuth();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div>
-      {error && (
+      {/* {error && (
         <h1 className="text-rose-800 mb-8 text-4xl font-bold">{error}</h1>
-      )}
+      )} */}
       <div className="flex flex-col gap-2">
         <div>
           Locate Where is this

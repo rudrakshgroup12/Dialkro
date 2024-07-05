@@ -277,69 +277,7 @@ const API_PATH = 'api.dialkro.in';
     })();
   }, []);
 
-  /// my changes
-
-  // const [selectBusinessCheck, setSelectBusinessCheck] = useState("");
-
-  // //  const [error, setError] = useState(null);
-  // useEffect(() => {
-  //   (async () => {
-  //     if (selectBusinessCheck) {
-  //       const URI = `/api/business?description=${selectBusinessCheck}`;
-  //       try {
-  //         const response = await axios.get(URI);
-  //         setUsers(response.data.allBusiness);
-  //         console.error(response.data);
-  //       } catch (err) {
-  //         console.error("Error fetching data:", err);
-  //         // Display error message to the user
-  //       }
-  //     } else {
-  //       const URI = `/api/business`;
-  //       try {
-  //         const response = await axios.get(URI);
-  //         setUsers(response.data.allBusiness);
-  //         console.error(response.data);
-  //       } catch (err) {
-  //         console.error("Error fetching data:", err);
-  //         // Display error message to the user
-  //       }
-  //     }
-  //   })();
-  // }, [selectBusinessCheck]);
-
-  // const [businessCheck] = useState([]);
-  // // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
-  // useEffect(() => {
-  //   (async () => {
-  //     const URL = "/api/description";
-  //     await axios
-  //       .get(URL)
-  //       .then((response) => {
-  //         setSelectBusinessCheck(response.data.data);
-  //         console.log(response.data.business);
-  //       })
-  //       .catch((err) => {
-  //         setError(`Error Fecthing Business Categor ${err} `);
-  //       });
-  //   })();
-  // }, []);
-
-  // complete change
-
-  // const seleBusinCateHandleInputOnChange = (e) => {
-  //   const { name, value } = e.target;
-  //   try {
-  //     setSelectBusinessCategory({
-  //       ...selectBusinessCategory,
-  //       [name]: value,
-  //     });
-  //   } catch (error) {
-  //     setError(`Error is inputchange handle ${error.message}`);
-  //     console.log(`Error is ${error.message}`);
-  //   }
-  // };
-
+  
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -425,23 +363,8 @@ const API_PATH = 'api.dialkro.in';
     }
   };
 
-  ///bus id
-  // const [busid, setBusid] = useState([]);
-  // console.log(busid)
-  // useEffect(() => {
-  //   (async () => {
-  //     const URI = `/api/business`;
-  //     try {
-  //       const response = await axios.get(URI);
-  //       console.log(response.data);
-  //       setBusid(response.data.allBusiness._id);
-  //       // console.error(response.data);
-  //     } catch (err) {
-  //       console.error("Error fetching data:", err);
-  //       // Display error message to the user
-  //     }
-  //   })();
-  // }, []);
+ 
+  
 
   const authContextVal = {
     login,
@@ -496,28 +419,3 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-// useEffect(() => {
-//   islogin;
-// }, [islogin]);
-//   const [singleBusi, setSingleBusi] = useState([]);
-//   const { id } = useParams();
-//   const getSingle = async () => {
-//     const URL = `/api/business/${id}`;
-//     try {
-//       const response = await axios.get(URL);
-//       setSingleBusi(response.data);
-//     } catch (error) {
-//       setError(`${error}`);
-//     }
-//   };
-
-//   const [businessesbyId, setbusinessesbyId] = useState([]);
-//   const { id } = useParams();
-//   //   console.log(`serial number is ${id}`)
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//
-
-//     fetchData();
-//   }, [id]);
