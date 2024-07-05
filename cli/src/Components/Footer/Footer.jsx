@@ -123,7 +123,7 @@ const CustomFooter = () => {
               <div className="leading-7 mt-4 text-[15px] font-[500]">
                 <p className=" hover:text-[#cacaca]">
                   <i className="fa fa-envelope text-[16px]"></i>
-                  <a href="">91-964661-6018</a>
+                  <a href="">91-9872-8686-99</a>
                 </p>
 
                 <p className=" hover:text-[#cacaca]">
