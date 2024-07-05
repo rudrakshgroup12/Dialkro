@@ -141,6 +141,10 @@ function EditUserBusiness() {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const Navi = useNavigate();
   // const [updateBusiness, setUpdateBusiness] = useState({
   //   name: "",
@@ -218,456 +222,456 @@ function EditUserBusiness() {
   // };
   return (
     <>
-    <div className="max-w-screen-lg mx-auto p-5">
-      {/* {businessesByid.data && ( */}
-      <div className="grid grid-cols-1 md:grid-cols-12 border">
-        <div className="bg-gray-900 md:col-span-4 p-10 text-white">
-          <p className="mt-4 text-sm leading-7 font-regular uppercase font-bold">
-            Contact Information
-            <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
-              {/* {businessesByid?.data?.contact?.phone} */}
-              {buisness?.phone}
-              <br />
-              {/* {businessesByid?.data?.contact?.email} */}
-              {buisness?.email}
-              <br />
-              {/* {businessesByid?.data?.contact?.website} */}
-              {buisness?.website}
-            </p>
-          </p>
-          <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-            Get In{" "}
-            {/* <span className="text-red-600">{businessesByid.data?.name}</span> */}
-            <span className="text-red-600"> {buisness?.name}</span>
-          </h3>
-          <p className="mt-4 leading-7 text-gray-200 ">
-            {/* {businessesByid.data?.description} */}
-            {buisness?.description}
-          </p>
-
-          <div className="flex items-center mt-5">
-            <span className="text-sm">
-              {/* {businessesByid?.data?.location?.address} */}
-              {buisness?.address}
-            </span>
-          </div>
-          <div className="flex items-center mt-5">
-            <span className="text-sm">
-              {" "}
-              {/* {businessesByid?.data?.location?.state} */}
-              {buisness?.state}
-            </span>
-          </div>
-          <div className="flex items-center mt-5">
-            <span className="text-sm">
-              {" "}
-              {/* {businessesByid?.data?.location?.city} */}
-              {buisness?.city}
-            </span>
-          </div>
-          <div className="flex items-center mt-5">
-            <span className="text-sm"> {buisness?.zipCode}</span>
-          </div>
-        </div>
-        <form
-          // onSubmit={uppdateBusinesshandleSubmit}
-          className="md:col-span-8 p-10 "
-        >
-          {/* {/ Business Details Section /} */}
-          <section className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">Business Details</h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block  text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Business Name
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter business name"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="category"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Category
-                </label>
-                <Select
-                  bordered={false}
-                  placeholder="Select a Category"
-                  size="large"
-                  showSearch
-                  className="form-select mb-3"
-                  onChange={(value) => {
-                    setCategory(value);
-                  }}
-                  value={category.name}
-                >
-                  {categories.map((c) => (
-                    <Option key={c._id} value={c._id}>
-                      {c.name}
-                    </Option>
-                  ))}
-                </Select>
-              </div>
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="description"
-                className="block text-sm font-semibold text-gray-700 mb-2"
-              >
-                Description
-              </label>
-              <textarea
-                type="text"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className="w-full border rounded p-2"
-                placeholder="Enter business description"
-              ></textarea>
-            </div>
-          </section>
-
-          {/* {/ Contact Section /} */}
-          <section className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">
+      <div className="max-w-screen-lg mx-auto p-5">
+        {/* {businessesByid.data && ( */}
+        <div className="grid grid-cols-1 md:grid-cols-12 border">
+          <div className="bg-gray-900 md:col-span-4 p-10 text-white">
+            <p className="mt-4 text-sm leading-7 font-regular uppercase font-bold">
               Contact Information
+              <p className="mt-4 text-sm leading-7 font-regular text-justify uppercase">
+                {/* {businessesByid?.data?.contact?.phone} */}
+                {buisness?.phone}
+                <br />
+                {/* {businessesByid?.data?.contact?.email} */}
+                {buisness?.email}
+                <br />
+                {/* {businessesByid?.data?.contact?.website} */}
+                {buisness?.website}
+              </p>
+            </p>
+            <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+              Get In{" "}
+              {/* <span className="text-red-600">{businessesByid.data?.name}</span> */}
+              <span className="text-red-600"> {buisness?.name}</span>
             </h3>
+            <p className="mt-4 leading-7 text-gray-200 ">
+              {/* {businessesByid.data?.description} */}
+              {buisness?.description}
+            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="mb-4">
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Contact Phone
-                </label>
-                <input
-                  // type="text"
-                  // type="text"
-                  // id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter contact phone"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Contact Email
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter contact email"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="website"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Website
-                </label>
-                <input
-                  type="url"
-                  value={website}
-                  onChange={(e) => setWebsite(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter website URL"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
-                  {photo ? photo.name : "Upload Photo"}
-                  <input
-                    type="file"
-                    name="photo"
-                    accept="images/*"
-                    // defaultValue={businessData.location.photo}
-                    onChange={(e) => setPhoto(e.target.files[0])}
-                    // onChange={addBusinesshandleChange}
-                    hidden
-                  />
-                </label>
-                <div>
-                  {photo ? (
-                    <div className="text-center">
-                      <img
-                        src={URL.createObjectURL(photo)}
-                        alt="product_photo"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  ) : (
-                    <div className="text-center">
-                      <img
-                        src={`/api/product-photo/${id}`}
-                        alt="product_photo"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
-                  {photo2 ? photo2.name : "Upload Photo2"}
-                  <input
-                    type="file"
-                    name="photo2"
-                    accept="images/*"
-                    // defaultValue={businessData.location.photo}
-                    onChange={(e) => setPhoto2(e.target.files[0])}
-                    // onChange={addBusinesshandleChange}
-                    hidden
-                  />
-                </label>
-                <div>
-                  {photo2 ? (
-                    <div className="text-center">
-                      <img
-                        src={URL.createObjectURL(photo2)}
-                        alt="product_photo2"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  ) : (
-                    <div className="text-center">
-                      <img
-                        src={`/api/product-photo2/${id}`}
-                        alt="product_photo2"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
-                  {photo3 ? photo3.name : "Upload Photo3"}
-                  <input
-                    type="file"
-                    name="photo3"
-                    accept="images/*"
-                    // defaultValue={businessData.location.photo}
-                    onChange={(e) => setPhoto3(e.target.files[0])}
-                    // onChange={addBusinesshandleChange}
-                    hidden
-                  />
-                </label>
-                <div>
-                  {photo3 ? (
-                    <div className="text-center">
-                      <img
-                        src={URL.createObjectURL(photo3)}
-                        alt="product_photo3"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  ) : (
-                    <div className="text-center">
-                      <img
-                        src={`/api/product-photo3/${id}`}
-                        alt="product_photo3"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
-                  {photo4 ? photo4.name : "Upload Photo4"}
-                  <input
-                    type="file"
-                    name="photo4"
-                    accept="images/*"
-                    // defaultValue={businessData.location.photo}
-                    onChange={(e) => setPhoto4(e.target.files[0])}
-                    // onChange={addBusinesshandleChange}
-                    hidden
-                  />
-                </label>
-                <div>
-                  {photo4 ? (
-                    <div className="text-center">
-                      <img
-                        src={URL.createObjectURL(photo4)}
-                        alt="product_photo4"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  ) : (
-                    <div className="text-center">
-                      <img
-                        src={`/api/product-photo4/${id}`}
-                        alt="product_photo4"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
-                  {photo5 ? photo5.name : "Upload Photo5"}
-                  <input
-                    type="file"
-                    name="photo5"
-                    accept="images/*"
-                    // defaultValue={businessData.location.photo}
-                    onChange={(e) => setPhoto5(e.target.files[0])}
-                    // onChange={addBusinesshandleChange}
-                    hidden
-                  />
-                </label>
-                <div>
-                  {photo5 ? (
-                    <div className="text-center">
-                      <img
-                        src={URL.createObjectURL(photo5)}
-                        alt="product_photo5"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  ) : (
-                    <div className="text-center">
-                      <img
-                        src={`/api/product-photo5/${id}`}
-                        alt="product_photo5"
-                        height={"200px"}
-                        className="img img-responsive"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
+            <div className="flex items-center mt-5">
+              <span className="text-sm">
+                {/* {businessesByid?.data?.location?.address} */}
+                {buisness?.address}
+              </span>
             </div>
-          </section>
-
-          {/* {/ Location Section /} */}
-          <section className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">
-              Location Information
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="mb-4">
-                <label
-                  htmlFor="address"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Address
-                </label>
-                <input
-                  type="text"
-                  // id="address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter business address"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="city"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  City
-                </label>
-                <input
-                  type="text"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter city"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="state"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  State
-                </label>
-                <input
-                  type="text"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter state"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="zipCode"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                >
-                  Zip Code
-                </label>
-                <input
-                  type="text"
-                  value={zipCode}
-                  onChange={(e) => setZipCode(e.target.value)}
-                  className="w-full border rounded p-2"
-                  placeholder="Enter zip code"
-                />
-              </div>
+            <div className="flex items-center mt-5">
+              <span className="text-sm">
+                {" "}
+                {/* {businessesByid?.data?.location?.state} */}
+                {buisness?.state}
+              </span>
             </div>
-          </section>
-
-          {/* {/ Submit Button /} */}
-          <div className="text-center">
-            <button
-              // type="submit"
-              onClick={handleUpdate}
-              className="bg-red-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
-            >
-              Update Your Business
-            </button>
-            <button
-              // type="submit"
-              onClick={handleDelete}
-              className="bg-blue-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
-            >
-              Delete Your Business
-            </button>
+            <div className="flex items-center mt-5">
+              <span className="text-sm">
+                {" "}
+                {/* {businessesByid?.data?.location?.city} */}
+                {buisness?.city}
+              </span>
+            </div>
+            <div className="flex items-center mt-5">
+              <span className="text-sm"> {buisness?.zipCode}</span>
+            </div>
           </div>
-        </form>
+          <form
+            // onSubmit={uppdateBusinesshandleSubmit}
+            className="md:col-span-8 p-10 "
+          >
+            {/* {/ Business Details Section /} */}
+            <section className="mb-6">
+              <h3 className="text-xl font-semibold mb-2">Business Details</h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="mb-4">
+                  <label
+                    htmlFor="name"
+                    className="block  text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter business name"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="category"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Category
+                  </label>
+                  <Select
+                    bordered={false}
+                    placeholder="Select a Category"
+                    size="large"
+                    showSearch
+                    className="form-select mb-3"
+                    onChange={(value) => {
+                      setCategory(value);
+                    }}
+                    value={category.name}
+                  >
+                    {categories.map((c) => (
+                      <Option key={c._id} value={c._id}>
+                        {c.name}
+                      </Option>
+                    ))}
+                  </Select>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="description"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Description
+                </label>
+                <textarea
+                  type="text"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full border rounded p-2"
+                  placeholder="Enter business description"
+                ></textarea>
+              </div>
+            </section>
+
+            {/* {/ Contact Section /} */}
+            <section className="mb-6">
+              <h3 className="text-xl font-semibold mb-2">
+                Contact Information
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="mb-4">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Contact Phone
+                  </label>
+                  <input
+                    // type="text"
+                    // type="text"
+                    // id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter contact phone"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Contact Email
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter contact email"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="website"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Website
+                  </label>
+                  <input
+                    type="url"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter website URL"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
+                    {photo ? photo.name : "Upload Photo"}
+                    <input
+                      type="file"
+                      name="photo"
+                      accept="images/*"
+                      // defaultValue={businessData.location.photo}
+                      onChange={(e) => setPhoto(e.target.files[0])}
+                      // onChange={addBusinesshandleChange}
+                      hidden
+                    />
+                  </label>
+                  <div>
+                    {photo ? (
+                      <div className="text-center">
+                        <img
+                          src={URL.createObjectURL(photo)}
+                          alt="product_photo"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <img
+                          src={`/api/product-photo/${id}`}
+                          alt="product_photo"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
+                    {photo2 ? photo2.name : "Upload Photo2"}
+                    <input
+                      type="file"
+                      name="photo2"
+                      accept="images/*"
+                      // defaultValue={businessData.location.photo}
+                      onChange={(e) => setPhoto2(e.target.files[0])}
+                      // onChange={addBusinesshandleChange}
+                      hidden
+                    />
+                  </label>
+                  <div>
+                    {photo2 ? (
+                      <div className="text-center">
+                        <img
+                          src={URL.createObjectURL(photo2)}
+                          alt="product_photo2"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <img
+                          src={`/api/product-photo2/${id}`}
+                          alt="product_photo2"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
+                    {photo3 ? photo3.name : "Upload Photo3"}
+                    <input
+                      type="file"
+                      name="photo3"
+                      accept="images/*"
+                      // defaultValue={businessData.location.photo}
+                      onChange={(e) => setPhoto3(e.target.files[0])}
+                      // onChange={addBusinesshandleChange}
+                      hidden
+                    />
+                  </label>
+                  <div>
+                    {photo3 ? (
+                      <div className="text-center">
+                        <img
+                          src={URL.createObjectURL(photo3)}
+                          alt="product_photo3"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <img
+                          src={`/api/product-photo3/${id}`}
+                          alt="product_photo3"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
+                    {photo4 ? photo4.name : "Upload Photo4"}
+                    <input
+                      type="file"
+                      name="photo4"
+                      accept="images/*"
+                      // defaultValue={businessData.location.photo}
+                      onChange={(e) => setPhoto4(e.target.files[0])}
+                      // onChange={addBusinesshandleChange}
+                      hidden
+                    />
+                  </label>
+                  <div>
+                    {photo4 ? (
+                      <div className="text-center">
+                        <img
+                          src={URL.createObjectURL(photo4)}
+                          alt="product_photo4"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <img
+                          src={`/api/product-photo4/${id}`}
+                          alt="product_photo4"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <label className="ml-3 text-sm font-bold text-gray-700 border-danger tracking-wide">
+                    {photo5 ? photo5.name : "Upload Photo5"}
+                    <input
+                      type="file"
+                      name="photo5"
+                      accept="images/*"
+                      // defaultValue={businessData.location.photo}
+                      onChange={(e) => setPhoto5(e.target.files[0])}
+                      // onChange={addBusinesshandleChange}
+                      hidden
+                    />
+                  </label>
+                  <div>
+                    {photo5 ? (
+                      <div className="text-center">
+                        <img
+                          src={URL.createObjectURL(photo5)}
+                          alt="product_photo5"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <img
+                          src={`/api/product-photo5/${id}`}
+                          alt="product_photo5"
+                          height={"200px"}
+                          className="img img-responsive"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* {/ Location Section /} */}
+            <section className="mb-6">
+              <h3 className="text-xl font-semibold mb-2">
+                Location Information
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="mb-4">
+                  <label
+                    htmlFor="address"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    // id="address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter business address"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="city"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter city"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="state"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    State
+                  </label>
+                  <input
+                    type="text"
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter state"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="zipCode"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Zip Code
+                  </label>
+                  <input
+                    type="text"
+                    value={zipCode}
+                    onChange={(e) => setZipCode(e.target.value)}
+                    className="w-full border rounded p-2"
+                    placeholder="Enter zip code"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* {/ Submit Button /} */}
+            <div className="text-center">
+              <button
+                // type="submit"
+                onClick={handleUpdate}
+                className="bg-red-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
+              >
+                Update Your Business
+              </button>
+              <button
+                // type="submit"
+                onClick={handleDelete}
+                className="bg-blue-600 hover:bg-black-600 text-white font-bold py-2 px-4 rounded-full"
+              >
+                Delete Your Business
+              </button>
+            </div>
+          </form>
+        </div>
+        {/* )} */}
       </div>
-      {/* )} */}
-    </div>
-  </>
+    </>
   );
 }
 

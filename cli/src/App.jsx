@@ -54,6 +54,9 @@ import Term from "./Components/privacy/Term.jsx";
 import BusinessBycat from "./Components/Category/BusinessBycat.jsx";
 import Privacy from "./Components/privacy/Privacy.jsx";
 import SearchBuisness from "./Components/Search/SearchBuisness.jsx";
+import CategoryBuisness from "./Components/Business/Category/CategoryShow.jsx";
+import CategorywiseBuisness from "./Components/Business/Category/CategorywiseBuisness.jsx";
+import Pagenotfound from "./Components/Pagenotfound/Pagenotfound.jsx";
 
 function App() {
   return (
@@ -119,6 +122,10 @@ function App() {
               <Route path="/paymentform3" element={<Paymentform3 />} />
 
               <Route path="/search" element={<SearchBuisness />} />
+              <Route path="/categories" element={<CategoryBuisness />} />
+              <Route path="/category/:slug" element={<CategorywiseBuisness />} />
+              <Route path="/" element={<Pagenotfound />} />
+
 
               <Route path="/term" element={<Term />} />
               <Route path="/policy" element={<Privacy />} />

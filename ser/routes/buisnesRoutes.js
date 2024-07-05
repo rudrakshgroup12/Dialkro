@@ -4,6 +4,7 @@ import auth from "../middelware/auth.js";
 import formidable from "express-formidable";
 
 import {
+  buisnessCategoryContoller,
   buisnessCountController,
   buisnessListController,
   buisnessPhoto2Controller,
@@ -68,5 +69,8 @@ router.get("/related-buisness/:pid/:cid", relatedBuisnessesController);
 
 //search buisness
 router.get("/search/:keyword", searchBuisnessController);
+
+//Category wise Business
+router.get("/buisness-category/:slug", buisnessCategoryContoller);
 
 export default router;

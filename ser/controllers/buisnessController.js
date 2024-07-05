@@ -1,4 +1,5 @@
 import buisnessModel from "../models/buisnessModel.js";
+import categoryModel from "../models/categoryModel.js";
 import fs from "fs";
 import slugify from "slugify";
 // const mongoose = require("mongoose");
@@ -573,6 +574,7 @@ export const searchBuisnessController = async (req, res) => {
           { name: { $regex: keyword, $options: "i" } },
           { description: { $regex: keyword, $options: "i" } },
           { website: { $regex: keyword, $options: "i" } },
+          { address: { $regex: keyword, $options: "i" } },
           { state: { $regex: keyword, $options: "i" } },
           { city: { $regex: keyword, $options: "i" } },
           { email: { $regex: keyword, $options: "i" } },
@@ -590,6 +592,28 @@ export const searchBuisnessController = async (req, res) => {
     res.status(400).send({
       success: false,
       meassage: "Error in Search Buisness API",
+      error,
+    });
+  }
+};
+
+//get Buisness By Category
+export const buisnessCategoryContoller = async (req, res) => {
+  try {
+    const category = await categoryModel.findOne({ slug: req.params.slug });
+    const buisness = await buisnessModel
+      .find({ category })
+      .populate("category");
+    res.status(200).send({
+      success: true,
+      buisness,
+      category,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      meassage: "Error in Getting Buisness ",
       error,
     });
   }
