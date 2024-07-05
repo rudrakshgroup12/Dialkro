@@ -73,7 +73,7 @@ const Team = () => {
                      <div className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-red-900 rounded-xl">
                         <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={sadhana} alt=""/>
                         
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">SADHANA MAURYA</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">SADHANA</h1>
                         
                         <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Managing Director</p>
                         
@@ -118,7 +118,7 @@ const Team = () => {
                     <div className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-red-900 rounded-xl">
                         <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={gauravs} alt=""/>
                         
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Gaurva Sharma</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Gaurav Sharma</h1>
                         
                         <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Graphic Team Leader</p>
                         <div className="flex mt-3 -mx-2">
@@ -142,7 +142,7 @@ const Team = () => {
                     <div className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-red-900 rounded-xl">
                         <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={aman} alt=""/>
                         
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Aman Deep Singh</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Amandeep Singh</h1>
                         
                         <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Full Stack Web Developer</p>
                         <div className="flex mt-3 -mx-2">
