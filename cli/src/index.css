@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add these styles to your Tailwind CSS file if needed */
+@layer utilities {
+  /* .dropdown:hover .dropdown-menu {
+    @apply block;
+  } */
+  .dropdown_c {
+    @apply text-black no-underline block;
+  }
+  .dropdown_c:hover {
+    @apply text-blue-600 no-underline;
+  }
+}

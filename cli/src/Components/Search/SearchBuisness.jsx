@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import  {  useEffect } from "react";
 import { useSearch } from "../ProAuth/Search";
-
 import { Link } from "react-router-dom";
-
-import {
-  FaStar,
-  FaRegStar,
-  FaPhoneSquare,
-  FaMailBulk,
-  FaGlobe,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
-import axios from "axios";
 
 function SearchBuisness() {
   const [values, setValues] = useSearch();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container">
       <div className="text-center">
@@ -71,7 +64,7 @@ function SearchBuisness() {
                     {p.name}
                   </div>
                   <p className="text-gray-700 text-base">
-                    {p.description.substring(0, 200)}...
+                    {p.description.substring(0, 300)}...
                   </p>
                 </div>
                 <div className="flex items-center">

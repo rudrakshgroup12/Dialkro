@@ -1,4 +1,4 @@
-import React  , { useEffect } from 'react'
+import { useEffect } from 'react'
 import BusinessList from "./Businesslist.jsx"
 import CEO from "../assets/CEO.jpg";
 import ceorename from "../assets/ceorename.png";
@@ -19,7 +19,7 @@ function ProfileBusiness() {
               About Us
             </h2>
             <p className="text-gray-700">
-            Welcome to Dialkro, the ultimate destination for discovering and connecting with businesses near you. Whether you're in search of a cozy café, a reliable plumber, or the perfect yoga studio, Dialkro simplifies your search by providing a comprehensive directory of local businesses right at your fingertips.
+            Welcome to Dialkro, the ultimate destination for discovering and connecting with businesses near you. Whether You  are in search of a cozy café, a reliable plumber, or the perfect yoga studio, Dialkro simplifies your search by providing a comprehensive directory of local businesses right at your fingertips.
             </p>
           </div>
           <div className="mb-8">

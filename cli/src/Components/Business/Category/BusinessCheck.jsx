@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 const BusinessCheck = () => {
   const {
     businessesLocation,
-    error,
+ 
     selectBusinessLocation,
     setselectBusinessLocation,
   } = useAuth();

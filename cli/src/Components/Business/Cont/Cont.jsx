@@ -13,8 +13,8 @@ import axios from "axios";
 import Carousel from "../Cont/Carousel.jsx";
 import { useAuth } from "../../ProAuth/AuthPro.jsx";
 import { useNavigate } from "react-router-dom";
-import BusinessCategory from "../Category/BusinessCategory.jsx";
 import BusinessCheck from "../Category/BusinessCheck.jsx";
+import Category from "../Category/AllCategory.jsx";
 
 const StarRating = ({ rating }) => {
   const stars = [];
@@ -153,8 +153,7 @@ function Cont() {
         <Carousel images={images} />
       </div>
 
-      <BusinessCategory />
-
+      <Category />
       {/* {/ <!-- com/ponent --> /} */}
       <div className="container flex justify-evenly mx-auto ">
         <section className="text-gray-600 body-font w-600">
@@ -167,78 +166,41 @@ function Cont() {
               <div>
                 {buisness?.map((p) => (
                   <div className=" flex items-center mx-auto border-b  mb-10 border-gray-200  sm:flex-row flex-col bg-gray-50 p-6  rounded-lg hover:bg-orange-50 shadow-2xl hover:shadow-white">
-                    <div className="pr-3">
-                      {/* <div className="w-50 h-50 "> */}
-                      <div id="carouselExample" className="carousel slide w-80">
-                        <div className="carousel-inner">
-                          <div className="carousel-item active">
-                            <img
-                              src={`/api/buisness-photo/${p._id}`}
-                              alt={p.name}
-                              className="d-block w-100"
-                            />
-                          </div>
-                          <div className="carousel-item">
-                            <img
-                              src={`/api/buisness-photo2/${p._id}`}
-                              alt={p.name}
-                              className="d-block w-100"
-                            />
-                          </div>
-                          <div className="carousel-item">
-                            <img
-                              src={`/api/buisness-photo3/${p._id}`}
-                              alt={p.name}
-                              className="d-block w-100"
-                            />
-                          </div>
-                          <div className="carousel-item">
-                            <img
-                              src={`/api/buisness-photo4/${p._id}`}
-                              alt={p.name}
-                              className="d-block w-100"
-                            />
-                          </div>
-                          <div className="carousel-item">
-                            <img
-                              src={`/api/buisness-photo5/${p._id}`}
-                              alt={p.name}
-                              className="d-block w-100"
-                            />
-                          </div>
-                        </div>
-                        <button
-                          className="carousel-control-prev"
-                          type="button"
-                          data-bs-target="#carouselExample"
-                          data-bs-slide="prev"
-                        >
-                          <span
-                            className="carousel-control-prev-icon"
-                            aria-hidden="true"
-                          />
-                          <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button
-                          className="carousel-control-next"
-                          type="button"
-                          data-bs-target="#carouselExample"
-                          data-bs-slide="next"
-                        >
-                          <span
-                            className="carousel-control-next-icon"
-                            aria-hidden="true"
-                          />
-                          <span className="visually-hidden">Next</span>
-                        </button>
+                    <div className=" flex-col">
+                      <div className="h-48 lg:h-auto border-2 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                        {" "}
+                        <img
+                          src={`/api/buisness-photo/${p._id}`}
+                          alt={p.name}
+                          className="d-block w-100"
+                        />
                       </div>
-                      {/* </div> */}
-
-                      {/* <img
-                      src={/api/buisness-photo/${p._id}}
-                      alt={p.name}
-                      className="h-20 rounded w-full object-cover object-center mb-6 "
-                    /> */}
+                      <div className="h-48 border-4 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                        {" "}
+                        <img
+                          src={`/api/buisness-photo2/${p._id}`}
+                          alt={p.name}
+                          className="d-block w-100"
+                        />
+                      </div>
+                    </div>
+                    <div className=" flex-col">
+                      <div className="h-48 lg:h-auto border-4 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                        {" "}
+                        <img
+                          src={`/api/buisness-photo3/${p._id}`}
+                          alt={p.name}
+                          className="d-block w-100"
+                        />
+                      </div>
+                      <div className="h-48 lg:h-auto border-4 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                        {" "}
+                        <img
+                          src={`/api/buisness-photo4/${p._id}`}
+                          alt={p.name}
+                          className="d-block w-100"
+                        />
+                      </div>
                     </div>
                     <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                       <h1 className="text-black text-2xl title-font font-bold mb-2 uppercase">
