@@ -60,7 +60,7 @@ function Contactus() {
                             Phone number
                         </dt>
                         <dd className="mt-2 text-base text-gray-500">
-                        +91-964661-6018
+                        +91-9872-8686-99
                         </dd>
                     </div>
                 </div>

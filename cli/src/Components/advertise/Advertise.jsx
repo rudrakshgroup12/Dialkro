@@ -82,56 +82,31 @@ Walk-in Customers</h3>
 
 
 
-<div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-        <h1 className="font-bold text-black text-2xl my-10">Popular Brands</h1>
-    <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-
-        <div className="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center firstad">
-            <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-            </div>
-            <div className="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-            
-            
-            </div>
-            <main className="p-5 z-10">
-                <a href="#"
-                    className="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Dr.
-                   Global Health Care Clinic, Dr. Sanjeev Bhatia
-                </a>
-            </main>
-
-        </div>
-
-        <div className="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center secondad"
-           >
-            <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-            </div>
-            <div className="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-               
-            </div>
-            <main className="p-5 z-10">
-                <a href="#"
-                    className="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rg shine Cleaning Products .
-                </a>
-            </main>
-
-        </div>
-
-        <div className="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center thirdad"
-           >
-            <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-            </div>
-            <div className="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-              
-            </div>
-            <main className="p-5 z-10">
-                <a href="#"
-                    className="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Rudraksh Group Real Estate
-                </a>
-            </main>
-
-        </div>
-
+<div className="bg-white w-full px-4 pt-16 pb-16" id="faq">
+    <h2 className="text-4xl font-bold text-center">Popular Brands</h2>
+    <p className="pt-6 pb-8 text-base max-w-2xl text-center m-auto">
+      Our Premium Sponsors
+    </p>
+    <div
+        className="mx-auto w-full max-w-4xl bg-white justify-center items-center grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <a target="_blank" href="">
+            <img alt="" className="h-20  mx-auto" src="https://www.svgrepo.com/show/442910/brand-apple.svg"/>
+        </a>
+        <a target="_blank" href="">
+            <img alt="" className="h-20  mx-auto" src="https://www.svgrepo.com/show/443329/brand-pixar.svg"/>
+        </a>
+        <a target="_blank" href="">
+            <img alt="" className="h-20  mx-auto" src="https://www.svgrepo.com/show/443079/brand-geforce.svg"/>
+        </a>
+        <a target="_blank" href="">
+            <img alt="" className="h-20  mx-auto" src="https://www.svgrepo.com/show/443042/brand-ethereum.svg"/>
+        </a>
+        <a target="_blank" href="">
+            <img alt="" className="h-20  mx-auto" src="https://www.svgrepo.com/show/443206/brand-line.svg"/>
+        </a>
+        <a target="_blank" href="">
+            <img alt="" className="h-20  mx-auto" src="https://www.svgrepo.com/show/519278/slack.svg"/>
+        </a>
     </div>
 </div>
 

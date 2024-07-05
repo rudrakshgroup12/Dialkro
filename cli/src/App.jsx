@@ -80,7 +80,7 @@ function App() {
               <Route path="/businesses" element={<Business />} />
               <Route path="/buisness/:slug" element={<ViewBusiness />} />
               <Route
-                te
+                
                 path="/buisness/edit/:slug"
                 element={<EditUserBusiness />}
               />
