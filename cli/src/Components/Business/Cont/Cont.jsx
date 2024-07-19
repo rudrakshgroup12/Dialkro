@@ -65,7 +65,7 @@ function Cont() {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`${API_PATH}/api/get-category`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -84,7 +84,7 @@ function Cont() {
   const getAllBuisness = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${API_PATH}/api/buisness-list/${page}`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-list/${page}`);
       setLoading(false);
       setBuisness(data.buisness);
     } catch (error) {
@@ -100,7 +100,7 @@ function Cont() {
   //getTotal count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(`${API_PATH}/api/buisness-count`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-count`);
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -116,7 +116,7 @@ function Cont() {
   const loadmore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${API_PATH}/api/buisness-list/${page}`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-list/${page}`);
       setLoading(false);
       setBuisness([...buisness, ...data?.buisness]);
     } catch (error) {
