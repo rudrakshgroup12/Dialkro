@@ -105,8 +105,9 @@ const API_PATH = 'https://api.dialkro.in';
   };
 
   const loginhandleSubmit = async (e) => {
+
     try {
-      e.preventDefault();
+      e.preventDefault(); // Ye sb API jo v lgi hui hai ise page pe, ye sb ke aage wo API PATH wala url lagan aha iske ander
       const URI = "/api/login";
       const response = await axios.post(URI, login);
 
@@ -118,7 +119,7 @@ const API_PATH = 'https://api.dialkro.in';
       const token = response.data.token;
       const id = response.data.id;
 
-      if (id) {
+      if (id){
         setUserProfile(id);
         window.localStorage.setItem("token", token);
         window.localStorage.setItem("pussy", id);
