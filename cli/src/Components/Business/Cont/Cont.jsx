@@ -125,22 +125,6 @@ function Cont() {
     }
   };
 
-  // const handleToggle = () => {
-  //   setShowAll(!showAll);
-  //   setVisibleBusinesses(showAll ? 2 : buisness.length);
-  // };
-
-  // const StarRating = ({ rating }) => {
-  //   const stars = [];
-  //   for (let i = 1; i <= 5; i++) {
-  //     if (i <= rating) {
-  //       stars.push(<FaStar key={i} className="text-yellow-500" />);
-  //     } else {
-  //       stars.push(<FaRegStar key={i} className="text-gray-300" />);
-  //     }
-  //   }
-  //   return <>{stars}</>;
-  // };
 
   const images = [
     "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201508171815013328-5b7ac1c04ebf11edac3d0a58a9feac02.jpg",

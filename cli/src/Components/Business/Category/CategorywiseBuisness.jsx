@@ -13,9 +13,11 @@ function CategorywiseBuisness() {
     if (params?.slug) getBuisnessByCat();
   }, [params?.slug]);
 
+  const API_PATH = 'https://api.dialkro.in';
+
   const getBuisnessByCat = async () => {
     try {
-      const { data } = await axios.get(`/api/buisness-category/${params.slug}`);
+      const { data } = await axios.get(`${API_PATH}/api/buisness-category/${params.slug}`);
       setBuisness(data?.buisness);
       setCategory(data?.category);
     } catch (error) {

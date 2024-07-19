@@ -31,6 +31,8 @@ function BusinessBycat() {
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
 
+  const API_PATH = 'https://api.dialkro.in';
+
   const handleSubmit = async (e) => {
     try {
       const { data } = await axios.post("/api/create-category", { name });
@@ -46,10 +48,11 @@ function BusinessBycat() {
     }
   };
 
+  
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/get-category");
+      const { data } = await axios.get(`${API_PATH}/api/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -67,7 +70,7 @@ function BusinessBycat() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`/api/update-category/${selected._id}`, {
+      const { data } = await axios.put(`${API_PATH}/api/update-category/${selected._id}`, {
         name: updatedName,
       });
       if (data.success) {

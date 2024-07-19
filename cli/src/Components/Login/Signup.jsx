@@ -96,7 +96,7 @@ function Signup() {
       </div>
 
       <div className="mt-8 flex justify-center text-lg text-black">
-        <button     type="submit" className="rounded-3xl bg-red-900  px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600">Sign Up</button>
+        <button type="submit" className="rounded-3xl bg-red-900  px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600">Sign Up</button>
       </div>
     </form>
    
