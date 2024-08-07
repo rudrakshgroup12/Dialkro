@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAuth } from "../../ProAuth/AuthPro.jsx";
+// import { useAuth } from "../../ProAuth/AuthPro.jsx";
+import { useAuth } from "../../context/auth.jsx";
 import "./viewBusiness.css";
 import AddReviewComponent from "./AddReviewComponent.jsx";
 import {
@@ -14,19 +15,14 @@ import {
 } from "react-icons/fa";
 import {
   FcApproval,
-  FcBusinessman,
-  FcBullish,
-  FcIcons8Cup,
-  FcFaq,
-  FcLike,
-  FcSettings,
-  FcAbout,
+
 } from "react-icons/fc";
+import Layout from "../../Layout/Layout.jsx";
 function ViewBusiness() {
   // Updated the function name to start with an uppercase letter
   const navi = useNavigate();
   const params = useParams();
-  const { islogin, userData } = useAuth();
+  // const { islogin, userData } = useAuth();
   const [buisness, setBuisness] = useState();
   const [relatedBuisnesses, setRelatedBuisnesses] = useState([]);
   // const [businesses, setUsers] = useState([]);
@@ -39,10 +35,12 @@ function ViewBusiness() {
     if (params?.slug) getBuisness();
   }, [params?.slug]);
 
+  const API_PATH = 'https://api.dialkro.in';
+
   //get product
   const getBuisness = async () => {
     try {
-      const { data } = await axios.get(`/api/get-buisness/${params.slug}`);
+      const { data } = await axios.get(`${API_PATH}/api/get-buisness/${params.slug}`);
       setBuisness(data?.buisness);
       getSimilarBuisness(data?.buisness._id, data?.buisness.category._id);
     } catch (error) {
@@ -53,7 +51,7 @@ function ViewBusiness() {
   //similar buisnesses
   const getSimilarBuisness = async (pid, cid) => {
     try {
-      const { data } = await axios.get(`/api/related-buisness/${pid}/${cid}`);
+      const { data } = await axios.get(`${API_PATH}/api/related-buisness/${pid}/${cid}`);
       setRelatedBuisnesses(data?.buisness);
     } catch (error) {
       console.log(error);
@@ -113,7 +111,7 @@ function ViewBusiness() {
   // };
 
   return (
-    <>
+    <Layout>
       <div className="w-full p-6 mx-auto">
         <div className="shadow-md rounded bg-white overflow-hidden relative">
           <div className="grid grid-cols-2 h-64">
@@ -362,7 +360,7 @@ function ViewBusiness() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 

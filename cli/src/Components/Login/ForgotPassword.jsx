@@ -1,14 +1,43 @@
-import React, { useEffect } from "react";
-// import ResetPassword from "./ResetPassword";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import Layout from "../Layout/Layout";
+
 function ForgotPassword() {
-  const { emailid, forgothandleSubmit, forgotHandleInputChange, error } =
-    useAuth();
+  const [email, SetEmail] = useState("");
+  const [newPassword, SetNewPassword] = useState("");
+  const [answer, SetAnswer] = useState("");
+  const [visible, SetVisible] = useState(true);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/api/forgot-password", {
+        email,
+        newPassword,
+        answer,
+      });
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
+
+        navigate("/register");
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <Layout title={"Forgot Password"}>
       <section className="relative py-32 lg:py-36 bg-white">
         <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex flex-col lg:flex-row gap-10 lg:gap-12">
           <div className="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 hidden lg:block">
@@ -34,57 +63,90 @@ function ForgotPassword() {
 
             <div className="mt-10  w-full flex max-w-md mx-auto lg:mx-0">
               <div className="flex sm:flex-row flex-col gap-5 w-full">
-                <form
-                  action="#"
-                  className="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-gray-600 shadow-lg shadow-gray-200/20
-                            border border-gray-200 bg-gray-100 rounded-full ease-linear focus-within:bg-white  focus-within:border-blue-600"
-                >
-                  <span className="min-w-max pr-2 border-r border-gray-200">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      className="w-5 h-5"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z"
-                      />
-                    </svg>
-                  </span>
-                  <input
-                    type="email"
-                    name=""
-                    id=""
-                    placeholder="johndoe@gmail.com"
-                    className="w-full py-3 outline-none bg-transparent"
-                  />
-                  <button
-                    className="flex text-white justify-center items-center w-max min-w-max sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear
-                                after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-[#172554] hover:after:opacity-100 hover:after:scale-[2.5] bg-red-700 border-transparent hover:border-[#172554]"
-                  >
-                    <span className="hidden sm:flex relative z-[5]">Reset</span>
-                    <span className="flex sm:hidden relative z-[5]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        className="w-5 h-5"
+                <form onSubmit={handleSubmit} className="mt-8">
+                  <div className="space-y-5">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <label
+                          htmlFor=""
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Full Name
+                        </label>
+                      </div>
+                      <div className="mt-2">
+                        <input
+                          value={answer}
+                          onChange={(e) => SetAnswer(e.target.value)}
+                          className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          type="fullname"
+                          placeholder="Full name"
+                          required
+                        ></input>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <label
+                          htmlFor=""
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Email
+                        </label>
+                      </div>
+
+                      <div className="mt-2">
+                        <input
+                          value={email}
+                          onChange={(e) => SetEmail(e.target.value)}
+                          className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          type="email"
+                          id="email"
+                          required
+                          placeholder="Email"
+                        ></input>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <label
+                          htmlFor=""
+                          className="text-base font-medium text-gray-900"
+                        >
+                          New Password
+                        </label>
+                      </div>
+                      <div className="mt-2">
+                        <input
+                          value={newPassword}
+                          onChange={(e) => SetNewPassword(e.target.value)}
+                          // type={visible ? "text" : "password"}
+                          type="password"
+                          className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          id="newpassword"
+                          required
+                          placeholder="Password"
+                          name="password"
+                        >
+                          {/* <div
+                            className="eye"
+                            onClick={() => SetVisible(!visible)}
+                          >
+                            {visible ? <FaRegEye /> : <FaRegEyeSlash />}
+                          </div> */}
+                        </input>
+                      </div>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => navigate("/login")}
+                        type="button"
+                        className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                       >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        Reset
+                      </button>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -100,7 +162,7 @@ function ForgotPassword() {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 }
 

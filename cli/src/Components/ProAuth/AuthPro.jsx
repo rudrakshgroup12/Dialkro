@@ -28,11 +28,11 @@ export const AuthPro = ({ children }) => {
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
   const [userprofile, setUserProfile] = useState("");
-const API_PATH = 'api.dialkro.in';
+  const API_PATH = "api.dialkro.in";
   const fetchProfileData = async () => {
     try {
       if (userprofile) {
-        const URI = `${API_PATH}/api/profile/${userprofile}`;
+        const URI = `https://api.dialkro.in/api/profile/${userprofile}`;
         const response = await axios.get(URI);
         // alert(response.data);
         // console.log(response.data);
@@ -46,7 +46,7 @@ const API_PATH = 'api.dialkro.in';
   const businessListedByUser = async () => {
     try {
       if (userprofile) {
-        const URI = `/api/profile/business/${userprofile}`;
+        const URI = `https://api.dialkro.in/api/profile/business/${userprofile}`;
         const response = await axios.get(URI);
         setUBusiness(response.data.data);
         // console.log(response.data);
@@ -106,8 +106,8 @@ const API_PATH = 'api.dialkro.in';
 
   const loginhandleSubmit = async (e) => {
     try {
-      e.preventDefault();
-      const URI = "/api/login";
+      e.preventDefault(); // Ye sb API jo v lgi hui hai ise page pe, ye sb ke aage wo API PATH wala url lagan aha iske ander
+      const URI = `https://api.dialkro.in/api/login`;
       const response = await axios.post(URI, login);
 
       if (response.status === 400)
@@ -146,7 +146,7 @@ const API_PATH = 'api.dialkro.in';
 
   const logOutNow = async () => {
     try {
-      const URi = "/api/logout";
+      const URi = `https://api.dialkro.in/api/logout`;
       await axios
         .get(URi)
         .then((response) => {
@@ -177,7 +177,7 @@ const API_PATH = 'api.dialkro.in';
   const addBusinesshandleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const uri = "/api/business";
+      const uri = `https://api.dialkro.in/api/business`;
       await axios
         .post(uri, businessData)
         .then((response) => {
@@ -211,7 +211,7 @@ const API_PATH = 'api.dialkro.in';
   useEffect(() => {
     (async () => {
       if (selectBusinessCategory) {
-        const URI = `/api/business?category=${selectBusinessCategory}`;
+        const URI = `https://api.dialkro.in/api/business?category=${selectBusinessCategory}`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -221,7 +221,7 @@ const API_PATH = 'api.dialkro.in';
           // Display error message to the user
         }
       } else if (selectBusinessLocation) {
-        const URI = `/api/business?city=${selectBusinessLocation}`;
+        const URI = `https://api.dialkro.in/api/business?city=${selectBusinessLocation}`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -231,7 +231,7 @@ const API_PATH = 'api.dialkro.in';
           // Display error message to the user
         }
       } else {
-        const URI = `/api/business`;
+        const URI = `https://api.dialkro.in/api/business`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -248,7 +248,7 @@ const API_PATH = 'api.dialkro.in';
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
   useEffect(() => {
     (async () => {
-      const URL = "/api/category";
+      const URL = `https://api.dialkro.in/api/category`;
       await axios
         .get(URL)
         .then((response) => {
@@ -265,7 +265,7 @@ const API_PATH = 'api.dialkro.in';
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
   useEffect(() => {
     (async () => {
-      const URL = "/api/city";
+      const URL = `https://api.dialkro.in/api/city`;
       await axios
         .get(URL)
         .then((response) => {
@@ -277,7 +277,6 @@ const API_PATH = 'api.dialkro.in';
     })();
   }, []);
 
-  
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -315,7 +314,7 @@ const API_PATH = 'api.dialkro.in';
   const forgothandleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const URI = "/api/profile/forgot";
+      const URI = `https://api.dialkro.in/api/profile/forgot`;
       const response = await axios.post(URI, emailid);
       // setEmailid(response.data);
       alert(`Reset Password Request Has Been Sent TO you Email Id`);
@@ -351,7 +350,7 @@ const API_PATH = 'api.dialkro.in';
   const changePasswordhandleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const URI = `/api/profile/reset/${resetCred.token}`;
+      const URI = `https://api.dialkro.in/api/profile/reset/${resetCred.token}`;
       const response = await axios.post(URI, resetCred);
       // setEmailid(response.data);
       alert(response.data.message);
@@ -362,9 +361,6 @@ const API_PATH = 'api.dialkro.in';
       console.log(`Error is ${error.message}`);
     }
   };
-
- 
-  
 
   const authContextVal = {
     login,
@@ -418,4 +414,3 @@ const API_PATH = 'api.dialkro.in';
 export const useAuth = () => {
   return useContext(AuthContext);
 };
-

@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Carousel from "../Cont/Carousel.jsx";
+// import { useAuth } from "../../ProAuth/AuthPro.jsx";
+import { useNavigate } from "react-router-dom";
+// import BusinessCheck from "../Category/BusinessCheck.jsx";
+import Category from "../Category/AllCategory.jsx";
 
 import {
   FaStar,
@@ -9,12 +15,8 @@ import {
   FaGlobe,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import axios from "axios";
-import Carousel from "../Cont/Carousel.jsx";
-import { useAuth } from "../../ProAuth/AuthPro.jsx";
-import { useNavigate } from "react-router-dom";
-import BusinessCheck from "../Category/BusinessCheck.jsx";
-import Category from "../Category/AllCategory.jsx";
+
+
 
 const StarRating = ({ rating }) => {
   const stars = [];
@@ -43,7 +45,7 @@ function Cont() {
 
   // const params = useParams();
 
-  const { error } = useAuth();
+  // const { error } = useAuth();
 
   // const [visibleBusinesses, setVisibleBusinesses] = useState(2);
   // const [showAll, setShowAll] = useState(false);
@@ -58,10 +60,12 @@ function Cont() {
   //   }
   // };
 
+  const API_PATH = 'https://api.dialkro.in';
+
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/get-category");
+      const { data } = await axios.get(`https://api.dialkro.in/api/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -80,7 +84,7 @@ function Cont() {
   const getAllBuisness = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/buisness-list/${page}`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-list/${page}`);
       setLoading(false);
       setBuisness(data.buisness);
     } catch (error) {
@@ -96,7 +100,7 @@ function Cont() {
   //getTotal count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(`/api/buisness-count`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-count`);
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -112,7 +116,7 @@ function Cont() {
   const loadmore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/buisness-list/${page}`);
+      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-list/${page}`);
       setLoading(false);
       setBuisness([...buisness, ...data?.buisness]);
     } catch (error) {
@@ -121,22 +125,6 @@ function Cont() {
     }
   };
 
-  // const handleToggle = () => {
-  //   setShowAll(!showAll);
-  //   setVisibleBusinesses(showAll ? 2 : buisness.length);
-  // };
-
-  // const StarRating = ({ rating }) => {
-  //   const stars = [];
-  //   for (let i = 1; i <= 5; i++) {
-  //     if (i <= rating) {
-  //       stars.push(<FaStar key={i} className="text-yellow-500" />);
-  //     } else {
-  //       stars.push(<FaRegStar key={i} className="text-gray-300" />);
-  //     }
-  //   }
-  //   return <>{stars}</>;
-  // };
 
   const images = [
     "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201508171815013328-5b7ac1c04ebf11edac3d0a58a9feac02.jpg",
@@ -335,7 +323,7 @@ function Cont() {
           <div className="px-8 mt-10">
             <h1 className="mb-4 text-xl font-bold text-gray-700">Location</h1>
             <div className="flex flex-col max-w-sm px-4 py-6 mx-auto bg-white rounded-lg shadow-md">
-              <BusinessCheck />
+              {/* <BusinessCheck /> */}
             </div>
           </div>
           <div className="px-8 mt-10">
