@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
+// import { useAuth } from "../ProAuth/AuthPro.jsx";
 import dailkroabout from "../assets/dailkroabout.png";
 import dailkroabout1 from "../assets/dailkroabout1.png";
 import dialkrobusinessdirectory from "../assets/dialkrobusinessdirectory.png";
+import Layout from "../Layout/Layout.jsx";
 function About() {
-  const { isDarkMode } = useAuth();
+  // const { isDarkMode } = useAuth();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
-      <div className={isDarkMode ? "dark" : ""}>
+    <Layout>
+      {/* <div className={isDarkMode ? "dark" : ""}> */}
+      <div className="">
         <div className="relative overflow-hidden bg-white dark:bg-neutral-800 dark:text-white">
           <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
             <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -125,7 +127,7 @@ function About() {
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <Link
-                   to="/businesses"
+                    to="/businesses"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-600 md:py-4 md:text-lg md:px-10"
                   >
                     Get started
@@ -613,7 +615,7 @@ function About() {
           {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> */}
         </div>
       </section>
-    </>
+    </Layout>
   );
 }
 

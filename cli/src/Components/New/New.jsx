@@ -3,15 +3,19 @@ import cookie from "js-cookie";
 import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../ProAuth/AuthPro";
+// import { useAuth } from "../ProAuth/AuthPro";
+import { useAuth } from "../context/auth";
 import toast from "react-hot-toast";
 import vectorbusi from "../assets/vectorbusi.png";
 import { Select } from "antd";
 const { Option } = Select;
 import "./new.css";
+import Layout from "../Layout/Layout";
 
 function New() {
   const navigate = useNavigate();
+  const [auth, setAuth] = useAuth();
+
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -79,22 +83,22 @@ function New() {
     }
   };
 
-  const {
-    error,
-    addBusinesshandleChange,
-    addBusinesshandleSubmit,
-    loading,
-    businessData,
-    islogin,
+  // const {
+  //   error,
+  //   addBusinesshandleChange,
+  //   addBusinesshandleSubmit,
+  //   loading,
+  //   businessData,
+  //   islogin,
 
-    businessesCategory,
-    selectBusinessCategory,
-    selectBusinessCategoryHandleInputChange,
-    fetchBusinessByCategory,
-  } = useAuth();
+  //   businessesCategory,
+  //   selectBusinessCategory,
+  //   selectBusinessCategoryHandleInputChange,
+  //   fetchBusinessByCategory,
+  // } = useAuth();
 
   return (
-    <>
+    <Layout>
       <div className="relative min-h-screen flex ">
         <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
           <div className="sm:w-1/2 xl:w-2/5 h-full hidden md:flex flex-auto items-center justify-start p-10 overflow-hidden bg-purple-900 text-white bg-no-repeat bg-cover relative backform-img">
@@ -137,7 +141,7 @@ function New() {
               <li></li>
             </ul>
           </div>
-          {islogin ? (
+          {auth ? (
             <>
               <div className="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white ">
                 <div className="max-w-md w-full space-y-8">
@@ -504,18 +508,9 @@ function New() {
           ) : (
             <h1>Login PLease.....</h1>
           )}
-
-          {/* {error && (
-            <h1 className="text-red-500 mb-8 text-4xl font-bold">{error}</h1>
-          )} */}
-          {loading && (
-            <h1 className="text-green-500 mb-8 text-3xl font-thin">
-              {loading}
-            </h1>
-          )}
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 

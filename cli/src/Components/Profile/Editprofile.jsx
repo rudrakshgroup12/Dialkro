@@ -1,62 +1,65 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
+// import { useAuth } from "../ProAuth/AuthPro.jsx";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Editprofile.css";
 import profileback from "../assets/profileback.jpeg";
+import Layout from "../Layout/Layout.jsx";
+import { useAuth } from "../context/auth.jsx";
 
 import axios from "axios";
 
 function Editprofile() {
   const Navi = useNavigate();
-  const { islogin, loading, logOutNow, error, userData } = useAuth();
+  const [auth, setAuth] = useAuth();
+  // const { islogin, loading, logOutNow, error, userData } = useAuth();
 
-  const [updateUser, setupdateUser] = useState({
-    username: "",
-    email: "",
-  });
+  // const [updateUser, setupdateUser] = useState({
+  //   username: "",
+  //   email: "",
+  // });
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (userData.data) {
-      setupdateUser({
-        username: userData.data.username,
-        email: userData.data.email,
-        phone: userData.data.phone,
-        address: userData.data.address,
-        dateOfBirth: userData.data.dateOfBirth,
-        name: userData.data.name,
-      });
-    }
-  }, [userData]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   if (userData.data) {
+  //     setupdateUser({
+  //       username: userData.data.username,
+  //       email: userData.data.email,
+  //       phone: userData.data.phone,
+  //       address: userData.data.address,
+  //       dateOfBirth: userData.data.dateOfBirth,
+  //       name: userData.data.name,
+  //     });
+  //   }
+  // }, [userData]);
 
-  const updateBusinesshandleChange = (e) => {
-    const { name, value } = e.target;
-    setupdateUser((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  // const updateBusinesshandleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setupdateUser((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const uppdateBusinesshandleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (userData.data?._id) {
-        const uri = `/api/profile/${userData.data._id}`;
-        await axios.put(uri, updateUser);
-        alert(`User Updated Successfully`);
-        Navi("/profile");
-      } else {
-        Navi("/login");
-      }
-    } catch (error) {
-      console.log(`Error is from update  ${error}`);
-    }
-  };
+  // const uppdateBusinesshandleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     if (userData.data?._id) {
+  //       const uri = `/api/profile/${userData.data._id}`;
+  //       await axios.put(uri, updateUser);
+  //       alert(`User Updated Successfully`);
+  //       Navi("/profile");
+  //     } else {
+  //       Navi("/login");
+  //     }
+  //   } catch (error) {
+  //     console.log(`Error is from update  ${error}`);
+  //   }
+  // };
   return (
-    <>
+    <Layout>
       <div className="">
-        {islogin ? (
+        {auth ? (
           <>
             <div className="w-full relative mt-4 shadow-2xl rounded my-24 overflow-hidden">
               <div className="top h-64 w-full bg-blue-600 overflow-hidden relative">
@@ -71,11 +74,11 @@ function Editprofile() {
                     className="h-24 w-24 object-cover rounded-full"
                   />
                   <h1 className="text-2xl font-semibold">
-                    {userData.data?.username}
+                    {auth?.user?.username}
                   </h1>
                   <h4 className="text-sm font-semibold">
                     {" "}
-                    {userData.data?.email}
+                    {auth?.user?.email}
                   </h4>
                 </div>
               </div>
@@ -89,11 +92,11 @@ function Editprofile() {
                   </a>
 
                   <div className="text-center pt-2 font-bold flex flex-wrap justify-evenly  alien-center">
-                    <h5 className="pt-5">{userData.data?.name}</h5>
-                    <h5 className="pt-5">{userData.data?.email}</h5>
-                    <h5 className="pt-5">{userData.data?.phone}</h5>
-                    <h5 className="pt-5">{userData.data?.address}</h5>
-                    <h5 className="pt-5">{userData.data?.dateOfBirth}</h5>
+                    <h5 className="pt-5"> {auth?.user?.username}</h5>
+                    <h5 className="pt-5"> {auth?.user?.email}</h5>
+                    <h5 className="pt-5"> {auth?.user?.phone}</h5>
+                    <h5 className="pt-5"> {auth?.user?.address}</h5>
+                    {/* <h5 className="pt-5">{userData.data?.dateOfBirth}</h5> */}
                   </div>
                 </div>
 
@@ -102,7 +105,7 @@ function Editprofile() {
                     <form
                       action="#"
                       className="flex flex-col space-y-8"
-                      onSubmit={uppdateBusinesshandleSubmit}
+                      // onSubmit={uppdateBusinesshandleSubmit}
                     >
                       <div>
                         <h3 className="text-2xl font-semibold">
@@ -119,8 +122,8 @@ function Editprofile() {
                           className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200"
                           id="username"
                           name="username"
-                          value={updateUser.username}
-                          onChange={updateBusinesshandleChange}
+                          // value={updateUser.username}
+                          // onChange={updateBusinesshandleChange}
                         />
                       </div>
                       <div className="form-item">
@@ -131,8 +134,8 @@ function Editprofile() {
                           className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200"
                           id="name"
                           name="name"
-                          value={updateUser.name}
-                          onChange={updateBusinesshandleChange}
+                          // value={updateUser.name}
+                          // onChange={updateBusinesshandleChange}
                         />
                       </div>
                       <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
@@ -143,8 +146,8 @@ function Editprofile() {
                             name="email"
                             type="email"
                             placeholder="Email"
-                            value={updateUser.email}
-                            onChange={updateBusinesshandleChange}
+                            // value={updateUser.email}
+                            // onChange={updateBusinesshandleChange}
                             className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200  "
                           />
                         </div>
@@ -157,8 +160,8 @@ function Editprofile() {
                           className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200"
                           id="phone"
                           name="phone"
-                          value={updateUser.phone}
-                          onChange={updateBusinesshandleChange}
+                          // value={updateUser.phone}
+                          // onChange={updateBusinesshandleChange}
                         />
                       </div>
                       <div className="form-item">
@@ -169,8 +172,8 @@ function Editprofile() {
                           className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200"
                           id="address"
                           name="address"
-                          value={updateUser.address}
-                          onChange={updateBusinesshandleChange}
+                          // value={updateUser.address}
+                          // onChange={updateBusinesshandleChange}
                         />
                       </div>
 
@@ -180,8 +183,8 @@ function Editprofile() {
                           type="date"
                           id="dateOfBirth"
                           name="dateOfBirth"
-                          value={updateUser.dateOfBirth}
-                          onChange={updateBusinesshandleChange}
+                          // value={updateUser.dateOfBirth}
+                          // onChange={updateBusinesshandleChange}
                           placeholder="Enter Your Passward"
                           className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200  "
                         />
@@ -214,14 +217,7 @@ function Editprofile() {
           <h1>Please login</h1>
         )}
       </div>
-
-      {error && (
-        <h1 className="text-red-500 mb-8 text-4xl font-bold">{error}</h1>
-      )}
-      {loading && (
-        <h1 className="text-green-500 mb-8 text-3xl font-thin">{loading}</h1>
-      )}
-    </>
+    </Layout>
   );
 }
 

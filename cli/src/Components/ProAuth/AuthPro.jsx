@@ -28,7 +28,7 @@ export const AuthPro = ({ children }) => {
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
   const [userprofile, setUserProfile] = useState("");
-const API_PATH = 'api.dialkro.in';
+  const API_PATH = "https://api.dialkro.in/";
   const fetchProfileData = async () => {
     try {
       if (userprofile) {
@@ -277,7 +277,6 @@ const API_PATH = 'api.dialkro.in';
     })();
   }, []);
 
-  
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -363,9 +362,6 @@ const API_PATH = 'api.dialkro.in';
     }
   };
 
- 
-  
-
   const authContextVal = {
     login,
     loginhandleSubmit,
@@ -418,4 +414,3 @@ const API_PATH = 'api.dialkro.in';
 export const useAuth = () => {
   return useContext(AuthContext);
 };
-

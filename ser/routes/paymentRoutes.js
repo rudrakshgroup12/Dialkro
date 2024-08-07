@@ -1,5 +1,5 @@
 import express from "express";
-import auth from "../middelware/auth.js";
+// import auth from "../middelware/auth.js";
 import {
   checkout,
   paymentVerification,

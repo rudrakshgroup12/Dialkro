@@ -7,20 +7,20 @@ import {
   FaWhatsappSquare,
   FaYoutube,
 } from "react-icons/fa";
-import { useAuth } from "../ProAuth/AuthPro";
+// import { useAuth } from "../ProAuth/AuthPro";
 
 const CustomFooter = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { isDarkMode } = useAuth();
+  // const { isDarkMode } = useAuth();
   return (
     <>
-      <footer className={isDarkMode ? "dark" : ""}>
+      {/* <footer className={isDarkMode ? "dark" : ""}> */}
+      <footer className="">
         <div className="dark:bg-neutral-900 bg-black  dark:text-white p-4 items-center text-white  ">
           <div className="flex justify-center align-center pt-10 md:pb-9">
-          
             <img
               className="w-2/5 md:w-[25%] lg:w-[18%] xl:w-[15%]"
               src="images/cucet-footer-logo.png"
@@ -101,14 +101,11 @@ const CustomFooter = () => {
                 </p>
               </div>
               <div className="text-[#747474] text-[15px] font-[550] leading-6 tracking-wide mt-9 md:order-5 md:pt-32 lg:pb-28">
-              
                 <div className="flex justify-start md:-mt-32"></div>{" "}
               </div>
             </div>
             <div className="text-[#797878] text-[15px] font-[550] leading-6 tracking-wide md:order-4 lg:">
-           
               <div className="flex justify-start">
-              
                 <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                   Get in Touch
                 </h1>
@@ -116,8 +113,9 @@ const CustomFooter = () => {
               <div className="leading-7">
                 {" "}
                 <p className="w-35">
-                  E-260, b-1, phase 8 b,Industrial Area, Sector 74
-                  Sahibzada <br />Ajit Singh Nagar, Punjab 160055
+                  E-260, b-1, phase 8 b,Industrial Area, Sector 74 Sahibzada{" "}
+                  <br />
+                  Ajit Singh Nagar, Punjab 160055
                 </p>
               </div>
               <div className="leading-7 mt-4 text-[15px] font-[500]">
@@ -137,17 +135,13 @@ const CustomFooter = () => {
               </div>
             </div>
             <div className="text-[#797878] text-[15px] font-[550] leading-6 tracking-wide md:order-4 lg:">
-            
               <div className="flex justify-start">
-             
                 <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
-                 Information
+                  Information
                 </h1>
               </div>
               <div className="leading-7">
-              
                 <p className="">
-                 
                   <Link to="/policy">Privacy Policy </Link>
                 </p>
               </div>
@@ -165,9 +159,7 @@ const CustomFooter = () => {
           </div>
 
           <div className="flex justify-center mb-4 md:mb-1 text-[#afafaf] text-center text-xl space-x-3">
-           
             <p>
-          
               <a
                 href="https://www.facebook.com/Dkanytime24"
                 target="_blank"
@@ -177,7 +169,6 @@ const CustomFooter = () => {
               </a>
             </p>
             <p>
-             
               <a
                 href="https://www.instagram.com/dialkro.in/"
                 target="_blank"
@@ -187,7 +178,6 @@ const CustomFooter = () => {
               </a>
             </p>
             <p>
-              
               <a
                 href="#"
                 className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
@@ -196,7 +186,6 @@ const CustomFooter = () => {
               </a>
             </p>
             <p>
-            
               <a
                 href="#"
                 className="w-10 h-10  hover:text-blue-500 transform ease-in-out duration-500  rounded-full inline-block pt-[7px]"
@@ -205,7 +194,6 @@ const CustomFooter = () => {
               </a>
             </p>
             <p>
-             
               <a
                 href="https://www.youtube.com/@Dial24News"
                 target="_blank"
