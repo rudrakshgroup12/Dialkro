@@ -15,13 +15,7 @@ import {
 } from "react-icons/fa";
 import {
   FcApproval,
-  FcBusinessman,
-  FcBullish,
-  FcIcons8Cup,
-  FcFaq,
-  FcLike,
-  FcSettings,
-  FcAbout,
+
 } from "react-icons/fc";
 import Layout from "../../Layout/Layout.jsx";
 function ViewBusiness() {
@@ -41,10 +35,12 @@ function ViewBusiness() {
     if (params?.slug) getBuisness();
   }, [params?.slug]);
 
+  const API_PATH = 'https://api.dialkro.in';
+
   //get product
   const getBuisness = async () => {
     try {
-      const { data } = await axios.get(`/api/get-buisness/${params.slug}`);
+      const { data } = await axios.get(`${API_PATH}/api/get-buisness/${params.slug}`);
       setBuisness(data?.buisness);
       getSimilarBuisness(data?.buisness._id, data?.buisness.category._id);
     } catch (error) {
@@ -55,7 +51,7 @@ function ViewBusiness() {
   //similar buisnesses
   const getSimilarBuisness = async (pid, cid) => {
     try {
-      const { data } = await axios.get(`/api/related-buisness/${pid}/${cid}`);
+      const { data } = await axios.get(`${API_PATH}/api/related-buisness/${pid}/${cid}`);
       setRelatedBuisnesses(data?.buisness);
     } catch (error) {
       console.log(error);

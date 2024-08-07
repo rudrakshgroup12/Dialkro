@@ -45,9 +45,10 @@ const UserProfileComponent = () => {
   //   address: "123 Main St, Cityville",
   // });
 
+  const API_PATH = 'https://api.dialkro.in';
   const getAllBuisness = async () => {
     try {
-      const { data } = await axios.get("/api/get-buisness");
+      const { data } = await axios.get(`${API_PATH}/api/get-buisness`);
       setBuisness(data.buisness);
     } catch (error) {
       console.log(error);

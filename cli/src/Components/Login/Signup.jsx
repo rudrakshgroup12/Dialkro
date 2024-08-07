@@ -156,6 +156,7 @@ function Signup() {
                 />
               </div>
 
+<<<<<<< HEAD
               <div className="mb-4 text-lg">
                 <input
                   className="rounded-3xl border-none bg-red-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
@@ -168,6 +169,13 @@ function Signup() {
                   required
                 />
               </div>
+=======
+      <div className="mt-8 flex justify-center text-lg text-black">
+        <button type="submit" className="rounded-3xl bg-red-900  px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-red-600">Sign Up</button>
+      </div>
+    </form>
+   
+>>>>>>> 974c3b6b2b7f27bd7e65963c60b3a42312eff14d
 
               <div className="mb-4 text-lg">
                 <input
