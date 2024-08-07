@@ -9,6 +9,9 @@ import vectorbusi from "../assets/vectorbusi.png";
 import toast from "react-hot-toast";
 import { Modal } from "antd";
 import CategoryForm from "./CategoryForm";
+// import dotenv from "dotenv";
+// import dotenv from "../Frontend_env/dotenv"
+
 
 function BusinessBycat() {
   const {
@@ -32,10 +35,13 @@ function BusinessBycat() {
   const [updatedName, setUpdatedName] = useState("");
 
   const API_PATH = 'https://api.dialkro.in';
+  
+  
+
 
   const handleSubmit = async (e) => {
     try {
-      const { data } = await axios.post("/api/create-category", { name });
+      const { data } = await axios.post(`${API_PATH}/api/create-category`, { name });
       if (data?.success) {
         toast.success(`${name} is created`);
         getAllCategory();
@@ -90,7 +96,7 @@ function BusinessBycat() {
   //Delete Category
   const handleDelete = async (pId) => {
     try {
-      const { data } = await axios.delete(`/api/delete-category/${pId}`, {
+      const { data } = await axios.delete(`${API_PATH}/api/delete-category/${pId}`, {
         name: updatedName,
       });
       if (data.success) {

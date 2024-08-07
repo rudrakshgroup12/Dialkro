@@ -25,11 +25,12 @@ function Signup() {
       console.log(`Error is ${error.message}`);
     }
   };
+  const API_PATH = 'https://api.dialkro.in';
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const URI = "/api/register";
+      const URI = `${API_PATH}/api/register`;
       await axios
         .post(URI, register)
         .then((response) => {

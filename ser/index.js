@@ -52,11 +52,20 @@ app.use((req, res, next) => {
 // );
 
 
-app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend URL
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
-}));
+// app.use(cors({
+//   origin: 'http://localhost:5173', // Replace with your frontend URL
+//   methods: ['GET', 'POST','PUT','DELETE'],
+//   allowedHeaders: ['Content-Type']
+// }));
+
+const corsOptions = {
+  origin: '*', // or '*' to allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add all the methods you need
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add any headers you need
+};
+
+app.use(cors(corsOptions));
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));

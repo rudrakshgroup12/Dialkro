@@ -23,10 +23,7 @@ function ViewBusiness() {
   const { islogin, userData } = useAuth();
   const [buisness, setBuisness] = useState();
   const [relatedBuisnesses, setRelatedBuisnesses] = useState([]);
-  // const [businesses, setUsers] = useState([]);
-  // const [error, setError] = useState(null);
-  // const { id } = useParams();
-  //   console.log(serial number is ${id})
+ 
 
   //initail buisness details
   useEffect(() => {
@@ -56,58 +53,7 @@ function ViewBusiness() {
     }
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const URL = /api/business/${id};
-
-  //     try {
-  //       const response = await axios.get(URL);
-
-  //       // if (response.status === 401) {
-  //       //   setError("Unauthorized access. Please login.");
-  //       //   return;
-  //       // }
-
-  //       setUsers(response.data);
-  //       // console.log(response.data);
-  //     } catch (err) {
-  //       setError(Log in Please ${err.message});
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [id]);
-
-  // const [ReviewRatingData, setReviewRating] = useState({
-  //   text: "",
-  //   rating: 0,
-  // });
-  // const reviewRatingHandleChange = (rating) => {
-  //   setReviewRating({ ...ReviewRatingData, rating });
-  // };
-  // const reviewHandlechange = (e) => {
-  //   setReviewRating({ ...ReviewRatingData, text: e.target.value });
-  // };
-  // const addReviewRatinghandleSubmit = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     const uri = /api/business/review/${id};
-  //     await axios
-  //       .post(uri, { ...ReviewRatingData, user: userData.data?._id })
-  //       .then((response) => {
-  //         console.log(response.data);
-  //         alert(Reviews  Added SuccessFully);
-  //         navi("/businesses");
-  //       })
-  //       .catch((err) => {
-  //         alert(error is ${err});
-  //       });
-  //   } catch (error) {
-  //     console.log(error.message);
-  //     setError(Error is ${error});
-  //   }
-  // };
-
+  
   return (
     <>
       <div className="w-full p-6 mx-auto">
@@ -116,7 +62,6 @@ function ViewBusiness() {
             <div className="h-64 overflow-hidden">
               <img
                 className="object-cover h-64 w-full"
-                // src="https://images.unsplash.com/photo-1682695794816-7b9da18ed470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 src={`/api/buisness-photo/${buisness?._id}`}
               />
             </div>

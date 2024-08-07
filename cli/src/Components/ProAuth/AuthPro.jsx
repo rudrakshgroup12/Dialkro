@@ -28,11 +28,12 @@ export const AuthPro = ({ children }) => {
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
   const [userprofile, setUserProfile] = useState("");
+
 const API_PATH = 'https://api.dialkro.in';
   const fetchProfileData = async () => {
     try {
       if (userprofile) {
-        const URI = `https://api.dialkro.in/api/profile/${userprofile}`;
+        const URI = `${API_PATH}/api/profile/${userprofile}`;
         const response = await axios.get(URI);
         // alert(response.data);
         // console.log(response.data);
@@ -46,7 +47,7 @@ const API_PATH = 'https://api.dialkro.in';
   const businessListedByUser = async () => {
     try {
       if (userprofile) {
-        const URI = `https://api.dialkro.in/api/profile/business/${userprofile}`;
+        const URI = `${API_PATH}/api/profile/business/${userprofile}`;
         const response = await axios.get(URI);
         setUBusiness(response.data.data);
         // console.log(response.data);
@@ -103,38 +104,29 @@ const API_PATH = 'https://api.dialkro.in';
       console.log(`Error is ${error.message}`);
     }
   };
-
-  const loginhandleSubmit = async (e) => {
-
+  
+  const loginhandleSubmit=async () => {
     try {
-      e.preventDefault(); // Ye sb API jo v lgi hui hai ise page pe, ye sb ke aage wo API PATH wala url lagan aha iske ander
-      const URI = `https://api.dialkro.in/api/login`;
-      const response = await axios.post(URI, login);
-
-      if (response.status === 400)
-        return res.json({
-          message: "No uSer Exist With That Email Or Password",
-        });
-
-      const token = response.data.token;
-      const id = response.data.id;
-
-      if (id){
-        setUserProfile(id);
-        window.localStorage.setItem("token", token);
-        window.localStorage.setItem("pussy", id);
-        setisLogin(token);
-        navi("/profile");
-      } else {
-        // Handle the case where the user ID is not available
-        console.error("User ID is null or undefined");
+      const response = await fetch(`/api/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify({ username: 'ranimeri', password: 'Rani@123' }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+  
+      const data = await response.json();
+      console.log('Login successful:', data);
     } catch (error) {
-      setError(`Error is in login  ${error.message}`);
-      console.log(`Error is ${error.message}`);
+      console.error('There was a problem with the fetch operation:', error);
     }
   };
-
+  
+  
   useEffect(() => {
     if (islogin) {
       fetchProfileData();
@@ -147,7 +139,7 @@ const API_PATH = 'https://api.dialkro.in';
 
   const logOutNow = async () => {
     try {
-      const URi = `https://api.dialkro.in/api/logout`;
+      const URi = `${API_PATH}/api/logout`;
       await axios
         .get(URi)
         .then((response) => {
@@ -176,9 +168,10 @@ const API_PATH = 'https://api.dialkro.in';
     });
   };
   const addBusinesshandleSubmit = async (e) => {
+    debugger
     try {
       e.preventDefault();
-      const uri = `https://api.dialkro.in/api/business`;
+      const uri = `${API_PATH}/api/business`;
       await axios
         .post(uri, businessData)
         .then((response) => {
@@ -212,7 +205,7 @@ const API_PATH = 'https://api.dialkro.in';
   useEffect(() => {
     (async () => {
       if (selectBusinessCategory) {
-        const URI = `https://api.dialkro.in/api/business?category=${selectBusinessCategory}`;
+        const URI = `${API_PATH}/api/business?category=${selectBusinessCategory}`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -222,7 +215,7 @@ const API_PATH = 'https://api.dialkro.in';
           // Display error message to the user
         }
       } else if (selectBusinessLocation) {
-        const URI = `https://api.dialkro.in/api/business?city=${selectBusinessLocation}`;
+        const URI = `${API_PATH}/api/business?city=${selectBusinessLocation}`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -232,7 +225,7 @@ const API_PATH = 'https://api.dialkro.in';
           // Display error message to the user
         }
       } else {
-        const URI = `https://api.dialkro.in/api/business`;
+        const URI = `${API_PATH}/api/business`;
         try {
           const response = await axios.get(URI);
           setUsers(response.data.allBusiness);
@@ -249,7 +242,7 @@ const API_PATH = 'https://api.dialkro.in';
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
   useEffect(() => {
     (async () => {
-      const URL = `https://api.dialkro.in/api/category`;
+      const URL = `${API_PATH}/api/category`;
       await axios
         .get(URL)
         .then((response) => {
@@ -266,7 +259,7 @@ const API_PATH = 'https://api.dialkro.in';
   // const [fetchBusinessByCategory, setFetchBusinessByCategory] = useState([]);
   useEffect(() => {
     (async () => {
-      const URL = `https://api.dialkro.in/api/city`;
+      const URL = `${API_PATH}/api/city`;
       await axios
         .get(URL)
         .then((response) => {
@@ -316,7 +309,7 @@ const API_PATH = 'https://api.dialkro.in';
   const forgothandleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const URI = `https://api.dialkro.in/api/profile/forgot`;
+      const URI = `${API_PATH}/api/profile/forgot`;
       const response = await axios.post(URI, emailid);
       // setEmailid(response.data);
       alert(`Reset Password Request Has Been Sent TO you Email Id`);
@@ -352,7 +345,7 @@ const API_PATH = 'https://api.dialkro.in';
   const changePasswordhandleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const URI = `https://api.dialkro.in/api/profile/reset/${resetCred.token}`;
+      const URI = `${API_PATH}/api/profile/reset/${resetCred.token}`;
       const response = await axios.post(URI, resetCred);
       // setEmailid(response.data);
       alert(response.data.message);
