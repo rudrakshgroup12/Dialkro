@@ -12,7 +12,7 @@ function About() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Layout>
+    <Layout title={"Dialkro - About"}>
       {/* <div className={isDarkMode ? "dark" : ""}> */}
       <div className="">
         <div className="relative overflow-hidden bg-white dark:bg-neutral-800 dark:text-white">

@@ -21,7 +21,7 @@ function BusinessList() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const API_PATH = 'https://api.dialkro.in';
+  // const API_PATH = 'https://api.dialkro.in';
   const [buisness, setBuisness] = useState([]);
   const params = useParams();
   const [auth, setAuth] = useAuth();
@@ -32,11 +32,9 @@ function BusinessList() {
   // const [visibleBusinesses, setVisibleBusinesses] = useState(3);
   // const [showAll, setShowAll] = useState(false);
 
- 
-
   const getAllBuisness = async () => {
     try {
-      const { data } = await axios.get(`${API_PATH}/api/get-buisness`);
+      const { data } = await axios.get(`api/get-buisness`);
       setBuisness(data.buisness);
     } catch (error) {
       console.log(error);

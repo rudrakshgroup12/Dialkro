@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer/Footer.jsx";
 // import { Helmet } from "react-helmet";

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaHome, FaUser } from "react-icons/fa";
 function Ahead() {
   return (
