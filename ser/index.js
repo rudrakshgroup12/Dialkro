@@ -51,36 +51,30 @@ app.use((req, res, next) => {
 //   })
 // );
 
-
-// app.use(cors({
-//   origin: 'http://localhost:5173', // Replace with your frontend URL
-//   methods: ['GET', 'POST','PUT','DELETE'],
-//   allowedHeaders: ['Content-Type']
-// }));
-
-const corsOptions = {
-  origin: '*', // or '*' to allow all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add all the methods you need
-  allowedHeaders: ['Content-Type', 'Authorization'], // Add any headers you need
-};
-
-app.use(cors(corsOptions));
-
-
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Replace with your frontend URL
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
-import userRoutes from "./routes/userRoutes.js";
-import BusnessRoutes from "./routes/businessRoutes.js";
-import buisnesRoutes from "./routes/buisnesRoutes.js"
+// import userRoutes from "./routes/userRoutes.js";
+
+import buisnesRoutes from "./routes/buisnesRoutes.js";
 import paymentRoute from "./routes/paymentRoutes.js";
-import categoryRoutes from "./routes/categoryRoutes.js"
-// import categoryRoutes from "./routes/categoryRoutes.js";
-app.use("/api", userRoutes);
-app.use("/api", BusnessRoutes);
-app.use("/api",buisnesRoutes)
+import categoryRoutes from "./routes/categoryRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+// import router from "./routes/authRoutes.js";
+
+// app.use("/api", userRoutes);
+// app.use("/api", router);
+
+app.use("/api", buisnesRoutes);
 app.use("/api", paymentRoute);
-app.use("/api",categoryRoutes)
-// app.use("/api", categoryRoutes);
+app.use("/api", categoryRoutes);
+app.use("/api", authRoutes);
 
 app.get("/api/getkey", (req, res) =>
   res.status(200).json({ key: process.env.RAZORPAY_API_KEY })

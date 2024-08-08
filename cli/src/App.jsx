@@ -1,17 +1,19 @@
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import NavBar from "./Components/Navbar.jsx";
+// import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+// import NavBar from "./Components/Navbar.jsx";
 import Login from "./Components/Login/Login.jsx";
 import Signup from "./Components/Login/Signup.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Business from "./Components/Business/Business.jsx";
 import New from "./Components/New/New.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
+// import Footer from "./Components/Footer/Footer.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import Profile from "./Components/Profile/Profile.jsx";
 import Editprofile from "./Components/Profile/Editprofile.jsx";
 import ViewBusiness from "./Components/Business/ViewBusiness/viewBusiness.jsx";
-import { AuthPro, useAuth } from "./Components/ProAuth/AuthPro.jsx";
-import { useEffect } from "react";
+// import { AuthPro, useAuth } from "./Components/ProAuth/AuthPro.jsx";
+import { AuthPro } from "./Components/ProAuth/AuthPro.jsx";
+// import { useEffect } from "react";
 // import ErrorBoundary from "./Components/ErrorBodyComp/EBComp.jsx";
 import ProfileBusiness from "./Components/Profile/ProfileBusiness.jsx";
 import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
@@ -57,83 +59,84 @@ import SearchBuisness from "./Components/Search/SearchBuisness.jsx";
 import CategoryBuisness from "./Components/Business/Category/CategoryShow.jsx";
 import CategorywiseBuisness from "./Components/Business/Category/CategorywiseBuisness.jsx";
 import Pagenotfound from "./Components/Pagenotfound/Pagenotfound.jsx";
+import Dashboard from "./Components/User/Dashboard.jsx";
+import PrivateRoute from "./Components/Routes/Private.jsx";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <AuthPro>
-          <NavBar />
-          {/* <ErrorBoundary> */}
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/edituser" element={<Editprofile />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Signup />} />
-              <Route path="/admin" element={<Admin />} />
+      {/* <BrowserRouter> */}
+      {/* <AuthPro> */}
+      {/* <NavBar /> */}
+      {/* <ErrorBoundary> */}
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/edituser" element={<Editprofile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Signup />} />
+        <Route path="/admin" element={<Admin />} />
 
-              <Route path="/new" element={<New />} />
-              <Route path="/buisnessbycat" element={<BusinessBycat />} />
+        <Route path="/new" element={<New />} />
+        <Route path="/buisnessbycat" element={<BusinessBycat />} />
 
-              <Route path="/mybusiness" element={<ProfileBusiness />} />
-              <Route path="/businesses" element={<Business />} />
-              <Route path="/buisness/:slug" element={<ViewBusiness />} />
-              <Route
-                
-                path="/buisness/edit/:slug"
-                element={<EditUserBusiness />}
-              />
+        <Route path="/mybusiness" element={<ProfileBusiness />} />
+        <Route path="/businesses" element={<Business />} />
+        <Route path="/buisness/:slug" element={<ViewBusiness />} />
+        <Route path="/buisness/edit/:slug" element={<EditUserBusiness />} />
 
-              <Route path="/about" element={<About />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/blog" element={<Blog />} />
 
-              <Route path="/blogcontent" element={<Blogcontent />} />
-              <Route path="/blogcontent2" element={<Blogcontent2 />} />
-              <Route path="/blogcontent3" element={<Blogcontent3 />} />
-              <Route path="/blogcontent4" element={<Blogcontent4 />} />
-              <Route path="/blogcontent5" element={<Blogcontent5 />} />
-              <Route path="/blogcontent6" element={<Blogcontent6 />} />
+        <Route path="/blogcontent" element={<Blogcontent />} />
+        <Route path="/blogcontent2" element={<Blogcontent2 />} />
+        <Route path="/blogcontent3" element={<Blogcontent3 />} />
+        <Route path="/blogcontent4" element={<Blogcontent4 />} />
+        <Route path="/blogcontent5" element={<Blogcontent5 />} />
+        <Route path="/blogcontent6" element={<Blogcontent6 />} />
 
-              <Route path="/postads" element={<Postads />} />
-              <Route path="/service" element={<Service />} />
-              <Route path="/Advertise" element={<Advertise />} />
-              <Route path="/contactus" element={<Contactus />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/business/edit/:id" element={<EditUserBusiness />} />
+        <Route path="/postads" element={<Postads />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/Advertise" element={<Advertise />} />
+        <Route path="/contactus" element={<Contactus />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/business/edit/:id" element={<EditUserBusiness />} />
 
-              <Route path="/forgot" element={<ForgotPassword />} />
-              <Route path="/business" element={<OtherBusiness />} />
-              <Route path="/feature" element={<Featuredads />} />
-              <Route path="/featured1" element={<Featuredads1 />} />
-              <Route path="/featured2" element={<Featuredads2 />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/business" element={<OtherBusiness />} />
+        <Route path="/feature" element={<Featuredads />} />
+        <Route path="/featured1" element={<Featuredads1 />} />
+        <Route path="/featured2" element={<Featuredads2 />} />
 
-              <Route path="/article1" element={<Article1 />} />
-              <Route path="/article2" element={<Article2 />} />
-              <Route path="/article3" element={<Article3 />} />
-              <Route path="/article4" element={<Article4 />} />
-              <Route path="/article5" element={<Article5 />} />
-              <Route path="/article6" element={<Article6 />} />
+        <Route path="/article1" element={<Article1 />} />
+        <Route path="/article2" element={<Article2 />} />
+        <Route path="/article3" element={<Article3 />} />
+        <Route path="/article4" element={<Article4 />} />
+        <Route path="/article5" element={<Article5 />} />
+        <Route path="/article6" element={<Article6 />} />
 
-              <Route path="/paymentsuccess" element={<Paymentsuccess />} />
-              <Route path="/paymentform1" element={<Paymentform1 />} />
-              <Route path="/paymentform2" element={<Paymentform2 />} />
-              <Route path="/paymentform3" element={<Paymentform3 />} />
+        <Route path="/paymentsuccess" element={<Paymentsuccess />} />
+        <Route path="/paymentform1" element={<Paymentform1 />} />
+        <Route path="/paymentform2" element={<Paymentform2 />} />
+        <Route path="/paymentform3" element={<Paymentform3 />} />
 
-              <Route path="/search" element={<SearchBuisness />} />
-              <Route path="/categories" element={<CategoryBuisness />} />
-              <Route path="/category/:slug" element={<CategorywiseBuisness />} />
-              <Route path="/" element={<Pagenotfound />} />
+        <Route path="/search" element={<SearchBuisness />} />
+        <Route path="/categories" element={<CategoryBuisness />} />
+        <Route path="/category/:slug" element={<CategorywiseBuisness />} />
+        <Route path="*" element={<Pagenotfound />} />
 
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="" element={<Dashboard />} />
+        </Route>
 
-              <Route path="/term" element={<Term />} />
-              <Route path="/policy" element={<Privacy />} />
-            </Routes>
-            <Footer />
-          {/* </ErrorBoundary> */}
-        </AuthPro>
-      </BrowserRouter>
+        <Route path="/term" element={<Term />} />
+        <Route path="/policy" element={<Privacy />} />
+      </Routes>
+      {/* <Footer /> */}
+      {/* </ErrorBoundary> */}
+      {/* </AuthPro> */}
+      {/* </BrowserRouter> */}
     </>
   );
 }

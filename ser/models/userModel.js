@@ -1,101 +1,43 @@
 import mongoose from "mongoose";
-import validate from "validator";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import crypto from "crypto";
-const { Schema } = mongoose;
 
-// Define the User schema
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: [true, "Please Enter Your Name"],
-
-      unique: [true, "Username already exists"],
-      trim: true,
+      required: true,
     },
     email: {
       type: String,
-      required: [true, "Please Enter Your Email"],
-      unique: [true, "Email already exists"],
-      validate: [validate.isEmail, "Please enter a valid email"],
-      trim: true,
+      required: true,
+      unique: true, // Email should be unique
     },
     password: {
       type: String,
-      required: [true, "Please Enter Your Password"],
-      select: false,
-    },
-    avatar: {
-      public_id: {
-        type: String,
-        // required: true,
-      },
-      url: {
-        type: String,
-        // required: true,
-      },
-    },
-    name: {
-      type: String,
-      trim: true,
-    },
-    profilePicture: {
-      type: String,
-    },
-    // Add other user-related fields as needed
-    // For example: dateOfBirth, address, phone, etc.
-    dateOfBirth: {
-      type: Date,
-    },
-    address: {
-      type: String,
+      required: true,
+      // select: false, // Uncomment if you want to hide the password in queries
     },
     phone: {
       type: String,
+      required: true,
+    },
+    address: {
+      type: {},
+      // type: String, // Changed from {} to String for better validation
+      required: true,
+    },
+    answer: {
+      type: String,
+      required: true,
     },
     role: {
-      type: String,
-      enum: ["user", "admin"], // Role-specific values, you can add more roles as needed
-      default: "user",
-      select: false,
+      type: Number,
+      default: 0,
     },
-    resetpassTok: {
-      type: String,
-    },
-    resetPasstime: {
-      type: Date,
-    },
+    // Removed the username field
   },
-  {
-    timestamps: true, // Automatically add createdAt and updatedAt timestamps
-  }
+  { timestamps: true }
 );
 
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
-  }
-  this.password = await bcrypt.hash(this.password, 10);
-});
+const userModel = mongoose.model("user", userSchema);
 
-userSchema.methods.generateAuthToken = function () {
-  return jwt.sign({ _id: this._id, role: this.role }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE_TIME,
-  });
-  // user.tokens = user.tokens.concat({ token });
-  // await user.save();
-};
-
-userSchema.methods.grt = function () {
-  const resoen = crypto.randomBytes(20).toString("hex");
-  const tok = crypto.createHash("sha256").update(resoen).digest("hex");
-  const tokt = Date.now() + 15 * 60 * 1000;
-  this.resetpassTok = tok;
-  this.resetPasstime = tokt;
-  return resoen;
-};
-
-const User = mongoose.model("User", userSchema);
-export default User;
+export default userModel;

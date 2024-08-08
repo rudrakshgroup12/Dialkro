@@ -11,6 +11,7 @@ import {
   IoMailSharp,
   IoGlobeSharp,
 } from "react-icons/io5";
+import Layout from "../Layout/Layout";
 function EditUserBusiness() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
@@ -221,7 +222,7 @@ function EditUserBusiness() {
   //   }
   // };
   return (
-    <>
+    <Layout>
       <div className="max-w-screen-lg mx-auto p-5">
         {/* {businessesByid.data && ( */}
         <div className="grid grid-cols-1 md:grid-cols-12 border">
@@ -671,7 +672,7 @@ function EditUserBusiness() {
         </div>
         {/* )} */}
       </div>
-    </>
+    </Layout>
   );
 }
 

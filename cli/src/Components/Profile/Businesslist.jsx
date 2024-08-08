@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import viewdetailsads from "../assets/viewdetailsads.jpeg";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
+// import { useAuth } from "../ProAuth/AuthPro.jsx";
+import { useAuth } from "../context/auth";
 import sideads from "../assets/sideads.png";
 import sideads2 from "../assets/sideads2.jpg";
 import "./Businesslist.css";
@@ -23,12 +24,13 @@ function BusinessList() {
   const API_PATH = 'https://api.dialkro.in';
   const [buisness, setBuisness] = useState([]);
   const params = useParams();
+  const [auth, setAuth] = useAuth();
 
   // Mock data for businesses (replace this with actual data)
-  const { uBusiness, islogin, userData, businesses } = useAuth();
+  // const { uBusiness, islogin, userData, businesses } = useAuth();
 
-  const [visibleBusinesses, setVisibleBusinesses] = useState(3);
-  const [showAll, setShowAll] = useState(false);
+  // const [visibleBusinesses, setVisibleBusinesses] = useState(3);
+  // const [showAll, setShowAll] = useState(false);
 
  
 
@@ -47,10 +49,10 @@ function BusinessList() {
     getAllBuisness();
   }, []);
 
-  const handleToggle = () => {
-    setShowAll(!showAll);
-    setVisibleBusinesses(showAll ? 3 : uBusiness.length);
-  };
+  // const handleToggle = () => {
+  //   setShowAll(!showAll);
+  //   setVisibleBusinesses(showAll ? 3 : uBusiness.length);
+  // };
   return (
     <>
       <div className=" bg-white">
@@ -108,138 +110,133 @@ function BusinessList() {
         </div>
         <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
           <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-            {islogin ? (
+            {auth ? (
               <>
-                {uBusiness.slice(0, visibleBusinesses).map((busines, index) => (
-                  <div>
-                    {buisness?.map((p) => (
-                      <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-2 py-2 md:py-6 md:p-6 xl:p-8 w-full   border-b  mb-5 border-gray-200    rounded-lg hover:bg-orange-50 shadow-2xl hover:shadow-rose-500/50">
-                        <div className="mt-6 md:mt-0 flex justify-start flex-col md:flex-row items-start md:items-center space-y-4 md:space-x-6 xl:space-x-8 w-full">
-                          <div className="w-50 h-50 ">
-                            <div
-                              id="carouselExample"
-                              className="carousel slide"
-                            >
-                              <div className="carousel-inner">
-                                <div className="carousel-item active">
-                                  <img
-                                    src={`/api/buisness-photo/${p._id}`}
-                                    alt={p.name}
-                                    className="d-block w-100"
-                                  />
-                                </div>
-                                <div className="carousel-item">
-                                  <img
-                                    src={`/api/buisness-photo2/${p._id}`}
-                                    alt={p.name}
-                                    className="d-block w-100"
-                                  />
-                                </div>
-                                <div className="carousel-item">
-                                  <img
-                                    src={`/api/buisness-photo3/${p._id}`}
-                                    alt={p.name}
-                                    className="d-block w-100"
-                                  />
-                                </div>
-                                <div className="carousel-item">
-                                  <img
-                                    src={`/api/buisness-photo4/${p._id}`}
-                                    alt={p.name}
-                                    className="d-block w-100"
-                                  />
-                                </div>
-                                <div className="carousel-item">
-                                  <img
-                                    src={`/api/buisness-photo5/${p._id}`}
-                                    alt={p.name}
-                                    className="d-block w-100"
-                                  />
-                                </div>
+                {/* {uBusiness.slice(0, visibleBusinesses).map((busines, index) => ( */}
+                <div>
+                  {buisness?.map((p) => (
+                    <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-2 py-2 md:py-6 md:p-6 xl:p-8 w-full   border-b  mb-5 border-gray-200    rounded-lg hover:bg-orange-50 shadow-2xl hover:shadow-rose-500/50">
+                      <div className="mt-6 md:mt-0 flex justify-start flex-col md:flex-row items-start md:items-center space-y-4 md:space-x-6 xl:space-x-8 w-full">
+                        <div className="w-50 h-50 ">
+                          <div id="carouselExample" className="carousel slide">
+                            <div className="carousel-inner">
+                              <div className="carousel-item active">
+                                <img
+                                  src={`/api/buisness-photo/${p._id}`}
+                                  alt={p.name}
+                                  className="d-block w-100"
+                                />
                               </div>
-                              <button
-                                className="carousel-control-prev"
-                                type="button"
-                                data-bs-target="#carouselExample"
-                                data-bs-slide="prev"
-                              >
-                                <span
-                                  className="carousel-control-prev-icon"
-                                  aria-hidden="true"
+                              <div className="carousel-item">
+                                <img
+                                  src={`/api/buisness-photo2/${p._id}`}
+                                  alt={p.name}
+                                  className="d-block w-100"
                                 />
-                                <span className="visually-hidden">
-                                  Previous
-                                </span>
-                              </button>
-                              <button
-                                className="carousel-control-next"
-                                type="button"
-                                data-bs-target="#carouselExample"
-                                data-bs-slide="next"
-                              >
-                                <span
-                                  className="carousel-control-next-icon"
-                                  aria-hidden="true"
+                              </div>
+                              <div className="carousel-item">
+                                <img
+                                  src={`/api/buisness-photo3/${p._id}`}
+                                  alt={p.name}
+                                  className="d-block w-100"
                                 />
-                                <span className="visually-hidden">Next</span>
-                              </button>
+                              </div>
+                              <div className="carousel-item">
+                                <img
+                                  src={`/api/buisness-photo4/${p._id}`}
+                                  alt={p.name}
+                                  className="d-block w-100"
+                                />
+                              </div>
+                              <div className="carousel-item">
+                                <img
+                                  src={`/api/buisness-photo5/${p._id}`}
+                                  alt={p.name}
+                                  className="d-block w-100"
+                                />
+                              </div>
+                            </div>
+                            <button
+                              className="carousel-control-prev"
+                              type="button"
+                              data-bs-target="#carouselExample"
+                              data-bs-slide="prev"
+                            >
+                              <span
+                                className="carousel-control-prev-icon"
+                                aria-hidden="true"
+                              />
+                              <span className="visually-hidden">Previous</span>
+                            </button>
+                            <button
+                              className="carousel-control-next"
+                              type="button"
+                              data-bs-target="#carouselExample"
+                              data-bs-slide="next"
+                            >
+                              <span
+                                className="carousel-control-next-icon"
+                                aria-hidden="true"
+                              />
+                              <span className="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="flex justify-between items-start w-full flex-col md:flex-row space-y-4 md:space-y-0">
+                          <div className="w-full flex flex-col justify-start items-start space-y-8">
+                            <h3 className="text-black text-2xl title-font font-bold  uppercase">
+                              {p.name}
+                            </h3>
+                            <div className="flex justify-start items-start flex-col space-y-1">
+                              <h2 className="text-red-600 font-bold dark:text-white leading-none">
+                                +91-{p.phone}
+                              </h2>
+                              <p className="text-black  title-font font-bold mb-2 uppercase pt-2">
+                                {p.email}
+                              </p>
+
+                              <div className="flex  pr-2 h-full items-center">
+                                <FaGlobe className="text-green-600" />
+                                <a
+                                  href={p.website}
+                                  className="title-font font-medium px-3"
+                                >
+                                  {p.name}
+                                </a>
+                              </div>
+                              <p className="text-black  title-font font-bold mb-2 uppercase pt-2">
+                                {p.city}
+                              </p>
                             </div>
                           </div>
-
-                          <div className="flex justify-between items-start w-full flex-col md:flex-row space-y-4 md:space-y-0">
-                            <div className="w-full flex flex-col justify-start items-start space-y-8">
-                              <h3 className="text-black text-2xl title-font font-bold  uppercase">
-                                {p.name}
-                              </h3>
-                              <div className="flex justify-start items-start flex-col space-y-1">
-                                <h2 className="text-red-600 font-bold dark:text-white leading-none">
-                                  +91-{p.phone}
-                                </h2>
-                                <p className="text-black  title-font font-bold mb-2 uppercase pt-2">
-                                  {p.email}
-                                </p>
-
-                                <div className="flex  pr-2 h-full items-center">
-                                  <FaGlobe className="text-green-600" />
-                                  <a
-                                    href={p.website}
-                                    className="title-font font-medium px-3"
-                                  >
-                                    {p.name}
-                                  </a>
-                                </div>
-                                <p className="text-black  title-font font-bold mb-2 uppercase pt-2">
-                                  {p.city}
-                                </p>
-                              </div>
-                            </div>
-                            <div className="flex justify-between space-x-8 items-start w-full">
-                              <p className="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                                Dialkro
-                              </p>
-                              <Link
-                                key={p._id}
-                                // to={/business/edit/${busines._id}}
-                                to={`/buisness/edit/${p.slug}`}
-                                className="mt-4 inline-block py-2 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-red-500 to-red-800 hover:from-red-900 hover:to-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                              >
-                                View Details
-                              </Link>
-                            </div>
+                          <div className="flex justify-between space-x-8 items-start w-full">
+                            <p className="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
+                              Dialkro
+                            </p>
+                            <Link
+                              key={p._id}
+                              // to={/business/edit/${busines._id}}
+                              to={`/buisness/edit/${p.slug}`}
+                              className="mt-4 inline-block py-2 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-red-500 to-red-800 hover:from-red-900 hover:to-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
+                              View Details
+                            </Link>
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                ))}
-                {uBusiness.length > 3 && (
+                    </div>
+                  ))}
+                </div>
+                {/* ))} */}
+                {/* {uBusiness.length > 3 && (
                   <button
                     onClick={handleToggle}
                     className="bg-red-700 text-white px-4 py-2 rounded-md mt-4"
                   >
                     {showAll ? "View less" : "View More"}
                   </button>
-                )}
+                )} */}
               </>
             ) : (
               <div classNameName="login-prompt text-center mb-4">
@@ -252,7 +249,7 @@ function BusinessList() {
                 <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">
                   Summary
                 </h3>
-                {businesses.map((business, index) => (
+                {/* {businesses.map((business, index) => (
                   <div className="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
                     <div className="flex justify-between w-full">
                       <p className="text-base dark:text-white leading-4 text-gray-800">
@@ -264,7 +261,7 @@ function BusinessList() {
                       </p>
                     </div>
                   </div>
-                ))}
+                ))} */}
               </div>
               <div className="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full  dark:bg-gray-800 space-y-6 border-b   border-gray-200 rounded-lg  bg-gray-50    hover:bg-orange-50 shadow-2xl hover:shadow-rose-500/50">
                 <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">
@@ -307,7 +304,7 @@ function BusinessList() {
                   />
                   <div className="flex justify-start items-start flex-col space-y-2">
                     <p className="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
-                      {userData.data?.username}
+                      {auth?.user?.username}
                     </p>
                     <p className="text-sm dark:text-gray-300 leading-5 text-gray-600">
                       Current Businesses{" "}
@@ -332,7 +329,7 @@ function BusinessList() {
                     <path d="M3 7L12 13L21 7" stroke="currentColor" />
                   </svg>
                   <p className="cursor-pointer text-sm leading-5 ">
-                    {userData.data?.email}
+                    {auth?.user?.email}
                   </p>
                 </div>
               </div>

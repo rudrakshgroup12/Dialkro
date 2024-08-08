@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Carousel from "../Cont/Carousel.jsx";
+// import { useAuth } from "../../ProAuth/AuthPro.jsx";
+import { useNavigate } from "react-router-dom";
+// import BusinessCheck from "../Category/BusinessCheck.jsx";
+import Category from "../Category/AllCategory.jsx";
 
 import {
   FaStar,
@@ -9,12 +15,6 @@ import {
   FaGlobe,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import axios from "axios";
-import Carousel from "../Cont/Carousel.jsx";
-import { useAuth } from "../../ProAuth/AuthPro.jsx";
-import { useNavigate } from "react-router-dom";
-import BusinessCheck from "../Category/BusinessCheck.jsx";
-import Category from "../Category/AllCategory.jsx";
 
 
 
@@ -45,7 +45,7 @@ function Cont() {
 
   // const params = useParams();
 
-  const { error } = useAuth();
+  // const { error } = useAuth();
 
   
 
@@ -312,7 +312,7 @@ function Cont() {
           <div className="px-8 mt-10">
             <h1 className="mb-4 text-xl font-bold text-gray-700">Location</h1>
             <div className="flex flex-col max-w-sm px-4 py-6 mx-auto bg-white rounded-lg shadow-md">
-              <BusinessCheck />
+              {/* <BusinessCheck /> */}
             </div>
           </div>
           <div className="px-8 mt-10">

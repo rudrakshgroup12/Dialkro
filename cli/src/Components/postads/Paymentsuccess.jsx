@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import Layout from "../Layout/Layout";
 
 function paymentsuccess() {
   useEffect(() => {
@@ -8,10 +9,12 @@ function paymentsuccess() {
   const searchQuery = useSearchParams()[0];
   const referenceNum = searchQuery.get("reference");
   return (
-    <div>
-      <h1>Order Successfull</h1>
-      <p>Reference No. {referenceNum}</p>
-    </div>
+    <Layout>
+      <div>
+        <h1>Order Successfull</h1>
+        <p>Reference No. {referenceNum}</p>
+      </div>
+    </Layout>
   );
 }
 

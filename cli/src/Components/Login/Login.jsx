@@ -1,69 +1,72 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/auth.jsx";
 import axios from "axios";
-import jcoks from "js-cookie";
-import ForgotPassword from "./ForgotPassword.jsx";
 import "./login.css";
+<<<<<<< HEAD
 
 
+=======
+import toast from "react-hot-toast";
+import Layout from "../Layout/Layout.jsx";
+>>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
 function Login() {
-  const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
-    useAuth();
+  const [auth, setAuth] = useAuth();
+  // const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
+  //   useAuth();
+
+  const [email, SetEmail] = useState("");
+  const [password, SetPassword] = useState("");
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
+  // const [visible, SetVisible] = useState(true);
+  // const location = useLocation();
+  // const [auth, setAuth] = useAuth();
+
+  const handleSubmit = async (e) => {
+    // console.log(name, email, password, phone, address);
+    // toast("Registered Successfully");
+    try {
+      e.preventDefault();
+      const res = await axios.post(
+        `/api/login`,
+        {
+          email,
+          password,
+        }
+        // {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // }
+      );
+      if (res && res.data.success) {
+        toast.success(res && res.data.message, {
+          autoClose: 10000,
+        });
+        setAuth({ ...auth, user: res.data.user, token: res.data.token });
+        localStorage.setItem("auth", JSON.stringify(res.data));
+        navigate(location.state || "/profile");
+        alert("Login Successfully");
+      } else {
+        toast.error(res.data.message);
+        alert("Wrong Password");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Email is not registerd");
+      toast.error("Something went wrong");
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  //  const navigate = useNavigate();
-  //  const [login, setLogin] = useState({
-  //    email: "",
-  //    password: "",
-  //  });
-  //  const [error, setError] = useState(null);
-  //  const [islogin, setisLogin] = useState(false);
 
-  //  const handleInputChange = (e) => {
-  //    const { name, value } = e.target;
-
-  //    try {
-  //      setLogin({
-  //        ...login,
-
-  //        [name]: value,
-  //      });
-  //    } catch (error) {
-  //      setError(`Error is ${error.message}`);
-  //      console.log(`Error is ${error.message}`);
-  //    }
-  //  };
-
-  //  const handleSubmit = async (e) => {
-  //    try {
-  //      e.preventDefault();
-  //      const URI = "/api/login";
-  //      await axios
-  //        .post(URI, login)
-  //        .then((response) => {
-  //          const tok = jcoks.set("token", response.data.token);
-  //          console.log(tok)
-  //          setisLogin(true);
-  //          alert(`Loggedin  SuccessFully `);
-  //           navigate("/profile");
-  //        })
-  //        .catch((error) => {
-  //          alert(error.message);
-  //        });
-  //    } catch (error) {
-  //      setError(`Error is ${error.message}`);
-  //    }
-  //  };
-  //  useEffect(() => {
-  //    const token = jcoks.get("token");
-  //    if (token) {
-  //      alert(token);
-  //    }
-  //  }, [islogin]);
   return (
-    <>
+    <Layout title="Login Dialkro">
       <div className="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat login-page">
         <div className="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
           <div className="text-white">
@@ -71,7 +74,7 @@ function Login() {
               <h1 className="mb-2 text-2xl">Dialkro</h1>
               <span className="text-gray-300">Enter Login Details</span>
             </div>
-            <form action="#" onSubmit={loginhandleSubmit}>
+            <form action="#" onSubmit={handleSubmit}>
               <div className="mb-4 text-lg">
                 <input
                   className="rounded-3xl border-none bg-red-400  px-6 py-2 text-center text-black placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
@@ -80,22 +83,22 @@ function Login() {
                   placeholder="Enter Your Email"
                   id="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => SetEmail(e.target.value)}
                   required
-                  value={login.email}
-                  onChange={loginHandleInputChange}
                 />
               </div>
 
               <div className="mb-4 text-lg">
                 <input
                   className="rounded-3xl border-none bg-red-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-                  type="Password"
                   name="password"
                   placeholder="Passwords....."
-                  value={login.password}
-                  onChange={loginHandleInputChange}
                   id="password"
                   autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => SetPassword(e.target.value)}
+                  type="password"
                   required
                 />
               </div>
@@ -113,7 +116,7 @@ function Login() {
                 Forgot Password
               </Link>
 
-              {islogin ? (
+              {/* {Login ? (
                 <p>
                   This is a protected component. Only visible to logged-in
                   users. profile you are alresdy Login{" "}
@@ -123,12 +126,12 @@ function Login() {
                 </p>
               ) : (
                 <h1>Please login</h1>
-              )}
+              )} */}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 

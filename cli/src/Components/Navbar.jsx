@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import lg from "./lg.png";
-import { useAuth } from "./ProAuth/AuthPro.jsx";
+// import { useAuth } from "./ProAuth/AuthPro.jsx";
+import { useAuth } from "./context/auth.jsx";
 import NavbarToggel from "./Navbar/NavbarToggel.jsx";
 // import jwtDecode from 'jwt-decode'
 import { Link } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
+import toast from "react-hot-toast";
 
 import {
   AiOutlineHome,
@@ -14,7 +16,7 @@ import {
 } from "react-icons/ai";
 
 function Navbar() {
-  const { islogin, logOutNow } = useAuth();
+  const [auth, setAuth] = useAuth();
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // const toggleMenu = () => {
@@ -25,6 +27,17 @@ function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    alert("Logout Successfully");
+  };
+  // const [showMediaIcons, setShowMediaIcons] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,27 +57,12 @@ function Navbar() {
           </Link>
           <div className="md:absolute md:right-10 flex  md:flex-row items-center p-2 max-md:ml-auto">
             {/* Navigation Item */}
-            {islogin ? (
-              <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700">
-                <Link to="/profile" className="text-sm font-medium">
-                  Profile
+            {!auth.user ? (
+              <button className="ml-2 flex cursor-pointer items-center gap-x-1  py-2 px-4 hover:text-rose-700 hover:animate-pulse">
+                <Link to="/login" className="">
+                  <span className="text-sm font-medium">{}</span>
                 </Link>
-              </div>
-            ) : (
-              <>
-                <button className="ml-2 flex cursor-pointer items-center gap-x-1  py-2 px-4 hover:text-rose-700 hover:animate-pulse">
-                  <Link to="/register" className="">
-                    <span className="text-sm font-medium">SignUp</span>
-                  </Link>
-                </button>
-              </>
-            )}
-            {islogin ? (
-              <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700 hover:animate-pulse">
-                <Link to="/postads" className="text-sm font-medium">
-                  Post Ads
-                </Link>
-              </div>
+              </button>
             ) : (
               <>
                 <button className="ml-2 flex cursor-pointer items-center gap-x-1  py-2 px-4 hover:text-rose-700 hover:animate-pulse">
@@ -72,34 +70,43 @@ function Navbar() {
                     <span className="text-sm font-medium">{}</span>
                   </Link>
                 </button>
+                <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700 hover:animate-pulse">
+                  <Link to="/postads" className="text-sm font-medium">
+                    Post Ads
+                  </Link>
+                </div>
               </>
             )}
-
-            {islogin ? (
-              <>
-                <button
-                  onClick={logOutNow}
-                  className="ml-4 flex cursor-pointer items-center  py-2 px-4 hover:text-rose-700 hover:animate-pulse"
-                >
-                  <span className="text-sm font-medium">Sign out</span>
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  className="ml-2 flex cursor-pointer items-center gap-x-1   py-2 px-4  hover:text-rose-700 hover:animate-pulse"
-                  onClick={() => {}}
-                >
-                  <Link to="/login">
-                    <span className="text-sm font-medium">Sign in</span>
+            {!auth.user ? (
+              <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700">
+                <button className="ml-2 flex cursor-pointer items-center gap-x-1  py-2 px-4 hover:text-rose-700 hover:animate-pulse">
+                  <Link to="/register" className="">
+                    <span className="text-sm font-medium">Register</span>
                   </Link>
                 </button>
+                <button className="ml-2 flex cursor-pointer items-center gap-x-1  py-2 px-4 hover:text-rose-700 hover:animate-pulse">
+                  <Link to="/login" className="">
+                    <span className="text-sm font-medium">Signin</span>
+                  </Link>
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700">
+                  <Link to="/profile" className="text-sm font-medium">
+                    Profile
+                  </Link>
+                  <button
+                    className="ml-2 flex cursor-pointer items-center gap-x-1   py-2 px-4  hover:text-rose-700 hover:animate-pulse"
+                    onClick={() => {}}
+                  >
+                    <Link onClick={handleLogout} to="/login">
+                      <span className="text-sm font-medium">Sign out</span>
+                    </Link>
+                  </button>
+                </div>
               </>
             )}
-
-            {/* <div className="inline-block border-gray-300 border-l-2 pl-6 cursor-pointer">
-              <NavbarToggel />
-            </div> */}
           </div>
         </section>
         <div className="flex flex-wrap py-3.5 px-10 overflow-x-auto">
@@ -108,9 +115,6 @@ function Navbar() {
             className={`lg:flex font-sans font-thin text-xl justify-center lg:space-x-10 max-lg:space-y-3 w-full max-lg:mt-2 ${
               isOpen ? "block" : "hidden"
             }`}
-            // className="lg:!flex justify-center lg:space-x-10 max-lg:space-y-3 max-lg:hidden w-full max-lg:mt-2 "
-            // className={isOpen ? 'block' : 'hidden'}
-            //    id="collapseMenu"
           >
             <li className="max-lg:border-b max-lg:py-2">
               <Link

@@ -28,8 +28,12 @@ export const AuthPro = ({ children }) => {
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
   const [userprofile, setUserProfile] = useState("");
+<<<<<<< HEAD
 
 const API_PATH = 'https://api.dialkro.in';
+=======
+  const API_PATH = "api.dialkro.in";
+>>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
   const fetchProfileData = async () => {
     try {
       if (userprofile) {
@@ -104,6 +108,7 @@ const API_PATH = 'https://api.dialkro.in';
       console.log(`Error is ${error.message}`);
     }
   };
+<<<<<<< HEAD
   
   const loginhandleSubmit=async () => {
     try {
@@ -117,6 +122,32 @@ const API_PATH = 'https://api.dialkro.in';
   
       if (!response.ok) {
         throw new Error('Network response was not ok');
+=======
+
+  const loginhandleSubmit = async (e) => {
+    try {
+      e.preventDefault(); // Ye sb API jo v lgi hui hai ise page pe, ye sb ke aage wo API PATH wala url lagan aha iske ander
+      const URI = `https://api.dialkro.in/api/login`;
+      const response = await axios.post(URI, login);
+
+      if (response.status === 400)
+        return res.json({
+          message: "No uSer Exist With That Email Or Password",
+        });
+
+      const token = response.data.token;
+      const id = response.data.id;
+
+      if (id) {
+        setUserProfile(id);
+        window.localStorage.setItem("token", token);
+        window.localStorage.setItem("pussy", id);
+        setisLogin(token);
+        navi("/profile");
+      } else {
+        // Handle the case where the user ID is not available
+        console.error("User ID is null or undefined");
+>>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
       }
   
       const data = await response.json();
@@ -271,7 +302,6 @@ const API_PATH = 'https://api.dialkro.in';
     })();
   }, []);
 
-  
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -357,9 +387,6 @@ const API_PATH = 'https://api.dialkro.in';
     }
   };
 
- 
-  
-
   const authContextVal = {
     login,
     loginhandleSubmit,
@@ -412,4 +439,3 @@ const API_PATH = 'https://api.dialkro.in';
 export const useAuth = () => {
   return useContext(AuthContext);
 };
-

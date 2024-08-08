@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "@material-tailwind/react";
-import { useAuth } from "../ProAuth/AuthPro.jsx";
 import { IoIosLogOut } from "react-icons/io";
 import profileback from "../assets/profileback.jpeg";
 import axios from "axios";
+import { useAuth } from "../context/auth.jsx";
+import { useNavigate } from "react-router-dom";
 
 import Banner from "./Banner.jsx";
 import { FaUser, FaEnvelope } from "react-icons/fa";
@@ -12,22 +13,37 @@ import { Link } from "react-router-dom";
 
 // Import Tailwind CSS
 import "tailwindcss/tailwind.css";
+import Layout from "../Layout/Layout.jsx";
 
 const UserProfileComponent = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const navigate = useNavigate();
   const [buisness, setBuisness] = useState([]);
-  const { businesses } = useAuth();
-  const { islogin, logOutNow, error, userData } = useAuth();
-  const [user, setUser] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "123-456-7890",
-    company: "ABC Inc",
-    address: "123 Main St, Cityville",
-  });
+  const [auth, setAuth] = useAuth();
+
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+
+    localStorage.removeItem("auth");
+    alert("Logout Successfully");
+    navigate("/");
+  };
+  // const { businesses } = useAuth();
+  // const { islogin, logOutNow, error, userData } = useAuth();
+  // const [user, setUser] = useState({
+  //   name: "John Doe",
+  //   email: "john.doe@example.com",
+  //   phone: "123-456-7890",
+  //   company: "ABC Inc",
+  //   address: "123 Main St, Cityville",
+  // });
 
   const API_PATH = 'https://api.dialkro.in';
   const getAllBuisness = async () => {
@@ -46,13 +62,13 @@ const UserProfileComponent = () => {
   }, []);
 
   return (
-    <>
+    <Layout title="Dialkro Profile">
       {/* {error && (
       <div className="error-message text-red-600 mb-8 text-4xl font-bold">
         Oops! {error}
       </div>
     )} */}
-      {islogin ? (
+      {auth.user ? (
         <div className="h-full bg-white p-8">
           <div className="w-full h-[250px]">
             <img
@@ -65,7 +81,7 @@ const UserProfileComponent = () => {
               </button>
             </Link>
             <button
-              onClick={logOutNow}
+              onClick={handleLogout}
               className="flex items-center bg-rose-800 hover:bg-blue-700 text-gray-100 px-4 py-2 m-2 rounded text-sm space-x-2 transition duration-100"
             >
               Sign Out
@@ -105,12 +121,12 @@ const UserProfileComponent = () => {
             </div>
             <p className="text-black-700 font-bold uppercase flex">
               <FaUser className="text-red-800 mt-1 mx-1" />
-              {userData.data?.username}
+              {auth?.user?.username}
             </p>
             {/* {userData.data?._id} */}
             <p className="text-sm text-black-500 flex font-bold">
               <FaEnvelope className="text-red-800 mt-1 mx-1" />
-              {userData.data?.email}
+              {auth?.user?.email}
             </p>
           </div>
           <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
@@ -242,20 +258,6 @@ const UserProfileComponent = () => {
                           <td class="p-3 pr-0 text-end">
                             <button class="ml-auto relative text-secondary-dark bg-light-dark hover:text-primary flex items-center h-[25px] w-[25px] text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-200 ease-in-out shadow-none border-0 justify-center">
                               <span class="flex items-center justify-center p-0 m-0 leading-none shrink-0 ">
-                                {/* <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-4 h-4"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                                />
-                              </svg> */}
                                 {p.city}
                               </span>
                             </button>
@@ -263,7 +265,6 @@ const UserProfileComponent = () => {
                         </tr>
                       </tbody>
                     ))}
-                    {/* ))} */}
                   </table>
                 </div>
               </div>
@@ -271,7 +272,7 @@ const UserProfileComponent = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
