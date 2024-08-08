@@ -1,4 +1,3 @@
-import React from "react";
 import { FaChartBar, FaUser, FaCog } from "react-icons/fa";
 function Sidebar() {
   return (

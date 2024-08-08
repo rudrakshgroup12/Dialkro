@@ -16,8 +16,6 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-
-
 const StarRating = ({ rating }) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
@@ -60,12 +58,12 @@ function Cont() {
   //   }
   // };
 
-  const API_PATH = 'https://api.dialkro.in';
+  // const API_PATH = "https://api.dialkro.in";
 
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`https://api.dialkro.in/api/get-category`);
+      const { data } = await axios.get(`api/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -84,7 +82,7 @@ function Cont() {
   const getAllBuisness = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-list/${page}`);
+      const { data } = await axios.get(`api/buisness-list/${page}`);
       setLoading(false);
       setBuisness(data.buisness);
     } catch (error) {
@@ -100,7 +98,7 @@ function Cont() {
   //getTotal count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-count`);
+      const { data } = await axios.get(`api/buisness-count`);
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -116,7 +114,7 @@ function Cont() {
   const loadmore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://api.dialkro.in/api/buisness-list/${page}`);
+      const { data } = await axios.get(`api/buisness-list/${page}`);
       setLoading(false);
       setBuisness([...buisness, ...data?.buisness]);
     } catch (error) {
@@ -124,7 +122,6 @@ function Cont() {
       console.log(error);
     }
   };
-
 
   const images = [
     "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201508171815013328-5b7ac1c04ebf11edac3d0a58a9feac02.jpg",

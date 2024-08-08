@@ -7,7 +7,11 @@ function Article1() {
   }, []);
 
   return (
-    <Layout>
+    <Layout
+      title={
+        "Colleges in India with the Most Beautiful Campuses and Best Architecture"
+      }
+    >
       <div>
         <div className="flex flex-col">
           <div className="bg-gray-100 py-8">
