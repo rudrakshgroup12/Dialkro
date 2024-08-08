@@ -1,4 +1,3 @@
-import React from "react";
 import { useSearch } from "../ProAuth/Search";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +19,7 @@ function SearchInput() {
     <form
       role="search"
       onSubmit={handlesubmit}
-      class="flex  border-1 p-2 rounded-3"
+      className="flex  border-1 p-2 rounded-3"
     >
       <input
         className=" outline-none "
@@ -29,7 +28,7 @@ function SearchInput() {
         value={values.keyword}
         onChange={(e) => setValues({ ...values, keyword: e.target.value })}
       />
-      <div class="bg-red-600 py-3 px-4 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
+      <div className="bg-red-600 py-3 px-4 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
         <button type="submit">Search</button>
       </div>
     </form>

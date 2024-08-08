@@ -9,7 +9,7 @@ function CategoryBuisness() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Layout>
+    <Layout title={"All - Category"}>
       <div className="container mx-auto mt-10 px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((c) => (

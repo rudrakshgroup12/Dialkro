@@ -14,11 +14,11 @@ function CategorywiseBuisness() {
     if (params?.slug) getBuisnessByCat();
   }, [params?.slug]);
 
-  const API_PATH = 'https://api.dialkro.in';
+  // const API_PATH = 'https://api.dialkro.in';
 
   const getBuisnessByCat = async () => {
     try {
-      const { data } = await axios.get(`${API_PATH}/api/buisness-category/${params.slug}`);
+      const { data } = await axios.get(`api/buisness-category/${params.slug}`);
       setBuisness(data?.buisness);
       setCategory(data?.category);
     } catch (error) {
@@ -31,7 +31,7 @@ function CategorywiseBuisness() {
   }, []);
 
   return (
-    <Layout>
+    <Layout title={"Category Wise Business"}>
       <div className="container mt-3">
         <div className="text-center">
           <h1 className="text-4xl ">Category:{category?.name} </h1>
