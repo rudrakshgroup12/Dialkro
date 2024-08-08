@@ -1,6 +1,8 @@
 import Navbar from "../Navbar";
 import Footer from "../Footer/Footer.jsx";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
+import {Helmet } from "react-helmet"
+
 
 function Layout({ children, description, keywords, author, title }) {
   return (

@@ -45,18 +45,7 @@ function Cont() {
 
   // const { error } = useAuth();
 
-  // const [visibleBusinesses, setVisibleBusinesses] = useState(2);
-  // const [showAll, setShowAll] = useState(false);
-
-  //get-all
-  // const getAllBuisness = async () => {
-  //   try {
-  //     const { data } = await axios.get("/api/get-buisness");
-  //     setBuisness(data.buisness);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  
 
   // const API_PATH = "https://api.dialkro.in";
 

@@ -6,8 +6,9 @@ import {
   singlecategoryController,
   updateCategoryController,
 } from "../controllers/categoryController.js";
-
+// import auth from "../middelware/auth.js";
 const router = express.Router();
+
 
 //create-category
 router.post("/create-category", createCategoryController);

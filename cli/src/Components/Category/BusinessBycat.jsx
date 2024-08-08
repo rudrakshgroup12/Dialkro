@@ -93,7 +93,7 @@ function BusinessBycat() {
   //Delete Category
   const handleDelete = async (pId) => {
     try {
-      const { data } = await axios.delete(`/api/delete-category/${pId}`, {
+      const { data } = await axios.delete(`api/delete-category/${pId}`, {
         name: updatedName,
       });
       if (data.success) {
