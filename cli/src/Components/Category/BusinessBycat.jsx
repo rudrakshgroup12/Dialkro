@@ -10,13 +10,7 @@ import vectorbusi from "../assets/vectorbusi.png";
 import toast from "react-hot-toast";
 import { Modal } from "antd";
 import CategoryForm from "./CategoryForm";
-<<<<<<< HEAD
-// import dotenv from "dotenv";
-// import dotenv from "../Frontend_env/dotenv"
-
-=======
 import Layout from "../Layout/Layout";
->>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
 
 function BusinessBycat() {
   // const {

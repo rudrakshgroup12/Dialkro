@@ -28,12 +28,8 @@ export const AuthPro = ({ children }) => {
   const [userData, setUserdata] = useState([]);
   const [uBusiness, setUBusiness] = useState([]);
   const [userprofile, setUserProfile] = useState("");
-<<<<<<< HEAD
 
 const API_PATH = 'https://api.dialkro.in';
-=======
-  const API_PATH = "api.dialkro.in";
->>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
   const fetchProfileData = async () => {
     try {
       if (userprofile) {
@@ -108,21 +104,6 @@ const API_PATH = 'https://api.dialkro.in';
       console.log(`Error is ${error.message}`);
     }
   };
-<<<<<<< HEAD
-  
-  const loginhandleSubmit=async () => {
-    try {
-      const response = await fetch(`/api/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // body: JSON.stringify({ username: 'ranimeri', password: 'Rani@123' }),
-      });
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-=======
 
   const loginhandleSubmit = async (e) => {
     try {
@@ -147,7 +128,6 @@ const API_PATH = 'https://api.dialkro.in';
       } else {
         // Handle the case where the user ID is not available
         console.error("User ID is null or undefined");
->>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
       }
   
       const data = await response.json();

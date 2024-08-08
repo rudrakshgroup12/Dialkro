@@ -24,16 +24,6 @@ function Signup() {
   // const handleInputChange = (e) => {
   //   const { name, value } = e.target;
 
-<<<<<<< HEAD
-        [name]: value,
-      });
-    } catch (error) {
-      setError(`Error is ${error.message}`);
-      console.log(`Error is ${error.message}`);
-    }
-  };
-  const API_PATH = 'https://api.dialkro.in';
-=======
   //   try {
   //     setRegister({
   //       ...register,
@@ -63,24 +53,12 @@ function Signup() {
   //     setError(`Error is ${error.message}`);
   //   }
   // };
->>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
 
   const handleSubmit = async (e) => {
     // console.log(name, email, password, phone, address);
     // toast("Registered Successfully");
     try {
       e.preventDefault();
-<<<<<<< HEAD
-      const URI = `${API_PATH}/api/register`;
-      await axios
-        .post(URI, register)
-        .then((response) => {
-          alert(`Loggedin  SuccessFully `);
-          navigate("/login");
-        })
-        .catch((error) => {
-          alert(error.message);
-=======
       const res = await axios.post(
         "/api/register",
         {
@@ -100,7 +78,6 @@ function Signup() {
       if (res && res.data.success) {
         toast.success(res && res.data.message, {
           autoClose: 10000,
->>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
         });
         navigate("/login");
         alert("Register Successfully");

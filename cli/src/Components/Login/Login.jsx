@@ -3,13 +3,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/auth.jsx";
 import axios from "axios";
 import "./login.css";
-<<<<<<< HEAD
-
-
-=======
 import toast from "react-hot-toast";
 import Layout from "../Layout/Layout.jsx";
->>>>>>> dc980f5e417425553387e4099cfe8ad0cffb5165
 function Login() {
   const [auth, setAuth] = useAuth();
   // const { login, loginhandleSubmit, loginHandleInputChange, islogin, error } =
