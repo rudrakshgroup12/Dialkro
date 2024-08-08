@@ -14,46 +14,7 @@ function Signup() {
   const [address, SetAddress] = useState("");
   const navigate = useNavigate();
 
-  // const [register, setRegister] = useState({
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  // });
-  // const [error, setError] = useState(null);
-
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-
-  //   try {
-  //     setRegister({
-  //       ...register,
-
-  //       [name]: value,
-  //     });
-  //   } catch (error) {
-  //     setError(`Error is ${error.message}`);
-  //     console.log(`Error is ${error.message}`);
-  //   }
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     const URI = "/api/register";
-  //     await axios
-  //       .post(URI, register)
-  //       .then((response) => {
-  //         alert(`Loggedin  SuccessFully `);
-  //         navigate("/login");
-  //       })
-  //       .catch((error) => {
-  //         alert(error.message);
-  //       });
-  //   } catch (error) {
-  //     setError(`Error is ${error.message}`);
-  //   }
-  // };
-
+ 
   const handleSubmit = async (e) => {
     // console.log(name, email, password, phone, address);
     // toast("Registered Successfully");
@@ -69,11 +30,7 @@ function Signup() {
           address,
           answer,
         }
-        // {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // }
+       
       );
       if (res && res.data.success) {
         toast.success(res && res.data.message, {
@@ -111,7 +68,7 @@ function Signup() {
                   value={username}
                   onChange={(e) => SetUsername(e.target.value)}
                   type="name"
-                  placeholder="Username"
+                  placeholder="Full Name"
                   id="name"
                   name="name"
                   required
@@ -123,7 +80,7 @@ function Signup() {
                   value={answer}
                   onChange={(e) => SetAnswer(e.target.value)}
                   type="sports"
-                  placeholder="Full Name"
+                  placeholder="Ser name"
                   id="sports"
                   required
                   name="sports"

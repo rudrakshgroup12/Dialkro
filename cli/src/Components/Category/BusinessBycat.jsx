@@ -35,22 +35,11 @@ function BusinessBycat() {
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
 
-<<<<<<< HEAD
-  const API_PATH = 'https://api.dialkro.in';
-  
-  
-
-
-  const handleSubmit = async (e) => {
-    try {
-      const { data } = await axios.post(`${API_PATH}/api/create-category`, { name });
-=======
   // const API_PATH = 'https://api.dialkro.in';
 
   const handleSubmit = async (e) => {
     try {
       const { data } = await axios.post("api/create-category", { name });
->>>>>>> f580d7011d534bd653e1f1838d9f5403164e5b81
       if (data?.success) {
         toast.success(`${name} is created`);
         getAllCategory();
@@ -104,7 +93,7 @@ function BusinessBycat() {
   //Delete Category
   const handleDelete = async (pId) => {
     try {
-      const { data } = await axios.delete(`${API_PATH}/api/delete-category/${pId}`, {
+      const { data } = await axios.delete(`api/delete-category/${pId}`, {
         name: updatedName,
       });
       if (data.success) {
