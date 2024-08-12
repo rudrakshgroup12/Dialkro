@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+// import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
 
 function ForgotPassword() {
   const [email, SetEmail] = useState("");
   const [newPassword, SetNewPassword] = useState("");
   const [answer, SetAnswer] = useState("");
-  const [visible, SetVisible] = useState(true);
+  // const [visible, SetVisible] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/forgot-password", {
+      const res = await axios.post("/api/forgot-password  ", {
         email,
         newPassword,
         answer,
@@ -32,12 +32,12 @@ function ForgotPassword() {
       toast.error("Something went wrong");
     }
   };
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
-    <Layout title={"Forgot Password"}>
+    <Layout title={"Forgot Password Dialkro"}>
       <section className="relative py-32 lg:py-36 bg-white">
         <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex flex-col lg:flex-row gap-10 lg:gap-12">
           <div className="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 hidden lg:block">
@@ -102,6 +102,7 @@ function ForgotPassword() {
                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                           type="email"
                           id="email"
+                          name="email"
                           required
                           placeholder="Email"
                         ></input>
@@ -139,8 +140,8 @@ function ForgotPassword() {
                     </div>
                     <div>
                       <button
-                        onClick={() => navigate("/login")}
-                        type="button"
+                        onClick={() => navigate("/forgot")}
+                        // type="button"
                         className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                       >
                         Reset
