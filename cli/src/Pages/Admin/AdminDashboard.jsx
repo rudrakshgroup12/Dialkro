@@ -1,9 +1,10 @@
 import React from "react";
 import Layout from "../../Components/Layout/Layout";
-import { Link } from "react-router-dom";
+import AdminSidebar from "../../Components/Layout/AdminSidebar";
+import { useAuth } from "../../Components/context/auth";
 
 function AdminDashboard() {
-  const userName = "Admin";
+  const [auth, SetAuth] = useAuth();
   const recentOrders = [
     {
       id: "#1234",
@@ -25,85 +26,7 @@ function AdminDashboard() {
     <Layout>
       <div className="bg-gray-100 min-h-screen font-sans flex">
         {/* Sidebar */}
-        <div className="w-64 bg-gradient-to-r from-purple-500 to-indigo-600 shadow-lg">
-          <div className="p-6 text-white">
-            <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-          </div>
-          <ul className="mt-6 space-y-2">
-            <li>
-              <Link
-                to="/"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/view-users"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Users
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/view-businesses"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Businesses
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/view-categories"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Categories
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/add-category"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Add Category
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/add-business"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Add Business
-              </Link>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Products
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Analytics
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-              >
-                Settings
-              </a>
-            </li>
-          </ul>
-        </div>
+        <AdminSidebar />
 
         {/* Main Content */}
         <div className="flex-1 bg-gray-100">
@@ -112,12 +35,21 @@ function AdminDashboard() {
             <div className="flex justify-between items-center p-4">
               <h2 className="text-xl font-semibold text-gray-800">Dashboard</h2>
               <div className="flex items-center">
-                <span className="text-gray-600 mr-4">Admin</span>
                 <img
-                  className="w-10 h-10 rounded-full"
-                  src="https://via.placeholder.com/150"
+                  className="w-10 h-10 mx-2 rounded-full"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7nFdX1g_CVR4WyP5LgKOGytP0J8PE53_RQ&s"
                   alt="Admin Avatar"
                 />
+                <div className="flex-1">
+                  <div className="text-gray-600 mr-4">
+                    <span className="text-dark">Admin</span>:{" "}
+                    {auth?.user?.username}{" "}
+                  </div>
+                  <div className="text-gray-600 mr-4">
+                    <span className="text-dark">Email</span>:{" "}
+                    {auth?.user?.email}{" "}
+                  </div>
+                </div>
               </div>
             </div>
           </header>

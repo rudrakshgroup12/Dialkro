@@ -4,6 +4,7 @@ import {
   loginController,
   registerController,
   testController,
+  userController,
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middelware/authmiddelware.js";
 
@@ -32,5 +33,8 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
+// get all user
+router.get("/get-user", userController);
 
 export default router;

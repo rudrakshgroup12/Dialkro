@@ -1,32 +1,15 @@
 import React, { useEffect, useState } from "react";
-import cookie from "js-cookie";
-import { useFormik } from "formik";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../ProAuth/AuthPro";
 import { useAuth } from "../context/auth";
 import { Link } from "react-router-dom";
 import vectorbusi from "../assets/vectorbusi.png";
 import toast from "react-hot-toast";
 import { Modal } from "antd";
-import CategoryForm from "./CategoryForm";
+// import CategoryForm from "../../Pages/CategoryForm";
 import Layout from "../Layout/Layout";
+import CategoryForm from "./CategoryForm";
 
 function BusinessBycat() {
-  // const {
-  //   error,
-  //   addBusinesshandleChange,
-  //   addBusinesshandleSubmit,
-  //   loading,
-  //   businessData,
-  //   islogin,
-
-  //   businessesCategory,
-  //   selectBusinessCategory,
-  //   selectBusinessCategoryHandleInputChange,
-  //   fetchBusinessByCategory,
-  // } = useAuth();
-
   const [auth, setAuth] = useAuth();
 
   const [categories, setCategories] = useState([]);
@@ -168,29 +151,6 @@ function BusinessBycat() {
                     </p>
                   </div>
 
-                  {/* <form className="mt-8 space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className=" content-center">
-                      <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">
-                        Category
-                      </label>
-
-                      <input
-                        className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500"
-                        type="text"
-                        placeholder="Enter business category"
-                      />
-
-                    </div>    
-                  </div>
-
-                  <div>
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                      Add Business
-                    </button>
-                  </div>
-                </form> */}
-
                   <div className="col-md-12">
                     <h1>Manage Category</h1>
                     <div className="p-3 w-100">
@@ -234,24 +194,6 @@ function BusinessBycat() {
                                       Delete
                                     </button>
                                   </div>
-                                  {/* <button
-                                  className="btn btn-danger ms-2"
-                                  onClick={() => {
-                                    setVisible(true);
-                                    setUpdatedName(c.name);
-                                    setSelected(c);
-                                  }}
-                                >
-                                  Edit
-                                </button>
-                                <button
-                                  className="btn btn-secondary ms-2"
-                                  onClick={() => {
-                                    handleDelete(c._id);
-                                  }}
-                                >
-                                  Delete
-                                </button> */}
                                 </td>
                               </tr>
                             </>
@@ -284,15 +226,6 @@ function BusinessBycat() {
           ) : (
             <h1>Login PLease.....</h1>
           )}
-
-          {/* {error && (
-          <h1 className="text-red-500 mb-8 text-4xl font-bold">{error}</h1>
-        )} */}
-          {/* {loading && (
-            <h1 className="text-green-500 mb-8 text-3xl font-thin">
-              {loading}
-            </h1>
-          )} */}
         </div>
       </div>
     </Layout>
@@ -300,12 +233,3 @@ function BusinessBycat() {
 }
 
 export default BusinessBycat;
-
-// <div>
-// {businessesByCategory.map((business, index) => (
-//      <div key={index} className="">
-//        <p className="text-yellow-600">{business.name}</p>
-//        {/* Display other business details as needed */}
-//      </div>
-//    ))}
-//  </div>

@@ -166,3 +166,22 @@ export const testController = (req, res) => {
     res.send({ error });
   }
 };
+
+//get all Category
+export const userController = async (req, res) => {
+  try {
+    const user = await userModel.find({});
+    res.status(200).send({
+      success: true,
+      message: "All category List",
+      user,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error in getting all category",
+    });
+  }
+};

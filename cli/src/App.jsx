@@ -58,6 +58,9 @@ import PrivateRoute from "./Components/Routes/Private.jsx";
 import AdminRoute from "./Components/Routes/AdminRoute.jsx";
 import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 
+import CreateCategory from "./Pages/Admin/CreateCategory.jsx";
+import Users from "./Pages/Admin/Users.jsx";
+
 function App() {
   return (
     <>
@@ -124,6 +127,8 @@ function App() {
 
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/add-category" element={<CreateCategory />} />
+          <Route path="admin/allUser" element={<Users />} />
         </Route>
 
         <Route path="/term" element={<Term />} />
