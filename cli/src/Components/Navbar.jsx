@@ -7,6 +7,7 @@ import NavbarToggel from "./Navbar/NavbarToggel.jsx";
 import { Link } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 import toast from "react-hot-toast";
+import { FaRegUser } from "react-icons/fa";
 
 import {
   AiOutlineHome,
@@ -35,7 +36,7 @@ function Navbar() {
       token: "",
     });
     localStorage.removeItem("auth");
-    alert("Logout Successfully");
+    toast.success("Logout Successfully");
   };
   // const [showMediaIcons, setShowMediaIcons] = useState(false);
 
@@ -93,9 +94,41 @@ function Navbar() {
             ) : (
               <>
                 <div className="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:text-rose-700">
-                  <Link to="/profile" className="text-sm font-medium">
-                    Profile
-                  </Link>
+                  <div className="dropdown-center">
+                    <button
+                      to="/profile"
+                      className="text-sm font-medium"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      {auth?.user?.username}
+                    </button>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <Link
+                          to="/profile"
+                          className="text-sm font-medium flex p-2"
+                        >
+                          <FaRegUser
+                            style={{ color: "#D40404", fontSize: "18px" }}
+                          />
+                          Profile
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to={`/dashboard/${
+                            auth?.user?.role === 1 ? "admin" : "user"
+                          }`}
+                          className="text-sm font-medium p-2"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+
                   <button
                     className="ml-2 flex cursor-pointer items-center gap-x-1   py-2 px-4  hover:text-rose-700 hover:animate-pulse"
                     onClick={() => {}}

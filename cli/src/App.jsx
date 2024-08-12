@@ -1,23 +1,16 @@
-// import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-// import NavBar from "./Components/Navbar.jsx";
 import Login from "./Components/Login/Login.jsx";
 import Signup from "./Components/Login/Signup.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Business from "./Components/Business/Business.jsx";
 import New from "./Components/New/New.jsx";
-// import Footer from "./Components/Footer/Footer.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import Profile from "./Components/Profile/Profile.jsx";
 import Editprofile from "./Components/Profile/Editprofile.jsx";
 import ViewBusiness from "./Components/Business/ViewBusiness/viewBusiness.jsx";
-// import { AuthPro, useAuth } from "./Components/ProAuth/AuthPro.jsx";
-import { AuthPro } from "./Components/ProAuth/AuthPro.jsx";
-// import { useEffect } from "react";
-// import ErrorBoundary from "./Components/ErrorBodyComp/EBComp.jsx";
+
 import ProfileBusiness from "./Components/Profile/ProfileBusiness.jsx";
 import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
-// import About from "./Components/About/About.jsx"
 
 import Blog from "./Components/Blogs/Blog.jsx";
 import Blogcontent from "./Components/Blogs/Blogcontent.jsx";
@@ -60,15 +53,14 @@ import CategoryBuisness from "./Components/Business/Category/CategoryShow.jsx";
 import CategorywiseBuisness from "./Components/Business/Category/CategorywiseBuisness.jsx";
 import Pagenotfound from "./Components/Pagenotfound/Pagenotfound.jsx";
 import Dashboard from "./Components/User/Dashboard.jsx";
+
 import PrivateRoute from "./Components/Routes/Private.jsx";
+import AdminRoute from "./Components/Routes/AdminRoute.jsx";
+import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 
 function App() {
   return (
     <>
-      {/* <BrowserRouter> */}
-      {/* <AuthPro> */}
-      {/* <NavBar /> */}
-      {/* <ErrorBoundary> */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -127,16 +119,16 @@ function App() {
         <Route path="*" element={<Pagenotfound />} />
 
         <Route path="/dashboard" element={<PrivateRoute />}>
-          <Route path="" element={<Dashboard />} />
+          <Route path="user" element={<Dashboard />} />
+        </Route>
+
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
         </Route>
 
         <Route path="/term" element={<Term />} />
         <Route path="/policy" element={<Privacy />} />
       </Routes>
-      {/* <Footer /> */}
-      {/* </ErrorBoundary> */}
-      {/* </AuthPro> */}
-      {/* </BrowserRouter> */}
     </>
   );
 }

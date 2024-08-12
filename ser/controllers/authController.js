@@ -60,8 +60,6 @@ export const registerController = async (req, res) => {
   //   console.log(`route is working`);
 };
 
-
-
 //Post Login
 export default { registerController };
 
