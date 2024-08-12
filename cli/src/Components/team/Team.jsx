@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import team1 from "../assets/team1.jpg";
 import aman from "../assets/aman.jpeg";
@@ -17,11 +17,14 @@ import {
   FaWhatsappSquare,
   FaFacebook,
 } from "react-icons/fa";
+
 import Layout from "../Layout/Layout";
+
 const Team = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <Layout>
       <div>
@@ -101,7 +104,6 @@ const Team = () => {
                   >
                     <FaInstagramSquare className="text-pink-500" />
                   </a>
-
                   <a
                     href="#"
                     className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -109,7 +111,6 @@ const Team = () => {
                   >
                     <FaFacebook className="text-blue-500" />
                   </a>
-
                   <a
                     href="#"
                     className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -163,20 +164,20 @@ const Team = () => {
               <div className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-red-900 rounded-xl">
                 <img
                   className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                  src={team1}
+                  src={gauravs}
                   alt=""
                 />
 
                 <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-                  Aditya Gunthal
+                  Gaurav Sharma
                 </h1>
 
                 <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-                  Full Stack Web developer
+                  Manager
                 </p>
                 <div className="flex mt-3 -mx-2">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/gaurav_sharma_3360?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="Reddit"
                   >
@@ -200,20 +201,19 @@ const Team = () => {
                   </a>
                 </div>
               </div>
-
               <div className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-red-900 rounded-xl">
                 <img
                   className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                  src={gauravs}
+                  src={team1}
                   alt=""
                 />
 
                 <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-                  Gaurav Sharma
+                  Aditya Gunthal
                 </h1>
 
                 <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-                  Graphic Team Leader
+                  Full Stack Web developer
                 </p>
                 <div className="flex mt-3 -mx-2">
                   <a

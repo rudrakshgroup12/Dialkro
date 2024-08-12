@@ -158,26 +158,6 @@ export const getSingleBuisnessController = async (req, res) => {
   }
 };
 
-//get photo
-// export const buisnessPhotoController = async (req, res) => {
-//   try {
-//     const buisness = await buisnesModel
-//       .findById(req.params.pid)
-//       .select("photo");
-//     if (buisness.photo.data) {
-//       res.set("Content-Type", buisness.photo.contentType);
-//       return res.status(200).send(buisness.photo.data);
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).send({
-//       success: false,
-//       message: "Error in getting photo",
-//       error,
-//     });
-//   }
-// };
-
 //get photo1-----------------------------------------------------------------------------------------------------------
 export const buisnessPhotoController = async (req, res) => {
   try {
