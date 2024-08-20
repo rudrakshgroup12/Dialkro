@@ -3,11 +3,10 @@ import Login from "./Components/Login/Login.jsx";
 import Signup from "./Components/Login/Signup.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Business from "./Components/Business/Business.jsx";
-import New from "./Components/New/New.jsx";
+// import New from "./Components/New/New.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import Profile from "./Components/Profile/Profile.jsx";
 import Editprofile from "./Components/Profile/Editprofile.jsx";
-import ViewBusiness from "./Components/Business/ViewBusiness/viewBusiness.jsx";
 
 import ProfileBusiness from "./Components/Profile/ProfileBusiness.jsx";
 import EditUserBusiness from "./Components/Profile/EditUserBusiness.jsx";
@@ -46,7 +45,7 @@ import Article5 from "./Components/Articles/Article5.jsx";
 import Article6 from "./Components/Articles/Article6.jsx";
 import Term from "./Components/privacy/Term.jsx";
 
-import BusinessBycat from "./Components/Category/BusinessBycat.jsx";
+// import BusinessBycat from "./Components/Category/BusinessBycat.jsx";
 import Privacy from "./Components/privacy/Privacy.jsx";
 import SearchBuisness from "./Components/Search/SearchBuisness.jsx";
 import CategoryBuisness from "./Components/Business/Category/CategoryShow.jsx";
@@ -60,6 +59,10 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 
 import CreateCategory from "./Pages/Admin/CreateCategory.jsx";
 import Users from "./Pages/Admin/Users.jsx";
+import CreateBuisness from "./Pages/Admin/CreateBuisness.jsx";
+import SingleBusiness from "./Components/Business/ViewBusiness/SingleBusiness.jsx";
+import ViewBusiness from "./Pages/Admin/ViewBusiness.jsx";
+import UpdateBusiness from "./Pages/Admin/UpdateBusiness.jsx";
 
 function App() {
   return (
@@ -72,12 +75,12 @@ function App() {
         <Route path="/register" element={<Signup />} />
         <Route path="/admin" element={<Admin />} />
 
-        <Route path="/new" element={<New />} />
-        <Route path="/buisnessbycat" element={<BusinessBycat />} />
+        {/* <Route path="/new" element={<New />} />
+        <Route path="/buisnessbycat" element={<BusinessBycat />} /> */}
 
         <Route path="/mybusiness" element={<ProfileBusiness />} />
         <Route path="/businesses" element={<Business />} />
-        <Route path="/buisness/:slug" element={<ViewBusiness />} />
+        <Route path="/buisness/:slug" element={<SingleBusiness />} />
         <Route path="/buisness/edit/:slug" element={<EditUserBusiness />} />
 
         <Route path="/about" element={<About />} />
@@ -129,6 +132,12 @@ function App() {
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/add-category" element={<CreateCategory />} />
           <Route path="admin/allUser" element={<Users />} />
+          <Route path="admin/createbuisness" element={<CreateBuisness />} />
+          <Route path="admin/viewbusiness" element={<ViewBusiness />} />
+          <Route
+            path="admin/updatebusiness/:slug"
+            element={<UpdateBusiness />}
+          />
         </Route>
 
         <Route path="/term" element={<Term />} />

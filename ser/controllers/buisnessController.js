@@ -381,6 +381,99 @@ export const deleteBuisnessController = async (req, res) => {
 };
 
 //update Buisness
+// export const updateBuisnessController = async (req, res) => {
+//   try {
+//     const {
+//       name,
+//       slug,
+//       description,
+//       email,
+//       category,
+//       phone,
+//       website,
+//       address,
+//       city,
+//       state,
+//       zipCode,
+//     } = req.fields;
+//     const { photo, photo2, photo3, photo4, photo5 } = req.files;
+
+//     //validation
+//     switch (true) {
+//       case !name:
+//         return res.status(500).send({ error: "Name is required" });
+//       case !email:
+//         return res.status(500).send({ error: "Email is required" });
+//       case !description:
+//         return res.status(500).send({ error: "Description is required" });
+//       case !category:
+//         return res.status(500).send({ error: "Category is required" });
+//       case !phone:
+//         return res.status(500).send({ error: "phone is required" });
+//       case !website:
+//         return res.status(500).send({ error: "website is required" });
+//       case !address:
+//         return res.status(500).send({ error: "address is required" });
+//       case !city:
+//         return res.status(500).send({ error: "City is required" });
+//       case !state:
+//         return res.status(500).send({ error: "State is required" });
+//       case !zipCode:
+//         return res.status(500).send({ error: "zipCode is required" });
+//       case photo && photo.size > 10000000:
+//         return res
+//           .status(500)
+//           .send({ error: "Photo is required and should be less than 1 MB" });
+//       case photo2 && photo2.size > 10000000:
+//         return res
+//           .status(500)
+//           .send({ error: "Photo2 is required and should be less than 1 MB" });
+//       case photo3 && photo3.size > 10000000:
+//         return res
+//           .status(500)
+//           .send({ error: "Photo3 is required and should be less than 1 MB" });
+//       case photo4 && photo4.size > 10000000:
+//         return res
+//           .status(500)
+//           .send({ error: "Photo4 is required and should be less than 1 MB" });
+//       case photo5 && photo5.size > 10000000:
+//         return res
+//           .status(500)
+//           .send({ error: "Photo5 is required and should be less than 1 MB" });
+//     }
+//     const buisness = await buisnessModel.findByIdAndUpdate(
+//       req.params.pid,
+//       { ...req.fields, slug: slugify(name) },
+//       { new: true }
+//     );
+//     if (photo || photo2 || photo3 || photo4 || photo5) {
+//       buisness.photo.data = fs.readFileSync(photo.path);
+//       buisness.photo2.data = fs.readFileSync(photo2.path);
+//       buisness.photo3.data = fs.readFileSync(photo3.path);
+//       buisness.photo4.data = fs.readFileSync(photo4.path);
+//       buisness.photo5.data = fs.readFileSync(photo5.path);
+//       buisness.photo.contentType = photo.type;
+//       buisness.photo2.contentType = photo2.type;
+//       buisness.photo3.contentType = photo3.type;
+//       buisness.photo4.contentType = photo4.type;
+//       buisness.photo5.contentType = photo5.type;
+//     }
+//     await buisness.save();
+//     res.status(201).send({
+//       success: true,
+//       message: "Buisness Updating successfully",
+//       buisness,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       error,
+//       message: "Error in updating Buisness",
+//     });
+//   }
+// };
+
 export const updateBuisnessController = async (req, res) => {
   try {
     const {
@@ -398,7 +491,7 @@ export const updateBuisnessController = async (req, res) => {
     } = req.fields;
     const { photo, photo2, photo3, photo4, photo5 } = req.files;
 
-    //validation
+    // Validation
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is required" });
@@ -409,59 +502,72 @@ export const updateBuisnessController = async (req, res) => {
       case !category:
         return res.status(500).send({ error: "Category is required" });
       case !phone:
-        return res.status(500).send({ error: "phone is required" });
+        return res.status(500).send({ error: "Phone is required" });
       case !website:
-        return res.status(500).send({ error: "website is required" });
+        return res.status(500).send({ error: "Website is required" });
       case !address:
-        return res.status(500).send({ error: "address is required" });
+        return res.status(500).send({ error: "Address is required" });
       case !city:
         return res.status(500).send({ error: "City is required" });
       case !state:
         return res.status(500).send({ error: "State is required" });
       case !zipCode:
-        return res.status(500).send({ error: "zipCode is required" });
+        return res.status(500).send({ error: "Zip Code is required" });
       case photo && photo.size > 10000000:
         return res
           .status(500)
-          .send({ error: "Photo is required and should be less than 1 MB" });
+          .send({ error: "Photo should be less than 10 MB" });
       case photo2 && photo2.size > 10000000:
         return res
           .status(500)
-          .send({ error: "Photo2 is required and should be less than 1 MB" });
+          .send({ error: "Photo2 should be less than 10 MB" });
       case photo3 && photo3.size > 10000000:
         return res
           .status(500)
-          .send({ error: "Photo3 is required and should be less than 1 MB" });
+          .send({ error: "Photo3 should be less than 10 MB" });
       case photo4 && photo4.size > 10000000:
         return res
           .status(500)
-          .send({ error: "Photo4 is required and should be less than 1 MB" });
+          .send({ error: "Photo4 should be less than 10 MB" });
       case photo5 && photo5.size > 10000000:
         return res
           .status(500)
-          .send({ error: "Photo5 is required and should be less than 1 MB" });
+          .send({ error: "Photo5 should be less than 10 MB" });
     }
+
     const buisness = await buisnessModel.findByIdAndUpdate(
       req.params.pid,
       { ...req.fields, slug: slugify(name) },
       { new: true }
     );
-    if (photo || photo2 || photo3 || photo4 || photo5) {
+
+    // Update photos only if they exist
+    if (photo) {
       buisness.photo.data = fs.readFileSync(photo.path);
-      buisness.photo2.data = fs.readFileSync(photo2.path);
-      buisness.photo3.data = fs.readFileSync(photo3.path);
-      buisness.photo4.data = fs.readFileSync(photo4.path);
-      buisness.photo5.data = fs.readFileSync(photo5.path);
       buisness.photo.contentType = photo.type;
+    }
+    if (photo2) {
+      buisness.photo2.data = fs.readFileSync(photo2.path);
       buisness.photo2.contentType = photo2.type;
+    }
+    if (photo3) {
+      buisness.photo3.data = fs.readFileSync(photo3.path);
       buisness.photo3.contentType = photo3.type;
+    }
+    if (photo4) {
+      buisness.photo4.data = fs.readFileSync(photo4.path);
       buisness.photo4.contentType = photo4.type;
+    }
+    if (photo5) {
+      buisness.photo5.data = fs.readFileSync(photo5.path);
       buisness.photo5.contentType = photo5.type;
     }
+
     await buisness.save();
+
     res.status(201).send({
       success: true,
-      message: "Buisness Updating successfully",
+      message: "Business updated successfully",
       buisness,
     });
   } catch (error) {
@@ -469,7 +575,7 @@ export const updateBuisnessController = async (req, res) => {
     res.status(500).send({
       success: false,
       error,
-      message: "Error in updating Buisness",
+      message: "Error in updating Business",
     });
   }
 };

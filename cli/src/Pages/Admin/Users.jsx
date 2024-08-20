@@ -11,21 +11,36 @@ function Users() {
   const [visible, setVisible] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  // Fetch all users
+  //   const [categories, setCategories] = useState([]);
+
+  //get cat
   const fetchAllUsers = async () => {
     try {
       const { data } = await axios.get("/api/get-user");
-      if (data?.success) {
-        setUsers(data?.users);
-      }
+      setUsers(data?.user);
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     fetchAllUsers();
   }, []);
+
+  // Fetch all users
+  //   const fetchAllUsers = async () => {
+  //     try {
+  //       const { data } = await axios.get("/api/get-user");
+  //       if (data?.success) {
+  //         setUsers(data?.users);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     fetchAllUsers();
+  //   }, []);
 
   // View user details in modal
   const viewUserDetails = (user) => {
@@ -58,7 +73,10 @@ function Users() {
                       Address
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Password
+                      Password ID
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Action
                     </th>
                   </tr>
                 </thead>
@@ -66,7 +84,7 @@ function Users() {
                   {users?.map((user) => (
                     <tr key={user._id}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {user.name}
+                        {user.username}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {user.email}
@@ -76,6 +94,9 @@ function Users() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {user.address}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {user.answer}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <button
@@ -99,7 +120,7 @@ function Users() {
                 <div>
                   <h2 className="text-xl font-bold mb-4">User Details</h2>
                   <p>
-                    <strong>Name:</strong> {selectedUser.name}
+                    <strong>Name:</strong> {selectedUser.username}
                   </p>
                   <p>
                     <strong>Email:</strong> {selectedUser.email}

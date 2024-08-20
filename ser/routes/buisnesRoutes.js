@@ -1,5 +1,6 @@
 import express from "express";
 // import auth from "../middelware/auth.js";
+import { requireSignIn, isAdmin } from "../middelware/authmiddelware.js";
 
 import formidable from "express-formidable";
 
@@ -24,12 +25,19 @@ import {
 const router = express.Router();
 
 //create-buisness
-router.post("/create-buisness", formidable(), createBuisnessController);
+router.post(
+  "/create-buisness",
+  requireSignIn,
+  isAdmin,
+  formidable(),
+  createBuisnessController
+);
 
 //update-buisness
 router.put(
   "/update-buisness/:pid",
-  // auth,
+  // isAdmin,
+  // requireSignIn,
   formidable(),
   updateBuisnessController
 );

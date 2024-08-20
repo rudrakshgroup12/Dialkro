@@ -87,7 +87,7 @@ function CreateCategory() {
 
   return (
     // <Layout title={"Dial2shop Create Category"}>
-    <Layout>
+    <Layout title={"Dialkro Create Category"}>
       <div className="container mx-auto p-6 bg-gray-100">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/4">
