@@ -4,13 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Select } from "antd";
 const { Option } = Select;
 import toast from "react-hot-toast";
-import {
-  IoLocation,
-  IoDuplicate,
-  IoPhonePortraitOutline,
-  IoMailSharp,
-  IoGlobeSharp,
-} from "react-icons/io5";
+
 import Layout from "../Layout/Layout";
 function EditUserBusiness() {
   const navigate = useNavigate();

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Carousel } from "@material-tailwind/react";
-import { IoIosLogOut } from "react-icons/io";
 import profileback from "../assets/profileback.jpeg";
 import axios from "axios";
 import { useAuth } from "../context/auth.jsx";
 import { useNavigate } from "react-router-dom";
 
-import Banner from "./Banner.jsx";
 import { FaUser, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { useParams } from "react-router-dom";
@@ -35,15 +32,6 @@ const UserProfileComponent = () => {
     alert("Logout Successfully");
     navigate("/");
   };
-  // const { businesses } = useAuth();
-  // const { islogin, logOutNow, error, userData } = useAuth();
-  // const [user, setUser] = useState({
-  //   name: "John Doe",
-  //   email: "john.doe@example.com",
-  //   phone: "123-456-7890",
-  //   company: "ABC Inc",
-  //   address: "123 Main St, Cityville",
-  // });
 
   // const API_PATH = 'https://api.dialkro.in';
   const getAllBuisness = async () => {
@@ -63,11 +51,6 @@ const UserProfileComponent = () => {
 
   return (
     <Layout title="Dialkro Profile">
-      {/* {error && (
-      <div className="error-message text-red-600 mb-8 text-4xl font-bold">
-        Oops! {error}
-      </div>
-    )} */}
       {auth.user ? (
         <div className="h-full bg-white p-8">
           <div className="w-full h-[250px]">
@@ -94,14 +77,14 @@ const UserProfileComponent = () => {
             />
             <div className="flex items-center space-x-2 mt-2">
               {/* <p className="text-2xl">
-              {" "}
-              <UserInfoField
-                icon={<FaUser className="text-gray-700" />}
-                label="Your Name"
-                value={user?.name}
-                editable={true}
-              />
-            </p> */}
+                {" "}
+                <UserInfoField
+                  icon={<FaUser className="text-gray-700" />}
+                  label="Your Name"
+                  value={auth?.user?.name}
+                  editable={true}
+                />
+              </p> */}
               <span className="bg-blue-500 rounded-full p-1" title="Verified">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,11 +117,6 @@ const UserProfileComponent = () => {
               <Link to="/mybusiness">
                 <button className="flex items-center bg-rose-800 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
                   <span>Explore Your Business</span>
-                </button>
-              </Link>
-              <Link to="/buisnessbycat">
-                <button className="flex items-center bg-rose-800 hover:bg-neutral-900 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
-                  <span>Add Your Business</span>
                 </button>
               </Link>
             </div>
@@ -279,14 +257,5 @@ const UserProfileComponent = () => {
     </Layout>
   );
 };
-
-// Reusable component for displaying user information fields
-const UserInfoField = ({ icon, label, value }) => (
-  <div className="flex items-center mb-2">
-    {icon && React.cloneElement(icon, { className: "text-xl mr-2" })}
-    <strong className="font-semibold">{label}:</strong>
-    {value}
-  </div>
-);
 
 export default UserProfileComponent;

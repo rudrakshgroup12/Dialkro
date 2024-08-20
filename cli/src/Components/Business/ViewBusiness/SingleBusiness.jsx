@@ -15,14 +15,13 @@ import {
 } from "react-icons/fa";
 import { FcApproval } from "react-icons/fc";
 import Layout from "../../Layout/Layout.jsx";
-function ViewBusiness() {
+function SingleBusiness() {
   // Updated the function name to start with an uppercase letter
   const navi = useNavigate();
   const params = useParams();
   // const { islogin, userData } = useAuth();
   const [buisness, setBuisness] = useState();
   const [relatedBuisnesses, setRelatedBuisnesses] = useState([]);
- 
 
   //initail buisness details
   useEffect(() => {
@@ -52,7 +51,6 @@ function ViewBusiness() {
     }
   };
 
-  
   return (
     <Layout>
       <div className="w-full p-6 mx-auto">
@@ -61,19 +59,19 @@ function ViewBusiness() {
             <div className="h-64 overflow-hidden">
               <img
                 className="object-cover h-64 w-full"
-                src={`/api/buisness-photo/${buisness?._id}`}
+                src={`/api/buisness-photo2/${buisness?._id}`}
               />
             </div>
             <div className="h-64 overflow-hidden">
               <img
                 className="object-cover h-32 w-full"
                 // src="https://images.unsplash.com/photo-1484081064812-86e90e107fa8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                src={`/api/buisness-photo2/${buisness?._id}`}
+                src={`/api/buisness-photo3/${buisness?._id}`}
               />
               <img
                 className="object-cover h-32 w-full"
                 // src="https://images.unsplash.com/photo-1672151575952-5906a1f085fe?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                src={`/api/buisness-photo3/${buisness?._id}`}
+                src={`/api/buisness-photo4/${buisness?._id}`}
               />
             </div>
             {/* {JSON.stringify(buisness, null, 4)} */}
@@ -213,45 +211,6 @@ function ViewBusiness() {
                 </div>
               </section>
             </div>
-            {/* {islogin ? (
-            <form
-              onSubmit={addReviewRatinghandleSubmit}
-              className="flex flex-col space-y-2"
-            >
-              <h1 className="text-2xl font-bold">Reviews & Ratings</h1>
-              <div className="flex items-center space-x-1">
-                {[1, 2, 3, 4, 5].map((index) => (
-                  <FaRegStar
-                    key={index}
-                    className={`h-7 w-7 hover:cursor-pointer ${
-                      ReviewRatingData.rating >= index
-                        ? "text-yellow-500"
-                        : "text-gray-300"
-                    }`}
-                    onClick={() => reviewRatingHandleChange(index)}
-                  />
-                ))}
-              </div>
-              <textarea
-                className="rounded-md border border-gray-300 p-2 text-base focus:outline-none focus:border-sky-500 resize-none"
-                rows={5}
-                placeholder="Write your review..."
-                value={ReviewRatingData.text}
-                onChange={reviewHandlechange}
-              />
-              <button
-                type="submit"
-                className="rounded-md bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 cursor-pointer"
-                disabled={
-                  !ReviewRatingData.text || ReviewRatingData.rating === 0
-                }
-              >
-                Submit Review
-              </button>
-            </form>
-          ) : (
-            <h1>Please login before you start giving review and rating </h1>
-          )} */}
           </div>
         </div>
       </div>
@@ -306,4 +265,4 @@ function ViewBusiness() {
   );
 }
 
-export default ViewBusiness;
+export default SingleBusiness;

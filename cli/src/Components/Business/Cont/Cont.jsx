@@ -45,8 +45,6 @@ function Cont() {
 
   // const { error } = useAuth();
 
-  
-
   // const API_PATH = "https://api.dialkro.in";
 
   //get all category
@@ -144,7 +142,7 @@ function Cont() {
                       <div className="h-48 lg:h-auto border-2 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
                         {" "}
                         <img
-                          src={`/api/buisness-photo/${p._id}`}
+                          src={`/api/buisness-photo2/${p._id}`}
                           alt={p.name}
                           className="d-block w-100"
                         />
@@ -152,7 +150,7 @@ function Cont() {
                       <div className="h-48 border-4 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
                         {" "}
                         <img
-                          src={`/api/buisness-photo2/${p._id}`}
+                          src={`/api/buisness-photo3/${p._id}`}
                           alt={p.name}
                           className="d-block w-100"
                         />
@@ -162,7 +160,7 @@ function Cont() {
                       <div className="h-48 lg:h-auto border-4 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
                         {" "}
                         <img
-                          src={`/api/buisness-photo3/${p._id}`}
+                          src={`/api/buisness-photo4/${p._id}`}
                           alt={p.name}
                           className="d-block w-100"
                         />
@@ -170,7 +168,7 @@ function Cont() {
                       <div className="h-48 lg:h-auto border-4 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
                         {" "}
                         <img
-                          src={`/api/buisness-photo4/${p._id}`}
+                          src={`/api/buisness-photo5/${p._id}`}
                           alt={p.name}
                           className="d-block w-100"
                         />

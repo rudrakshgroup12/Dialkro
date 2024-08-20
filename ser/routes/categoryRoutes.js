@@ -1,4 +1,5 @@
 import express from "express";
+import { requireSignIn, isAdmin } from "../middelware/authmiddelware.js";
 import {
   categaryController,
   createCategoryController,
@@ -10,10 +11,20 @@ import {
 const router = express.Router();
 
 //create-category
-router.post("/create-category", createCategoryController);
+router.post(
+  "/create-category",
+  requireSignIn,
+  isAdmin,
+  createCategoryController
+);
 
 //update-category
-router.put("/update-category/:id", updateCategoryController);
+router.put(
+  "/update-category/:id",
+  requireSignIn,
+  isAdmin,
+  updateCategoryController
+);
 
 //get-all category
 router.get("/get-category", categaryController);
@@ -22,23 +33,11 @@ router.get("/get-category", categaryController);
 router.get("/single-category/:slug", singlecategoryController);
 
 //delete-category
-router.delete("/delete-category/:id", deleteCategoryController);
+router.delete(
+  "/delete-category/:id",
+  requireSignIn,
+  isAdmin,
+  deleteCategoryController
+);
 
 export default router;
-
-// import express from "express";
-// import {
-//   createCategory,
-//   getCategorybyId,
-//   getcategory,
-//   updateCategory,
-// } from "../controllers/busnesscategoryControll.js";
-// import auth from "../middelware/auth.js";
-// const categoryRoutes = express.Router();
-
-// categoryRoutes.get("/category", getcategory);
-// categoryRoutes.get("/category/:id", getCategorybyId);
-// categoryRoutes.put("/category/:id", updateCategory);
-// categoryRoutes.post("/category", createCategory);
-
-// export default categoryRoutes;

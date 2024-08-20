@@ -35,29 +35,22 @@ function AdminSidebar() {
           </li>
           <li>
             <Link
-              to="/dashboard/admin/view-businesses"
+              to="/dashboard/admin/createbuisness"
+              className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
+            >
+              Add Business
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/dashboard/admin/viewbusiness"
               className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
             >
               Businesses
             </Link>
           </li>
 
-          <li>
-            <Link
-              to="/dashboard/admin/add-business"
-              className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-            >
-              Add Business
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard/admin/view-business"
-              className="text-gray-200 hover:bg-purple-700 hover:text-white px-6 py-3 cursor-pointer transition-colors"
-            >
-              View Business
-            </Link>
-          </li>
           <li>
             <a
               href="#"
