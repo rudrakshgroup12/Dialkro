@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../../Components/Layout/Layout";
 import AdminSidebar from "../../Components/Layout/AdminSidebar";
 import { useAuth } from "../../Components/context/auth";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function AdminDashboard() {
   const [auth, SetAuth] = useAuth();
+  const [buisness, setBuisness] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [users, setUsers] = useState([]);
+  const params = useParams();
+
   const recentOrders = [
     {
       id: "#1234",
@@ -22,6 +29,50 @@ function AdminDashboard() {
     },
     // Add more orders as needed
   ];
+
+  // get all Business
+  const getAllBuisness = async () => {
+    try {
+      const { data } = await axios.get(`/api/get-buisness`);
+      setBuisness(data.buisness);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // get all users
+  const fetchAllUsers = async () => {
+    try {
+      const { data } = await axios.get("/api/get-user");
+      setUsers(data?.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Get all categories
+  const getAllCategory = async () => {
+    try {
+      const { data } = await axios.get("/api/get-category");
+      if (data?.success) {
+        setCategories(data?.category);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong in getting category");
+    }
+  };
+
+  useEffect(() => {
+    getAllCategory();
+  }, []);
+
+  //LifeCycle Mehod
+  useEffect(() => {
+    fetchAllUsers();
+    getAllBuisness();
+  }, []);
+
   return (
     <Layout>
       <div className="bg-gray-100 min-h-screen font-sans flex">
@@ -56,21 +107,26 @@ function AdminDashboard() {
 
           {/* Dashboard Content */}
           <main className="p-6">
-            {/* Overview Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: "Total Users", value: "1,234" },
-                { title: "Total Business", value: "567" },
-                { title: "Total Sales", value: "$12,345" },
-              ].map((card) => (
-                <div
-                  key={card.title}
-                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                  <h3 className="text-lg font-semibold mb-4">{card.title}</h3>
-                  <p className="text-gray-700 text-2xl">{card.value}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-3">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-lg font-semibold mb-4">Total Users</h3>
+                <p className="text-gray-700 text-2xl">{users?.length}</p>
+              </div>
+              <div
+                // key={card.title}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3 className="text-lg font-semibold mb-4">Total Business</h3>
+                <p className="text-gray-700 text-2xl">{buisness?.length}</p>
+              </div>
+              <div
+                // key={card.title}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3 className="text-lg font-semibold mb-4">Total Category</h3>
+                <p className="text-gray-700 text-2xl">{categories.length}</p>
+              </div>
+              {/* // ))} */}
             </div>
 
             {/* Recent Business Table */}

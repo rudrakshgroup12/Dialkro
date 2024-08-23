@@ -1,6 +1,10 @@
 import Layout from "../Layout/Layout";
+import { useAuth } from "../context/auth";
+import user from "../assets/user.png";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
+  const [auth, SetAuth] = useAuth();
   const userProfile = {
     name: "Amandeep Singh",
     email: "amandeep@example.com",
@@ -25,15 +29,15 @@ function Dashboard() {
           <div className="flex items-center">
             <img
               className="w-16 h-16 rounded-full mr-4"
-              src={userProfile.avatar}
+              src={user}
               alt={`${userProfile.name}'s avatar`}
             />
             <div>
               <h2 className="text-2xl font-semibold text-gray-800">
-                {userProfile.name}
+                {auth?.user?.username}
               </h2>
-              <p className="text-gray-600">{userProfile.email}</p>
-              <p className="text-gray-500">{userProfile.membership}</p>
+              <p className="text-gray-600">{auth?.user?.email}</p>
+              <p className="text-gray-500">{auth?.user?.phone}</p>
             </div>
           </div>
         </div>
@@ -53,18 +57,22 @@ function Dashboard() {
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Settings
             </h3>
-            <a href="#" className="text-blue-500 hover:underline">
-              Account Settings
-            </a>
+            <Link to="/contactus">
+              <a href="#" className="text-blue-500 hover:underline">
+                Account Settings
+              </a>
+            </Link>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Help & Support
             </h3>
-            <a href="#" className="text-blue-500 hover:underline">
-              Contact Support
-            </a>
+            <Link to="/contactus">
+              <a href="#" className="text-blue-500 hover:underline">
+                Contact Support
+              </a>
+            </Link>
           </div>
         </div>
 

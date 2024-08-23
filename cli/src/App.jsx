@@ -75,9 +75,6 @@ function App() {
         <Route path="/register" element={<Signup />} />
         <Route path="/admin" element={<Admin />} />
 
-        {/* <Route path="/new" element={<New />} />
-        <Route path="/buisnessbycat" element={<BusinessBycat />} /> */}
-
         <Route path="/mybusiness" element={<ProfileBusiness />} />
         <Route path="/businesses" element={<Business />} />
         <Route path="/buisness/:slug" element={<SingleBusiness />} />

@@ -154,22 +154,28 @@ function Home() {
           <div className="cardidea">
             <div className="card card-header">
               <img src={nearestvender} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <button className="">Explore Now</button>
-              </div>
+              <Link to="/businesses">
+                <div className="card-body">
+                  <button className="">Explore Now</button>
+                </div>
+              </Link>
             </div>
 
             <div className="card card-header">
               <img src={doctor} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <button className="">Explore Now</button>
-              </div>
+              <Link to="/businesses">
+                <div className="card-body">
+                  <button className="">Explore Now</button>
+                </div>
+              </Link>
             </div>
             <div className="card card-header">
               <img src={finestagent} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <button className="">Explore Now</button>
-              </div>
+              <Link to="/businesses">
+                <div className="card-body">
+                  <button className="">Explore Now</button>
+                </div>
+              </Link>
             </div>
           </div>
 

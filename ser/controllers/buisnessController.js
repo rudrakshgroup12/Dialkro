@@ -542,23 +542,23 @@ export const updateBuisnessController = async (req, res) => {
     );
 
     // Update photos only if they exist
-    if (photo) {
+    if (photo && photo.path) {
       buisness.photo.data = fs.readFileSync(photo.path);
       buisness.photo.contentType = photo.type;
     }
-    if (photo2) {
+    if (photo2 && photo2.path) {
       buisness.photo2.data = fs.readFileSync(photo2.path);
       buisness.photo2.contentType = photo2.type;
     }
-    if (photo3) {
+    if (photo3 && photo3.path) {
       buisness.photo3.data = fs.readFileSync(photo3.path);
       buisness.photo3.contentType = photo3.type;
     }
-    if (photo4) {
+    if (photo4 && photo4.path) {
       buisness.photo4.data = fs.readFileSync(photo4.path);
       buisness.photo4.contentType = photo4.type;
     }
-    if (photo5) {
+    if (photo5 && photo5.path) {
       buisness.photo5.data = fs.readFileSync(photo5.path);
       buisness.photo5.contentType = photo5.type;
     }

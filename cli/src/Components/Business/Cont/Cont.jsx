@@ -184,23 +184,7 @@ function Cont() {
                         {p.address}
                       </h3>
 
-                      <div className="flex items-center mt-4 text-gray-600">
-                        {/* {business?.reviews.map((review) => (
-                          <div className="flex items-center">
-                            <span className="text-sm">{review.text}</span>
-                            <div className="flex items-center ml-2">
-                              <svg
-                                rating={review.rating}
-                                className="w-3 h-3 fill-current text-yellow-600"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                              >
-                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                              </svg>
-                            </div>
-                          </div>
-                        ))} */}
-                      </div>
+                      <div className="flex items-center mt-4 text-gray-600"></div>
 
                       <div className="py-4 ">
                         <div className=" inline-block mr-2">
@@ -357,7 +341,7 @@ function Cont() {
       <div className="m-2 p-3 ">
         {buisness && buisness.length < total && (
           <buton
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
               setPage(page + 1);
@@ -367,14 +351,6 @@ function Cont() {
           </buton>
         )}
       </div>
-      {/* {buisness.length > 4 && (
-      <button
-        onClick={handleToggle}
-        className="bg-red-700 text-white px-4 py-2 rounded-md  m-10 mb-20"
-      >
-        {showAll ? "View less" : "View More"}
-      </button>
-    )} */}
     </>
   );
 }

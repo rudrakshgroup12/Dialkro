@@ -85,11 +85,11 @@ function UpdateBusiness() {
       buisnessData.append("website", website);
       buisnessData.append("phone", phone);
       buisnessData.append("email", email);
-      buisnessData.append("photo", photo);
-      buisnessData.append("photo2", photo2);
-      buisnessData.append("photo3", photo3);
-      buisnessData.append("photo4", photo4);
-      buisnessData.append("photo5", photo5);
+      photo && buisnessData.append("photo", photo);
+      photo2 && buisnessData.append("photo2", photo2);
+      photo3 && buisnessData.append("photo3", photo3);
+      photo4 && buisnessData.append("photo4", photo4);
+      photo5 && buisnessData.append("photo5", photo5);
       buisnessData.append("address", address);
       buisnessData.append("city", city);
       buisnessData.append("state", state);
