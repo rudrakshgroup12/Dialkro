@@ -1,6 +1,8 @@
 import Layout from "../Layout/Layout";
+import { useAuth } from "../context/auth";
 
 function Dashboard() {
+  const [auth, SetAuth] = useAuth();
   const userProfile = {
     name: "Amandeep Singh",
     email: "amandeep@example.com",
@@ -30,10 +32,10 @@ function Dashboard() {
             />
             <div>
               <h2 className="text-2xl font-semibold text-gray-800">
-                {userProfile.name}
+                {auth?.user?.username}
               </h2>
-              <p className="text-gray-600">{userProfile.email}</p>
-              <p className="text-gray-500">{userProfile.membership}</p>
+              <p className="text-gray-600">{auth?.user?.email}</p>
+              <p className="text-gray-500">{auth?.user?.phone}</p>
             </div>
           </div>
         </div>

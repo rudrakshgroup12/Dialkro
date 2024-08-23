@@ -1,61 +1,15 @@
-import React, { useState, useEffect } from "react";
 // import { useAuth } from "../ProAuth/AuthPro.jsx";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Editprofile.css";
 import profileback from "../assets/profileback.jpeg";
 import Layout from "../Layout/Layout.jsx";
 import { useAuth } from "../context/auth.jsx";
 
-import axios from "axios";
-
 function Editprofile() {
   const Navi = useNavigate();
   const [auth, setAuth] = useAuth();
-  // const { islogin, loading, logOutNow, error, userData } = useAuth();
 
-  // const [updateUser, setupdateUser] = useState({
-  //   username: "",
-  //   email: "",
-  // });
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   if (userData.data) {
-  //     setupdateUser({
-  //       username: userData.data.username,
-  //       email: userData.data.email,
-  //       phone: userData.data.phone,
-  //       address: userData.data.address,
-  //       dateOfBirth: userData.data.dateOfBirth,
-  //       name: userData.data.name,
-  //     });
-  //   }
-  // }, [userData]);
-
-  // const updateBusinesshandleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setupdateUser((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
-
-  // const uppdateBusinesshandleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     if (userData.data?._id) {
-  //       const uri = `/api/profile/${userData.data._id}`;
-  //       await axios.put(uri, updateUser);
-  //       alert(`User Updated Successfully`);
-  //       Navi("/profile");
-  //     } else {
-  //       Navi("/login");
-  //     }
-  //   } catch (error) {
-  //     console.log(`Error is from update  ${error}`);
-  //   }
-  // };
   return (
     <Layout>
       <div className="">
@@ -82,8 +36,8 @@ function Editprofile() {
                   </h4>
                 </div>
               </div>
-              <div className="grid grid-cols-12  bg-white ">
-                <div className="col-span-12 w-full px-5 py-6 alien-center  flex space-x-4 border-b border-solid md:space-x-0 md:space-y-4 md:flex-col md:col-span-2 md:justify-start">
+              <div className="grid w-full grid-cols-12  bg-white ">
+                <div className="col-span-12 w-full px-5 py-6 alien-center flex space-x-4 border-b border-solid md:space-x-0 md:space-y-4 md:flex-col md:col-span-2 md:justify-start">
                   <a
                     href="#"
                     className="p-2 h-10  bg-red-900 text-white text-center rounded font-bold"
@@ -91,11 +45,11 @@ function Editprofile() {
                     User Profile
                   </a>
 
-                  <div className="text-center pt-2 font-bold flex flex-wrap justify-evenly  alien-center">
-                    <h5 className="pt-5"> {auth?.user?.username}</h5>
-                    <h5 className="pt-5"> {auth?.user?.email}</h5>
-                    <h5 className="pt-5"> {auth?.user?.phone}</h5>
-                    <h5 className="pt-5"> {auth?.user?.address}</h5>
+                  <div className="text-center pt-2 font-bold flex flex-wrap justify-start  alien-center">
+                    <h5 className="pt-2"> {auth?.user?.username}</h5>
+                    <h5 className="pt-2"> {auth?.user?.email}</h5>
+                    <h5 className="pt-2"> {auth?.user?.phone}</h5>
+                    <h5 className="pt-2"> {auth?.user?.address}</h5>
                     {/* <h5 className="pt-5">{userData.data?.dateOfBirth}</h5> */}
                   </div>
                 </div>
