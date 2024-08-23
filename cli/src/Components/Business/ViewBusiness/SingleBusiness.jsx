@@ -173,7 +173,7 @@ function SingleBusiness() {
                         </div>
                       </div>
                       <div className="flex ">
-                        <div className="pt-10">
+                        {/* <div className="pt-10">
                           <h1 className="text-black text-2xl title-font font-bold mb-2">
                             Quick Information
                           </h1>
@@ -181,25 +181,18 @@ function SingleBusiness() {
                             Business Summery
                           </h5>
                           <p className="leading-relaxed text-base">
-                            Business Categories detail to some Lorem ipsum dolor
-                            sit amet.
+                            {buisness?.description}
                           </p>
-                          <p className="leading-relaxed text-base">
-                            Business Categories detail to some Lorem ipsum dolor
-                            sit amet.
-                          </p>
-                        </div>
+                        </div> */}
                         <div className="pt-10 mx-10">
                           <h1 className="text-black text-2xl title-font font-bold mb-2">
                             Business Details
                           </h1>
                           <h5 className="text-black  title-font font-bold mb-2">
-                            {/* {businesses?.data?.category} */}
                             {buisness?.category.name}
                           </h5>
                           <p className="leading-relaxed text-base">
-                            Business Categories detail to some Lorem ipsum dolor
-                            sit amet.
+                            {buisness?.description}
                           </p>
                         </div>
                       </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import profileback from "../assets/profileback.jpeg";
+import user from "../assets/user.png";
 import axios from "axios";
 import { useAuth } from "../context/auth.jsx";
 import { useNavigate } from "react-router-dom";
@@ -72,7 +73,7 @@ const UserProfileComponent = () => {
           </div>
           <div className="flex flex-col items-center -mt-7">
             <img
-              src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+              src={user}
               className="w-40 border-4 border-white rounded-full"
             />
             <div className="flex items-center space-x-2 mt-2">

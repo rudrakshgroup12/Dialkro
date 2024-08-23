@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Editprofile.css";
 import profileback from "../assets/profileback.jpeg";
+import user from "../assets/user.png";
 import Layout from "../Layout/Layout.jsx";
 import { useAuth } from "../context/auth.jsx";
 
@@ -24,7 +25,8 @@ function Editprofile() {
                 />
                 <div className="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white">
                   <img
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                    src={user}
+                    // src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
                     className="h-24 w-24 object-cover rounded-full"
                   />
                   <h1 className="text-2xl font-semibold">
@@ -46,10 +48,10 @@ function Editprofile() {
                   </a>
 
                   <div className="text-center pt-2 font-bold flex flex-wrap justify-start  alien-center">
-                    <h5 className="pt-2"> {auth?.user?.username}</h5>
-                    <h5 className="pt-2"> {auth?.user?.email}</h5>
-                    <h5 className="pt-2"> {auth?.user?.phone}</h5>
-                    <h5 className="pt-2"> {auth?.user?.address}</h5>
+                    <h5 className="pt-2">{auth?.user?.username}</h5>
+                    <h5 className="pt-2">{auth?.user?.email}</h5>
+                    <h5 className="pt-2">{auth?.user?.phone}</h5>
+                    <h5 className="pt-2">{auth?.user?.address}</h5>
                     {/* <h5 className="pt-5">{userData.data?.dateOfBirth}</h5> */}
                   </div>
                 </div>

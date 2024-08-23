@@ -1,5 +1,7 @@
 import Layout from "../Layout/Layout";
 import { useAuth } from "../context/auth";
+import user from "../assets/user.png";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [auth, SetAuth] = useAuth();
@@ -27,7 +29,7 @@ function Dashboard() {
           <div className="flex items-center">
             <img
               className="w-16 h-16 rounded-full mr-4"
-              src={userProfile.avatar}
+              src={user}
               alt={`${userProfile.name}'s avatar`}
             />
             <div>
@@ -55,18 +57,22 @@ function Dashboard() {
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Settings
             </h3>
-            <a href="#" className="text-blue-500 hover:underline">
-              Account Settings
-            </a>
+            <Link to="/contactus">
+              <a href="#" className="text-blue-500 hover:underline">
+                Account Settings
+              </a>
+            </Link>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Help & Support
             </h3>
-            <a href="#" className="text-blue-500 hover:underline">
-              Contact Support
-            </a>
+            <Link to="/contactus">
+              <a href="#" className="text-blue-500 hover:underline">
+                Contact Support
+              </a>
+            </Link>
           </div>
         </div>
 
