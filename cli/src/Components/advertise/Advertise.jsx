@@ -9,6 +9,9 @@ import featureseven from "../assets/featureseven.png";
 import featureeight from "../assets/featureeight.png";
 import featurenine from "../assets/featurenine.png";
 import featureten from "../assets/featureten.png";
+import portfolio1 from "../assets/portfolio1.jpeg";
+import portfolio2 from "../assets/portfolio2.jpeg";
+import portfolio3 from "../assets/portfolio3.jpeg";
 import { FcApproval, FcDisapprove } from "react-icons/fc";
 import Layout from "../Layout/Layout";
 const Advertise = () => {
@@ -34,7 +37,7 @@ const Advertise = () => {
                 <a href="/project-1">
                   <img
                     className="w-full h-60 object-cover"
-                    src="https://spacema-dev.com/elevate/assets/images/portfolio-1.png"
+                    src={portfolio1}
                     alt="Project 1"
                   />
                   <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70"></div>
@@ -52,7 +55,7 @@ const Advertise = () => {
                 <a href="/project-2">
                   <img
                     className="w-full h-60 object-cover"
-                    src="https://spacema-dev.com/elevate/assets/images/portfolio-2.png"
+                    src={portfolio2}
                     alt="Project 1"
                   />
                   <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70"></div>
@@ -70,7 +73,7 @@ const Advertise = () => {
                 <a href="/project-3">
                   <img
                     className="w-full h-60 object-cover"
-                    src="https://spacema-dev.com/elevate/assets/images/portfolio-3.png"
+                    src={portfolio3}
                     alt="Project 1"
                   />
                   <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-indigo-500 to-pink-500 opacity-0 transition duration-300 ease-in-out group-hover:opacity-70"></div>

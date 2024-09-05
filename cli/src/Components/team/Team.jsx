@@ -26,7 +26,7 @@ const Team = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout title="Dialkro Team">
       <div>
         <div className="bg-red-800">
           <div className="lg:grid lg:grid-cols-2">
